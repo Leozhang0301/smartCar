@@ -1,0 +1,1657 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         18/May/2019  16:18:14
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_ADC.c
+#    Command line =  
+#        -f C:\Users\TEMPLA~1.000\AppData\Local\Temp\EW76DA.tmp
+#        (C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_ADC.c -D
+#        LPLD_K60 -lCN
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -lB
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -o
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config "D:\@@\605110 IAR for
+#        ARM 8.30\arm\inc\c\DLib_Config_Normal.h" -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Me\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\Core\Include\" -I
+#        "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\DSP\Include\" -D
+#        ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List\HW_ADC.lst
+#    Object file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_ADC.o
+#
+###############################################################################
+
+C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_ADC.c
+      1          /**
+      2           * @file HW_ADC.c
+      3           * @version 3.0[By LPLD]
+      4           * @date 2013-06-18
+      5           * @brief ADC底层模块相关函数
+      6           *
+      7           * 更改建议:不建议修改
+      8           *
+      9           * 版权所有:北京拉普兰德电子技术有限公司
+     10           * http://www.lpld.cn
+     11           * mail:support@lpld.cn
+     12           *
+     13           * @par
+     14           * 本代码由拉普兰德[LPLD]开发并维护，并向所有使用者开放源代码。
+     15           * 开发者可以随意修使用或改源代码。但本段及以上注释应予以保留。
+     16           * 不得更改或删除原版权所有者姓名，二次开发者可以加注二次版权所有者。
+     17           * 但应在遵守此协议的基础上，开放源代码、不得出售代码本身。
+     18           * 拉普兰德不负责由于使用本代码所带来的任何事故、法律责任或相关不良影响。
+     19           * 拉普兰德无义务解释、说明本代码的具体原理、功能、实现方法。
+     20           * 除非拉普兰德[LPLD]授权，开发者不得将本代码用于商业产品。
+     21           */
+     22          #include "common.h"
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_EnableIRQ(IRQn_Type)
+   \                     __NVIC_EnableIRQ: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+   \        0x2   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \        0x4   0x2900             CMP      R1,#+0
+   \        0x6   0xD409             BMI.N    ??__NVIC_EnableIRQ_0
+   \        0x8   0x2201             MOVS     R2,#+1
+   \        0xA   0xF010 0x011F      ANDS     R1,R0,#0x1F
+   \        0xE   0x408A             LSLS     R2,R2,R1
+   \       0x10   0x....'....        LDR.W    R1,??DataTable10  ;; 0xe000e100
+   \       0x14   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x16   0x0940             LSRS     R0,R0,#+5
+   \       0x18   0xF841 0x2020      STR      R2,[R1, R0, LSL #+2]
+   \                     ??__NVIC_EnableIRQ_0: (+1)
+   \       0x1C   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_DisableIRQ(IRQn_Type)
+   \                     __NVIC_DisableIRQ: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+   \        0x2   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \        0x4   0x2900             CMP      R1,#+0
+   \        0x6   0xD40D             BMI.N    ??__NVIC_DisableIRQ_0
+   \        0x8   0x2201             MOVS     R2,#+1
+   \        0xA   0xF010 0x011F      ANDS     R1,R0,#0x1F
+   \        0xE   0x408A             LSLS     R2,R2,R1
+   \       0x10   0x....'....        LDR.W    R1,??DataTable10_1  ;; 0xe000e180
+   \       0x14   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x16   0x0940             LSRS     R0,R0,#+5
+   \       0x18   0xF841 0x2020      STR      R2,[R1, R0, LSL #+2]
+   \       0x1C   0xF3BF 0x8F4F      DSB      SY
+   \       0x20   0xF3BF 0x8F6F      ISB      SY
+   \                     ??__NVIC_DisableIRQ_0: (+1)
+   \       0x24   0x4770             BX       LR               ;; return
+     23          #include "HW_ADC.h"
+     24          
+     25          //用户自定义中断服务函数数组
+
+   \                                 In section .bss, align 4
+     26          ADC_ISR_CALLBACK ADC_ISR[2];
+   \                     ADC_ISR:
+   \        0x0                      DS8 8
+     27          
+     28          static uint8 LPLD_ADC_Cal(ADC_Type *);
+     29          
+     30          /*
+     31           * LPLD_ADC_Init
+     32           * ADC通用初始化函数，选择ADCx、采集模式、精度等参数
+     33           * 
+     34           * 参数:
+     35           *    adc_init_structure--ADC初始化结构体，
+     36           *                        具体定义见ADC_InitTypeDef
+     37           *
+     38           * 输出:
+     39           *    0--配置错误
+     40           *    1--配置成功
+     41           */
+
+   \                                 In section .text, align 2, keep-with-next
+     42          uint8 LPLD_ADC_Init(ADC_InitTypeDef adc_init_structure)
+     43          {
+   \                     LPLD_ADC_Init: (+1)
+   \        0x0   0xB40F             PUSH     {R0-R3}
+   \        0x2   0xE92D 0x4FFE      PUSH     {R1-R11,LR}
+     44            uint8 i;
+     45            ADC_Type *adcx = adc_init_structure.ADC_Adcx;
+   \        0x6   0x9C0C             LDR      R4,[SP, #+48]
+     46            uint8 diff = adc_init_structure.ADC_DiffMode;
+   \        0x8   0xF89D 0x0034      LDRB     R0,[SP, #+52]
+   \        0xC   0xF88D 0x0000      STRB     R0,[SP, #+0]
+     47            uint8 mode = adc_init_structure.ADC_BitMode;
+   \       0x10   0xF89D 0x5035      LDRB     R5,[SP, #+53]
+     48            uint8 time = adc_init_structure.ADC_SampleTimeCfg;
+   \       0x14   0xF89D 0xA036      LDRB     R10,[SP, #+54]
+     49            uint8 ltime = adc_init_structure.ADC_LongSampleTimeSel;
+   \       0x18   0xF89D 0x6037      LDRB     R6,[SP, #+55]
+     50            uint8 avg = adc_init_structure.ADC_HwAvgSel;
+   \       0x1C   0xF89D 0x0038      LDRB     R0,[SP, #+56]
+   \       0x20   0xF88D 0x0001      STRB     R0,[SP, #+1]
+     51            uint8 muxab = adc_init_structure.ADC_MuxSel;
+   \       0x24   0xF89D 0x703A      LDRB     R7,[SP, #+58]
+     52            uint8 pga = adc_init_structure.ADC_PgaGain;
+   \       0x28   0xF89D 0x8039      LDRB     R8,[SP, #+57]
+     53            uint8 hwtrg = adc_init_structure.ADC_HwTrgCfg;
+   \       0x2C   0xF89D 0x903C      LDRB     R9,[SP, #+60]
+     54            ADC_ISR_CALLBACK isr_func = adc_init_structure.ADC_Isr;
+   \       0x30   0x9810             LDR      R0,[SP, #+64]
+   \       0x32   0x9001             STR      R0,[SP, #+4]
+     55            
+     56            //参数检查
+     57            ASSERT( (diff==ADC_SE)||(diff==ADC_DIFF) );  //判断模式选择
+   \       0x34   0xF89D 0x0000      LDRB     R0,[SP, #+0]
+   \       0x38   0x2800             CMP      R0,#+0
+   \       0x3A   0xD008             BEQ.N    ??LPLD_ADC_Init_0
+   \       0x3C   0xF89D 0x0000      LDRB     R0,[SP, #+0]
+   \       0x40   0x2820             CMP      R0,#+32
+   \       0x42   0xD004             BEQ.N    ??LPLD_ADC_Init_0
+   \       0x44   0x2139             MOVS     R1,#+57
+   \       0x46   0x....'....        LDR.W    R0,??DataTable10_2
+   \       0x4A   0x....'....        BL       assert_failed
+     58            ASSERT( mode<=SE_16BIT );       //判断精度选择
+   \                     ??LPLD_ADC_Init_0: (+1)
+   \       0x4E   0x0028             MOVS     R0,R5
+   \       0x50   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x52   0x2804             CMP      R0,#+4
+   \       0x54   0xDB04             BLT.N    ??LPLD_ADC_Init_1
+   \       0x56   0x213A             MOVS     R1,#+58
+   \       0x58   0x....'....        LDR.W    R0,??DataTable10_2
+   \       0x5C   0x....'....        BL       assert_failed
+     59            ASSERT( (time==SAMTIME_SHORT)||(time==SAMTIME_LONG) );  //判断采样时间选择
+   \                     ??LPLD_ADC_Init_1: (+1)
+   \       0x60   0x4650             MOV      R0,R10
+   \       0x62   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x64   0x2800             CMP      R0,#+0
+   \       0x66   0xD008             BEQ.N    ??LPLD_ADC_Init_2
+   \       0x68   0x4650             MOV      R0,R10
+   \       0x6A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x6C   0x2810             CMP      R0,#+16
+   \       0x6E   0xD004             BEQ.N    ??LPLD_ADC_Init_2
+   \       0x70   0x213B             MOVS     R1,#+59
+   \       0x72   0x....'....        LDR.W    R0,??DataTable10_2
+   \       0x76   0x....'....        BL       assert_failed
+     60            ASSERT( ltime<=LSAMTIME_2EX );  //判断长采样时间
+   \                     ??LPLD_ADC_Init_2: (+1)
+   \       0x7A   0x0030             MOVS     R0,R6
+   \       0x7C   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x7E   0x2804             CMP      R0,#+4
+   \       0x80   0xDB04             BLT.N    ??LPLD_ADC_Init_3
+   \       0x82   0x213C             MOVS     R1,#+60
+   \       0x84   0x....'....        LDR.W    R0,??DataTable10_2
+   \       0x88   0x....'....        BL       assert_failed
+     61            ASSERT( (avg&0x3)<=(HW_32AVG&0x3) );  //判断硬件平均
+   \                     ??LPLD_ADC_Init_3: (+1)
+   \       0x8C   0xF89D 0x0001      LDRB     R0,[SP, #+1]
+   \       0x90   0xF010 0x0003      ANDS     R0,R0,#0x3
+   \       0x94   0x2804             CMP      R0,#+4
+   \       0x96   0xD304             BCC.N    ??LPLD_ADC_Init_4
+   \       0x98   0x213D             MOVS     R1,#+61
+   \       0x9A   0x....'....        LDR.W    R0,??DataTable10_2
+   \       0x9E   0x....'....        BL       assert_failed
+     62            ASSERT( (muxab==MUX_ADXXA)||(muxab==MUX_ADXXB) );  //判断ADC复用AB选择
+   \                     ??LPLD_ADC_Init_4: (+1)
+   \       0xA2   0x0038             MOVS     R0,R7
+   \       0xA4   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0xA6   0x2800             CMP      R0,#+0
+   \       0xA8   0xD008             BEQ.N    ??LPLD_ADC_Init_5
+   \       0xAA   0x0038             MOVS     R0,R7
+   \       0xAC   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0xAE   0x2810             CMP      R0,#+16
+   \       0xB0   0xD004             BEQ.N    ??LPLD_ADC_Init_5
+   \       0xB2   0x213E             MOVS     R1,#+62
+   \       0xB4   0x....'....        LDR.W    R0,??DataTable10_2
+   \       0xB8   0x....'....        BL       assert_failed
+     63            ASSERT( (pga&0x7)<=(LSAMTIME_2EX&0x7));  //判断PGA
+   \                     ??LPLD_ADC_Init_5: (+1)
+   \       0xBC   0x4640             MOV      R0,R8
+   \       0xBE   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0xC0   0xF010 0x0007      ANDS     R0,R0,#0x7
+   \       0xC4   0x2804             CMP      R0,#+4
+   \       0xC6   0xDB04             BLT.N    ??LPLD_ADC_Init_6
+   \       0xC8   0x213F             MOVS     R1,#+63
+   \       0xCA   0x....'....        LDR.W    R0,??DataTable10_2
+   \       0xCE   0x....'....        BL       assert_failed
+     64            
+     65            //配置ADC时钟
+     66            if(adcx == ADC0)
+   \                     ??LPLD_ADC_Init_6: (+1)
+   \       0xD2   0x....'....        LDR.W    R0,??DataTable10_3  ;; 0x4003b000
+   \       0xD6   0x4284             CMP      R4,R0
+   \       0xD8   0xD156             BNE.N    ??LPLD_ADC_Init_7
+     67            {
+     68              i=0;
+   \       0xDA   0xF05F 0x0B00      MOVS     R11,#+0
+     69              SIM->SCGC6 |= SIM_SCGC6_ADC0_MASK;   // 开启ADC0时钟
+   \       0xDE   0x....'....        LDR.W    R0,??DataTable10_4  ;; 0x4004803c
+   \       0xE2   0x6801             LDR      R1,[R0, #+0]
+   \       0xE4   0xF051 0x6100      ORRS     R1,R1,#0x8000000
+   \       0xE8   0x6001             STR      R1,[R0, #+0]
+     70            }
+     71            else if(adcx == ADC1)
+     72            {
+     73              i=1;
+     74              SIM->SCGC3 |= SIM_SCGC3_ADC1_MASK;   // 开启ADC1时钟
+     75            }
+     76            else 
+     77            {
+     78              return 0;
+     79            }
+     80          
+     81            if(adc_init_structure.ADC_CalEnable == TRUE)
+   \                     ??LPLD_ADC_Init_8: (+1)
+   \       0xEA   0xF89D 0x003B      LDRB     R0,[SP, #+59]
+   \       0xEE   0x2801             CMP      R0,#+1
+   \       0xF0   0xD102             BNE.N    ??LPLD_ADC_Init_9
+     82              LPLD_ADC_Cal(adcx);  //进行ADC校准
+   \       0xF2   0x0020             MOVS     R0,R4
+   \       0xF4   0x....'....        BL       LPLD_ADC_Cal
+     83            
+     84            //设置ADCCFG1寄存器
+     85            adcx->CFG1  =  0& (~ADC_CFG1_ADLPC_MASK)         // 重新为正常使用进行配置
+     86                            | ADC_CFG1_ADIV(ADIV_1)          // ADC输入时钟分频为 1
+     87                            | time                           // 设置长短时间采样模式
+     88                            | ADC_CFG1_ADICLK(ADICLK_BUS_2)  // ADC输入时钟源为 BusClk
+     89                            | ADC_CFG1_MODE(mode);           //设置ADC转换精度
+   \                     ??LPLD_ADC_Init_9: (+1)
+   \       0xF8   0xFA5F 0xFA8A      UXTB     R10,R10          ;; ZeroExt  R10,R10,#+24,#+24
+   \       0xFC   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0xFE   0x00AD             LSLS     R5,R5,#+2
+   \      0x100   0xF015 0x050C      ANDS     R5,R5,#0xC
+   \      0x104   0xEA55 0x050A      ORRS     R5,R5,R10
+   \      0x108   0xF055 0x0501      ORRS     R5,R5,#0x1
+   \      0x10C   0x60A5             STR      R5,[R4, #+8]
+     90          
+     91            //设置ADCCFG2寄存器
+     92            adcx->CFG2 = 0 & (~ADC_CFG2_ADACKEN_MASK)   //禁用异步时钟输出
+     93                           | muxab        // ADC复用选择
+     94                           | ADC_CFG2_ADHSC_MASK        // 高速转换
+     95                           | ADC_CFG2_ADLSTS(ltime);    // 长采样时间时钟周期选择
+   \      0x10E   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \      0x110   0xB2F6             UXTB     R6,R6            ;; ZeroExt  R6,R6,#+24,#+24
+   \      0x112   0xF016 0x0603      ANDS     R6,R6,#0x3
+   \      0x116   0x433E             ORRS     R6,R6,R7
+   \      0x118   0xF056 0x0604      ORRS     R6,R6,#0x4
+   \      0x11C   0x60E6             STR      R6,[R4, #+12]
+     96                                                        // 总采样周期见K60技术文档 page:840
+     97            //用于设定阈值
+     98            adcx->CV1  = 0x1234u ; 
+   \      0x11E   0xF241 0x2034      MOVW     R0,#+4660
+   \      0x122   0x61A0             STR      R0,[R4, #+24]
+     99            adcx->CV2  = 0x5678u ;
+   \      0x124   0xF245 0x6078      MOVW     R0,#+22136
+   \      0x128   0x61E0             STR      R0,[R4, #+28]
+    100            
+    101            adcx->SC2  = 0 | (hwtrg & ADC_SC2_ADTRG_MASK) //设置触发方式
+    102                           & (~ADC_SC2_ACFE_MASK)         //关闭比较功能
+    103                           & (~ADC_SC2_DMAEN_MASK)        //关闭DMA
+    104                           |  ADC_SC2_ACREN_MASK          //使能范围比较
+    105                           |  ADC_SC2_ACFGT_MASK          //使能大于比较功能
+    106                           |  ADC_SC2_REFSEL(REFSEL_EXT); //选择外部参考源VREFH和VREFL
+   \      0x12A   0x4648             MOV      R0,R9
+   \      0x12C   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x12E   0xF010 0x0040      ANDS     R0,R0,#0x40
+   \      0x132   0xF050 0x0018      ORRS     R0,R0,#0x18
+   \      0x136   0x6220             STR      R0,[R4, #+32]
+    107            
+    108            if(adc_init_structure.ADC_DmaEnable == TRUE) 
+   \      0x138   0xF89D 0x003D      LDRB     R0,[SP, #+61]
+   \      0x13C   0x2801             CMP      R0,#+1
+   \      0x13E   0xD103             BNE.N    ??LPLD_ADC_Init_10
+    109              adcx->SC2  |= ADC_SC2_DMAEN_MASK;   //使能DMA
+   \      0x140   0x6A20             LDR      R0,[R4, #+32]
+   \      0x142   0xF050 0x0004      ORRS     R0,R0,#0x4
+   \      0x146   0x6220             STR      R0,[R4, #+32]
+    110          
+    111            adcx->SC3  = 0 & (~ADC_SC3_CAL_MASK)          //关闭校准
+    112                           & (~ADC_SC3_ADCO_MASK)         //选择一次转换
+    113                           |  avg;        //硬件平均
+   \                     ??LPLD_ADC_Init_10: (+1)
+   \      0x148   0xF89D 0x0001      LDRB     R0,[SP, #+1]
+   \      0x14C   0x6260             STR      R0,[R4, #+36]
+    114            
+    115            adcx->PGA  = pga<<ADC_PGA_PGAG_SHIFT; 
+   \      0x14E   0xFA5F 0xF888      UXTB     R8,R8            ;; ZeroExt  R8,R8,#+24,#+24
+   \      0x152   0xEA5F 0x4808      LSLS     R8,R8,#+16
+   \      0x156   0xF8C4 0x8050      STR      R8,[R4, #+80]
+    116            
+    117            //校准完毕后再重新初始化ADC寄存器
+    118            //adcx->SC1[0] = ADC_SC1_ADCH(AD31);    //复位SC1
+    119            adcx->SC1[hwtrg & 0x01] = diff;         //设置单端、差分输入
+   \      0x15A   0xF89D 0x0000      LDRB     R0,[SP, #+0]
+   \      0x15E   0xFA5F 0xF989      UXTB     R9,R9            ;; ZeroExt  R9,R9,#+24,#+24
+   \      0x162   0xF019 0x0901      ANDS     R9,R9,#0x1
+   \      0x166   0xF844 0x0029      STR      R0,[R4, R9, LSL #+2]
+    120            
+    121            if(isr_func!= NULL)
+   \      0x16A   0x9801             LDR      R0,[SP, #+4]
+   \      0x16C   0x2800             CMP      R0,#+0
+   \      0x16E   0xD006             BEQ.N    ??LPLD_ADC_Init_11
+    122            {
+    123              ADC_ISR[i] = isr_func;
+   \      0x170   0x9801             LDR      R0,[SP, #+4]
+   \      0x172   0x....'....        LDR.W    R1,??DataTable10_5
+   \      0x176   0xFA5F 0xFB8B      UXTB     R11,R11          ;; ZeroExt  R11,R11,#+24,#+24
+   \      0x17A   0xF841 0x002B      STR      R0,[R1, R11, LSL #+2]
+    124            }
+    125            
+    126            return 1;
+   \                     ??LPLD_ADC_Init_11: (+1)
+   \      0x17E   0x2001             MOVS     R0,#+1
+   \                     ??LPLD_ADC_Init_12: (+1)
+   \      0x180   0xE8BD 0x0FFE      POP      {R1-R11}
+   \      0x184   0xF85D 0xFB14      LDR      PC,[SP], #+20    ;; return
+   \                     ??LPLD_ADC_Init_7: (+1)
+   \      0x188   0x....'....        LDR.W    R0,??DataTable10_6  ;; 0x400bb000
+   \      0x18C   0x4284             CMP      R4,R0
+   \      0x18E   0xD108             BNE.N    ??LPLD_ADC_Init_13
+   \      0x190   0xF05F 0x0B01      MOVS     R11,#+1
+   \      0x194   0x....'....        LDR.W    R0,??DataTable10_7  ;; 0x40048030
+   \      0x198   0x6801             LDR      R1,[R0, #+0]
+   \      0x19A   0xF051 0x6100      ORRS     R1,R1,#0x8000000
+   \      0x19E   0x6001             STR      R1,[R0, #+0]
+   \      0x1A0   0xE7A3             B.N      ??LPLD_ADC_Init_8
+   \                     ??LPLD_ADC_Init_13: (+1)
+   \      0x1A2   0x2000             MOVS     R0,#+0
+   \      0x1A4   0xE7EC             B.N      ??LPLD_ADC_Init_12
+    127          }
+    128          
+    129          /*
+    130           * LPLD_ADC_Deinit
+    131           * ADC反初始化函数，禁用ADC模块
+    132           * 
+    133           * 参数:
+    134           *    adc_init_structure--ADC初始化结构体，
+    135           *                        具体定义见ADC_InitTypeDef
+    136           *
+    137           * 输出:
+    138           *    0--配置错误
+    139           *    1--配置成功
+    140           */
+
+   \                                 In section .text, align 2, keep-with-next
+    141          uint8 LPLD_ADC_Deinit(ADC_InitTypeDef adc_init_structure)
+    142          {
+   \                     LPLD_ADC_Deinit: (+1)
+   \        0x0   0xB40F             PUSH     {R0-R3}
+    143            ADC_Type *adcx = adc_init_structure.ADC_Adcx;
+   \        0x2   0x9800             LDR      R0,[SP, #+0]
+    144            uint8 hwtrg = adc_init_structure.ADC_HwTrgCfg;
+   \        0x4   0xF89D 0x100C      LDRB     R1,[SP, #+12]
+    145            
+    146            adcx->SC1[hwtrg & 0x01] = ADC_SC1_ADCH(AD31);    //复位SC1
+   \        0x8   0x221F             MOVS     R2,#+31
+   \        0xA   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \        0xC   0xF011 0x0101      ANDS     R1,R1,#0x1
+   \       0x10   0xF840 0x2021      STR      R2,[R0, R1, LSL #+2]
+    147            
+    148            //配置ADC时钟
+    149            if(adcx == ADC0)
+   \       0x14   0x....'....        LDR.W    R1,??DataTable10_3  ;; 0x4003b000
+   \       0x18   0x4288             CMP      R0,R1
+   \       0x1A   0xD108             BNE.N    ??LPLD_ADC_Deinit_0
+    150            {
+    151              SIM->SCGC6 &= ~(SIM_SCGC6_ADC0_MASK);   // 关闭ADC0时钟
+   \       0x1C   0x....'....        LDR.W    R0,??DataTable10_4  ;; 0x4004803c
+   \       0x20   0x6801             LDR      R1,[R0, #+0]
+   \       0x22   0xF031 0x6100      BICS     R1,R1,#0x8000000
+   \       0x26   0x6001             STR      R1,[R0, #+0]
+    152            }
+    153            else if(adcx == ADC1)
+    154            {
+    155              SIM->SCGC3 &= ~(SIM_SCGC3_ADC1_MASK);   // 关闭ADC1时钟
+    156            }
+    157            else 
+    158            {
+    159              return 0;
+    160            }
+    161            
+    162            return 1;
+   \                     ??LPLD_ADC_Deinit_1: (+1)
+   \       0x28   0x2001             MOVS     R0,#+1
+   \                     ??LPLD_ADC_Deinit_2: (+1)
+   \       0x2A   0xB004             ADD      SP,SP,#+16
+   \       0x2C   0x4770             BX       LR               ;; return
+   \                     ??LPLD_ADC_Deinit_0: (+1)
+   \       0x2E   0x....'....        LDR.W    R1,??DataTable10_6  ;; 0x400bb000
+   \       0x32   0x4288             CMP      R0,R1
+   \       0x34   0xD106             BNE.N    ??LPLD_ADC_Deinit_3
+   \       0x36   0x....'....        LDR.W    R0,??DataTable10_7  ;; 0x40048030
+   \       0x3A   0x6801             LDR      R1,[R0, #+0]
+   \       0x3C   0xF031 0x6100      BICS     R1,R1,#0x8000000
+   \       0x40   0x6001             STR      R1,[R0, #+0]
+   \       0x42   0xE7F1             B.N      ??LPLD_ADC_Deinit_1
+   \                     ??LPLD_ADC_Deinit_3: (+1)
+   \       0x44   0x2000             MOVS     R0,#+0
+   \       0x46   0xE7F0             B.N      ??LPLD_ADC_Deinit_2
+    163          }
+    164          
+    165          /*
+    166           * LPLD_ADC_Get
+    167           * 软件触发模式获取AD转换结果
+    168           * 
+    169           * 参数:
+    170           *    adcx--ADCx模块号
+    171           *      |__ADC0          --ADC0
+    172           *      |__ADC1          --ADC1
+    173           *    chn--ADC采集输入通道,详见技术手册K60P144M100SF2RM第118页
+    174           *      ADC0
+    175           *      |__DAD0          --差分(ADC0_DP0和ADC0_DM0)/单端(ADC0_DP0)
+    176           *      |__DAD1          --差分(ADC0_DP1和ADC0_DM1)/单端(ADC0_DP1)
+    177           *      |__DAD2          --差分(PGA0_DP和PGA0_DM)/单端(PGA0_DP)
+    178           *      |__DAD3          --差分(ADC0_DP3和ADC0_DM3)/单端(ADC0_DP3)
+    179           *      |__AD4           --单端A(保留)/单端B(ADC0_SE4b--PTC2)
+    180           *      |__AD5           --单端A(保留)/单端B(ADC0_SE5b--PTD1)
+    181           *      |__AD6           --单端A(保留)/单端B(ADC0_SE6b--PTD5)
+    182           *      |__AD7           --单端A(保留)/单端B(ADC0_SE7b--PTD6)
+    183           *      |__AD8           --单端(ADC0_SE8--PTB0)
+    184           *      |__AD9           --单端(ADC0_SE9--PTB1)
+    185           *      |__AD10          --单端(ADC0_SE10--PTA7)
+    186           *      |__AD11          --单端(ADC0_SE11--PTA8)
+    187           *      |__AD12          --单端(ADC0_SE12--PTB2)//
+    188           *      |__AD13          --单端(ADC0_SE13--PTB3)//
+    189           *      |__AD14          --单端(ADC0_SE14--PTC0)//
+    190           *      |__AD15          --单端(ADC0_SE15--PTC1)
+    191           *      |__AD16          --单端(ADC0_SE16)
+    192           *      |__AD17          --单端(ADC0_SE17-PTE24)
+    193           *      |__AD18          --单端(ADC0_SE18--PTE25)
+    194           *      |__AD19          --单端(ADC0_DM0)
+    195           *      |__AD20          --单端(ADC0_DM1)
+    196           *      |__AD23          --单端(DAC0)
+    197           *      |__AD26          --温度传感器
+    198           *      |__AD27          --Bandgap
+    199           *      |__AD29          --差分(-VREFH)/单端(VREFH)
+    200           *      |__AD30          --单端(VREFL)
+    201           *      ADC1
+    202           *      |__DAD0          --差分(ADC1_DP0和ADC1_DM0)/单端(ADC1_DP0)
+    203           *      |__DAD1          --差分(ADC1_DP1和ADC1_DM1)/单端(ADC1_DP1)
+    204           *      |__DAD2          --差分(PGA1_DP和PGA1_DM)/单端(PGA1_DP)
+    205           *      |__DAD3          --差分(ADC1_DP3和ADC1_DM3)/单端(ADC1_DP3)
+    206           *      |__AD4           --单端A(ADC1_SE4a--PTE0)/单端B(ADC1_SE4b--PTC8)
+    207           *      |__AD5           --单端A(ADC1_SE5a--PTE1)/单端B(ADC1_SE5b--PTC9)
+    208           *      |__AD6           --单端A(ADC1_SE6a--PTE2)/单端B(ADC1_SE6b--PTC10)
+    209           *      |__AD7           --单端A(ADC1_SE7a--PTE3)/单端B(ADC1_SE7b--PTC11)
+    210           *      |__AD8           --单端(ADC1_SE8--PTB0)
+    211           *      |__AD9           --单端(ADC1_SE9--PTB1)
+    212           *      |__AD10          --单端(ADC1_SE10--PTB4)
+    213           *      |__AD11          --单端(ADC1_SE11--PTB5)
+    214           *      |__AD12          --单端(ADC1_SE12--PTB6)
+    215           *      |__AD13          --单端(ADC1_SE13--PTB7)
+    216           *      |__AD14          --单端(ADC1_SE14--PTB10)//
+    217           *      |__AD15          --单端(ADC1_SE15--PTB11)
+    218           *      |__AD16          --单端(ADC1_SE16)
+    219           *      |__AD17          --单端(ADC1_SE17--PTA17)
+    220           *      |__AD18          --单端(VREF)
+    221           *      |__AD19          --单端(ADC1_DM0)
+    222           *      |__AD20          --单端(ADC1_DM1)
+    223           *      |__AD23          --单端(DAC1)
+    224           *      |__AD26          --温度传感器
+    225           *      |__AD27          --Bandgap
+    226           *      |__AD29          --差分(-VREFH)/单端(VREFH)
+    227           *      |__AD30          --单端(VREFL)
+    228           *
+    229           * 输出:
+    230           *    AD通道转换值(右对齐)，若为差分转换结果，则为二进制补码格式(需强制转换为int16)
+    231           *
+    232           */
+
+   \                                 In section .text, align 2, keep-with-next
+    233          uint16 LPLD_ADC_Get(ADC_Type *adcx, AdcChnEnum_Type chn)
+    234          {
+    235            adcx->SC1[0] &= ~(ADC_SC1_AIEN_MASK);
+   \                     LPLD_ADC_Get: (+1)
+   \        0x0   0x6802             LDR      R2,[R0, #+0]
+   \        0x2   0xF032 0x0240      BICS     R2,R2,#0x40
+   \        0x6   0x6002             STR      R2,[R0, #+0]
+    236            adcx->SC1[0] &= ~(ADC_SC1_ADCH_MASK);
+   \        0x8   0x6802             LDR      R2,[R0, #+0]
+   \        0xA   0x0952             LSRS     R2,R2,#+5
+   \        0xC   0x0152             LSLS     R2,R2,#+5
+   \        0xE   0x6002             STR      R2,[R0, #+0]
+    237            adcx->SC1[0] |= ADC_SC1_ADCH(chn);
+   \       0x10   0x6802             LDR      R2,[R0, #+0]
+   \       0x12   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0x14   0xF011 0x011F      ANDS     R1,R1,#0x1F
+   \       0x18   0x4311             ORRS     R1,R1,R2
+   \       0x1A   0x6001             STR      R1,[R0, #+0]
+    238            while((adcx->SC1[0]&ADC_SC1_COCO_MASK) == 0); //等待转换完成  
+   \                     ??LPLD_ADC_Get_0: (+1)
+   \       0x1C   0x6801             LDR      R1,[R0, #+0]
+   \       0x1E   0x0609             LSLS     R1,R1,#+24
+   \       0x20   0xD5FC             BPL.N    ??LPLD_ADC_Get_0
+    239            return adcx->R[0];
+   \       0x22   0x6900             LDR      R0,[R0, #+16]
+   \       0x24   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \       0x26   0x4770             BX       LR               ;; return
+    240          }
+    241          
+    242          /*
+    243           * LPLD_ADC_EnableConversion
+    244           * 使能ADCx转换通道，用于软件中断、硬件触发等模式
+    245           * 
+    246           * 参数:
+    247           *    adcx--ADCx模块号
+    248           *      |__ADC0          --ADC0
+    249           *      |__ADC1          --ADC1
+    250           *    chn--ADC采集输入通道,详见技术手册K60P144M100SF2RM第118页
+    251           *      取值同LPLD_ADC_Get形参chn
+    252           *    ab--SC1寄存器A、B通道选择
+    253           *      |__0          --A转换通道
+    254           *      |__1          --B转换通道
+    255           *    irq--是否使能转换完成中断
+    256           *      |__TRUE       --使能转换完成中断
+    257           *      |__FALSE      --禁用转换完成中断
+    258           *
+    259           * 输出:
+    260           *    无
+    261           *
+    262           */
+
+   \                                 In section .text, align 2, keep-with-next
+    263          void LPLD_ADC_EnableConversion(ADC_Type *adcx, AdcChnEnum_Type chn, uint8 ab, boolean irq)
+    264          {
+   \                     LPLD_ADC_EnableConversion: (+1)
+   \        0x0   0xB5F8             PUSH     {R3-R7,LR}
+   \        0x2   0x0006             MOVS     R6,R0
+   \        0x4   0x000C             MOVS     R4,R1
+   \        0x6   0x0015             MOVS     R5,R2
+   \        0x8   0x001F             MOVS     R7,R3
+    265            //参数检查
+    266            ASSERT( ab<=1 );  //判断AB控制寄存器
+   \        0xA   0x0028             MOVS     R0,R5
+   \        0xC   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \        0xE   0x2802             CMP      R0,#+2
+   \       0x10   0xDB05             BLT.N    ??LPLD_ADC_EnableConversion_0
+   \       0x12   0xF44F 0x7185      MOV      R1,#+266
+   \       0x16   0x....'....        LDR.W    R0,??DataTable10_2
+   \       0x1A   0x....'....        BL       assert_failed
+    267            ASSERT( irq<=1 );  //判断是否使能中断
+   \                     ??LPLD_ADC_EnableConversion_0: (+1)
+   \       0x1E   0x0038             MOVS     R0,R7
+   \       0x20   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x22   0x2802             CMP      R0,#+2
+   \       0x24   0xDB05             BLT.N    ??LPLD_ADC_EnableConversion_1
+   \       0x26   0xF240 0x110B      MOVW     R1,#+267
+   \       0x2A   0x....'....        LDR.W    R0,??DataTable10_2
+   \       0x2E   0x....'....        BL       assert_failed
+    268            if(irq == TRUE)
+   \                     ??LPLD_ADC_EnableConversion_1: (+1)
+   \       0x32   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \       0x34   0x2F01             CMP      R7,#+1
+   \       0x36   0xD109             BNE.N    ??LPLD_ADC_EnableConversion_2
+    269            {
+    270              adcx->SC1[ab] |= (ADC_SC1_AIEN_MASK);
+   \       0x38   0x0028             MOVS     R0,R5
+   \       0x3A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x3C   0xF856 0x0020      LDR      R0,[R6, R0, LSL #+2]
+   \       0x40   0xF050 0x0040      ORRS     R0,R0,#0x40
+   \       0x44   0x0029             MOVS     R1,R5
+   \       0x46   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0x48   0xF846 0x0021      STR      R0,[R6, R1, LSL #+2]
+    271            }
+    272            adcx->SC1[ab] &= ~(ADC_SC1_ADCH_MASK);
+   \                     ??LPLD_ADC_EnableConversion_2: (+1)
+   \       0x4C   0x0028             MOVS     R0,R5
+   \       0x4E   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x50   0xF856 0x0020      LDR      R0,[R6, R0, LSL #+2]
+   \       0x54   0x0940             LSRS     R0,R0,#+5
+   \       0x56   0x0140             LSLS     R0,R0,#+5
+   \       0x58   0x0029             MOVS     R1,R5
+   \       0x5A   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0x5C   0xF846 0x0021      STR      R0,[R6, R1, LSL #+2]
+    273            adcx->SC1[ab] |= ADC_SC1_ADCH(chn);
+   \       0x60   0x0028             MOVS     R0,R5
+   \       0x62   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x64   0xF856 0x0020      LDR      R0,[R6, R0, LSL #+2]
+   \       0x68   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \       0x6A   0xF014 0x041F      ANDS     R4,R4,#0x1F
+   \       0x6E   0x4304             ORRS     R4,R4,R0
+   \       0x70   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0x72   0xF846 0x4025      STR      R4,[R6, R5, LSL #+2]
+    274          }
+   \       0x76   0xBDF1             POP      {R0,R4-R7,PC}    ;; return
+    275          
+    276          /*
+    277           * LPLD_ADC_GetResult
+    278           * 获取AD转换结果
+    279           * 
+    280           * 参数:
+    281           *    adcx--ADCx模块号
+    282           *      |__ADC0          --ADC0
+    283           *      |__ADC1          --ADC1
+    284           *    ab--SC1寄存器A、B通道选择
+    285           *      |__0          --A转换通道
+    286           *      |__1          --B转换通道
+    287           *
+    288           * 输出:
+    289           *    AD通道转换值(右对齐)，若为差分转换结果，则为二进制补码格式(需强制转换为int16)
+    290           *
+    291           */
+
+   \                                 In section .text, align 2, keep-with-next
+    292          uint16 LPLD_ADC_GetResult(ADC_Type *adcx, uint8 ab)
+    293          {
+   \                     LPLD_ADC_GetResult: (+1)
+   \        0x0   0xB538             PUSH     {R3-R5,LR}
+   \        0x2   0x0004             MOVS     R4,R0
+   \        0x4   0x000D             MOVS     R5,R1
+    294            //参数检查
+    295            ASSERT( ab<=1 );  //判断AB控制寄存器
+   \        0x6   0x0028             MOVS     R0,R5
+   \        0x8   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \        0xA   0x2802             CMP      R0,#+2
+   \        0xC   0xDB05             BLT.N    ??LPLD_ADC_GetResult_0
+   \        0xE   0xF240 0x1127      MOVW     R1,#+295
+   \       0x12   0x....'....        LDR.W    R0,??DataTable10_2
+   \       0x16   0x....'....        BL       assert_failed
+    296            return adcx->R[ab];
+   \                     ??LPLD_ADC_GetResult_0: (+1)
+   \       0x1A   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0x1C   0xEB04 0x0085      ADD      R0,R4,R5, LSL #+2
+   \       0x20   0x6900             LDR      R0,[R0, #+16]
+   \       0x22   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \       0x24   0xBD32             POP      {R1,R4,R5,PC}    ;; return
+    297          }
+    298          
+    299          /*
+    300           * LPLD_ADC_GetSC1nCOCO
+    301           * 获取SC1寄存器中COCO位置1的编号
+    302           * 
+    303           * 参数:
+    304           *    adcx--ADCx模块号
+    305           *      |__ADC0          --ADC0
+    306           *      |__ADC1          --ADC1
+    307           *
+    308           * 输出:
+    309          *    0--SC1A寄存器COCO位置1
+    310          *    1--SC1B寄存器COCO位置1
+    311           *
+    312           */
+
+   \                                 In section .text, align 2, keep-with-next
+    313          uint8 LPLD_ADC_GetSC1nCOCO(ADC_Type *adcx)
+    314          {
+    315            if(adcx->SC1[0] & ADC_SC1_COCO_MASK)
+   \                     LPLD_ADC_GetSC1nCOCO: (+1)
+   \        0x0   0x6801             LDR      R1,[R0, #+0]
+   \        0x2   0x0609             LSLS     R1,R1,#+24
+   \        0x4   0xD501             BPL.N    ??LPLD_ADC_GetSC1nCOCO_0
+    316              return 0;
+   \        0x6   0x2000             MOVS     R0,#+0
+   \        0x8   0xE005             B.N      ??LPLD_ADC_GetSC1nCOCO_1
+    317            if(adcx->SC1[1] & ADC_SC1_COCO_MASK)
+   \                     ??LPLD_ADC_GetSC1nCOCO_0: (+1)
+   \        0xA   0x6840             LDR      R0,[R0, #+4]
+   \        0xC   0x0600             LSLS     R0,R0,#+24
+   \        0xE   0xD501             BPL.N    ??LPLD_ADC_GetSC1nCOCO_2
+    318              return 1;
+   \       0x10   0x2001             MOVS     R0,#+1
+   \       0x12   0xE000             B.N      ??LPLD_ADC_GetSC1nCOCO_1
+    319            return -1;
+   \                     ??LPLD_ADC_GetSC1nCOCO_2: (+1)
+   \       0x14   0x20FF             MOVS     R0,#+255
+   \                     ??LPLD_ADC_GetSC1nCOCO_1: (+1)
+   \       0x16   0x4770             BX       LR               ;; return
+    320          }
+    321          
+    322          /*
+    323           * LPLD_ADC_EnableIrq
+    324           * 使能ADCx中断
+    325           * 
+    326           * 参数:
+    327           *    adc_init_structure--PIT初始化结构体，
+    328           *                        具体定义见ADC_InitTypeDef
+    329           *
+    330           * 输出:
+    331           *    0--配置错误
+    332           *    1--配置成功
+    333           *
+    334           */
+
+   \                                 In section .text, align 2, keep-with-next
+    335          uint8 LPLD_ADC_EnableIrq(ADC_InitTypeDef adc_init_structure)
+    336          {
+   \                     LPLD_ADC_EnableIrq: (+1)
+   \        0x0   0xB40F             PUSH     {R0-R3}
+   \        0x2   0xB580             PUSH     {R7,LR}
+    337            uint8 i;
+    338            ADC_Type *adcx = adc_init_structure.ADC_Adcx;
+   \        0x4   0x9802             LDR      R0,[SP, #+8]
+    339            
+    340            if(adcx == ADC0)
+   \        0x6   0x....             LDR.N    R1,??DataTable10_3  ;; 0x4003b000
+   \        0x8   0x4288             CMP      R0,R1
+   \        0xA   0xD108             BNE.N    ??LPLD_ADC_EnableIrq_0
+    341              i=0;
+   \        0xC   0x2000             MOVS     R0,#+0
+    342            else if(adcx == ADC1)
+    343              i=1;
+    344            else
+    345              return 0;
+    346          
+    347            enable_irq((IRQn_Type)(ADC0_IRQn + i));
+   \                     ??LPLD_ADC_EnableIrq_1: (+1)
+   \        0xE   0x3039             ADDS     R0,R0,#+57
+   \       0x10   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x12   0x....'....        BL       __NVIC_EnableIRQ
+    348            
+    349            return 1;
+   \       0x16   0x2001             MOVS     R0,#+1
+   \                     ??LPLD_ADC_EnableIrq_2: (+1)
+   \       0x18   0xBC02             POP      {R1}
+   \       0x1A   0xF85D 0xFB14      LDR      PC,[SP], #+20    ;; return
+   \                     ??LPLD_ADC_EnableIrq_0: (+1)
+   \       0x1E   0x....             LDR.N    R1,??DataTable10_6  ;; 0x400bb000
+   \       0x20   0x4288             CMP      R0,R1
+   \       0x22   0xD101             BNE.N    ??LPLD_ADC_EnableIrq_3
+   \       0x24   0x2001             MOVS     R0,#+1
+   \       0x26   0xE7F2             B.N      ??LPLD_ADC_EnableIrq_1
+   \                     ??LPLD_ADC_EnableIrq_3: (+1)
+   \       0x28   0x2000             MOVS     R0,#+0
+   \       0x2A   0xE7F5             B.N      ??LPLD_ADC_EnableIrq_2
+    350          }
+    351          
+    352          /*
+    353           * LPLD_ADC_DisableIrq
+    354           * 禁用ADCx中断
+    355           * 
+    356           * 参数:
+    357           *    adc_init_structure--PIT初始化结构体，
+    358           *                        具体定义见ADC_InitTypeDef
+    359           *
+    360           * 输出:
+    361           *    0--配置错误
+    362           *    1--配置成功
+    363           *
+    364           */
+
+   \                                 In section .text, align 2, keep-with-next
+    365          uint8 LPLD_ADC_DisableIrq(ADC_InitTypeDef adc_init_structure)
+    366          {
+   \                     LPLD_ADC_DisableIrq: (+1)
+   \        0x0   0xB40F             PUSH     {R0-R3}
+   \        0x2   0xB580             PUSH     {R7,LR}
+    367            uint8 i;
+    368            ADC_Type *adcx = adc_init_structure.ADC_Adcx;
+   \        0x4   0x9802             LDR      R0,[SP, #+8]
+    369            
+    370            if(adcx == ADC0)
+   \        0x6   0x....             LDR.N    R1,??DataTable10_3  ;; 0x4003b000
+   \        0x8   0x4288             CMP      R0,R1
+   \        0xA   0xD108             BNE.N    ??LPLD_ADC_DisableIrq_0
+    371              i=0;
+   \        0xC   0x2000             MOVS     R0,#+0
+    372            else if(adcx == ADC1)
+    373              i=1;
+    374            else
+    375              return 0;
+    376          
+    377            disable_irq((IRQn_Type)(ADC0_IRQn + i));
+   \                     ??LPLD_ADC_DisableIrq_1: (+1)
+   \        0xE   0x3039             ADDS     R0,R0,#+57
+   \       0x10   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x12   0x....'....        BL       __NVIC_DisableIRQ
+    378            
+    379            return 1;
+   \       0x16   0x2001             MOVS     R0,#+1
+   \                     ??LPLD_ADC_DisableIrq_2: (+1)
+   \       0x18   0xBC02             POP      {R1}
+   \       0x1A   0xF85D 0xFB14      LDR      PC,[SP], #+20    ;; return
+   \                     ??LPLD_ADC_DisableIrq_0: (+1)
+   \       0x1E   0x....             LDR.N    R1,??DataTable10_6  ;; 0x400bb000
+   \       0x20   0x4288             CMP      R0,R1
+   \       0x22   0xD101             BNE.N    ??LPLD_ADC_DisableIrq_3
+   \       0x24   0x2001             MOVS     R0,#+1
+   \       0x26   0xE7F2             B.N      ??LPLD_ADC_DisableIrq_1
+   \                     ??LPLD_ADC_DisableIrq_3: (+1)
+   \       0x28   0x2000             MOVS     R0,#+0
+   \       0x2A   0xE7F5             B.N      ??LPLD_ADC_DisableIrq_2
+    380          }
+    381          
+    382          /*
+    383           * LPLD_ADC_Chn_Enable
+    384           * 使能ADCx相应转换通道的AD采集功能
+    385           * 
+    386           * 参数:
+    387           *    adcx--ADCx模块号
+    388           *      |__ADC0          --ADC0
+    389           *      |__ADC1          --ADC1
+    390           *    chn--ADC采集输入通道,详见技术手册K60P144M100SF2RM第118页
+    391           *      ADC0
+    392           *      |__DAD0          --差分(ADC0_DP0和ADC0_DM0)/单端(ADC0_DP0)
+    393           *      |__DAD1          --差分(ADC0_DP1和ADC0_DM1)/单端(ADC0_DP1)
+    394           *      |__DAD2          --差分(PGA0_DP和PGA0_DM)/单端(PGA0_DP)
+    395           *      |__DAD3          --差分(ADC0_DP3和ADC0_DM3)/单端(ADC0_DP3)
+    396           *      |__AD4           --单端A(保留)/单端B(ADC0_SE4b--PTC2)
+    397           *      |__AD5           --单端A(保留)/单端B(ADC0_SE5b--PTD1)
+    398           *      |__AD6           --单端A(保留)/单端B(ADC0_SE6b--PTD5)
+    399           *      |__AD7           --单端A(保留)/单端B(ADC0_SE7b--PTD6)
+    400           *      |__AD8           --单端(ADC0_SE8--PTB0)
+    401           *      |__AD9           --单端(ADC0_SE9--PTB1)
+    402           *      |__AD10          --单端(ADC0_SE10--PTA7)
+    403           *      |__AD11          --单端(ADC0_SE11--PTA8)
+    404           *      |__AD12          --单端(ADC0_SE12--PTB2)
+    405           *      |__AD13          --单端(ADC0_SE13--PTB3)
+    406           *      |__AD14          --单端(ADC0_SE14--PTC0)
+    407           *      |__AD15          --单端(ADC0_SE15--PTC1)
+    408           *      |__AD16          --单端(ADC0_SE16)
+    409           *      |__AD17          --单端(ADC0_SE17-PTE24)
+    410           *      |__AD18          --单端(ADC0_SE18--PTE25)
+    411           *      |__AD19          --单端(ADC0_DM0)
+    412           *      |__AD20          --单端(ADC0_DM1)
+    413           *      |__AD23          --单端(DAC0)
+    414           *      |__AD26          --温度传感器
+    415           *      |__AD27          --Bandgap
+    416           *      |__AD29          --差分(-VREFH)/单端(VREFH)
+    417           *      |__AD30          --单端(VREFL)
+    418           *      ADC1
+    419           *      |__DAD0          --差分(ADC1_DP0和ADC1_DM0)/单端(ADC1_DP0)
+    420           *      |__DAD1          --差分(ADC1_DP1和ADC1_DM1)/单端(ADC1_DP1)
+    421           *      |__DAD2          --差分(PGA1_DP和PGA1_DM)/单端(PGA1_DP)
+    422           *      |__DAD3          --差分(ADC1_DP3和ADC1_DM3)/单端(ADC1_DP3)
+    423           *      |__AD4           --单端A(ADC1_SE4a--PTE0)/单端B(ADC1_SE4b--PTC8)
+    424           *      |__AD5           --单端A(ADC1_SE5a--PTE1)/单端B(ADC1_SE5b--PTC9)
+    425           *      |__AD6           --单端A(ADC1_SE6a--PTE2)/单端B(ADC1_SE6b--PTC10)
+    426           *      |__AD7           --单端A(ADC1_SE7a--PTE3)/单端B(ADC1_SE7b--PTC11)
+    427           *      |__AD8           --单端(ADC1_SE8--PTB0)
+    428           *      |__AD9           --单端(ADC1_SE9--PTB1)
+    429           *      |__AD10          --单端(ADC1_SE10--PTB4)
+    430           *      |__AD11          --单端(ADC1_SE11--PTB5)
+    431           *      |__AD12          --单端(ADC1_SE12--PTB6)
+    432           *      |__AD13          --单端(ADC1_SE13--PTB7)
+    433           *      |__AD14          --单端(ADC1_SE14--PTB10)
+    434           *      |__AD15          --单端(ADC1_SE15--PTB11)
+    435           *      |__AD16          --单端(ADC1_SE16)
+    436           *      |__AD17          --单端(ADC1_SE17--PTA17)
+    437           *      |__AD18          --单端(VREF)
+    438           *      |__AD19          --单端(ADC1_DM0)
+    439           *      |__AD20          --单端(ADC1_DM1)
+    440           *      |__AD23          --单端(DAC1)
+    441           *      |__AD26          --温度传感器
+    442           *      |__AD27          --Bandgap
+    443           *      |__AD29          --差分(-VREFH)/单端(VREFH)
+    444           *      |__AD30          --单端(VREFL)
+    445           *
+    446           * 输出:
+    447           *    0--配置错误
+    448           *    1--配置成功
+    449           *
+    450           */
+
+   \                                 In section .text, align 2, keep-with-next
+    451          uint8 LPLD_ADC_Chn_Enable(ADC_Type *adcx, AdcChnEnum_Type chn)
+    452          {
+    453            //判断复用引脚是a或b
+    454            uint8 mux = (adcx->CFG2 & ADC_CFG2_MUXSEL_MASK)>>ADC_CFG2_MUXSEL_SHIFT;
+   \                     LPLD_ADC_Chn_Enable: (+1)
+   \        0x0   0x68C2             LDR      R2,[R0, #+12]
+   \        0x2   0xF3C2 0x1200      UBFX     R2,R2,#+4,#+1
+    455              
+    456            if(chn > AD30)
+   \        0x6   0x000B             MOVS     R3,R1
+   \        0x8   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \        0xA   0x2B1F             CMP      R3,#+31
+   \        0xC   0xDB01             BLT.N    ??LPLD_ADC_Chn_Enable_0
+    457              return 0;
+   \        0xE   0x2000             MOVS     R0,#+0
+   \       0x10   0xE02C             B.N      ??LPLD_ADC_Chn_Enable_1
+    458            
+    459            //不同的通道对应不同的引脚，因此需要判断并配置
+    460            if(adcx == ADC0)
+   \                     ??LPLD_ADC_Chn_Enable_0: (+1)
+   \       0x12   0x....             LDR.N    R3,??DataTable10_3  ;; 0x4003b000
+   \       0x14   0x4298             CMP      R0,R3
+   \       0x16   0xD16E             BNE.N    ??LPLD_ADC_Chn_Enable_2
+    461            {
+    462              switch(chn)
+   \       0x18   0x0008             MOVS     R0,R1
+   \       0x1A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x1C   0x2800             CMP      R0,#+0
+   \       0x1E   0x2803             CMP      R0,#+3
+   \       0x20   0xD923             BLS.N    ??LPLD_ADC_Chn_Enable_3
+   \       0x22   0x1F00             SUBS     R0,R0,#+4
+   \       0x24   0xD023             BEQ.N    ??LPLD_ADC_Chn_Enable_4
+   \       0x26   0x1E40             SUBS     R0,R0,#+1
+   \       0x28   0xD028             BEQ.N    ??LPLD_ADC_Chn_Enable_5
+   \       0x2A   0x1E40             SUBS     R0,R0,#+1
+   \       0x2C   0x2801             CMP      R0,#+1
+   \       0x2E   0xD92C             BLS.N    ??LPLD_ADC_Chn_Enable_6
+   \       0x30   0x1E80             SUBS     R0,R0,#+2
+   \       0x32   0x2801             CMP      R0,#+1
+   \       0x34   0xD934             BLS.N    ??LPLD_ADC_Chn_Enable_7
+   \       0x36   0x1E80             SUBS     R0,R0,#+2
+   \       0x38   0x2801             CMP      R0,#+1
+   \       0x3A   0xD939             BLS.N    ??LPLD_ADC_Chn_Enable_8
+   \       0x3C   0x1E80             SUBS     R0,R0,#+2
+   \       0x3E   0x2801             CMP      R0,#+1
+   \       0x40   0xD93E             BLS.N    ??LPLD_ADC_Chn_Enable_9
+   \       0x42   0x1E80             SUBS     R0,R0,#+2
+   \       0x44   0x2801             CMP      R0,#+1
+   \       0x46   0xD943             BLS.N    ??LPLD_ADC_Chn_Enable_10
+   \       0x48   0x1E80             SUBS     R0,R0,#+2
+   \       0x4A   0xD049             BEQ.N    ??LPLD_ADC_Chn_Enable_11
+   \       0x4C   0x1E40             SUBS     R0,R0,#+1
+   \       0x4E   0x2801             CMP      R0,#+1
+   \       0x50   0xD947             BLS.N    ??LPLD_ADC_Chn_Enable_12
+   \       0x52   0x1E80             SUBS     R0,R0,#+2
+   \       0x54   0x2801             CMP      R0,#+1
+   \       0x56   0xD94B             BLS.N    ??LPLD_ADC_Chn_Enable_13
+   \       0x58   0x1F00             SUBS     R0,R0,#+4
+   \       0x5A   0xD049             BEQ.N    ??LPLD_ADC_Chn_Enable_13
+   \       0x5C   0x1EC0             SUBS     R0,R0,#+3
+   \       0x5E   0x2801             CMP      R0,#+1
+   \       0x60   0xD946             BLS.N    ??LPLD_ADC_Chn_Enable_13
+   \       0x62   0x1EC0             SUBS     R0,R0,#+3
+   \       0x64   0x2801             CMP      R0,#+1
+   \       0x66   0xD943             BLS.N    ??LPLD_ADC_Chn_Enable_13
+   \       0x68   0xE043             B.N      ??LPLD_ADC_Chn_Enable_14
+    463              {
+    464                case DAD0:   //ADC0_DP0 -- PGA0_DP
+    465                case DAD1:   //ADC0_DP1 -- PGA2_DP
+    466                case DAD2:   //PGA0_DP
+    467                case DAD3:   //ADC0_DP3 -- PGA1_DP
+    468                  break;
+    469                case AD4:   //ADC0_SE4b -- PTC2     
+    470                  if(mux == 1)    //b
+    471                    PORTC->PCR[2] =  PORT_PCR_MUX(0);
+    472                  break;
+    473                case AD5:   //ADC0_SE5b -- PTD1     
+    474                  if(mux == 1)    //b
+    475                    PORTD->PCR[1] =  PORT_PCR_MUX(0);
+    476                  break;
+    477                case AD6:   //ADC0_SE6b -- PTD5
+    478                case AD7:   //ADC0_SE7b -- PTD6     
+    479                  if(mux == 1)    //b
+    480                    PORTD->PCR[chn-1] =  PORT_PCR_MUX(0);
+    481                  break;
+    482                case AD8:  //ADC0_SE8 -- PTB0
+    483                case AD9:  //ADC0_SE9 -- PTB1
+    484                  PORTB->PCR[chn-8] =  PORT_PCR_MUX(0);
+    485                  break;
+    486                case AD10:  //ADC0_SE10 -- PTA7
+    487                case AD11:  //ADC0_SE11 -- PTA8
+    488                  PORTA->PCR[chn-3] =  PORT_PCR_MUX(0);
+    489                  break;
+    490                case AD12:  //ADC0_SE12 -- PTB2
+    491                case AD13:  //ADC0_SE13 -- PTB3
+    492                  PORTB->PCR[chn-10] =  PORT_PCR_MUX(0);
+    493                  break;
+    494                case AD14:  //ADC0_SE14 -- PTC0
+    495                case AD15:  //ADC0_SE15 -- PTC1
+    496                  PORTC->PCR[chn-14] =  PORT_PCR_MUX(0);
+    497                  break;
+    498                case AD16:   //ADC0_SE16
+    499                  break;
+    500                case AD17:   //ADC0_SE17 -- PTE24
+    501                case AD18:   //ADC0_SE18 -- PTE25
+    502                  PORTE->PCR[chn+7] =  PORT_PCR_MUX(0);
+    503                  break;
+    504                case AD19:   //ADC0_DM0 -- PGA0_DM
+    505                case AD20:   //ADC0_DM1 -- PGA2_DM
+    506                case AD23:   //ADC0_SE23 -- DAC0_OUT
+    507                case AD26:   //Temperature Sensor (S.E)
+    508                case AD27:   //Bandgap (S.E)
+    509                case AD29:   //VREFH (S.E)
+    510                case AD30:   //VREFL
+    511                  break;
+    512                default:
+    513                  return 0;  
+    514              }
+    515            }
+    516            else if(adcx == ADC1)
+    517            {
+    518              switch(chn)
+    519              {
+    520                case DAD0:   //ADC1_DP0 -- PGA1_DP
+    521                case DAD1:   //ADC1_DP1 -- PGA3_DP
+    522                case DAD2:   //PGA1_DP 
+    523                case DAD3:   //ADC1_DP3 -- PGA0_DP
+    524                  break;
+    525                case AD4:   //ADC1_SE4a -- PTE0     //ADC1_SE4b -- PTC8
+    526                case AD5:   //ADC1_SE5a -- PTE1     //ADC1_SE5b -- PTC9
+    527                case AD6:   //ADC1_SE6a -- PTE2     //ADC1_SE6b -- PTC10
+    528                case AD7:   //ADC1_SE7a -- PTE3     //ADC1_SE7b -- PTC11
+    529                  if(mux == 0)    //a
+    530                    PORTE->PCR[chn-4] =  PORT_PCR_MUX(0);
+    531                  else            //b
+    532                    PORTC->PCR[chn+4] =  PORT_PCR_MUX(0);
+    533                  break;
+    534                case AD8:  //ADC1_SE8 -- PTB0
+    535                case AD9:  //ADC1_SE9 -- PTB1
+    536                  PORTB->PCR[chn-8] =  PORT_PCR_MUX(0);
+    537                  break;
+    538                case AD10:  //ADC1_SE10 -- PTB4
+    539                case AD11:  //ADC1_SE11 -- PTB5
+    540                case AD12:  //ADC1_SE12 -- PTB6
+    541                case AD13:  //ADC1_SE13 -- PTB7
+    542                  PORTB->PCR[chn-6] =  PORT_PCR_MUX(0);
+    543                  break;
+    544                case AD14:  //ADC1_SE14 -- PTB10
+    545                case AD15:  //ADC1_SE15 -- PTB11
+    546                  PORTB->PCR[chn-4] =  PORT_PCR_MUX(0);
+    547                  break;
+    548                case AD16:   //ADC1_SE16
+    549                  break;
+    550                case AD17:  //ADC1_SE17 -- PTA17
+    551                  PORTA->PCR[chn] =  PORT_PCR_MUX(0);
+    552                  break;
+    553                case AD18:   //VREF Output
+    554                case AD19:   //ADC1_DM0 -- PGA1_DM
+    555                case AD20:   //ADC1_DM1 -- PGA3_DM
+    556                case AD23:   //DAC1_OUT 
+    557                case AD26:   //Temperature Sensor (S.E)
+    558                case AD27:   //Bandgap (S.E)
+    559                case AD29:   //VREFH (S.E)
+    560                case AD30:   //VREFL
+    561                  break;
+    562                default:
+    563                  return 0;  
+    564              }
+    565            }
+    566            else
+    567            {
+    568              return 0;
+    569            }
+    570            
+    571            return 1;
+   \                     ??LPLD_ADC_Chn_Enable_3: (+1)
+   \                     ??LPLD_ADC_Chn_Enable_15: (+1)
+   \       0x6A   0x2001             MOVS     R0,#+1
+   \                     ??LPLD_ADC_Chn_Enable_1: (+1)
+   \       0x6C   0x4770             BX       LR               ;; return
+   \                     ??LPLD_ADC_Chn_Enable_4: (+1)
+   \       0x6E   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \       0x70   0x2A01             CMP      R2,#+1
+   \       0x72   0xD102             BNE.N    ??LPLD_ADC_Chn_Enable_16
+   \       0x74   0x2000             MOVS     R0,#+0
+   \       0x76   0x....             LDR.N    R1,??DataTable10_8  ;; 0x4004b008
+   \       0x78   0x6008             STR      R0,[R1, #+0]
+   \                     ??LPLD_ADC_Chn_Enable_16: (+1)
+   \       0x7A   0xE7F6             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_5: (+1)
+   \       0x7C   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \       0x7E   0x2A01             CMP      R2,#+1
+   \       0x80   0xD102             BNE.N    ??LPLD_ADC_Chn_Enable_17
+   \       0x82   0x2000             MOVS     R0,#+0
+   \       0x84   0x....             LDR.N    R1,??DataTable10_9  ;; 0x4004c004
+   \       0x86   0x6008             STR      R0,[R1, #+0]
+   \                     ??LPLD_ADC_Chn_Enable_17: (+1)
+   \       0x88   0xE7EF             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_6: (+1)
+   \       0x8A   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \       0x8C   0x2A01             CMP      R2,#+1
+   \       0x8E   0xD106             BNE.N    ??LPLD_ADC_Chn_Enable_18
+   \       0x90   0x2000             MOVS     R0,#+0
+   \       0x92   0x....             LDR.N    R2,??DataTable10_10  ;; 0x4004c000
+   \       0x94   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0x96   0xEB02 0x0181      ADD      R1,R2,R1, LSL #+2
+   \       0x9A   0xF841 0x0C04      STR      R0,[R1, #-4]
+   \                     ??LPLD_ADC_Chn_Enable_18: (+1)
+   \       0x9E   0xE7E4             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_7: (+1)
+   \       0xA0   0x2000             MOVS     R0,#+0
+   \       0xA2   0x....             LDR.N    R2,??DataTable10_11  ;; 0x4004a000
+   \       0xA4   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0xA6   0xEB02 0x0181      ADD      R1,R2,R1, LSL #+2
+   \       0xAA   0xF841 0x0C20      STR      R0,[R1, #-32]
+   \       0xAE   0xE7DC             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_8: (+1)
+   \       0xB0   0x2000             MOVS     R0,#+0
+   \       0xB2   0x....             LDR.N    R2,??DataTable10_12  ;; 0x40049000
+   \       0xB4   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0xB6   0xEB02 0x0181      ADD      R1,R2,R1, LSL #+2
+   \       0xBA   0xF841 0x0C0C      STR      R0,[R1, #-12]
+   \       0xBE   0xE7D4             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_9: (+1)
+   \       0xC0   0x2000             MOVS     R0,#+0
+   \       0xC2   0x....             LDR.N    R2,??DataTable10_11  ;; 0x4004a000
+   \       0xC4   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0xC6   0xEB02 0x0181      ADD      R1,R2,R1, LSL #+2
+   \       0xCA   0xF841 0x0C28      STR      R0,[R1, #-40]
+   \       0xCE   0xE7CC             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_10: (+1)
+   \       0xD0   0x2000             MOVS     R0,#+0
+   \       0xD2   0x....             LDR.N    R2,??DataTable10_13  ;; 0x4004b000
+   \       0xD4   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0xD6   0xEB02 0x0181      ADD      R1,R2,R1, LSL #+2
+   \       0xDA   0xF841 0x0C38      STR      R0,[R1, #-56]
+   \       0xDE   0xE7C4             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_11: (+1)
+   \       0xE0   0xE7C3             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_12: (+1)
+   \       0xE2   0x2000             MOVS     R0,#+0
+   \       0xE4   0x....             LDR.N    R2,??DataTable10_14  ;; 0x4004d000
+   \       0xE6   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0xE8   0xEB02 0x0181      ADD      R1,R2,R1, LSL #+2
+   \       0xEC   0x61C8             STR      R0,[R1, #+28]
+   \       0xEE   0xE7BC             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_13: (+1)
+   \       0xF0   0xE7BB             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_14: (+1)
+   \       0xF2   0x2000             MOVS     R0,#+0
+   \       0xF4   0xE7BA             B.N      ??LPLD_ADC_Chn_Enable_1
+   \                     ??LPLD_ADC_Chn_Enable_2: (+1)
+   \       0xF6   0x....             LDR.N    R3,??DataTable10_6  ;; 0x400bb000
+   \       0xF8   0x4298             CMP      R0,R3
+   \       0xFA   0xD155             BNE.N    ??LPLD_ADC_Chn_Enable_19
+   \       0xFC   0x0008             MOVS     R0,R1
+   \       0xFE   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x100   0x2800             CMP      R0,#+0
+   \      0x102   0x2803             CMP      R0,#+3
+   \      0x104   0xD91B             BLS.N    ??LPLD_ADC_Chn_Enable_20
+   \      0x106   0x1F00             SUBS     R0,R0,#+4
+   \      0x108   0x2803             CMP      R0,#+3
+   \      0x10A   0xD919             BLS.N    ??LPLD_ADC_Chn_Enable_21
+   \      0x10C   0x1F00             SUBS     R0,R0,#+4
+   \      0x10E   0x2801             CMP      R0,#+1
+   \      0x110   0xD928             BLS.N    ??LPLD_ADC_Chn_Enable_22
+   \      0x112   0x1E80             SUBS     R0,R0,#+2
+   \      0x114   0x2803             CMP      R0,#+3
+   \      0x116   0xD92D             BLS.N    ??LPLD_ADC_Chn_Enable_23
+   \      0x118   0x1F00             SUBS     R0,R0,#+4
+   \      0x11A   0x2801             CMP      R0,#+1
+   \      0x11C   0xD932             BLS.N    ??LPLD_ADC_Chn_Enable_24
+   \      0x11E   0x1E80             SUBS     R0,R0,#+2
+   \      0x120   0xD038             BEQ.N    ??LPLD_ADC_Chn_Enable_25
+   \      0x122   0x1E40             SUBS     R0,R0,#+1
+   \      0x124   0xD037             BEQ.N    ??LPLD_ADC_Chn_Enable_26
+   \      0x126   0x1E40             SUBS     R0,R0,#+1
+   \      0x128   0x2802             CMP      R0,#+2
+   \      0x12A   0xD93A             BLS.N    ??LPLD_ADC_Chn_Enable_27
+   \      0x12C   0x1F40             SUBS     R0,R0,#+5
+   \      0x12E   0xD038             BEQ.N    ??LPLD_ADC_Chn_Enable_27
+   \      0x130   0x1EC0             SUBS     R0,R0,#+3
+   \      0x132   0x2801             CMP      R0,#+1
+   \      0x134   0xD935             BLS.N    ??LPLD_ADC_Chn_Enable_27
+   \      0x136   0x1EC0             SUBS     R0,R0,#+3
+   \      0x138   0x2801             CMP      R0,#+1
+   \      0x13A   0xD932             BLS.N    ??LPLD_ADC_Chn_Enable_27
+   \      0x13C   0xE032             B.N      ??LPLD_ADC_Chn_Enable_28
+   \                     ??LPLD_ADC_Chn_Enable_20: (+1)
+   \      0x13E   0xE794             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_21: (+1)
+   \      0x140   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \      0x142   0x2A00             CMP      R2,#+0
+   \      0x144   0xD107             BNE.N    ??LPLD_ADC_Chn_Enable_29
+   \      0x146   0x2000             MOVS     R0,#+0
+   \      0x148   0x....             LDR.N    R2,??DataTable10_14  ;; 0x4004d000
+   \      0x14A   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x14C   0xEB02 0x0181      ADD      R1,R2,R1, LSL #+2
+   \      0x150   0xF841 0x0C10      STR      R0,[R1, #-16]
+   \      0x154   0xE005             B.N      ??LPLD_ADC_Chn_Enable_30
+   \                     ??LPLD_ADC_Chn_Enable_29: (+1)
+   \      0x156   0x2000             MOVS     R0,#+0
+   \      0x158   0x....             LDR.N    R2,??DataTable10_13  ;; 0x4004b000
+   \      0x15A   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x15C   0xEB02 0x0181      ADD      R1,R2,R1, LSL #+2
+   \      0x160   0x6108             STR      R0,[R1, #+16]
+   \                     ??LPLD_ADC_Chn_Enable_30: (+1)
+   \      0x162   0xE782             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_22: (+1)
+   \      0x164   0x2000             MOVS     R0,#+0
+   \      0x166   0x....             LDR.N    R2,??DataTable10_11  ;; 0x4004a000
+   \      0x168   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x16A   0xEB02 0x0181      ADD      R1,R2,R1, LSL #+2
+   \      0x16E   0xF841 0x0C20      STR      R0,[R1, #-32]
+   \      0x172   0xE77A             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_23: (+1)
+   \      0x174   0x2000             MOVS     R0,#+0
+   \      0x176   0x....             LDR.N    R2,??DataTable10_11  ;; 0x4004a000
+   \      0x178   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x17A   0xEB02 0x0181      ADD      R1,R2,R1, LSL #+2
+   \      0x17E   0xF841 0x0C18      STR      R0,[R1, #-24]
+   \      0x182   0xE772             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_24: (+1)
+   \      0x184   0x2000             MOVS     R0,#+0
+   \      0x186   0x....             LDR.N    R2,??DataTable10_11  ;; 0x4004a000
+   \      0x188   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x18A   0xEB02 0x0181      ADD      R1,R2,R1, LSL #+2
+   \      0x18E   0xF841 0x0C10      STR      R0,[R1, #-16]
+   \      0x192   0xE76A             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_25: (+1)
+   \      0x194   0xE769             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_26: (+1)
+   \      0x196   0x2000             MOVS     R0,#+0
+   \      0x198   0x....             LDR.N    R2,??DataTable10_12  ;; 0x40049000
+   \      0x19A   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x19C   0xF842 0x0021      STR      R0,[R2, R1, LSL #+2]
+   \      0x1A0   0xE763             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_27: (+1)
+   \      0x1A2   0xE762             B.N      ??LPLD_ADC_Chn_Enable_15
+   \                     ??LPLD_ADC_Chn_Enable_28: (+1)
+   \      0x1A4   0x2000             MOVS     R0,#+0
+   \      0x1A6   0xE761             B.N      ??LPLD_ADC_Chn_Enable_1
+   \                     ??LPLD_ADC_Chn_Enable_19: (+1)
+   \      0x1A8   0x2000             MOVS     R0,#+0
+   \      0x1AA   0xE75F             B.N      ??LPLD_ADC_Chn_Enable_1
+    572          }
+    573          
+    574          /*
+    575           * ADC_Cal
+    576           * ADC模块校准函数，内部调用
+    577           * 
+    578           * 参数:
+    579           *    adcx--ADC模块号
+    580           *      |__ADC0         -ADC0模块
+    581           *      |__ADC1         -ADC1模块
+    582           * 输出:
+    583           *    0--配置错误
+    584           *    1--配置成功
+    585           */
+
+   \                                 In section .text, align 2, keep-with-next
+    586          static uint8 LPLD_ADC_Cal(ADC_Type *adcx)
+    587          {
+    588            uint16 cal_var;
+    589              
+    590            //为自动校准配置参数
+    591            //为提高校准精度，需配置为：
+    592            //32次硬件平均、ADCK不超过4MHz
+    593            //参考高=Vdda、正常功耗模式
+    594            //可忽略的配置：
+    595            //输入通道、转换模式连续功能、比较功能、精度、差分单端
+    596            //设置ADCCFG1寄存器
+    597            adcx->CFG1  = 0 &(~ADC_CFG1_ADLPC_MASK)          // 正常功耗配置
+    598                            | ADC_CFG1_ADIV(ADIV_8)          // ADC输入时钟分频为8
+    599                            | ADC_CFG1_ADLSMP_MASK           // 设置长时间采样模式
+    600                            | ADC_CFG1_ADICLK(ADICLK_BUS_2); // ADC输入时钟源为 BusClk/2
+   \                     LPLD_ADC_Cal: (+1)
+   \        0x0   0x2171             MOVS     R1,#+113
+   \        0x2   0x6081             STR      R1,[R0, #+8]
+    601          
+    602            //设置ADCCFG2寄存器
+    603            adcx->CFG2 = 0 & (~ADC_CFG2_ADACKEN_MASK)
+    604                           | ADC_CFG2_ADHSC_MASK         // 高速转换
+    605                           | ADC_CFG2_ADLSTS(LSAMTIME_20EX); // 长采样时间时钟周期选择 额外20个时钟周期，共24个ADCK周期
+   \        0x4   0x2104             MOVS     R1,#+4
+   \        0x6   0x60C1             STR      R1,[R0, #+12]
+    606                                                         // 总采样周期见K60技术文档 page:840
+    607            //用于设定阈值
+    608            adcx->CV1  = 0x1234u ; 
+   \        0x8   0xF241 0x2134      MOVW     R1,#+4660
+   \        0xC   0x6181             STR      R1,[R0, #+24]
+    609            adcx->CV2  = 0x5678u ;
+   \        0xE   0xF245 0x6178      MOVW     R1,#+22136
+   \       0x12   0x61C1             STR      R1,[R0, #+28]
+    610            
+    611            adcx->SC2 = 0 & (~ADC_SC2_ADTRG_MASK)        //使能软件触发作为校准
+    612                          | ADC_SC2_REFSEL(REFSEL_EXT);  //选择外部参考源VREFH和VREFL
+   \       0x14   0x2100             MOVS     R1,#+0
+   \       0x16   0x6201             STR      R1,[R0, #+32]
+    613              
+    614            adcx->SC3 &= ( ~ADC_SC3_ADCO_MASK & ~ADC_SC3_AVGS_MASK );  //设置单次转换，清除平均标志
+   \       0x18   0x6A41             LDR      R1,[R0, #+36]
+   \       0x1A   0xF031 0x010B      BICS     R1,R1,#0xB
+   \       0x1E   0x6241             STR      R1,[R0, #+36]
+    615            adcx->SC3 |= ( ADC_SC3_AVGE_MASK | ADC_SC3_AVGS(HW_32AVG) );//打开平均标志，设置到最大采样平准
+   \       0x20   0x6A41             LDR      R1,[R0, #+36]
+   \       0x22   0xF051 0x0107      ORRS     R1,R1,#0x7
+   \       0x26   0x6241             STR      R1,[R0, #+36]
+    616            
+    617            adcx->SC3 |= ADC_SC3_CAL_MASK ;                            //开始校准
+   \       0x28   0x6A41             LDR      R1,[R0, #+36]
+   \       0x2A   0xF051 0x0180      ORRS     R1,R1,#0x80
+   \       0x2E   0x6241             STR      R1,[R0, #+36]
+    618            
+    619            while((adcx->SC1[0] & ADC_SC1_COCO_MASK)== 0x00 );         //等待校准完成
+   \                     ??LPLD_ADC_Cal_0: (+1)
+   \       0x30   0x6801             LDR      R1,[R0, #+0]
+   \       0x32   0x0609             LSLS     R1,R1,#+24
+   \       0x34   0xD5FC             BPL.N    ??LPLD_ADC_Cal_0
+    620            	
+    621            if ((adcx->SC3& ADC_SC3_CALF_MASK) == ADC_SC3_CALF_MASK )
+   \       0x36   0x6A41             LDR      R1,[R0, #+36]
+   \       0x38   0x0649             LSLS     R1,R1,#+25
+   \       0x3A   0xD501             BPL.N    ??LPLD_ADC_Cal_1
+    622            {  
+    623             return 0;    //检查到校准错误，返回错误
+   \       0x3C   0x2000             MOVS     R0,#+0
+   \       0x3E   0xE02C             B.N      ??LPLD_ADC_Cal_2
+    624            }
+    625            // Calculate plus-side calibration
+    626            cal_var  = 0x00;
+   \                     ??LPLD_ADC_Cal_1: (+1)
+   \       0x40   0x2100             MOVS     R1,#+0
+    627            cal_var  = adcx->CLP0;       
+   \       0x42   0x6CC2             LDR      R2,[R0, #+76]
+    628            cal_var += adcx->CLP1;      
+   \       0x44   0x6C81             LDR      R1,[R0, #+72]
+   \       0x46   0x188A             ADDS     R2,R1,R2
+    629            cal_var += adcx->CLP2;      
+   \       0x48   0x6C41             LDR      R1,[R0, #+68]
+   \       0x4A   0x188A             ADDS     R2,R1,R2
+    630            cal_var += adcx->CLP3;      
+   \       0x4C   0x6C01             LDR      R1,[R0, #+64]
+   \       0x4E   0x188A             ADDS     R2,R1,R2
+    631            cal_var += adcx->CLP4;      
+   \       0x50   0x6BC1             LDR      R1,[R0, #+60]
+   \       0x52   0x188A             ADDS     R2,R1,R2
+    632            cal_var += adcx->CLPS;      
+   \       0x54   0x6B81             LDR      R1,[R0, #+56]
+   \       0x56   0x188A             ADDS     R2,R1,R2
+    633            cal_var  = cal_var/2;
+   \       0x58   0xB292             UXTH     R2,R2            ;; ZeroExt  R2,R2,#+16,#+16
+   \       0x5A   0x2102             MOVS     R1,#+2
+   \       0x5C   0xFB92 0xF1F1      SDIV     R1,R2,R1
+    634            cal_var |= 0x8000; // Set MSB
+   \       0x60   0xF451 0x4100      ORRS     R1,R1,#0x8000
+    635            
+    636            adcx->PG = ADC_PG_PG(cal_var);
+   \       0x64   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \       0x66   0x62C1             STR      R1,[R0, #+44]
+    637          
+    638            // Calculate minus-side calibration
+    639            cal_var = 0x00;
+   \       0x68   0x2100             MOVS     R1,#+0
+    640            cal_var =  adcx->CLM0; 
+   \       0x6A   0x6EC2             LDR      R2,[R0, #+108]
+    641            cal_var += adcx->CLM1;
+   \       0x6C   0x6E81             LDR      R1,[R0, #+104]
+   \       0x6E   0x188A             ADDS     R2,R1,R2
+    642            cal_var += adcx->CLM2;
+   \       0x70   0x6E41             LDR      R1,[R0, #+100]
+   \       0x72   0x188A             ADDS     R2,R1,R2
+    643            cal_var += adcx->CLM3;
+   \       0x74   0x6E01             LDR      R1,[R0, #+96]
+   \       0x76   0x188A             ADDS     R2,R1,R2
+    644            cal_var += adcx->CLM4;
+   \       0x78   0x6DC1             LDR      R1,[R0, #+92]
+   \       0x7A   0x188A             ADDS     R2,R1,R2
+    645            cal_var += adcx->CLMS;
+   \       0x7C   0x6D81             LDR      R1,[R0, #+88]
+   \       0x7E   0x188A             ADDS     R2,R1,R2
+    646            cal_var = cal_var/2;
+   \       0x80   0xB292             UXTH     R2,R2            ;; ZeroExt  R2,R2,#+16,#+16
+   \       0x82   0x2102             MOVS     R1,#+2
+   \       0x84   0xFB92 0xF1F1      SDIV     R1,R2,R1
+    647            cal_var |= 0x8000; // Set MSB
+   \       0x88   0xF451 0x4100      ORRS     R1,R1,#0x8000
+    648          
+    649            adcx->MG   = ADC_MG_MG(cal_var); 
+   \       0x8C   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \       0x8E   0x6301             STR      R1,[R0, #+48]
+    650            adcx->SC3 &= ~ADC_SC3_CAL_MASK ; //清除校验标志
+   \       0x90   0x6A41             LDR      R1,[R0, #+36]
+   \       0x92   0xF031 0x0180      BICS     R1,R1,#0x80
+   \       0x96   0x6241             STR      R1,[R0, #+36]
+    651            
+    652            return 1;
+   \       0x98   0x2001             MOVS     R0,#+1
+   \                     ??LPLD_ADC_Cal_2: (+1)
+   \       0x9A   0x4770             BX       LR               ;; return
+    653          }
+    654          
+    655          /*
+    656           * ADC0--ADC1中断处理函数
+    657           * 与启动文件startup_K60.s中的中断向量表关联
+    658           * 用户无需修改，程序自动进入对应通道中断函数
+    659           */
+    660          
+
+   \                                 In section .text, align 2, keep-with-next
+    661          void ADC0_IRQHandler(void)
+    662          {
+   \                     ADC0_IRQHandler: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    663          #if (UCOS_II > 0u)
+    664            OS_CPU_SR  cpu_sr = 0u;
+    665            OS_ENTER_CRITICAL(); //告知系统此时已经进入了中断服务子函数
+    666            OSIntEnter();
+    667            OS_EXIT_CRITICAL();
+    668          #endif
+    669            
+    670            //调用用户自定义中断服务
+    671            ADC_ISR[0]();  
+   \        0x2   0x....             LDR.N    R0,??DataTable10_5
+   \        0x4   0x6800             LDR      R0,[R0, #+0]
+   \        0x6   0x4780             BLX      R0
+    672            
+    673          #if (UCOS_II > 0u)
+    674            OSIntExit();          //告知系统此时即将离开中断服务子函数
+    675          #endif
+    676          }
+   \        0x8   0xBD01             POP      {R0,PC}          ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+    677          void ADC1_IRQHandler(void)
+    678          {
+   \                     ADC1_IRQHandler: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    679          #if (UCOS_II > 0u)
+    680            OS_CPU_SR  cpu_sr = 0u;
+    681            OS_ENTER_CRITICAL(); //告知系统此时已经进入了中断服务子函数
+    682            OSIntEnter();
+    683            OS_EXIT_CRITICAL();
+    684          #endif
+    685            
+    686            //调用用户自定义中断服务
+    687            ADC_ISR[1]();  
+   \        0x2   0x....             LDR.N    R0,??DataTable10_5
+   \        0x4   0x6840             LDR      R0,[R0, #+4]
+   \        0x6   0x4780             BLX      R0
+    688            
+    689          #if (UCOS_II > 0u)
+    690            OSIntExit();          //告知系统此时即将离开中断服务子函数
+    691          #endif
+    692          }
+   \        0x8   0xBD01             POP      {R0,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10:
+   \        0x0   0xE000'E100        DC32     0xe000e100
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_1:
+   \        0x0   0xE000'E180        DC32     0xe000e180
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_2:
+   \        0x0   0x....'....        DC32     ?_0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_3:
+   \        0x0   0x4003'B000        DC32     0x4003b000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_4:
+   \        0x0   0x4004'803C        DC32     0x4004803c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_5:
+   \        0x0   0x....'....        DC32     ADC_ISR
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_6:
+   \        0x0   0x400B'B000        DC32     0x400bb000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_7:
+   \        0x0   0x4004'8030        DC32     0x40048030
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_8:
+   \        0x0   0x4004'B008        DC32     0x4004b008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_9:
+   \        0x0   0x4004'C004        DC32     0x4004c004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_10:
+   \        0x0   0x4004'C000        DC32     0x4004c000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_11:
+   \        0x0   0x4004'A000        DC32     0x4004a000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_12:
+   \        0x0   0x4004'9000        DC32     0x40049000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_13:
+   \        0x0   0x4004'B000        DC32     0x4004b000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_14:
+   \        0x0   0x4004'D000        DC32     0x4004d000
+
+   \                                 In section .rodata, align 4
+   \                     ?_0:
+   \        0x0   0x43 0x3A          DC8 43H, 3AH, 5CH, 55H, 73H, 65H, 72H, 73H
+   \              0x5C 0x55    
+   \              0x73 0x65    
+   \              0x72 0x73    
+   \        0x8   0x5C 0x71          DC8 5CH, 71H, 75H, 65H, 5CH, 44H, 65H, 73H
+   \              0x75 0x65    
+   \              0x5C 0x44    
+   \              0x65 0x73    
+   \       0x10   0x6B 0x74          DC8 6BH, 74H, 6FH, 70H, 5CH, 41H, 41H, 41H
+   \              0x6F 0x70    
+   \              0x5C 0x41    
+   \              0x41 0x41    
+   \       0x18   0x5F 0x78          DC8 5FH, 78H, 69H, 6EH, 62H, 69H, 61H, 6FH
+   \              0x69 0x6E    
+   \              0x62 0x69    
+   \              0x61 0x6F    
+   \       0x20   0x5C 0x73          DC8 5CH, 73H, 6DH, 61H, 72H, 74H, 63H, 61H
+   \              0x6D 0x61    
+   \              0x72 0x74    
+   \              0x63 0x61    
+   \       0x28   0x72 0x5C          DC8 72H, 5CH, 6CH, 69H, 62H, 5CH, 4CH, 50H
+   \              0x6C 0x69    
+   \              0x62 0x5C    
+   \              0x4C 0x50    
+   \       0x30   0x4C 0x44          DC8 4CH, 44H, 5CH, 48H, 57H, 5CH, 48H, 57H
+   \              0x5C 0x48    
+   \              0x57 0x5C    
+   \              0x48 0x57    
+   \       0x38   0x5F 0x41          DC8 5FH, 41H, 44H, 43H, 2EH, 63H, 0
+   \              0x44 0x43    
+   \              0x2E 0x63    
+   \              0x00         
+   \       0x3F   0x00               DC8 0
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   ADC0_IRQHandler
+         8   -- Indirect call
+       8   ADC1_IRQHandler
+         8   -- Indirect call
+       0   LPLD_ADC_Cal
+       0   LPLD_ADC_Chn_Enable
+      16   LPLD_ADC_Deinit
+      24   LPLD_ADC_DisableIrq
+        24   -> __NVIC_DisableIRQ
+      24   LPLD_ADC_EnableConversion
+        24   -> assert_failed
+      24   LPLD_ADC_EnableIrq
+        24   -> __NVIC_EnableIRQ
+       0   LPLD_ADC_Get
+      16   LPLD_ADC_GetResult
+        16   -> assert_failed
+       0   LPLD_ADC_GetSC1nCOCO
+      64   LPLD_ADC_Init
+        64   -> LPLD_ADC_Cal
+        64   -> assert_failed
+       0   __NVIC_DisableIRQ
+       0   __NVIC_EnableIRQ
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable10
+       4  ??DataTable10_1
+       4  ??DataTable10_10
+       4  ??DataTable10_11
+       4  ??DataTable10_12
+       4  ??DataTable10_13
+       4  ??DataTable10_14
+       4  ??DataTable10_2
+       4  ??DataTable10_3
+       4  ??DataTable10_4
+       4  ??DataTable10_5
+       4  ??DataTable10_6
+       4  ??DataTable10_7
+       4  ??DataTable10_8
+       4  ??DataTable10_9
+      64  ?_0
+      10  ADC0_IRQHandler
+      10  ADC1_IRQHandler
+       8  ADC_ISR
+     156  LPLD_ADC_Cal
+     428  LPLD_ADC_Chn_Enable
+      72  LPLD_ADC_Deinit
+      44  LPLD_ADC_DisableIrq
+     120  LPLD_ADC_EnableConversion
+      44  LPLD_ADC_EnableIrq
+      40  LPLD_ADC_Get
+      38  LPLD_ADC_GetResult
+      24  LPLD_ADC_GetSC1nCOCO
+     422  LPLD_ADC_Init
+      38  __NVIC_DisableIRQ
+      30  __NVIC_EnableIRQ
+
+ 
+     8 bytes in section .bss
+    64 bytes in section .rodata
+ 1 536 bytes in section .text
+ 
+ 1 536 bytes of CODE  memory
+    64 bytes of CONST memory
+     8 bytes of DATA  memory
+
+Errors: none
+Warnings: 1

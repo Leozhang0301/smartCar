@@ -1,0 +1,1013 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         08/Jul/2019  00:40:59
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\xiugai\lib\common\menu.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW7133.tmp
+#        (G:\AIcar\@@\xiugai\lib\common\menu.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -lB
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -o "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\" -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -On -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List\menu.lst
+#    Object file  =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj\menu.o
+#
+###############################################################################
+
+G:\AIcar\@@\xiugai\lib\common\menu.c
+      1          #include "include.h"
+      2          
+      3          
+
+   \                                 In section .bss, align 4
+      4          int Py=0;//焦点坐标  第一行为0  每行加2
+   \                     Py:
+   \        0x0                      DS8 4
+
+   \                                 In section .data, align 4
+      5          int page=1;//页数  1为图像显示  2为模式选择   3为参数设置
+   \                     page:
+   \        0x0   0x0000'0001        DC32 1
+      6          void Menu();
+      7          void ShowMainMune();
+      8          void ShowCamera();
+      9          void ShowMode();
+     10          void ShowSetting();
+     11          
+     12          
+
+   \                                 In section .text, align 2, keep-with-next
+     13          void Menu()
+     14          {
+   \                     Menu: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+     15            if(page == 1)
+   \        0x2   0x....'....        LDR.W    R4,??DataTable4_3
+   \        0x6   0x6820             LDR      R0,[R4, #+0]
+   \        0x8   0x2801             CMP      R0,#+1
+   \        0xA   0xD105             BNE.N    ??Menu_0
+     16            {
+     17              ShowCamera();
+   \        0xC   0x....'....        BL       ShowCamera
+     18              KeyValue=0;
+   \       0x10   0x2000             MOVS     R0,#+0
+   \       0x12   0x....'....        LDR.W    R1,??DataTable4_4
+   \       0x16   0x7008             STRB     R0,[R1, #+0]
+     19            }
+     20            if(page == 2)
+   \                     ??Menu_0: (+1)
+   \       0x18   0x6820             LDR      R0,[R4, #+0]
+   \       0x1A   0x2802             CMP      R0,#+2
+   \       0x1C   0xD105             BNE.N    ??Menu_1
+     21            {
+     22              ShowMode();
+   \       0x1E   0x....'....        BL       ShowMode
+     23              KeyValue=0;
+   \       0x22   0x2000             MOVS     R0,#+0
+   \       0x24   0x....'....        LDR.W    R1,??DataTable4_4
+   \       0x28   0x7008             STRB     R0,[R1, #+0]
+     24            }
+     25            if (page == 3)
+   \                     ??Menu_1: (+1)
+   \       0x2A   0x6820             LDR      R0,[R4, #+0]
+   \       0x2C   0x2803             CMP      R0,#+3
+   \       0x2E   0xD105             BNE.N    ??Menu_2
+     26            {
+     27              ShowSetting();
+   \       0x30   0x....'....        BL       ShowSetting
+     28              KeyValue=0;
+   \       0x34   0x2000             MOVS     R0,#+0
+   \       0x36   0x....'....        LDR.W    R1,??DataTable4_4
+   \       0x3A   0x7008             STRB     R0,[R1, #+0]
+     29            }
+     30              if (page == 4)
+   \                     ??Menu_2: (+1)
+   \       0x3C   0x6820             LDR      R0,[R4, #+0]
+   \       0x3E   0x2804             CMP      R0,#+4
+   \       0x40   0xD105             BNE.N    ??Menu_3
+     31            {
+     32              tiaocan();
+   \       0x42   0x....'....        BL       tiaocan
+     33              KeyValue=0;
+   \       0x46   0x2000             MOVS     R0,#+0
+   \       0x48   0x....'....        LDR.W    R1,??DataTable4_4
+   \       0x4C   0x7008             STRB     R0,[R1, #+0]
+     34            }
+     35          }
+   \                     ??Menu_3: (+1)
+   \       0x4E   0xBD10             POP      {R4,PC}          ;; return
+     36          
+
+   \                                 In section .text, align 2, keep-with-next
+     37          void ShowCamera()
+     38          {    
+   \                     ShowCamera: (+1)
+   \        0x0   0xB538             PUSH     {R3-R5,LR}
+     39              img_display();
+   \        0x2   0x....'....        BL       img_display
+     40              LCD_Write_Int(80, 4,  ImgThreshold);
+   \        0x6   0x....'....        LDR.W    R4,??DataTable4_5
+   \        0xA   0xF9B4 0x0000      LDRSH    R0,[R4, #+0]
+   \        0xE   0x0002             MOVS     R2,R0
+   \       0x10   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \       0x12   0x2104             MOVS     R1,#+4
+   \       0x14   0x2050             MOVS     R0,#+80
+   \       0x16   0x....'....        BL       LCD_Write_Int
+     41              LCD_Write_Int(80, 5,  light_flag);
+   \       0x1A   0x....'....        LDR.W    R0,??DataTable4_6
+   \       0x1E   0x6802             LDR      R2,[R0, #+0]
+   \       0x20   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \       0x22   0x2105             MOVS     R1,#+5
+   \       0x24   0x2050             MOVS     R0,#+80
+   \       0x26   0x....'....        BL       LCD_Write_Int
+     42              LCD_Write_Int(80, 6,  zbpiancha);
+   \       0x2A   0x....'....        LDR.W    R5,??DataTable4_7
+   \       0x2E   0xF9B5 0x2000      LDRSH    R2,[R5, #+0]
+   \       0x32   0x2106             MOVS     R1,#+6
+   \       0x34   0x2050             MOVS     R0,#+80
+   \       0x36   0x....'....        BL       LCD_Write_Int
+     43              switch(KeyValue)
+   \       0x3A   0x....'....        LDR.W    R0,??DataTable4_4
+   \       0x3E   0x7800             LDRB     R0,[R0, #+0]
+   \       0x40   0x2801             CMP      R0,#+1
+   \       0x42   0xD01A             BEQ.N    ??ShowCamera_0
+   \       0x44   0x2803             CMP      R0,#+3
+   \       0x46   0xD021             BEQ.N    ??ShowCamera_1
+   \       0x48   0x2804             CMP      R0,#+4
+   \       0x4A   0xD006             BEQ.N    ??ShowCamera_2
+   \       0x4C   0x2806             CMP      R0,#+6
+   \       0x4E   0xD00C             BEQ.N    ??ShowCamera_3
+   \       0x50   0x2808             CMP      R0,#+8
+   \       0x52   0xD031             BEQ.N    ??ShowCamera_4
+   \       0x54   0x2809             CMP      R0,#+9
+   \       0x56   0xD022             BEQ.N    ??ShowCamera_5
+   \       0x58   0xE031             B.N      ??ShowCamera_6
+     44              {
+     45                case 4:
+     46                  ImgThreshold-=5;
+   \                     ??ShowCamera_2: (+1)
+   \       0x5A   0x8820             LDRH     R0,[R4, #+0]
+   \       0x5C   0x1F40             SUBS     R0,R0,#+5
+   \       0x5E   0x8020             STRH     R0,[R4, #+0]
+     47                  SCCB_WriteByte(OV7725_CNST,ImgThreshold);
+   \       0x60   0x8821             LDRH     R1,[R4, #+0]
+   \       0x62   0x209C             MOVS     R0,#+156
+   \       0x64   0x....'....        BL       SCCB_WriteByte
+     48                  break;
+   \       0x68   0xE029             B.N      ??ShowCamera_7
+     49                case 6:
+     50                  ImgThreshold+=5;
+   \                     ??ShowCamera_3: (+1)
+   \       0x6A   0x8820             LDRH     R0,[R4, #+0]
+   \       0x6C   0x1D40             ADDS     R0,R0,#+5
+   \       0x6E   0x8020             STRH     R0,[R4, #+0]
+     51                  SCCB_WriteByte(OV7725_CNST,ImgThreshold);
+   \       0x70   0x8821             LDRH     R1,[R4, #+0]
+   \       0x72   0x209C             MOVS     R0,#+156
+   \       0x74   0x....'....        BL       SCCB_WriteByte
+     52                  break;
+   \       0x78   0xE021             B.N      ??ShowCamera_7
+     53                case 1:
+     54                  zbpiancha-=1;
+   \                     ??ShowCamera_0: (+1)
+   \       0x7A   0x8828             LDRH     R0,[R5, #+0]
+   \       0x7C   0x1E40             SUBS     R0,R0,#+1
+   \       0x7E   0x8028             STRH     R0,[R5, #+0]
+     55                  niupiancha-=2;
+   \       0x80   0x....'....        LDR.W    R0,??DataTable4_8
+   \       0x84   0x8801             LDRH     R1,[R0, #+0]
+   \       0x86   0x1E89             SUBS     R1,R1,#+2
+   \       0x88   0x8001             STRH     R1,[R0, #+0]
+     56                  break;
+   \       0x8A   0xE018             B.N      ??ShowCamera_7
+     57                case 3:
+     58                  zbpiancha+=1;
+   \                     ??ShowCamera_1: (+1)
+   \       0x8C   0x8828             LDRH     R0,[R5, #+0]
+   \       0x8E   0x1C40             ADDS     R0,R0,#+1
+   \       0x90   0x8028             STRH     R0,[R5, #+0]
+     59                  niupiancha+=2;
+   \       0x92   0x....'....        LDR.W    R0,??DataTable4_8
+   \       0x96   0x8801             LDRH     R1,[R0, #+0]
+   \       0x98   0x1C89             ADDS     R1,R1,#+2
+   \       0x9A   0x8001             STRH     R1,[R0, #+0]
+     60                  break;
+   \       0x9C   0xE00F             B.N      ??ShowCamera_7
+     61                case 9:
+     62                  page++;
+   \                     ??ShowCamera_5: (+1)
+   \       0x9E   0x....'....        LDR.W    R0,??DataTable4_3
+   \       0xA2   0x6801             LDR      R1,[R0, #+0]
+   \       0xA4   0x1C49             ADDS     R1,R1,#+1
+   \       0xA6   0x6001             STR      R1,[R0, #+0]
+     63                  if(page >4) {page = 1;}
+   \       0xA8   0x6801             LDR      R1,[R0, #+0]
+   \       0xAA   0x2905             CMP      R1,#+5
+   \       0xAC   0xDB01             BLT.N    ??ShowCamera_8
+   \       0xAE   0x2101             MOVS     R1,#+1
+   \       0xB0   0x6001             STR      R1,[R0, #+0]
+     64                  LCD_CLS(); 
+   \                     ??ShowCamera_8: (+1)
+   \       0xB2   0x....'....        BL       LCD_CLS
+     65                  break;
+   \       0xB6   0xE002             B.N      ??ShowCamera_7
+     66              case 8:
+     67                send_img_data();
+   \                     ??ShowCamera_4: (+1)
+   \       0xB8   0x....'....        BL       send_img_data
+     68                break;
+   \       0xBC   0xE7FF             B.N      ??ShowCamera_7
+     69                default:
+     70                  break;
+     71              }
+     72            
+     73          }
+   \                     ??ShowCamera_6: (+1)
+   \                     ??ShowCamera_7: (+1)
+   \       0xBE   0xBD31             POP      {R0,R4,R5,PC}    ;; return
+     74          
+
+   \                                 In section .text, align 2, keep-with-next
+     75          void tiaocan()
+     76          {
+   \                     tiaocan: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+     77              LCD_P6x8Str(10,0,"p");
+   \        0x2   0x....             ADR.N    R2,??DataTable3  ;; "p"
+   \        0x4   0x2100             MOVS     R1,#+0
+   \        0x6   0x200A             MOVS     R0,#+10
+   \        0x8   0x....'....        BL       LCD_P6x8Str
+     78              LCD_P6x8Str(10,1,"i"); 
+   \        0xC   0x....             ADR.N    R2,??DataTable3_1  ;; "i"
+   \        0xE   0x2101             MOVS     R1,#+1
+   \       0x10   0x200A             MOVS     R0,#+10
+   \       0x12   0x....'....        BL       LCD_P6x8Str
+     79              LCD_P6x8Str(1,Py,"*");
+   \       0x16   0x....             LDR.N    R4,??DataTable4_9
+   \       0x18   0x....             ADR.N    R2,??DataTable3_2  ;; "*"
+   \       0x1A   0x6820             LDR      R0,[R4, #+0]
+   \       0x1C   0x0001             MOVS     R1,R0
+   \       0x1E   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0x20   0x2001             MOVS     R0,#+1
+   \       0x22   0x....'....        BL       LCD_P6x8Str
+     80             // LCD_Write_Float(80,0,shuliang);
+     81             // LCD_Write_Int(80,1,carspeed);
+     82              switch(KeyValue)
+   \       0x26   0x....             LDR.N    R0,??DataTable4_4
+   \       0x28   0x7800             LDRB     R0,[R0, #+0]
+   \       0x2A   0x2801             CMP      R0,#+1
+   \       0x2C   0xD022             BEQ.N    ??tiaocan_0
+   \       0x2E   0x2802             CMP      R0,#+2
+   \       0x30   0xD00A             BEQ.N    ??tiaocan_1
+   \       0x32   0x2803             CMP      R0,#+3
+   \       0x34   0xD02A             BEQ.N    ??tiaocan_2
+   \       0x36   0x2804             CMP      R0,#+4
+   \       0x38   0xD034             BEQ.N    ??tiaocan_3
+   \       0x3A   0x2806             CMP      R0,#+6
+   \       0x3C   0xD03E             BEQ.N    ??tiaocan_4
+   \       0x3E   0x2808             CMP      R0,#+8
+   \       0x40   0xD00D             BEQ.N    ??tiaocan_5
+   \       0x42   0x2809             CMP      R0,#+9
+   \       0x44   0xD046             BEQ.N    ??tiaocan_6
+   \       0x46   0xE051             B.N      ??tiaocan_7
+     83              {
+     84            case 2:
+     85              Py--;
+   \                     ??tiaocan_1: (+1)
+   \       0x48   0x6820             LDR      R0,[R4, #+0]
+   \       0x4A   0x1E40             SUBS     R0,R0,#+1
+   \       0x4C   0x6020             STR      R0,[R4, #+0]
+     86              if(Py<0){Py=0;}
+   \       0x4E   0x6820             LDR      R0,[R4, #+0]
+   \       0x50   0x2800             CMP      R0,#+0
+   \       0x52   0xD501             BPL.N    ??tiaocan_8
+   \       0x54   0x2000             MOVS     R0,#+0
+   \       0x56   0x6020             STR      R0,[R4, #+0]
+     87              LCD_CLS();
+   \                     ??tiaocan_8: (+1)
+   \       0x58   0x....'....        BL       LCD_CLS
+     88              break;
+   \       0x5C   0xE046             B.N      ??tiaocan_9
+     89            case 8:
+     90              Py++;
+   \                     ??tiaocan_5: (+1)
+   \       0x5E   0x6820             LDR      R0,[R4, #+0]
+   \       0x60   0x1C40             ADDS     R0,R0,#+1
+   \       0x62   0x6020             STR      R0,[R4, #+0]
+     91              if(Py>1){Py=1;}
+   \       0x64   0x6820             LDR      R0,[R4, #+0]
+   \       0x66   0x2802             CMP      R0,#+2
+   \       0x68   0xDB01             BLT.N    ??tiaocan_10
+   \       0x6A   0x2001             MOVS     R0,#+1
+   \       0x6C   0x6020             STR      R0,[R4, #+0]
+     92              LCD_CLS();
+   \                     ??tiaocan_10: (+1)
+   \       0x6E   0x....'....        BL       LCD_CLS
+     93              break;
+   \       0x72   0xE03B             B.N      ??tiaocan_9
+     94            case 1:
+     95              nbpid_kP-= 0.5;
+   \                     ??tiaocan_0: (+1)
+   \       0x74   0x....             LDR.N    R4,??DataTable4_10
+   \       0x76   0x6820             LDR      R0,[R4, #+0]
+   \       0x78   0x....'....        BL       __aeabi_f2d
+   \       0x7C   0x2200             MOVS     R2,#+0
+   \       0x7E   0x....             LDR.N    R3,??DataTable4_11  ;; 0xbfe00000
+   \       0x80   0x....'....        BL       __aeabi_dadd
+   \       0x84   0x....'....        BL       __aeabi_d2f
+   \       0x88   0x6020             STR      R0,[R4, #+0]
+     96              break;
+   \       0x8A   0xE02F             B.N      ??tiaocan_9
+     97            case 3:
+     98              nbpid_kP+= 0.5;
+   \                     ??tiaocan_2: (+1)
+   \       0x8C   0x....             LDR.N    R4,??DataTable4_10
+   \       0x8E   0x6820             LDR      R0,[R4, #+0]
+   \       0x90   0x....'....        BL       __aeabi_f2d
+   \       0x94   0x2200             MOVS     R2,#+0
+   \       0x96   0x....             LDR.N    R3,??DataTable4_12  ;; 0x3fe00000
+   \       0x98   0x....'....        BL       __aeabi_dadd
+   \       0x9C   0x....'....        BL       __aeabi_d2f
+   \       0xA0   0x6020             STR      R0,[R4, #+0]
+     99              break;
+   \       0xA2   0xE023             B.N      ??tiaocan_9
+    100            case 4:
+    101          nbpid_kI -= 0.1;
+   \                     ??tiaocan_3: (+1)
+   \       0xA4   0x....             LDR.N    R4,??DataTable4_13
+   \       0xA6   0x6820             LDR      R0,[R4, #+0]
+   \       0xA8   0x....'....        BL       __aeabi_f2d
+   \       0xAC   0x....             LDR.N    R2,??DataTable4_14  ;; 0x9999999a
+   \       0xAE   0x....             LDR.N    R3,??DataTable4_15  ;; 0xbfb99999
+   \       0xB0   0x....'....        BL       __aeabi_dadd
+   \       0xB4   0x....'....        BL       __aeabi_d2f
+   \       0xB8   0x6020             STR      R0,[R4, #+0]
+    102                break;
+   \       0xBA   0xE017             B.N      ??tiaocan_9
+    103                  case 6:
+    104          nbpid_kI += 0.1;
+   \                     ??tiaocan_4: (+1)
+   \       0xBC   0x....             LDR.N    R4,??DataTable4_13
+   \       0xBE   0x6820             LDR      R0,[R4, #+0]
+   \       0xC0   0x....'....        BL       __aeabi_f2d
+   \       0xC4   0x....             LDR.N    R2,??DataTable4_14  ;; 0x9999999a
+   \       0xC6   0x....             LDR.N    R3,??DataTable4_16  ;; 0x3fb99999
+   \       0xC8   0x....'....        BL       __aeabi_dadd
+   \       0xCC   0x....'....        BL       __aeabi_d2f
+   \       0xD0   0x6020             STR      R0,[R4, #+0]
+    105                break;
+   \       0xD2   0xE00B             B.N      ??tiaocan_9
+    106                   case 9:
+    107               page++;
+   \                     ??tiaocan_6: (+1)
+   \       0xD4   0x....             LDR.N    R0,??DataTable4_3
+   \       0xD6   0x6801             LDR      R1,[R0, #+0]
+   \       0xD8   0x1C49             ADDS     R1,R1,#+1
+   \       0xDA   0x6001             STR      R1,[R0, #+0]
+    108               if(page>4){page=1;}
+   \       0xDC   0x6801             LDR      R1,[R0, #+0]
+   \       0xDE   0x2905             CMP      R1,#+5
+   \       0xE0   0xDB01             BLT.N    ??tiaocan_11
+   \       0xE2   0x2101             MOVS     R1,#+1
+   \       0xE4   0x6001             STR      R1,[R0, #+0]
+    109               LCD_CLS();
+   \                     ??tiaocan_11: (+1)
+   \       0xE6   0x....'....        BL       LCD_CLS
+    110               break;
+   \       0xEA   0xE7FF             B.N      ??tiaocan_9
+    111              default:
+    112                break;
+    113              }
+    114          }
+   \                     ??tiaocan_7: (+1)
+   \                     ??tiaocan_9: (+1)
+   \       0xEC   0xBD10             POP      {R4,PC}          ;; return
+    115          
+
+   \                                 In section .text, align 2, keep-with-next
+    116          void ShowSetting()
+    117          {
+   \                     ShowSetting: (+1)
+   \        0x0   0xB5F8             PUSH     {R3-R7,LR}
+    118            LCD_P6x8Str(10,0,"vx");
+   \        0x2   0x....             ADR.N    R2,??DataTable4  ;; 0x76, 0x78, 0x00, 0x00
+   \        0x4   0x2100             MOVS     R1,#+0
+   \        0x6   0x200A             MOVS     R0,#+10
+   \        0x8   0x....'....        BL       LCD_P6x8Str
+    119            LCD_P6x8Str(10,1,"vy"); 
+   \        0xC   0x....             ADR.N    R2,??DataTable4_1  ;; 0x76, 0x79, 0x00, 0x00
+   \        0xE   0x2101             MOVS     R1,#+1
+   \       0x10   0x200A             MOVS     R0,#+10
+   \       0x12   0x....'....        BL       LCD_P6x8Str
+    120            LCD_P6x8Str(10,2,"vz"); 
+   \       0x16   0x....             ADR.N    R2,??DataTable4_2  ;; 0x76, 0x7A, 0x00, 0x00
+   \       0x18   0x2102             MOVS     R1,#+2
+   \       0x1A   0x200A             MOVS     R0,#+10
+   \       0x1C   0x....'....        BL       LCD_P6x8Str
+    121            LCD_P6x8Str(1,Py,"*");
+   \       0x20   0x....             LDR.N    R4,??DataTable4_9
+   \       0x22   0x....             ADR.N    R2,??DataTable3_2  ;; "*"
+   \       0x24   0x6820             LDR      R0,[R4, #+0]
+   \       0x26   0x0001             MOVS     R1,R0
+   \       0x28   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0x2A   0x2001             MOVS     R0,#+1
+   \       0x2C   0x....'....        BL       LCD_P6x8Str
+    122            LCD_Write_Int(80,0,XValue);
+   \       0x30   0x....             LDR.N    R5,??DataTable4_17
+   \       0x32   0x682A             LDR      R2,[R5, #+0]
+   \       0x34   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \       0x36   0x2100             MOVS     R1,#+0
+   \       0x38   0x2050             MOVS     R0,#+80
+   \       0x3A   0x....'....        BL       LCD_Write_Int
+    123            LCD_Write_Int(80,1,YValue);
+   \       0x3E   0x....             LDR.N    R6,??DataTable4_18
+   \       0x40   0x6832             LDR      R2,[R6, #+0]
+   \       0x42   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \       0x44   0x2101             MOVS     R1,#+1
+   \       0x46   0x2050             MOVS     R0,#+80
+   \       0x48   0x....'....        BL       LCD_Write_Int
+    124            LCD_Write_Int(80,2,ZValue);
+   \       0x4C   0x....             LDR.N    R7,??DataTable4_19
+   \       0x4E   0x683A             LDR      R2,[R7, #+0]
+   \       0x50   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \       0x52   0x2102             MOVS     R1,#+2
+   \       0x54   0x2050             MOVS     R0,#+80
+   \       0x56   0x....'....        BL       LCD_Write_Int
+    125            
+    126            switch(KeyValue)
+   \       0x5A   0x....             LDR.N    R0,??DataTable4_4
+   \       0x5C   0x7800             LDRB     R0,[R0, #+0]
+   \       0x5E   0x2802             CMP      R0,#+2
+   \       0x60   0xD008             BEQ.N    ??ShowSetting_0
+   \       0x62   0x2804             CMP      R0,#+4
+   \       0x64   0xD01C             BEQ.N    ??ShowSetting_1
+   \       0x66   0x2806             CMP      R0,#+6
+   \       0x68   0xD033             BEQ.N    ??ShowSetting_2
+   \       0x6A   0x2808             CMP      R0,#+8
+   \       0x6C   0xD00D             BEQ.N    ??ShowSetting_3
+   \       0x6E   0x2809             CMP      R0,#+9
+   \       0x70   0xD048             BEQ.N    ??ShowSetting_4
+   \       0x72   0xE053             B.N      ??ShowSetting_5
+    127            {
+    128            case 2:
+    129              Py--;
+   \                     ??ShowSetting_0: (+1)
+   \       0x74   0x6820             LDR      R0,[R4, #+0]
+   \       0x76   0x1E40             SUBS     R0,R0,#+1
+   \       0x78   0x6020             STR      R0,[R4, #+0]
+    130              if(Py<0){Py=0;}
+   \       0x7A   0x6820             LDR      R0,[R4, #+0]
+   \       0x7C   0x2800             CMP      R0,#+0
+   \       0x7E   0xD501             BPL.N    ??ShowSetting_6
+   \       0x80   0x2000             MOVS     R0,#+0
+   \       0x82   0x6020             STR      R0,[R4, #+0]
+    131              LCD_CLS();
+   \                     ??ShowSetting_6: (+1)
+   \       0x84   0x....'....        BL       LCD_CLS
+    132              break;
+   \       0x88   0xE048             B.N      ??ShowSetting_7
+    133            case 8:
+    134              Py++;
+   \                     ??ShowSetting_3: (+1)
+   \       0x8A   0x6820             LDR      R0,[R4, #+0]
+   \       0x8C   0x1C40             ADDS     R0,R0,#+1
+   \       0x8E   0x6020             STR      R0,[R4, #+0]
+    135              if(Py>2){Py=2;}
+   \       0x90   0x6820             LDR      R0,[R4, #+0]
+   \       0x92   0x2803             CMP      R0,#+3
+   \       0x94   0xDB01             BLT.N    ??ShowSetting_8
+   \       0x96   0x2002             MOVS     R0,#+2
+   \       0x98   0x6020             STR      R0,[R4, #+0]
+    136              LCD_CLS();
+   \                     ??ShowSetting_8: (+1)
+   \       0x9A   0x....'....        BL       LCD_CLS
+    137              break;
+   \       0x9E   0xE03D             B.N      ??ShowSetting_7
+    138            case 4:
+    139              if(Py==0){XValue-=10;}
+   \                     ??ShowSetting_1: (+1)
+   \       0xA0   0x6820             LDR      R0,[R4, #+0]
+   \       0xA2   0x2800             CMP      R0,#+0
+   \       0xA4   0xD103             BNE.N    ??ShowSetting_9
+   \       0xA6   0x6828             LDR      R0,[R5, #+0]
+   \       0xA8   0x380A             SUBS     R0,R0,#+10
+   \       0xAA   0x6028             STR      R0,[R5, #+0]
+   \       0xAC   0xE010             B.N      ??ShowSetting_10
+    140              else if(Py==1){YValue-=10;
+   \                     ??ShowSetting_9: (+1)
+   \       0xAE   0x6820             LDR      R0,[R4, #+0]
+   \       0xB0   0x2801             CMP      R0,#+1
+   \       0xB2   0xD107             BNE.N    ??ShowSetting_11
+   \       0xB4   0x6830             LDR      R0,[R6, #+0]
+   \       0xB6   0x380A             SUBS     R0,R0,#+10
+   \       0xB8   0x6030             STR      R0,[R6, #+0]
+    141                              RValue-=10;}
+   \       0xBA   0x....             LDR.N    R0,??DataTable4_20
+   \       0xBC   0x6801             LDR      R1,[R0, #+0]
+   \       0xBE   0x390A             SUBS     R1,R1,#+10
+   \       0xC0   0x6001             STR      R1,[R0, #+0]
+   \       0xC2   0xE005             B.N      ??ShowSetting_10
+    142              else if(Py==2){ZValue-=10;}
+   \                     ??ShowSetting_11: (+1)
+   \       0xC4   0x6820             LDR      R0,[R4, #+0]
+   \       0xC6   0x2802             CMP      R0,#+2
+   \       0xC8   0xD102             BNE.N    ??ShowSetting_10
+   \       0xCA   0x6838             LDR      R0,[R7, #+0]
+   \       0xCC   0x380A             SUBS     R0,R0,#+10
+   \       0xCE   0x6038             STR      R0,[R7, #+0]
+    143              break;
+   \                     ??ShowSetting_10: (+1)
+   \       0xD0   0xE024             B.N      ??ShowSetting_7
+    144            case 6:
+    145              if(Py==0){XValue+=10;}
+   \                     ??ShowSetting_2: (+1)
+   \       0xD2   0x6820             LDR      R0,[R4, #+0]
+   \       0xD4   0x2800             CMP      R0,#+0
+   \       0xD6   0xD103             BNE.N    ??ShowSetting_12
+   \       0xD8   0x6828             LDR      R0,[R5, #+0]
+   \       0xDA   0x300A             ADDS     R0,R0,#+10
+   \       0xDC   0x6028             STR      R0,[R5, #+0]
+   \       0xDE   0xE010             B.N      ??ShowSetting_13
+    146              else if(Py==1){YValue+=10;
+   \                     ??ShowSetting_12: (+1)
+   \       0xE0   0x6820             LDR      R0,[R4, #+0]
+   \       0xE2   0x2801             CMP      R0,#+1
+   \       0xE4   0xD107             BNE.N    ??ShowSetting_14
+   \       0xE6   0x6830             LDR      R0,[R6, #+0]
+   \       0xE8   0x300A             ADDS     R0,R0,#+10
+   \       0xEA   0x6030             STR      R0,[R6, #+0]
+    147                              RValue+=10;}
+   \       0xEC   0x....             LDR.N    R0,??DataTable4_20
+   \       0xEE   0x6801             LDR      R1,[R0, #+0]
+   \       0xF0   0x310A             ADDS     R1,R1,#+10
+   \       0xF2   0x6001             STR      R1,[R0, #+0]
+   \       0xF4   0xE005             B.N      ??ShowSetting_13
+    148              else if(Py==2){ZValue+=10;}
+   \                     ??ShowSetting_14: (+1)
+   \       0xF6   0x6820             LDR      R0,[R4, #+0]
+   \       0xF8   0x2802             CMP      R0,#+2
+   \       0xFA   0xD102             BNE.N    ??ShowSetting_13
+   \       0xFC   0x6838             LDR      R0,[R7, #+0]
+   \       0xFE   0x300A             ADDS     R0,R0,#+10
+   \      0x100   0x6038             STR      R0,[R7, #+0]
+    149              break;
+   \                     ??ShowSetting_13: (+1)
+   \      0x102   0xE00B             B.N      ??ShowSetting_7
+    150             case 9:
+    151               page++;
+   \                     ??ShowSetting_4: (+1)
+   \      0x104   0x....             LDR.N    R0,??DataTable4_3
+   \      0x106   0x6801             LDR      R1,[R0, #+0]
+   \      0x108   0x1C49             ADDS     R1,R1,#+1
+   \      0x10A   0x6001             STR      R1,[R0, #+0]
+    152               if(page>4){page=1;}
+   \      0x10C   0x6801             LDR      R1,[R0, #+0]
+   \      0x10E   0x2905             CMP      R1,#+5
+   \      0x110   0xDB01             BLT.N    ??ShowSetting_15
+   \      0x112   0x2101             MOVS     R1,#+1
+   \      0x114   0x6001             STR      R1,[R0, #+0]
+    153               LCD_CLS();
+   \                     ??ShowSetting_15: (+1)
+   \      0x116   0x....'....        BL       LCD_CLS
+    154               break;
+   \      0x11A   0xE7FF             B.N      ??ShowSetting_7
+    155            default:
+    156              break;
+    157            }
+    158          }
+   \                     ??ShowSetting_5: (+1)
+   \                     ??ShowSetting_7: (+1)
+   \      0x11C   0xBDF1             POP      {R0,R4-R7,PC}    ;; return
+    159          
+    160          //void ShowMode()
+    161          //{
+    162          ////    LCD_P6x8Str(10,0,"normol");
+    163          ////    LCD_P6x8Str(10,2,"high"); 
+    164          ////    LCD_P6x8Str(1,Py,"*");
+    165          //    LCD_Write_Float(80,0,shuliang);
+    166          //    LCD_Write_Int(80,1,carspeed);
+    167          //    switch(KeyValue)
+    168          //    {
+    169          //    case 1:
+    170          //      //正常模式
+    171          //    shuliang -= 0.1f;
+    172          //      break;
+    173          //    case 3:
+    174          //    shuliang +=0.1f;
+    175          //      break;
+    176          //    case 4:
+    177          //      //正常模式
+    178          //    carspeed -= 20;
+    179          //      break;
+    180          //    case 6:
+    181          //    carspeed += 20;
+    182          //      break;
+    183          //    case 9:
+    184          //      page++;
+    185          //      if(page>4){page=1;}
+    186          //      LCD_CLS();
+    187          //      break;
+    188          //    default:
+    189          //      break;
+    190          //    }
+    191          //}
+    192          
+
+   \                                 In section .text, align 2, keep-with-next
+    193          void ShowMode()
+    194          {
+   \                     ShowMode: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+    195          //    LCD_P6x8Str(10,0,"normol");
+    196          //    LCD_P6x8Str(10,2,"high"); 
+    197          //    LCD_P6x8Str(1,Py,"*");
+    198              LCD_Write_Float(80,0,shuliang);
+   \        0x2   0x....             LDR.N    R0,??DataTable4_21
+   \        0x4   0x6802             LDR      R2,[R0, #+0]
+   \        0x6   0x2100             MOVS     R1,#+0
+   \        0x8   0x2050             MOVS     R0,#+80
+   \        0xA   0x....'....        BL       LCD_Write_Float
+    199              LCD_Write_Int(80,1,carspeed);
+   \        0xE   0x....             LDR.N    R0,??DataTable4_22
+   \       0x10   0x6802             LDR      R2,[R0, #+0]
+   \       0x12   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \       0x14   0x2101             MOVS     R1,#+1
+   \       0x16   0x2050             MOVS     R0,#+80
+   \       0x18   0x....'....        BL       LCD_Write_Int
+    200              switch(KeyValue)
+   \       0x1C   0x....             LDR.N    R0,??DataTable4_4
+   \       0x1E   0x7800             LDRB     R0,[R0, #+0]
+   \       0x20   0x2801             CMP      R0,#+1
+   \       0x22   0xD00A             BEQ.N    ??ShowMode_0
+   \       0x24   0x2802             CMP      R0,#+2
+   \       0x26   0xD015             BEQ.N    ??ShowMode_1
+   \       0x28   0x2803             CMP      R0,#+3
+   \       0x2A   0xD020             BEQ.N    ??ShowMode_2
+   \       0x2C   0x2804             CMP      R0,#+4
+   \       0x2E   0xD02B             BEQ.N    ??ShowMode_3
+   \       0x30   0x2806             CMP      R0,#+6
+   \       0x32   0xD036             BEQ.N    ??ShowMode_4
+   \       0x34   0x2809             CMP      R0,#+9
+   \       0x36   0xD035             BEQ.N    ??ShowMode_5
+   \       0x38   0xE040             B.N      ??ShowMode_6
+    201              {
+    202              case 1:
+    203                //正常模式
+    204                  LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch5,4000 );//zuo
+   \                     ??ShowMode_0: (+1)
+   \       0x3A   0x....             LDR.N    R4,??DataTable4_23  ;; 0x40038000
+   \       0x3C   0xF44F 0x627A      MOV      R2,#+4000
+   \       0x40   0x2105             MOVS     R1,#+5
+   \       0x42   0x0020             MOVS     R0,R4
+   \       0x44   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    205              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch4, 0);
+   \       0x48   0x2200             MOVS     R2,#+0
+   \       0x4A   0x2104             MOVS     R1,#+4
+   \       0x4C   0x0020             MOVS     R0,R4
+   \       0x4E   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    206                break;
+   \       0x52   0xE033             B.N      ??ShowMode_7
+    207              case 2:
+    208                    LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch6, 0);  
+   \                     ??ShowMode_1: (+1)
+   \       0x54   0x....             LDR.N    R4,??DataTable4_23  ;; 0x40038000
+   \       0x56   0x2200             MOVS     R2,#+0
+   \       0x58   0x2106             MOVS     R1,#+6
+   \       0x5A   0x0020             MOVS     R0,R4
+   \       0x5C   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    209              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch7, 4000);
+   \       0x60   0xF44F 0x627A      MOV      R2,#+4000
+   \       0x64   0x2107             MOVS     R1,#+7
+   \       0x66   0x0020             MOVS     R0,R4
+   \       0x68   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    210              break;
+   \       0x6C   0xE026             B.N      ??ShowMode_7
+    211              case 3:
+    212                  LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch1, 0); 
+   \                     ??ShowMode_2: (+1)
+   \       0x6E   0x....             LDR.N    R4,??DataTable4_23  ;; 0x40038000
+   \       0x70   0x2200             MOVS     R2,#+0
+   \       0x72   0x2101             MOVS     R1,#+1
+   \       0x74   0x0020             MOVS     R0,R4
+   \       0x76   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    213              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch0,  4000);
+   \       0x7A   0xF44F 0x627A      MOV      R2,#+4000
+   \       0x7E   0x2100             MOVS     R1,#+0
+   \       0x80   0x0020             MOVS     R0,R4
+   \       0x82   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    214                break;
+   \       0x86   0xE019             B.N      ??ShowMode_7
+    215              case 4:
+    216                  LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch2, 4000);
+   \                     ??ShowMode_3: (+1)
+   \       0x88   0x....             LDR.N    R4,??DataTable4_23  ;; 0x40038000
+   \       0x8A   0xF44F 0x627A      MOV      R2,#+4000
+   \       0x8E   0x2102             MOVS     R1,#+2
+   \       0x90   0x0020             MOVS     R0,R4
+   \       0x92   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    217              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch3,0 ); 
+   \       0x96   0x2200             MOVS     R2,#+0
+   \       0x98   0x2103             MOVS     R1,#+3
+   \       0x9A   0x0020             MOVS     R0,R4
+   \       0x9C   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    218                break;
+   \       0xA0   0xE00C             B.N      ??ShowMode_7
+    219              case 6:
+    220              //carspeed += 20;
+    221                break;
+   \                     ??ShowMode_4: (+1)
+   \       0xA2   0xE00B             B.N      ??ShowMode_7
+    222              case 9:
+    223                page++;
+   \                     ??ShowMode_5: (+1)
+   \       0xA4   0x....             LDR.N    R0,??DataTable4_3
+   \       0xA6   0x6801             LDR      R1,[R0, #+0]
+   \       0xA8   0x1C49             ADDS     R1,R1,#+1
+   \       0xAA   0x6001             STR      R1,[R0, #+0]
+    224                if(page>4){page=1;}
+   \       0xAC   0x6801             LDR      R1,[R0, #+0]
+   \       0xAE   0x2905             CMP      R1,#+5
+   \       0xB0   0xDB01             BLT.N    ??ShowMode_8
+   \       0xB2   0x2101             MOVS     R1,#+1
+   \       0xB4   0x6001             STR      R1,[R0, #+0]
+    225                LCD_CLS();
+   \                     ??ShowMode_8: (+1)
+   \       0xB6   0x....'....        BL       LCD_CLS
+    226                break;
+   \       0xBA   0xE7FF             B.N      ??ShowMode_7
+    227              default:
+    228                break;
+    229              }
+    230          }
+   \                     ??ShowMode_6: (+1)
+   \                     ??ShowMode_7: (+1)
+   \       0xBC   0xBD10             POP      {R4,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3:
+   \        0x0   0x70 0x00          DC8      "p",0x0,0x0
+   \              0x00 0x00    
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_1:
+   \        0x0   0x69 0x00          DC8      "i",0x0,0x0
+   \              0x00 0x00    
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_2:
+   \        0x0   0x2A 0x00          DC8      "*",0x0,0x0
+   \              0x00 0x00    
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4:
+   \        0x0   0x76 0x78          DC8      0x76, 0x78, 0x00, 0x00
+   \              0x00 0x00    
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_1:
+   \        0x0   0x76 0x79          DC8      0x76, 0x79, 0x00, 0x00
+   \              0x00 0x00    
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_2:
+   \        0x0   0x76 0x7A          DC8      0x76, 0x7A, 0x00, 0x00
+   \              0x00 0x00    
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_3:
+   \        0x0   0x....'....        DC32     page
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_4:
+   \        0x0   0x....'....        DC32     KeyValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_5:
+   \        0x0   0x....'....        DC32     ImgThreshold
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_6:
+   \        0x0   0x....'....        DC32     light_flag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_7:
+   \        0x0   0x....'....        DC32     zbpiancha
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_8:
+   \        0x0   0x....'....        DC32     niupiancha
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_9:
+   \        0x0   0x....'....        DC32     Py
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_10:
+   \        0x0   0x....'....        DC32     nbpid_kP
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_11:
+   \        0x0   0xBFE0'0000        DC32     0xbfe00000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_12:
+   \        0x0   0x3FE0'0000        DC32     0x3fe00000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_13:
+   \        0x0   0x....'....        DC32     nbpid_kI
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_14:
+   \        0x0   0x9999'999A        DC32     0x9999999a
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_15:
+   \        0x0   0xBFB9'9999        DC32     0xbfb99999
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_16:
+   \        0x0   0x3FB9'9999        DC32     0x3fb99999
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_17:
+   \        0x0   0x....'....        DC32     XValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_18:
+   \        0x0   0x....'....        DC32     YValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_19:
+   \        0x0   0x....'....        DC32     ZValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_20:
+   \        0x0   0x....'....        DC32     RValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_21:
+   \        0x0   0x....'....        DC32     shuliang
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_22:
+   \        0x0   0x....'....        DC32     carspeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_23:
+   \        0x0   0x4003'8000        DC32     0x40038000
+
+   \                                 In section .rodata, align 2
+   \        0x0   0x70 0x00          DC8 "p"
+
+   \                                 In section .rodata, align 2
+   \        0x0   0x69 0x00          DC8 "i"
+
+   \                                 In section .rodata, align 2
+   \        0x0   0x2A 0x00          DC8 "*"
+
+   \                                 In section .rodata, align 4
+   \        0x0   0x76 0x78          DC8 "vx"
+   \              0x00         
+   \        0x3   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \        0x0   0x76 0x79          DC8 "vy"
+   \              0x00         
+   \        0x3   0x00               DC8 0
+
+   \                                 In section .rodata, align 4
+   \        0x0   0x76 0x7A          DC8 "vz"
+   \              0x00         
+   \        0x3   0x00               DC8 0
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   Menu
+         8   -> ShowCamera
+         8   -> ShowMode
+         8   -> ShowSetting
+         8   -> tiaocan
+      16   ShowCamera
+        16   -> LCD_CLS
+        16   -> LCD_Write_Int
+        16   -> SCCB_WriteByte
+        16   -> img_display
+        16   -> send_img_data
+       8   ShowMode
+         8   -> LCD_CLS
+         8   -> LCD_Write_Float
+         8   -> LCD_Write_Int
+         8   -> LPLD_FTM_PWM_ChangeDuty
+      24   ShowSetting
+        24   -> LCD_CLS
+        24   -> LCD_P6x8Str
+        24   -> LCD_Write_Int
+       8   tiaocan
+         8   -> LCD_CLS
+         8   -> LCD_P6x8Str
+         8   -> __aeabi_d2f
+         8   -> __aeabi_dadd
+         8   -> __aeabi_f2d
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable3
+       4  ??DataTable3_1
+       4  ??DataTable3_2
+       4  ??DataTable4
+       4  ??DataTable4_1
+       4  ??DataTable4_10
+       4  ??DataTable4_11
+       4  ??DataTable4_12
+       4  ??DataTable4_13
+       4  ??DataTable4_14
+       4  ??DataTable4_15
+       4  ??DataTable4_16
+       4  ??DataTable4_17
+       4  ??DataTable4_18
+       4  ??DataTable4_19
+       4  ??DataTable4_2
+       4  ??DataTable4_20
+       4  ??DataTable4_21
+       4  ??DataTable4_22
+       4  ??DataTable4_23
+       4  ??DataTable4_3
+       4  ??DataTable4_4
+       4  ??DataTable4_5
+       4  ??DataTable4_6
+       4  ??DataTable4_7
+       4  ??DataTable4_8
+       4  ??DataTable4_9
+       2  ?_0
+       2  ?_1
+       2  ?_2
+       4  ?_3
+       4  ?_4
+       4  ?_5
+      80  Menu
+       4  Py
+     192  ShowCamera
+     190  ShowMode
+     286  ShowSetting
+       4  page
+     238  tiaocan
+
+ 
+     4 bytes in section .bss
+     4 bytes in section .data
+    18 bytes in section .rodata
+ 1 094 bytes in section .text
+ 
+ 1 094 bytes of CODE  memory
+    18 bytes of CONST memory
+     8 bytes of DATA  memory
+
+Errors: none
+Warnings: 2

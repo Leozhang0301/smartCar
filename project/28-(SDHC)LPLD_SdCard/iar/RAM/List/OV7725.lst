@@ -1,0 +1,1280 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         21/May/2019  22:07:20
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  C:\Users\que\Desktop\AAA_xinbiao\xiugai\lib\Jay\OV7725.c
+#    Command line =  
+#        -f C:\Users\TEMPLA~1.000\AppData\Local\Temp\EW457D.tmp
+#        (C:\Users\que\Desktop\AAA_xinbiao\xiugai\lib\Jay\OV7725.c -D LPLD_K60
+#        -lCN
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -lB
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -o
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config "D:\@@\605110 IAR for
+#        ARM 8.30\arm\inc\c\DLib_Config_Normal.h" -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Me\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\Core\Include\" -I
+#        "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\DSP\Include\" -D
+#        ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\List\OV7725.lst
+#    Object file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\OV7725.o
+#
+###############################################################################
+
+C:\Users\que\Desktop\AAA_xinbiao\xiugai\lib\Jay\OV7725.c
+      1          /*
+      2           *  
+      3           *  
+      4           *  @JayLin林杰 @厦门大学嘉庚学院 @博学队
+      5           */
+      6          #include  "common.h"
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_EnableIRQ(IRQn_Type)
+   \                     __NVIC_EnableIRQ: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+   \        0x2   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \        0x4   0x2900             CMP      R1,#+0
+   \        0x6   0xD409             BMI.N    ??__NVIC_EnableIRQ_0
+   \        0x8   0x2201             MOVS     R2,#+1
+   \        0xA   0xF010 0x011F      ANDS     R1,R0,#0x1F
+   \        0xE   0x408A             LSLS     R2,R2,R1
+   \       0x10   0x....'....        LDR.W    R1,??DataTable12  ;; 0xe000e100
+   \       0x14   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x16   0x0940             LSRS     R0,R0,#+5
+   \       0x18   0xF841 0x2020      STR      R2,[R1, R0, LSL #+2]
+   \                     ??__NVIC_EnableIRQ_0: (+1)
+   \       0x1C   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_DisableIRQ(IRQn_Type)
+   \                     __NVIC_DisableIRQ: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+   \        0x2   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \        0x4   0x2900             CMP      R1,#+0
+   \        0x6   0xD40D             BMI.N    ??__NVIC_DisableIRQ_0
+   \        0x8   0x2201             MOVS     R2,#+1
+   \        0xA   0xF010 0x011F      ANDS     R1,R0,#0x1F
+   \        0xE   0x408A             LSLS     R2,R2,R1
+   \       0x10   0x....'....        LDR.W    R1,??DataTable12_1  ;; 0xe000e180
+   \       0x14   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x16   0x0940             LSRS     R0,R0,#+5
+   \       0x18   0xF841 0x2020      STR      R2,[R1, R0, LSL #+2]
+   \       0x1C   0xF3BF 0x8F4F      DSB      SY
+   \       0x20   0xF3BF 0x8F6F      ISB      SY
+   \                     ??__NVIC_DisableIRQ_0: (+1)
+   \       0x24   0x4770             BX       LR               ;; return
+      7          #include "include.h"
+      8          
+      9          
+
+   \                                 In section .data, align 1
+     10          volatile IMG_STATUS_e      ov7725_eagle_img_flag = IMG_FINISH;   //图像状态
+   \                     ov7725_eagle_img_flag:
+   \        0x0   0x01               DC8 1
+     11          
+     12          
+
+   \                                 In section .bss, align 4
+     13          GPIO_InitTypeDef IO_init_struct;
+   \                     IO_init_struct:
+   \        0x0                      DS8 20
+
+   \                                 In section .bss, align 4
+     14          GPIO_InitTypeDef VSY_init_struct;
+   \                     VSY_init_struct:
+   \        0x0                      DS8 20
+
+   \                                 In section .bss, align 4
+     15          GPIO_InitTypeDef PCLK_init_struct;
+   \                     PCLK_init_struct:
+   \        0x0                      DS8 20
+
+   \                                 In section .bss, align 4
+     16          DMA_InitTypeDef DMA_init_struct;
+   \                     DMA_init_struct:
+   \        0x0                      DS8 44
+
+   \                                 In section .data, align 2
+     17          uint16 ImgThreshold = 60;//152 //阈值
+   \                     ImgThreshold:
+   \        0x0   0x003C             DC16 60
+
+   \                                 In section .data, align 2
+     18          uint16 GrayValue = 0x5a;
+   \                     GrayValue:
+   \        0x0   0x005A             DC16 90
+     19          
+
+   \                                 In section .bss, align 4
+     20          uint8 Pix_Data0[pixels];
+   \                     Pix_Data0:
+   \        0x0                      DS8 1200
+
+   \                                 In section .bss, align 4
+     21          uint8 Pix_Data1[pixels];
+   \                     Pix_Data1:
+   \        0x0                      DS8 1200
+
+   \                                 In section .bss, align 4
+     22          uint8 imgbuff[IMG_ROWS][IMG_COLS]; //
+   \                     imgbuff:
+   \        0x0                      DS8 4800
+
+   \                                 In section .bss, align 4
+     23          uint8 dst[60][80]; //处理数据
+   \                     dst:
+   \        0x0                      DS8 4800
+     24          
+     25          
+
+   \                                 In section .bss, align 1
+     26          uint8 DMA_flag=0;//图像采集完毕
+   \                     DMA_flag:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 1
+     27          uint8 fieldCnt=0;
+   \                     fieldCnt:
+   \        0x0                      DS8 1
+     28          
+     29          //场中断函数
+
+   \                                 In section .text, align 2, keep-with-next
+     30          void VSY_isr(void)
+     31          { 
+   \                     VSY_isr: (+1)
+   \        0x0   0xB530             PUSH     {R4,R5,LR}
+   \        0x2   0xB087             SUB      SP,SP,#+28
+     32            uint32 flag = (PORTC->ISFR);
+   \        0x4   0x....'....        LDR.W    R4,??DataTable12_2  ;; 0x4004b0a0
+   \        0x8   0x6820             LDR      R0,[R4, #+0]
+     33            LPLD_GPIO_ClearIntFlag(PORTC);                  //清中断标志位
+   \        0xA   0xF05F 0x30FF      MOVS     R0,#-1
+   \        0xE   0x6020             STR      R0,[R4, #+0]
+     34            //场中断需要判断是场结束还是场开始
+     35            if(ov7725_eagle_img_flag == IMG_START)        //需要开始采集图像
+   \       0x10   0x....'....        LDR.W    R5,??DataTable12_3
+   \       0x14   0x7828             LDRB     R0,[R5, #+0]
+   \       0x16   0x2804             CMP      R0,#+4
+   \       0x18   0xD134             BNE.N    ??VSY_isr_0
+     36            {
+     37              ov7725_eagle_img_flag = IMG_GATHER;         //标记图像采集中
+   \       0x1A   0x2003             MOVS     R0,#+3
+   \       0x1C   0x7028             STRB     R0,[R5, #+0]
+     38              disable_irq(PORTC_IRQn);
+   \       0x1E   0x2059             MOVS     R0,#+89
+   \       0x20   0x....'....        BL       __NVIC_DisableIRQ
+     39              
+     40              PORTC->ISFR = 1 << 17;                      //清空PCLK标志位 
+   \       0x24   0xF45F 0x3000      MOVS     R0,#+131072
+   \       0x28   0x6020             STR      R0,[R4, #+0]
+     41              
+     42              if(fieldCnt)
+   \       0x2A   0x....'....        LDR.W    R1,??DataTable12_4
+   \       0x2E   0x7808             LDRB     R0,[R1, #+0]
+   \       0x30   0x2800             CMP      R0,#+0
+   \       0x32   0xD005             BEQ.N    ??VSY_isr_1
+     43              { LPLD_DMA_LoadDstAddr(DMA_CH0, Pix_Data1);}//恢复地址
+   \       0x34   0x....'....        LDR.W    R0,??DataTable12_5
+   \       0x38   0x....'....        LDR.W    R2,??DataTable12_6  ;; 0x40009010
+   \       0x3C   0x6010             STR      R0,[R2, #+0]
+   \       0x3E   0xE004             B.N      ??VSY_isr_2
+     44              else
+     45              { LPLD_DMA_LoadDstAddr(DMA_CH0, Pix_Data0);}//恢复地址
+   \                     ??VSY_isr_1: (+1)
+   \       0x40   0x....'....        LDR.W    R0,??DataTable12_7
+   \       0x44   0x....'....        LDR.W    R2,??DataTable12_6  ;; 0x40009010
+   \       0x48   0x6010             STR      R0,[R2, #+0]
+     46              
+     47              fieldCnt = fieldCnt ? 0 : 1;  //奇偶场计数
+   \                     ??VSY_isr_2: (+1)
+   \       0x4A   0x7808             LDRB     R0,[R1, #+0]
+   \       0x4C   0x2800             CMP      R0,#+0
+   \       0x4E   0xD002             BEQ.N    ??VSY_isr_3
+   \       0x50   0x2000             MOVS     R0,#+0
+   \       0x52   0x7008             STRB     R0,[R1, #+0]
+   \       0x54   0xE001             B.N      ??VSY_isr_4
+   \                     ??VSY_isr_3: (+1)
+   \       0x56   0x2001             MOVS     R0,#+1
+   \       0x58   0x7008             STRB     R0,[R1, #+0]
+     48              
+     49              DMA_flag = 1;
+   \                     ??VSY_isr_4: (+1)
+   \       0x5A   0x2001             MOVS     R0,#+1
+   \       0x5C   0x....'....        LDR.W    R1,??DataTable12_8
+   \       0x60   0x7008             STRB     R0,[R1, #+0]
+     50              
+     51              LPLD_DMA_EnableReq(DMA_CH0);                //使能通道CHn 硬件请求
+   \       0x62   0x....'....        LDR.W    R0,??DataTable12_9  ;; 0x4000800c
+   \       0x66   0x6801             LDR      R1,[R0, #+0]
+   \       0x68   0xF051 0x0101      ORRS     R1,R1,#0x1
+   \       0x6C   0x6001             STR      R1,[R0, #+0]
+     52              
+     53              LPLD_DMA_EnableIrq(DMA_init_struct);        //开DMA结束中断
+   \       0x6E   0x....'....        LDR.W    R1,??DataTable12_10
+   \       0x72   0xB084             SUB      SP,SP,#+16
+   \       0x74   0x4668             MOV      R0,SP
+   \       0x76   0x222C             MOVS     R2,#+44
+   \       0x78   0x....'....        BL       __aeabi_memcpy4
+   \       0x7C   0xBC0F             POP      {R0-R3}
+   \       0x7E   0x....'....        BL       LPLD_DMA_EnableIrq
+   \       0x82   0xE004             B.N      ??VSY_isr_5
+     54            }
+     55            else                                         //图像采集错误
+     56            {
+     57              disable_irq(PORTC_IRQn);                    //关闭PTA的中断
+   \                     ??VSY_isr_0: (+1)
+   \       0x84   0x2059             MOVS     R0,#+89
+   \       0x86   0x....'....        BL       __NVIC_DisableIRQ
+     58              ov7725_eagle_img_flag = IMG_FAIL;           //标记图像采集失败
+   \       0x8A   0x2002             MOVS     R0,#+2
+   \       0x8C   0x7028             STRB     R0,[R5, #+0]
+     59            }
+     60          }
+   \                     ??VSY_isr_5: (+1)
+   \       0x8E   0xB007             ADD      SP,SP,#+28
+   \       0x90   0xBD30             POP      {R4,R5,PC}       ;; return
+     61          
+     62          
+     63          //DMA结束中断函数
+
+   \                                 In section .text, align 2, keep-with-next
+     64          void DMA_isr(void)
+     65          {
+   \                     DMA_isr: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+     66            disable_irq(PORTC_IRQn);
+   \        0x2   0x2059             MOVS     R0,#+89
+   \        0x4   0x....'....        BL       __NVIC_DisableIRQ
+     67            ov7725_eagle_img_flag = IMG_FINISH ;//关闭场中断
+   \        0x8   0x2001             MOVS     R0,#+1
+   \        0xA   0x....'....        LDR.W    R1,??DataTable12_3
+   \        0xE   0x7008             STRB     R0,[R1, #+0]
+     68            DMA0->INT |= 0x1u<<0;
+   \       0x10   0x....'....        LDR.W    R0,??DataTable12_11  ;; 0x40008024
+   \       0x14   0x6801             LDR      R1,[R0, #+0]
+   \       0x16   0xF051 0x0101      ORRS     R1,R1,#0x1
+   \       0x1A   0x6001             STR      R1,[R0, #+0]
+     69            enable_irq(PORTC_IRQn);
+   \       0x1C   0x2059             MOVS     R0,#+89
+   \       0x1E   0x....'....        BL       __NVIC_EnableIRQ
+     70          }
+   \       0x22   0xBD01             POP      {R0,PC}          ;; return
+     71          
+     72          
+     73          //采集函数
+
+   \                                 In section .text, align 2, keep-with-next
+     74          void get_img(void)
+     75          {
+   \                     get_img: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+     76            static u8 flag = 0;
+     77          
+     78            if(ov7725_eagle_img_flag != IMG_FINISH)      //图像采集是否完成
+   \        0x2   0x....'....        LDR.W    R1,??DataTable12_3
+   \        0x6   0x7808             LDRB     R0,[R1, #+0]
+   \        0x8   0x2801             CMP      R0,#+1
+   \        0xA   0xD011             BEQ.N    ??get_img_0
+     79            {
+     80              flag = 0;//可以进行下一次场中断初始化
+   \        0xC   0x2000             MOVS     R0,#+0
+   \        0xE   0x....'....        LDR.W    R2,??DataTable12_12
+   \       0x12   0x7010             STRB     R0,[R2, #+0]
+     81              if(ov7725_eagle_img_flag == IMG_FAIL)         //假如图像采集错误，则重新开始采集
+   \       0x14   0x7808             LDRB     R0,[R1, #+0]
+   \       0x16   0x2802             CMP      R0,#+2
+   \       0x18   0xD11B             BNE.N    ??get_img_1
+     82              {
+     83                ov7725_eagle_img_flag = IMG_START;          //开始采集图像
+   \       0x1A   0x2004             MOVS     R0,#+4
+   \       0x1C   0x7008             STRB     R0,[R1, #+0]
+     84                LPLD_GPIO_ClearIntFlag(PORTC);              //写1清中断标志位(必须的，不然回导致一开中断就马上触发中断)
+   \       0x1E   0xF05F 0x30FF      MOVS     R0,#-1
+   \       0x22   0x....'....        LDR.W    R1,??DataTable12_2  ;; 0x4004b0a0
+   \       0x26   0x6008             STR      R0,[R1, #+0]
+     85                enable_irq(PORTC_IRQn);                     //允许PTA的中断
+   \       0x28   0x2059             MOVS     R0,#+89
+   \       0x2A   0x....'....        BL       __NVIC_EnableIRQ
+   \       0x2E   0xE010             B.N      ??get_img_1
+     86              }
+     87            }
+     88            else if(0 == flag)//首次场中断初始化
+   \                     ??get_img_0: (+1)
+   \       0x30   0x....'....        LDR.W    R2,??DataTable12_12
+   \       0x34   0x7810             LDRB     R0,[R2, #+0]
+   \       0x36   0x2800             CMP      R0,#+0
+   \       0x38   0xD10B             BNE.N    ??get_img_1
+     89            {
+     90              flag = 1;
+   \       0x3A   0x2001             MOVS     R0,#+1
+   \       0x3C   0x7010             STRB     R0,[R2, #+0]
+     91              //开始首次采集图像
+     92              ov7725_eagle_img_flag = IMG_START;//开始采集图像
+   \       0x3E   0x2004             MOVS     R0,#+4
+   \       0x40   0x7008             STRB     R0,[R1, #+0]
+     93              LPLD_GPIO_ClearIntFlag(PORTC);//写1清中断标志位(必须的，不然回导致一开中断就马上触发中断)
+   \       0x42   0xF05F 0x30FF      MOVS     R0,#-1
+   \       0x46   0x....'....        LDR.W    R1,??DataTable12_2  ;; 0x4004b0a0
+   \       0x4A   0x6008             STR      R0,[R1, #+0]
+     94              enable_irq(PORTC_IRQn);//允许PTC的中断
+   \       0x4C   0x2059             MOVS     R0,#+89
+   \       0x4E   0x....'....        BL       __NVIC_EnableIRQ
+     95          
+     96            }  
+     97          }
+   \                     ??get_img_1: (+1)
+   \       0x52   0xBD01             POP      {R0,PC}          ;; return
+
+   \                                 In section .bss, align 1
+   \                     `get_img::flag`:
+   \        0x0                      DS8 1
+     98          
+
+   \                                 In section .text, align 2, keep-with-next
+     99          void IO_init(void)
+    100          {
+   \                     IO_init: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    101            //OV数据口初始化：PTD0~PTD7
+    102            IO_init_struct.GPIO_PTx = PTD;
+   \        0x2   0x....'....        LDR.W    R1,??DataTable12_13
+   \        0x6   0x....'....        LDR.W    R0,??DataTable12_14  ;; 0x400ff0c0
+   \        0xA   0x6008             STR      R0,[R1, #+0]
+    103            IO_init_struct.GPIO_Dir = DIR_INPUT;
+   \        0xC   0x2000             MOVS     R0,#+0
+   \        0xE   0x7308             STRB     R0,[R1, #+12]
+    104            IO_init_struct.GPIO_Pins = GPIO_Pin8_15;
+   \       0x10   0xF44F 0x407F      MOV      R0,#+65280
+   \       0x14   0x6048             STR      R0,[R1, #+4]
+    105            IO_init_struct.GPIO_PinControl = IRQC_DIS | INPUT_PULL_DIS;
+   \       0x16   0x2000             MOVS     R0,#+0
+   \       0x18   0x6088             STR      R0,[R1, #+8]
+    106            LPLD_GPIO_Init(IO_init_struct);
+   \       0x1A   0xB084             SUB      SP,SP,#+16
+   \       0x1C   0x4668             MOV      R0,SP
+   \       0x1E   0x2214             MOVS     R2,#+20
+   \       0x20   0x....'....        BL       __aeabi_memcpy4
+   \       0x24   0xBC0F             POP      {R0-R3}
+   \       0x26   0x....'....        BL       LPLD_GPIO_Init
+    107          }
+   \       0x2A   0xBD01             POP      {R0,PC}          ;; return
+    108          
+
+   \                                 In section .text, align 2, keep-with-next
+    109          void VSY_init(void)
+    110          {
+   \                     VSY_init: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    111            nvic_init_struct.NVIC_IRQChannel = PORTC_IRQn;
+   \        0x2   0x....'....        LDR.W    R1,??DataTable12_15
+   \        0x6   0x2059             MOVS     R0,#+89
+   \        0x8   0x7008             STRB     R0,[R1, #+0]
+    112            nvic_init_struct.NVIC_IRQChannelGroupPriority = NVIC_PriorityGroup_2;
+   \        0xA   0x2005             MOVS     R0,#+5
+   \        0xC   0x6048             STR      R0,[R1, #+4]
+    113            nvic_init_struct.NVIC_IRQChannelPreemptionPriority = 0;
+   \        0xE   0x2000             MOVS     R0,#+0
+   \       0x10   0x6088             STR      R0,[R1, #+8]
+    114            nvic_init_struct.NVIC_IRQChannelSubPriority        = 0;
+   \       0x12   0x2000             MOVS     R0,#+0
+   \       0x14   0x60C8             STR      R0,[R1, #+12]
+    115            LPLD_NVIC_Init(nvic_init_struct);
+   \       0x16   0xB084             SUB      SP,SP,#+16
+   \       0x18   0x4668             MOV      R0,SP
+   \       0x1A   0x2214             MOVS     R2,#+20
+   \       0x1C   0x....'....        BL       __aeabi_memcpy4
+   \       0x20   0xBC0F             POP      {R0-R3}
+   \       0x22   0x....'....        BL       LPLD_NVIC_Init
+    116            
+    117            VSY_init_struct.GPIO_PTx = PTC;
+   \       0x26   0x....'....        LDR.W    R1,??DataTable12_16
+   \       0x2A   0x....'....        LDR.W    R0,??DataTable12_17  ;; 0x400ff080
+   \       0x2E   0x6008             STR      R0,[R1, #+0]
+    118            VSY_init_struct.GPIO_Dir = DIR_INPUT;
+   \       0x30   0x2000             MOVS     R0,#+0
+   \       0x32   0x7308             STRB     R0,[R1, #+12]
+    119            VSY_init_struct.GPIO_Pins = GPIO_Pin18;
+   \       0x34   0xF45F 0x2080      MOVS     R0,#+262144
+   \       0x38   0x6048             STR      R0,[R1, #+4]
+    120            VSY_init_struct.GPIO_PinControl = IRQC_RI|INPUT_PULL_UP|INPUT_PF_EN;
+   \       0x3A   0x....'....        LDR.W    R0,??DataTable12_18  ;; 0x90013
+   \       0x3E   0x6088             STR      R0,[R1, #+8]
+    121            VSY_init_struct.GPIO_Isr = VSY_isr;
+   \       0x40   0x....'....        LDR.W    R0,??DataTable12_19
+   \       0x44   0x6108             STR      R0,[R1, #+16]
+    122            LPLD_GPIO_Init(VSY_init_struct); 
+   \       0x46   0xB084             SUB      SP,SP,#+16
+   \       0x48   0x4668             MOV      R0,SP
+   \       0x4A   0x2214             MOVS     R2,#+20
+   \       0x4C   0x....'....        BL       __aeabi_memcpy4
+   \       0x50   0xBC0F             POP      {R0-R3}
+   \       0x52   0x....'....        BL       LPLD_GPIO_Init
+    123          }
+   \       0x56   0xBD01             POP      {R0,PC}          ;; return
+    124          
+
+   \                                 In section .text, align 2, keep-with-next
+    125          void PCLK_init(void)
+    126          {
+   \                     PCLK_init: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    127            PCLK_init_struct.GPIO_PTx = PTC;
+   \        0x2   0x....'....        LDR.W    R1,??DataTable12_20
+   \        0x6   0x....'....        LDR.W    R0,??DataTable12_17  ;; 0x400ff080
+   \        0xA   0x6008             STR      R0,[R1, #+0]
+    128            PCLK_init_struct.GPIO_Pins = GPIO_Pin17;
+   \        0xC   0xF45F 0x3000      MOVS     R0,#+131072
+   \       0x10   0x6048             STR      R0,[R1, #+4]
+    129            PCLK_init_struct.GPIO_Dir = DIR_INPUT;
+   \       0x12   0x2000             MOVS     R0,#+0
+   \       0x14   0x7308             STRB     R0,[R1, #+12]
+    130            PCLK_init_struct.GPIO_PinControl = IRQC_DMAFA | INPUT_PULL_UP;
+   \       0x16   0x....'....        LDR.W    R0,??DataTable12_21  ;; 0x20003
+   \       0x1A   0x6088             STR      R0,[R1, #+8]
+    131            LPLD_GPIO_Init(PCLK_init_struct); 
+   \       0x1C   0xB084             SUB      SP,SP,#+16
+   \       0x1E   0x4668             MOV      R0,SP
+   \       0x20   0x2214             MOVS     R2,#+20
+   \       0x22   0x....'....        BL       __aeabi_memcpy4
+   \       0x26   0xBC0F             POP      {R0-R3}
+   \       0x28   0x....'....        BL       LPLD_GPIO_Init
+    132          }
+   \       0x2C   0xBD01             POP      {R0,PC}          ;; return
+    133          
+
+   \                                 In section .text, align 2, keep-with-next
+    134          void DMA_init(void)
+    135          {
+   \                     DMA_init: (+1)
+   \        0x0   0xB500             PUSH     {LR}
+   \        0x2   0xB087             SUB      SP,SP,#+28
+    136            nvic_init_struct.NVIC_IRQChannel = DMA0_IRQn;
+   \        0x4   0x....             LDR.N    R1,??DataTable12_15
+   \        0x6   0x2000             MOVS     R0,#+0
+   \        0x8   0x7008             STRB     R0,[R1, #+0]
+    137            nvic_init_struct.NVIC_IRQChannelGroupPriority = NVIC_PriorityGroup_2;
+   \        0xA   0x2005             MOVS     R0,#+5
+   \        0xC   0x6048             STR      R0,[R1, #+4]
+    138            nvic_init_struct.NVIC_IRQChannelPreemptionPriority = 1;
+   \        0xE   0x2001             MOVS     R0,#+1
+   \       0x10   0x6088             STR      R0,[R1, #+8]
+    139            nvic_init_struct.NVIC_IRQChannelSubPriority        = 1;
+   \       0x12   0x2001             MOVS     R0,#+1
+   \       0x14   0x60C8             STR      R0,[R1, #+12]
+    140            LPLD_NVIC_Init(nvic_init_struct);
+   \       0x16   0xB084             SUB      SP,SP,#+16
+   \       0x18   0x4668             MOV      R0,SP
+   \       0x1A   0x2214             MOVS     R2,#+20
+   \       0x1C   0x....'....        BL       __aeabi_memcpy4
+   \       0x20   0xBC0F             POP      {R0-R3}
+   \       0x22   0x....'....        BL       LPLD_NVIC_Init
+    141            //DMA参数配置
+    142            DMA_init_struct.DMA_CHx = DMA_CH0;        //CH0通道
+   \       0x26   0x....             LDR.N    R1,??DataTable12_10
+   \       0x28   0x2000             MOVS     R0,#+0
+   \       0x2A   0x7008             STRB     R0,[R1, #+0]
+    143            DMA_init_struct.DMA_Req = PORTC_DMAREQ;   //PORTC为请求源
+   \       0x2C   0x2033             MOVS     R0,#+51
+   \       0x2E   0x7048             STRB     R0,[R1, #+1]
+    144            DMA_init_struct.DMA_MajorLoopCnt = pixels;   //主循环计数值：采集数
+   \       0x30   0xF44F 0x6096      MOV      R0,#+1200
+   \       0x34   0x8088             STRH     R0,[R1, #+4]
+    145            DMA_init_struct.DMA_MinorByteCnt = 1;     //次循环字节计数：每次读入1字节
+   \       0x36   0x2001             MOVS     R0,#+1
+   \       0x38   0x6088             STR      R0,[R1, #+8]
+    146            DMA_init_struct.DMA_SourceAddr = (uint32_t)&PTD->PDIR+1;//源地址：PTD0~7
+   \       0x3A   0x....             LDR.N    R0,??DataTable12_22  ;; 0x400ff0d1
+   \       0x3C   0x60C8             STR      R0,[R1, #+12]
+    147            DMA_init_struct.DMA_DestAddr = (uint32)Pix_Data0;      //目的地址：存放图像的数组
+   \       0x3E   0x....             LDR.N    R0,??DataTable12_7
+   \       0x40   0x6188             STR      R0,[R1, #+24]
+    148            DMA_init_struct.DMA_DestAddrOffset = 1;   //目的地址偏移：每次读入增加1
+   \       0x42   0x2001             MOVS     R0,#+1
+   \       0x44   0x83C8             STRH     R0,[R1, #+30]
+    149            DMA_init_struct.DMA_MajorCompleteIntEnable = TRUE;
+   \       0x46   0x2001             MOVS     R0,#+1
+   \       0x48   0xF881 0x0025      STRB     R0,[R1, #+37]
+    150            DMA_init_struct.DMA_Isr = DMA_isr;
+   \       0x4C   0x....             LDR.N    R0,??DataTable12_23
+   \       0x4E   0x6288             STR      R0,[R1, #+40]
+    151            DMA_init_struct.DMA_AutoDisableReq = TRUE;//自动禁用请求
+   \       0x50   0x2001             MOVS     R0,#+1
+   \       0x52   0xF881 0x0024      STRB     R0,[R1, #+36]
+    152            //初始化DMA
+    153            LPLD_DMA_Init(DMA_init_struct);
+   \       0x56   0xB084             SUB      SP,SP,#+16
+   \       0x58   0x4668             MOV      R0,SP
+   \       0x5A   0x222C             MOVS     R2,#+44
+   \       0x5C   0x....'....        BL       __aeabi_memcpy4
+   \       0x60   0xBC0F             POP      {R0-R3}
+   \       0x62   0x....'....        BL       LPLD_DMA_Init
+    154          }
+   \       0x66   0xB007             ADD      SP,SP,#+28
+   \       0x68   0xBD00             POP      {PC}             ;; return
+    155          
+    156          /*
+    157           * 延时一段时间
+    158           */
+
+   \                                 In section .text, align 4, keep-with-next
+    159          void delay(void)
+    160          {
+    161            uint16 i, n;
+    162            for(i=0;i<20000;i++)
+   \                     delay: (+1)
+   \        0x0   0x2000             MOVS     R0,#+0
+   \        0x2   0xE006             B.N      ??delay_0
+    163            {
+    164              for(n=0;n<100;n++)
+    165              {
+    166                asm("nop");
+   \                     ??delay_1: (+1)
+   \        0x4   0xBF00             nop
+    167              }
+   \        0x6   0x1C49             ADDS     R1,R1,#+1
+   \                     ??delay_2: (+1)
+   \        0x8   0x000A             MOVS     R2,R1
+   \        0xA   0xB292             UXTH     R2,R2            ;; ZeroExt  R2,R2,#+16,#+16
+   \        0xC   0x2A64             CMP      R2,#+100
+   \        0xE   0xDBF9             BLT.N    ??delay_1
+   \       0x10   0x1C40             ADDS     R0,R0,#+1
+   \                     ??delay_0: (+1)
+   \       0x12   0x0001             MOVS     R1,R0
+   \       0x14   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \       0x16   0xF644 0x6220      MOVW     R2,#+20000
+   \       0x1A   0x4291             CMP      R1,R2
+   \       0x1C   0xDA01             BGE.N    ??delay_3
+   \       0x1E   0x2100             MOVS     R1,#+0
+   \       0x20   0xE7F2             B.N      ??delay_2
+    168            }
+    169          }
+   \                     ??delay_3: (+1)
+   \       0x22   0x4770             BX       LR               ;; return
+    170          //ov7725初始化函数
+
+   \                                 In section .text, align 2, keep-with-next
+    171          void ov7725_init(void)
+    172          {
+   \                     ov7725_init: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    173            SCCB_GPIO_init();
+   \        0x2   0x....'....        BL       SCCB_GPIO_init
+    174            delay();
+   \        0x6   0x....'....        BL       delay
+    175            SCCB_WriteByte(OV7725_COM7,0x80);//复位
+   \        0xA   0x2180             MOVS     R1,#+128
+   \        0xC   0x2012             MOVS     R0,#+18
+   \        0xE   0x....'....        BL       SCCB_WriteByte
+    176            delay();
+   \       0x12   0x....'....        BL       delay
+    177            SCCB_WriteByte(OV7725_COM4,0x81); //150帧:0xC1,112帧:0x81,75帧:0x41,50帧:0xC1
+   \       0x16   0x2181             MOVS     R1,#+129
+   \       0x18   0x200D             MOVS     R0,#+13
+   \       0x1A   0x....'....        BL       SCCB_WriteByte
+    178            SCCB_WriteByte(OV7725_CLKRC,0x00);//150帧:0x00,112帧:0x00,75帧:0x00,50帧:0x02
+   \       0x1E   0x2100             MOVS     R1,#+0
+   \       0x20   0x2011             MOVS     R0,#+17
+   \       0x22   0x....'....        BL       SCCB_WriteByte
+    179            SCCB_WriteByte(OV7725_COM2,0x03);
+   \       0x26   0x2103             MOVS     R1,#+3
+   \       0x28   0x2009             MOVS     R0,#+9
+   \       0x2A   0x....'....        BL       SCCB_WriteByte
+    180            SCCB_WriteByte(OV7725_COM3,0xD0);//50
+   \       0x2E   0x21D0             MOVS     R1,#+208
+   \       0x30   0x200C             MOVS     R0,#+12
+   \       0x32   0x....'....        BL       SCCB_WriteByte
+    181            SCCB_WriteByte(OV7725_COM7,0x40);
+   \       0x36   0x2140             MOVS     R1,#+64
+   \       0x38   0x2012             MOVS     R0,#+18
+   \       0x3A   0x....'....        BL       SCCB_WriteByte
+    182            SCCB_WriteByte(OV7725_HSTART,0x3F);
+   \       0x3E   0x213F             MOVS     R1,#+63
+   \       0x40   0x2017             MOVS     R0,#+23
+   \       0x42   0x....'....        BL       SCCB_WriteByte
+    183            SCCB_WriteByte(OV7725_HSIZE,0x50);
+   \       0x46   0x2150             MOVS     R1,#+80
+   \       0x48   0x2018             MOVS     R0,#+24
+   \       0x4A   0x....'....        BL       SCCB_WriteByte
+    184            SCCB_WriteByte(OV7725_VSTRT,0x03);
+   \       0x4E   0x2103             MOVS     R1,#+3
+   \       0x50   0x2019             MOVS     R0,#+25
+   \       0x52   0x....'....        BL       SCCB_WriteByte
+    185            SCCB_WriteByte(OV7725_VSIZE,0x78);
+   \       0x56   0x2178             MOVS     R1,#+120
+   \       0x58   0x201A             MOVS     R0,#+26
+   \       0x5A   0x....'....        BL       SCCB_WriteByte
+    186            SCCB_WriteByte(OV7725_HREF,0x00);
+   \       0x5E   0x2100             MOVS     R1,#+0
+   \       0x60   0x2032             MOVS     R0,#+50
+   \       0x62   0x....'....        BL       SCCB_WriteByte
+    187            SCCB_WriteByte(OV7725_SCAL0,0x0A);
+   \       0x66   0x210A             MOVS     R1,#+10
+   \       0x68   0x20A0             MOVS     R0,#+160
+   \       0x6A   0x....'....        BL       SCCB_WriteByte
+    188            SCCB_WriteByte(OV7725_AWB_Ctrl0,0xE0);
+   \       0x6E   0x21E0             MOVS     R1,#+224
+   \       0x70   0x2063             MOVS     R0,#+99
+   \       0x72   0x....'....        BL       SCCB_WriteByte
+    189            SCCB_WriteByte(OV7725_DSPAuto,0xff);
+   \       0x76   0x21FF             MOVS     R1,#+255
+   \       0x78   0x20AC             MOVS     R0,#+172
+   \       0x7A   0x....'....        BL       SCCB_WriteByte
+    190            SCCB_WriteByte(OV7725_DSP_Ctrl2,0x0C);
+   \       0x7E   0x210C             MOVS     R1,#+12
+   \       0x80   0x2065             MOVS     R0,#+101
+   \       0x82   0x....'....        BL       SCCB_WriteByte
+    191            SCCB_WriteByte(OV7725_DSP_Ctrl3,0x00);
+   \       0x86   0x2100             MOVS     R1,#+0
+   \       0x88   0x2066             MOVS     R0,#+102
+   \       0x8A   0x....'....        BL       SCCB_WriteByte
+    192            SCCB_WriteByte(OV7725_DSP_Ctrl4,0x00);
+   \       0x8E   0x2100             MOVS     R1,#+0
+   \       0x90   0x2067             MOVS     R0,#+103
+   \       0x92   0x....'....        BL       SCCB_WriteByte
+    193            SCCB_WriteByte(OV7725_HOutSize,0x14);//80:0x14  160:0x28  240:0x3c  320:0x50
+   \       0x96   0x2114             MOVS     R1,#+20
+   \       0x98   0x2029             MOVS     R0,#+41
+   \       0x9A   0x....'....        BL       SCCB_WriteByte
+    194            SCCB_WriteByte(OV7725_VOutSize,0x1e);//60:0x1e 120:0x3c 180:0x5a 240:0x78
+   \       0x9E   0x211E             MOVS     R1,#+30
+   \       0xA0   0x202C             MOVS     R0,#+44
+   \       0xA2   0x....'....        BL       SCCB_WriteByte
+    195            SCCB_WriteByte(OV7725_EXHCH,0x00);
+   \       0xA6   0x2100             MOVS     R1,#+0
+   \       0xA8   0x202A             MOVS     R0,#+42
+   \       0xAA   0x....'....        BL       SCCB_WriteByte
+    196            SCCB_WriteByte(OV7725_GAM1,0x0c);
+   \       0xAE   0x210C             MOVS     R1,#+12
+   \       0xB0   0x207E             MOVS     R0,#+126
+   \       0xB2   0x....'....        BL       SCCB_WriteByte
+    197            SCCB_WriteByte(OV7725_GAM2,0x16);
+   \       0xB6   0x2116             MOVS     R1,#+22
+   \       0xB8   0x207F             MOVS     R0,#+127
+   \       0xBA   0x....'....        BL       SCCB_WriteByte
+    198            SCCB_WriteByte(OV7725_GAM3,0x2a);
+   \       0xBE   0x212A             MOVS     R1,#+42
+   \       0xC0   0x2080             MOVS     R0,#+128
+   \       0xC2   0x....'....        BL       SCCB_WriteByte
+    199            SCCB_WriteByte(OV7725_GAM4,0x4e);
+   \       0xC6   0x214E             MOVS     R1,#+78
+   \       0xC8   0x2081             MOVS     R0,#+129
+   \       0xCA   0x....'....        BL       SCCB_WriteByte
+    200            SCCB_WriteByte(OV7725_GAM5,0x61);
+   \       0xCE   0x2161             MOVS     R1,#+97
+   \       0xD0   0x2082             MOVS     R0,#+130
+   \       0xD2   0x....'....        BL       SCCB_WriteByte
+    201            SCCB_WriteByte(OV7725_GAM6,0x6f);
+   \       0xD6   0x216F             MOVS     R1,#+111
+   \       0xD8   0x2083             MOVS     R0,#+131
+   \       0xDA   0x....'....        BL       SCCB_WriteByte
+    202            SCCB_WriteByte(OV7725_GAM7,0x7b);
+   \       0xDE   0x217B             MOVS     R1,#+123
+   \       0xE0   0x2084             MOVS     R0,#+132
+   \       0xE2   0x....'....        BL       SCCB_WriteByte
+    203            SCCB_WriteByte(OV7725_GAM8,0x86);
+   \       0xE6   0x2186             MOVS     R1,#+134
+   \       0xE8   0x2085             MOVS     R0,#+133
+   \       0xEA   0x....'....        BL       SCCB_WriteByte
+    204            SCCB_WriteByte(OV7725_GAM9,0x8e);
+   \       0xEE   0x218E             MOVS     R1,#+142
+   \       0xF0   0x2086             MOVS     R0,#+134
+   \       0xF2   0x....'....        BL       SCCB_WriteByte
+    205            SCCB_WriteByte(OV7725_GAM10,0x97);
+   \       0xF6   0x2197             MOVS     R1,#+151
+   \       0xF8   0x2087             MOVS     R0,#+135
+   \       0xFA   0x....'....        BL       SCCB_WriteByte
+    206            SCCB_WriteByte(OV7725_GAM11,0xa4);
+   \       0xFE   0x21A4             MOVS     R1,#+164
+   \      0x100   0x2088             MOVS     R0,#+136
+   \      0x102   0x....'....        BL       SCCB_WriteByte
+    207            SCCB_WriteByte(OV7725_GAM12,0xaf);
+   \      0x106   0x21AF             MOVS     R1,#+175
+   \      0x108   0x2089             MOVS     R0,#+137
+   \      0x10A   0x....'....        BL       SCCB_WriteByte
+    208            SCCB_WriteByte(OV7725_GAM13,0xc5);
+   \      0x10E   0x21C5             MOVS     R1,#+197
+   \      0x110   0x208A             MOVS     R0,#+138
+   \      0x112   0x....'....        BL       SCCB_WriteByte
+    209            SCCB_WriteByte(OV7725_GAM14,0xd7);
+   \      0x116   0x21D7             MOVS     R1,#+215
+   \      0x118   0x208B             MOVS     R0,#+139
+   \      0x11A   0x....'....        BL       SCCB_WriteByte
+    210            SCCB_WriteByte(OV7725_GAM15,0xe8);
+   \      0x11E   0x21E8             MOVS     R1,#+232
+   \      0x120   0x208C             MOVS     R0,#+140
+   \      0x122   0x....'....        BL       SCCB_WriteByte
+    211            SCCB_WriteByte(OV7725_SLOP,0x20);
+   \      0x126   0x2120             MOVS     R1,#+32
+   \      0x128   0x208D             MOVS     R0,#+141
+   \      0x12A   0x....'....        BL       SCCB_WriteByte
+    212            SCCB_WriteByte(OV7725_LC_RADI,0x00);
+   \      0x12E   0x2100             MOVS     R1,#+0
+   \      0x130   0x204A             MOVS     R0,#+74
+   \      0x132   0x....'....        BL       SCCB_WriteByte
+    213            SCCB_WriteByte(OV7725_LC_COEF,0x13);
+   \      0x136   0x2113             MOVS     R1,#+19
+   \      0x138   0x2049             MOVS     R0,#+73
+   \      0x13A   0x....'....        BL       SCCB_WriteByte
+    214            SCCB_WriteByte(OV7725_LC_XC,0x08);
+   \      0x13E   0x2108             MOVS     R1,#+8
+   \      0x140   0x2047             MOVS     R0,#+71
+   \      0x142   0x....'....        BL       SCCB_WriteByte
+    215            SCCB_WriteByte(OV7725_LC_COEFB,0x14);
+   \      0x146   0x2114             MOVS     R1,#+20
+   \      0x148   0x204B             MOVS     R0,#+75
+   \      0x14A   0x....'....        BL       SCCB_WriteByte
+    216            SCCB_WriteByte(OV7725_LC_COEFR,0x17);
+   \      0x14E   0x2117             MOVS     R1,#+23
+   \      0x150   0x204C             MOVS     R0,#+76
+   \      0x152   0x....'....        BL       SCCB_WriteByte
+    217            SCCB_WriteByte(OV7725_LC_CTR,0x05);
+   \      0x156   0x2105             MOVS     R1,#+5
+   \      0x158   0x2046             MOVS     R0,#+70
+   \      0x15A   0x....'....        BL       SCCB_WriteByte
+    218            SCCB_WriteByte(OV7725_BDBase,0x99);
+   \      0x15E   0x2199             MOVS     R1,#+153
+   \      0x160   0x2022             MOVS     R0,#+34
+   \      0x162   0x....'....        BL       SCCB_WriteByte
+    219            SCCB_WriteByte(OV7725_BDMStep,0x03);
+   \      0x166   0x2103             MOVS     R1,#+3
+   \      0x168   0x2023             MOVS     R0,#+35
+   \      0x16A   0x....'....        BL       SCCB_WriteByte
+    220            SCCB_WriteByte(OV7725_SDE,0x04);
+   \      0x16E   0x2104             MOVS     R1,#+4
+   \      0x170   0x20A6             MOVS     R0,#+166
+   \      0x172   0x....'....        BL       SCCB_WriteByte
+    221            SCCB_WriteByte(OV7725_BRIGHT,GrayValue); //亮度值补偿
+   \      0x176   0x....             LDR.N    R0,??DataTable12_24
+   \      0x178   0x8801             LDRH     R1,[R0, #+0]
+   \      0x17A   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x17C   0x209B             MOVS     R0,#+155
+   \      0x17E   0x....'....        BL       SCCB_WriteByte
+    222            SCCB_WriteByte(OV7725_CNST,ImgThreshold);//阈值调整(0~255)//0xA0//0x84
+   \      0x182   0x....             LDR.N    R0,??DataTable12_25
+   \      0x184   0x8801             LDRH     R1,[R0, #+0]
+   \      0x186   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x188   0x209C             MOVS     R0,#+156
+   \      0x18A   0x....'....        BL       SCCB_WriteByte
+    223            SCCB_WriteByte(OV7725_SIGN,0x0E);//0x06  BRIGHT为正       0x0E    BRIGHT为负
+   \      0x18E   0x210E             MOVS     R1,#+14
+   \      0x190   0x20AB             MOVS     R0,#+171
+   \      0x192   0x....'....        BL       SCCB_WriteByte
+    224            SCCB_WriteByte(OV7725_UVADJ0,0x11);
+   \      0x196   0x2111             MOVS     R1,#+17
+   \      0x198   0x209E             MOVS     R0,#+158
+   \      0x19A   0x....'....        BL       SCCB_WriteByte
+    225            SCCB_WriteByte(OV7725_UVADJ1,0x02);
+   \      0x19E   0x2102             MOVS     R1,#+2
+   \      0x1A0   0x209F             MOVS     R0,#+159
+   \      0x1A2   0x....'....        BL       SCCB_WriteByte
+    226          }
+   \      0x1A6   0xBD01             POP      {R0,PC}          ;; return
+    227          /*!
+    228           *  @brief      二值化图像解压（空间 换 时间 解压）
+    229           *  @param      dst             图像解压目的地址
+    230           *  @param      src             图像解压源地址
+    231           *  @param      srclen          二值化图像的占用空间大小
+    232           *  @since      v5.0            img_extract(img, imgbuff,CAMERA_SIZE);
+    233           *  Sample usage:
+    234           */
+
+   \                                 In section .text, align 2, keep-with-next
+    235          void img_extract(uint8 *dst, uint8 *src, uint32 srclen)
+    236          {
+   \                     img_extract: (+1)
+   \        0x0   0xB438             PUSH     {R3-R5}
+   \        0x2   0x0003             MOVS     R3,R0
+    237              uint8 colour[2] = {WHITE, BLACK}; //分别对应的颜色
+   \        0x4   0x....             LDR.N    R0,??DataTable12_26
+   \        0x6   0x8800             LDRH     R0,[R0, #+0]
+   \        0x8   0xF8AD 0x0000      STRH     R0,[SP, #+0]
+   \        0xC   0xE038             B.N      ??img_extract_0
+    238              //注： 0 表示 白色，1表示 黑色
+    239              uint8 tmpsrc;
+    240              while(srclen --)
+    241              {
+    242                  tmpsrc = *src++;
+   \                     ??img_extract_1: (+1)
+   \        0xE   0x780C             LDRB     R4,[R1, #+0]
+   \       0x10   0x1C49             ADDS     R1,R1,#+1
+    243                  *dst++ = colour[ (tmpsrc >> 7 ) & 0x01 ];
+   \       0x12   0x4668             MOV      R0,SP
+   \       0x14   0x0025             MOVS     R5,R4
+   \       0x16   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0x18   0x11ED             ASRS     R5,R5,#+7
+   \       0x1A   0x5D45             LDRB     R5,[R0, R5]
+   \       0x1C   0x701D             STRB     R5,[R3, #+0]
+   \       0x1E   0x1C5B             ADDS     R3,R3,#+1
+    244                  *dst++ = colour[ (tmpsrc >> 6 ) & 0x01 ];
+   \       0x20   0x0025             MOVS     R5,R4
+   \       0x22   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0x24   0xF3C5 0x1580      UBFX     R5,R5,#+6,#+1
+   \       0x28   0x5D45             LDRB     R5,[R0, R5]
+   \       0x2A   0x701D             STRB     R5,[R3, #+0]
+   \       0x2C   0x1C5B             ADDS     R3,R3,#+1
+    245                  *dst++ = colour[ (tmpsrc >> 5 ) & 0x01 ];
+   \       0x2E   0x0025             MOVS     R5,R4
+   \       0x30   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0x32   0xF3C5 0x1540      UBFX     R5,R5,#+5,#+1
+   \       0x36   0x5D45             LDRB     R5,[R0, R5]
+   \       0x38   0x701D             STRB     R5,[R3, #+0]
+   \       0x3A   0x1C5B             ADDS     R3,R3,#+1
+    246                  *dst++ = colour[ (tmpsrc >> 4 ) & 0x01 ];
+   \       0x3C   0x0025             MOVS     R5,R4
+   \       0x3E   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0x40   0xF3C5 0x1500      UBFX     R5,R5,#+4,#+1
+   \       0x44   0x5D45             LDRB     R5,[R0, R5]
+   \       0x46   0x701D             STRB     R5,[R3, #+0]
+   \       0x48   0x1C5B             ADDS     R3,R3,#+1
+    247                  *dst++ = colour[ (tmpsrc >> 3 ) & 0x01 ];
+   \       0x4A   0x0025             MOVS     R5,R4
+   \       0x4C   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0x4E   0xF3C5 0x05C0      UBFX     R5,R5,#+3,#+1
+   \       0x52   0x5D45             LDRB     R5,[R0, R5]
+   \       0x54   0x701D             STRB     R5,[R3, #+0]
+   \       0x56   0x1C5B             ADDS     R3,R3,#+1
+    248                  *dst++ = colour[ (tmpsrc >> 2 ) & 0x01 ];
+   \       0x58   0x0025             MOVS     R5,R4
+   \       0x5A   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0x5C   0xF3C5 0x0580      UBFX     R5,R5,#+2,#+1
+   \       0x60   0x5D45             LDRB     R5,[R0, R5]
+   \       0x62   0x701D             STRB     R5,[R3, #+0]
+   \       0x64   0x1C5B             ADDS     R3,R3,#+1
+    249                  *dst++ = colour[ (tmpsrc >> 1 ) & 0x01 ];
+   \       0x66   0x0025             MOVS     R5,R4
+   \       0x68   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0x6A   0xF3C5 0x0540      UBFX     R5,R5,#+1,#+1
+   \       0x6E   0x5D45             LDRB     R5,[R0, R5]
+   \       0x70   0x701D             STRB     R5,[R3, #+0]
+   \       0x72   0x1C5B             ADDS     R3,R3,#+1
+    250                  *dst++ = colour[ (tmpsrc >> 0 ) & 0x01 ];
+   \       0x74   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \       0x76   0xF014 0x0401      ANDS     R4,R4,#0x1
+   \       0x7A   0x5D00             LDRB     R0,[R0, R4]
+   \       0x7C   0x7018             STRB     R0,[R3, #+0]
+   \       0x7E   0x1C5B             ADDS     R3,R3,#+1
+    251              }    
+   \                     ??img_extract_0: (+1)
+   \       0x80   0x0010             MOVS     R0,R2
+   \       0x82   0x1E42             SUBS     R2,R0,#+1
+   \       0x84   0x2800             CMP      R0,#+0
+   \       0x86   0xD1C2             BNE.N    ??img_extract_1
+    252          }
+   \       0x88   0xBC31             POP      {R0,R4,R5}
+   \       0x8A   0x4770             BX       LR               ;; return
+    253          /*
+    254           *@功能说明：解压图像
+    255           *@方法：
+    256           *index 场计数  row起始行 srcLen数据长度
+    257           */
+
+   \                                 In section .text, align 2, keep-with-next
+    258          void Unzip(uint8 index,uint16 srcLen)
+    259          {
+   \                     Unzip: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+   \        0x2   0x000A             MOVS     R2,R1
+    260          	if(index)//判断是处理偶场还是奇场
+   \        0x4   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \        0x6   0x2800             CMP      R0,#+0
+   \        0x8   0xD005             BEQ.N    ??Unzip_0
+    261          	{ img_extract(*imgbuff,(uint8*)Pix_Data1,srcLen);}//解压偶场
+   \        0xA   0xB292             UXTH     R2,R2            ;; ZeroExt  R2,R2,#+16,#+16
+   \        0xC   0x....             LDR.N    R1,??DataTable12_5
+   \        0xE   0x....             LDR.N    R0,??DataTable12_27
+   \       0x10   0x....'....        BL       img_extract
+   \       0x14   0xE004             B.N      ??Unzip_1
+    262          	else 
+    263          	{ img_extract(*imgbuff,(uint8*)Pix_Data0,srcLen);}//解压奇场
+   \                     ??Unzip_0: (+1)
+   \       0x16   0xB292             UXTH     R2,R2            ;; ZeroExt  R2,R2,#+16,#+16
+   \       0x18   0x....             LDR.N    R1,??DataTable12_7
+   \       0x1A   0x....             LDR.N    R0,??DataTable12_27
+   \       0x1C   0x....'....        BL       img_extract
+    264          }
+   \                     ??Unzip_1: (+1)
+   \       0x20   0xBD01             POP      {R0,PC}          ;; return
+    265          
+    266          //摄像头总初始化
+
+   \                                 In section .text, align 2, keep-with-next
+    267          void Camera_Init(void)
+    268          {
+   \                     Camera_Init: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    269          	ov7725_init();
+   \        0x2   0x....'....        BL       ov7725_init
+    270          	VSY_init();
+   \        0x6   0x....'....        BL       VSY_init
+    271          	PCLK_init();
+   \        0xA   0x....'....        BL       PCLK_init
+    272          	IO_init();
+   \        0xE   0x....'....        BL       IO_init
+    273          	DMA_init();
+   \       0x12   0x....'....        BL       DMA_init
+    274          	uint8 device_id = 0;
+   \       0x16   0x2000             MOVS     R0,#+0
+   \       0x18   0xF88D 0x0000      STRB     R0,[SP, #+0]
+    275          	SCCB_ReadByte(&device_id,1,OV7725_COM4);
+   \       0x1C   0x220D             MOVS     R2,#+13
+   \       0x1E   0x2101             MOVS     R1,#+1
+   \       0x20   0x4668             MOV      R0,SP
+   \       0x22   0x....'....        BL       SCCB_ReadByte
+    276          }
+   \       0x26   0xBD01             POP      {R0,PC}          ;; return
+    277          /*
+    278           *@功能说明：液晶显示
+    279           *@方法：
+    280           *
+    281           */
+
+   \                                 In section .text, align 2, keep-with-next
+    282          void img_display(void)
+    283          {
+   \                     img_display: (+1)
+   \        0x0   0xB538             PUSH     {R3-R5,LR}
+    284            int16 i,j;
+    285            
+    286            for(i = 0;i < 60;i++)
+   \        0x2   0x2000             MOVS     R0,#+0
+   \        0x4   0xE014             B.N      ??img_display_0
+    287            {
+    288              for(j = 0; j < 80;j++)
+    289              { 
+    290                dst[i][j] = imgbuff[i][j]; 
+   \                     ??img_display_1: (+1)
+   \        0x6   0x2250             MOVS     R2,#+80
+   \        0x8   0x....             LDR.N    R3,??DataTable12_28
+   \        0xA   0xFB10 0xF402      SMULBB   R4,R0,R2
+   \        0xE   0x4423             ADD      R3,R3,R4
+   \       0x10   0x000C             MOVS     R4,R1
+   \       0x12   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \       0x14   0x....             LDR.N    R5,??DataTable12_27
+   \       0x16   0xFB10 0xF202      SMULBB   R2,R0,R2
+   \       0x1A   0x442A             ADD      R2,R5,R2
+   \       0x1C   0x000D             MOVS     R5,R1
+   \       0x1E   0xB22D             SXTH     R5,R5            ;; SignExt  R5,R5,#+16,#+16
+   \       0x20   0x5D52             LDRB     R2,[R2, R5]
+   \       0x22   0x551A             STRB     R2,[R3, R4]
+    291              }
+   \       0x24   0x1C49             ADDS     R1,R1,#+1
+   \                     ??img_display_2: (+1)
+   \       0x26   0x000A             MOVS     R2,R1
+   \       0x28   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \       0x2A   0x2A50             CMP      R2,#+80
+   \       0x2C   0xDBEB             BLT.N    ??img_display_1
+   \       0x2E   0x1C40             ADDS     R0,R0,#+1
+   \                     ??img_display_0: (+1)
+   \       0x30   0x0001             MOVS     R1,R0
+   \       0x32   0xB209             SXTH     R1,R1            ;; SignExt  R1,R1,#+16,#+16
+   \       0x34   0x293C             CMP      R1,#+60
+   \       0x36   0xDA01             BGE.N    ??img_display_3
+   \       0x38   0x2100             MOVS     R1,#+0
+   \       0x3A   0xE7F4             B.N      ??img_display_2
+    292            }
+    293            LED_PrintImage(*dst,60,80);
+   \                     ??img_display_3: (+1)
+   \       0x3C   0x2250             MOVS     R2,#+80
+   \       0x3E   0x213C             MOVS     R1,#+60
+   \       0x40   0x....             LDR.N    R0,??DataTable12_28
+   \       0x42   0x....'....        BL       LED_PrintImage
+    294          }
+   \       0x46   0xBD31             POP      {R0,R4,R5,PC}    ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12:
+   \        0x0   0xE000'E100        DC32     0xe000e100
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_1:
+   \        0x0   0xE000'E180        DC32     0xe000e180
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_2:
+   \        0x0   0x4004'B0A0        DC32     0x4004b0a0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_3:
+   \        0x0   0x....'....        DC32     ov7725_eagle_img_flag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_4:
+   \        0x0   0x....'....        DC32     fieldCnt
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_5:
+   \        0x0   0x....'....        DC32     Pix_Data1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_6:
+   \        0x0   0x4000'9010        DC32     0x40009010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_7:
+   \        0x0   0x....'....        DC32     Pix_Data0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_8:
+   \        0x0   0x....'....        DC32     DMA_flag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_9:
+   \        0x0   0x4000'800C        DC32     0x4000800c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_10:
+   \        0x0   0x....'....        DC32     DMA_init_struct
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_11:
+   \        0x0   0x4000'8024        DC32     0x40008024
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_12:
+   \        0x0   0x....'....        DC32     `get_img::flag`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_13:
+   \        0x0   0x....'....        DC32     IO_init_struct
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_14:
+   \        0x0   0x400F'F0C0        DC32     0x400ff0c0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_15:
+   \        0x0   0x....'....        DC32     nvic_init_struct
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_16:
+   \        0x0   0x....'....        DC32     VSY_init_struct
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_17:
+   \        0x0   0x400F'F080        DC32     0x400ff080
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_18:
+   \        0x0   0x0009'0013        DC32     0x90013
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_19:
+   \        0x0   0x....'....        DC32     VSY_isr
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_20:
+   \        0x0   0x....'....        DC32     PCLK_init_struct
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_21:
+   \        0x0   0x0002'0003        DC32     0x20003
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_22:
+   \        0x0   0x400F'F0D1        DC32     0x400ff0d1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_23:
+   \        0x0   0x....'....        DC32     DMA_isr
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_24:
+   \        0x0   0x....'....        DC32     GrayValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_25:
+   \        0x0   0x....'....        DC32     ImgThreshold
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_26:
+   \        0x0   0x....'....        DC32     ?_0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_27:
+   \        0x0   0x....'....        DC32     imgbuff
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable12_28:
+   \        0x0   0x....'....        DC32     dst
+
+   \                                 In section .rodata, align 2
+   \                     ?_0:
+   \        0x0   0xFF 0x00          DC8 255, 0
+    295          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   Camera_Init
+         8   -> DMA_init
+         8   -> IO_init
+         8   -> PCLK_init
+         8   -> SCCB_ReadByte
+         8   -> VSY_init
+         8   -> ov7725_init
+      48   DMA_init
+        32   -> LPLD_DMA_Init
+        32   -> LPLD_NVIC_Init
+        48   -> __aeabi_memcpy4
+       8   DMA_isr
+         8   -> __NVIC_DisableIRQ
+         8   -> __NVIC_EnableIRQ
+      24   IO_init
+         8   -> LPLD_GPIO_Init
+        24   -> __aeabi_memcpy4
+      24   PCLK_init
+         8   -> LPLD_GPIO_Init
+        24   -> __aeabi_memcpy4
+       8   Unzip
+         8   -> img_extract
+      24   VSY_init
+         8   -> LPLD_GPIO_Init
+         8   -> LPLD_NVIC_Init
+        24   -> __aeabi_memcpy4
+      56   VSY_isr
+        40   -> LPLD_DMA_EnableIrq
+        40   -> __NVIC_DisableIRQ
+        56   -> __aeabi_memcpy4
+       0   __NVIC_DisableIRQ
+       0   __NVIC_EnableIRQ
+       0   delay
+       8   get_img
+         8   -> __NVIC_EnableIRQ
+      16   img_display
+        16   -> LED_PrintImage
+      12   img_extract
+       8   ov7725_init
+         8   -> SCCB_GPIO_init
+         8   -> SCCB_WriteByte
+         8   -> delay
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable12
+       4  ??DataTable12_1
+       4  ??DataTable12_10
+       4  ??DataTable12_11
+       4  ??DataTable12_12
+       4  ??DataTable12_13
+       4  ??DataTable12_14
+       4  ??DataTable12_15
+       4  ??DataTable12_16
+       4  ??DataTable12_17
+       4  ??DataTable12_18
+       4  ??DataTable12_19
+       4  ??DataTable12_2
+       4  ??DataTable12_20
+       4  ??DataTable12_21
+       4  ??DataTable12_22
+       4  ??DataTable12_23
+       4  ??DataTable12_24
+       4  ??DataTable12_25
+       4  ??DataTable12_26
+       4  ??DataTable12_27
+       4  ??DataTable12_28
+       4  ??DataTable12_3
+       4  ??DataTable12_4
+       4  ??DataTable12_5
+       4  ??DataTable12_6
+       4  ??DataTable12_7
+       4  ??DataTable12_8
+       4  ??DataTable12_9
+       2  ?_0
+      40  Camera_Init
+       1  DMA_flag
+     106  DMA_init
+      44  DMA_init_struct
+      36  DMA_isr
+       2  GrayValue
+      44  IO_init
+      20  IO_init_struct
+       2  ImgThreshold
+      46  PCLK_init
+      20  PCLK_init_struct
+    1200  Pix_Data0
+    1200  Pix_Data1
+      34  Unzip
+      88  VSY_init
+      20  VSY_init_struct
+     146  VSY_isr
+      38  __NVIC_DisableIRQ
+      30  __NVIC_EnableIRQ
+      36  delay
+    4800  dst
+       1  fieldCnt
+       1  flag
+      84  get_img
+      72  img_display
+     140  img_extract
+    4800  imgbuff
+       1  ov7725_eagle_img_flag
+     424  ov7725_init
+
+ 
+ 12 107 bytes in section .bss
+      5 bytes in section .data
+      2 bytes in section .rodata
+  1 480 bytes in section .text
+ 
+  1 480 bytes of CODE  memory
+      2 bytes of CONST memory
+ 12 112 bytes of DATA  memory
+
+Errors: none
+Warnings: 1

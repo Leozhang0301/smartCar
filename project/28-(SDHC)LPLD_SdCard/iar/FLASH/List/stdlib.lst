@@ -1,0 +1,1096 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         02/Jul/2019  17:59:23
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\xiugai\lib\common\stdlib.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW6D5E.tmp
+#        (G:\AIcar\@@\xiugai\lib\common\stdlib.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -lB
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -o "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\" -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -On -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List\stdlib.lst
+#    Object file  =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj\stdlib.o
+#
+###############################################################################
+
+G:\AIcar\@@\xiugai\lib\common\stdlib.c
+      1          /**
+      2           * @file stdlib.c
+      3           * @version 3.01[By LPLD]
+      4           * @date 2013-11-4
+      5           * @brief C标准代码库
+      6           *
+      7           * 更改建议:不建议修改
+      8           *
+      9           * 由标准C代码库移植，仅支持ASCII
+     10           *
+     11           * 版权所有:北京拉普兰德电子技术有限公司
+     12           * http://www.lpld.cn
+     13           * mail:support@lpld.cn
+     14           *
+     15           * @par
+     16           * 本代码由拉普兰德[LPLD]开发并维护，并向所有使用者开放源代码。
+     17           * 开发者可以随意修使用或改源代码。但本段及以上注释应予以保留。
+     18           * 不得更改或删除原版权所有者姓名，二次开发者可以加注二次版权所有者。
+     19           * 但应在遵守此协议的基础上，开放源代码、不得出售代码本身。
+     20           * 拉普兰德不负责由于使用本代码所带来的任何事故、法律责任或相关不良影响。
+     21           * 拉普兰德无义务解释、说明本代码的具体原理、功能、实现方法。
+     22           * 除非拉普兰德[LPLD]授权，开发者不得将本代码用于商业产品。
+     23           */
+     24          #include "stdlib.h"
+     25          
+     26          
+     27          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+     28          int isspace (int ch)
+     29          {
+   \                     isspace: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+     30              if ((ch == ' ') || (ch == '\t'))    /* \n ??? */
+   \        0x2   0x2920             CMP      R1,#+32
+   \        0x4   0xD001             BEQ.N    ??isspace_0
+   \        0x6   0x2909             CMP      R1,#+9
+   \        0x8   0xD101             BNE.N    ??isspace_1
+     31                  return TRUE;
+   \                     ??isspace_0: (+1)
+   \        0xA   0x2001             MOVS     R0,#+1
+   \        0xC   0xE000             B.N      ??isspace_2
+     32              else
+     33                  return FALSE;
+   \                     ??isspace_1: (+1)
+   \        0xE   0x2000             MOVS     R0,#+0
+   \                     ??isspace_2: (+1)
+   \       0x10   0x4770             BX       LR               ;; return
+     34          }
+     35          
+     36          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+     37          int isalnum (int ch)
+     38          {
+   \                     isalnum: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+     39              /* ASCII only */
+     40              if (((ch >= '0') && (ch <= '9')) ||
+     41                  ((ch >= 'A') && (ch <= 'Z')) ||
+     42                  ((ch >= 'a') && (ch <= 'z')))
+   \        0x2   0x2930             CMP      R1,#+48
+   \        0x4   0xDB01             BLT.N    ??isalnum_0
+   \        0x6   0x293A             CMP      R1,#+58
+   \        0x8   0xDB07             BLT.N    ??isalnum_1
+   \                     ??isalnum_0: (+1)
+   \        0xA   0x2941             CMP      R1,#+65
+   \        0xC   0xDB01             BLT.N    ??isalnum_2
+   \        0xE   0x295B             CMP      R1,#+91
+   \       0x10   0xDB03             BLT.N    ??isalnum_1
+   \                     ??isalnum_2: (+1)
+   \       0x12   0x2961             CMP      R1,#+97
+   \       0x14   0xDB03             BLT.N    ??isalnum_3
+   \       0x16   0x297B             CMP      R1,#+123
+   \       0x18   0xDA01             BGE.N    ??isalnum_3
+     43                  return TRUE;
+   \                     ??isalnum_1: (+1)
+   \       0x1A   0x2001             MOVS     R0,#+1
+   \       0x1C   0xE000             B.N      ??isalnum_4
+     44              else
+     45                  return FALSE;
+   \                     ??isalnum_3: (+1)
+   \       0x1E   0x2000             MOVS     R0,#+0
+   \                     ??isalnum_4: (+1)
+   \       0x20   0x4770             BX       LR               ;; return
+     46          }
+     47          
+     48          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+     49          int isdigit (int ch)
+     50          {
+   \                     isdigit: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+     51              /* ASCII only */
+     52              if ((ch >= '0') && (ch <= '9'))
+   \        0x2   0x2930             CMP      R1,#+48
+   \        0x4   0xDB03             BLT.N    ??isdigit_0
+   \        0x6   0x293A             CMP      R1,#+58
+   \        0x8   0xDA01             BGE.N    ??isdigit_0
+     53                  return TRUE;
+   \        0xA   0x2001             MOVS     R0,#+1
+   \        0xC   0xE000             B.N      ??isdigit_1
+     54              else
+     55                  return FALSE;
+   \                     ??isdigit_0: (+1)
+   \        0xE   0x2000             MOVS     R0,#+0
+   \                     ??isdigit_1: (+1)
+   \       0x10   0x4770             BX       LR               ;; return
+     56          }
+     57          
+     58          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+     59          int isupper (int ch)
+     60          {
+   \                     isupper: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+     61              /* ASCII only */
+     62              if ((ch >= 'A') && (ch <= 'Z'))
+   \        0x2   0x2941             CMP      R1,#+65
+   \        0x4   0xDB03             BLT.N    ??isupper_0
+   \        0x6   0x295B             CMP      R1,#+91
+   \        0x8   0xDA01             BGE.N    ??isupper_0
+     63                  return TRUE;
+   \        0xA   0x2001             MOVS     R0,#+1
+   \        0xC   0xE000             B.N      ??isupper_1
+     64              else
+     65                  return FALSE;
+   \                     ??isupper_0: (+1)
+   \        0xE   0x2000             MOVS     R0,#+0
+   \                     ??isupper_1: (+1)
+   \       0x10   0x4770             BX       LR               ;; return
+     66          }
+     67          
+     68          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+     69          int strcasecmp (const int8 *s1, const int8 *s2)
+     70          {
+   \                     strcasecmp: (+1)
+   \        0x0   0xB470             PUSH     {R4-R6}
+   \        0x2   0x0003             MOVS     R3,R0
+   \        0x4   0x000A             MOVS     R2,R1
+     71              int8    c1, c2;
+     72              int     result = 0;
+   \        0x6   0x2000             MOVS     R0,#+0
+     73          
+     74              while (result == 0)
+   \                     ??strcasecmp_0: (+1)
+   \        0x8   0x2800             CMP      R0,#+0
+   \        0xA   0xD129             BNE.N    ??strcasecmp_1
+     75              {
+     76                  c1 = *s1++;
+   \        0xC   0xF993 0x1000      LDRSB    R1,[R3, #+0]
+   \       0x10   0x000D             MOVS     R5,R1
+   \       0x12   0x1C5B             ADDS     R3,R3,#+1
+     77                  c2 = *s2++;
+   \       0x14   0xF992 0x1000      LDRSB    R1,[R2, #+0]
+   \       0x18   0x000C             MOVS     R4,R1
+   \       0x1A   0x1C52             ADDS     R2,R2,#+1
+     78                  if ((c1 >= 'a') && (c1 <= 'z'))
+   \       0x1C   0x0029             MOVS     R1,R5
+   \       0x1E   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x20   0x2961             CMP      R1,#+97
+   \       0x22   0xDB04             BLT.N    ??strcasecmp_2
+   \       0x24   0x0029             MOVS     R1,R5
+   \       0x26   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x28   0x297B             CMP      R1,#+123
+   \       0x2A   0xDA00             BGE.N    ??strcasecmp_2
+     79                      c1 = (int8)(c1 - ' ');
+   \       0x2C   0x3D20             SUBS     R5,R5,#+32
+     80                  if ((c2 >= 'a') && (c2 <= 'z'))
+   \                     ??strcasecmp_2: (+1)
+   \       0x2E   0x0021             MOVS     R1,R4
+   \       0x30   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x32   0x2961             CMP      R1,#+97
+   \       0x34   0xDB04             BLT.N    ??strcasecmp_3
+   \       0x36   0x0021             MOVS     R1,R4
+   \       0x38   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x3A   0x297B             CMP      R1,#+123
+   \       0x3C   0xDA00             BGE.N    ??strcasecmp_3
+     81                      c2 = (int8)(c2 - ' ');
+   \       0x3E   0x3C20             SUBS     R4,R4,#+32
+     82                  if ((result = (c1 - c2)) != 0)
+   \                     ??strcasecmp_3: (+1)
+   \       0x40   0x002E             MOVS     R6,R5
+   \       0x42   0xB276             SXTB     R6,R6            ;; SignExt  R6,R6,#+24,#+24
+   \       0x44   0x0021             MOVS     R1,R4
+   \       0x46   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x48   0x1A76             SUBS     R6,R6,R1
+   \       0x4A   0x0030             MOVS     R0,R6
+   \       0x4C   0x2800             CMP      R0,#+0
+   \       0x4E   0xD107             BNE.N    ??strcasecmp_1
+     83                      break;
+     84                  if ((c1 == 0) || (c2 == 0))
+   \                     ??strcasecmp_4: (+1)
+   \       0x50   0x0029             MOVS     R1,R5
+   \       0x52   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x54   0x2900             CMP      R1,#+0
+   \       0x56   0xD003             BEQ.N    ??strcasecmp_5
+   \       0x58   0x0021             MOVS     R1,R4
+   \       0x5A   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x5C   0x2900             CMP      R1,#+0
+   \       0x5E   0xD1D3             BNE.N    ??strcasecmp_0
+     85                      break;
+     86              }
+     87              return result;
+   \                     ??strcasecmp_5: (+1)
+   \                     ??strcasecmp_1: (+1)
+   \       0x60   0xBC70             POP      {R4-R6}
+   \       0x62   0x4770             BX       LR               ;; return
+     88          }
+     89          
+     90          
+     91          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+     92          int strncasecmp (const int8 *s1, const int8 *s2, int n)
+     93          {
+   \                     strncasecmp: (+1)
+   \        0x0   0xB4F0             PUSH     {R4-R7}
+   \        0x2   0x0004             MOVS     R4,R0
+   \        0x4   0x000B             MOVS     R3,R1
+     94              int8    c1, c2;
+     95              int     k = 0;
+   \        0x6   0x2600             MOVS     R6,#+0
+     96              int     result = 0;
+   \        0x8   0x2000             MOVS     R0,#+0
+     97          
+     98              while ( k++ < n )
+   \                     ??strncasecmp_0: (+1)
+   \        0xA   0x0031             MOVS     R1,R6
+   \        0xC   0x1C4E             ADDS     R6,R1,#+1
+   \        0xE   0x4291             CMP      R1,R2
+   \       0x10   0xDA2B             BGE.N    ??strncasecmp_1
+     99              {
+    100                  c1 = *s1++;
+   \       0x12   0xF994 0x1000      LDRSB    R1,[R4, #+0]
+   \       0x16   0x000F             MOVS     R7,R1
+   \       0x18   0x1C64             ADDS     R4,R4,#+1
+    101                  c2 = *s2++;
+   \       0x1A   0xF993 0x1000      LDRSB    R1,[R3, #+0]
+   \       0x1E   0x000D             MOVS     R5,R1
+   \       0x20   0x1C5B             ADDS     R3,R3,#+1
+    102                  if ((c1 >= 'a') && (c1 <= 'z'))
+   \       0x22   0x0039             MOVS     R1,R7
+   \       0x24   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x26   0x2961             CMP      R1,#+97
+   \       0x28   0xDB04             BLT.N    ??strncasecmp_2
+   \       0x2A   0x0039             MOVS     R1,R7
+   \       0x2C   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x2E   0x297B             CMP      R1,#+123
+   \       0x30   0xDA00             BGE.N    ??strncasecmp_2
+    103                      c1 = (int8)(c1 - ' ');
+   \       0x32   0x3F20             SUBS     R7,R7,#+32
+    104                  if ((c2 >= 'a') && (c2 <= 'z'))
+   \                     ??strncasecmp_2: (+1)
+   \       0x34   0x0029             MOVS     R1,R5
+   \       0x36   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x38   0x2961             CMP      R1,#+97
+   \       0x3A   0xDB04             BLT.N    ??strncasecmp_3
+   \       0x3C   0x0029             MOVS     R1,R5
+   \       0x3E   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x40   0x297B             CMP      R1,#+123
+   \       0x42   0xDA00             BGE.N    ??strncasecmp_3
+    105                      c2 = (int8)(c2 - ' ');
+   \       0x44   0x3D20             SUBS     R5,R5,#+32
+    106                  if ((result = (c1 - c2)) != 0)
+   \                     ??strncasecmp_3: (+1)
+   \       0x46   0x46BC             MOV      R12,R7
+   \       0x48   0xFA4F 0xFC8C      SXTB     R12,R12          ;; SignExt  R12,R12,#+24,#+24
+   \       0x4C   0x0029             MOVS     R1,R5
+   \       0x4E   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x50   0xEBBC 0x0C01      SUBS     R12,R12,R1
+   \       0x54   0x4660             MOV      R0,R12
+   \       0x56   0x2800             CMP      R0,#+0
+   \       0x58   0xD107             BNE.N    ??strncasecmp_1
+    107                      break;
+    108                  if ((c1 == 0) || (c2 == 0))
+   \                     ??strncasecmp_4: (+1)
+   \       0x5A   0x0039             MOVS     R1,R7
+   \       0x5C   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x5E   0x2900             CMP      R1,#+0
+   \       0x60   0xD003             BEQ.N    ??strncasecmp_5
+   \       0x62   0x0029             MOVS     R1,R5
+   \       0x64   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \       0x66   0x2900             CMP      R1,#+0
+   \       0x68   0xD1CF             BNE.N    ??strncasecmp_0
+    109                      break;
+    110              }
+    111              return result;
+   \                     ??strncasecmp_5: (+1)
+   \                     ??strncasecmp_1: (+1)
+   \       0x6A   0xBCF0             POP      {R4-R7}
+   \       0x6C   0x4770             BX       LR               ;; return
+    112          }
+    113          
+    114          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    115          unsigned long strtoul (int8 *str, int8 **ptr, int base)
+    116          {
+   \                     strtoul: (+1)
+   \        0x0   0xE92D 0x4FF8      PUSH     {R3-R11,LR}
+   \        0x4   0x4680             MOV      R8,R0
+   \        0x6   0x000C             MOVS     R4,R1
+   \        0x8   0x0015             MOVS     R5,R2
+    117              unsigned long rvalue;
+    118              int c, err, neg;
+    119              int8 *endp;
+    120              int8 *startp;
+    121          
+    122              rvalue = 0;  err = 0;  neg = 0;
+   \        0xA   0xF05F 0x0A00      MOVS     R10,#+0
+   \        0xE   0x2000             MOVS     R0,#+0
+   \       0x10   0x9000             STR      R0,[SP, #+0]
+   \       0x12   0x2600             MOVS     R6,#+0
+    123          
+    124              /* Check for invalid arguments */
+    125              if ((str == NULL) || (base < 0) || (base == 1) || (base > 36))
+   \       0x14   0xF1B8 0x0F00      CMP      R8,#+0
+   \       0x18   0xD005             BEQ.N    ??strtoul_0
+   \       0x1A   0x2D00             CMP      R5,#+0
+   \       0x1C   0xD403             BMI.N    ??strtoul_0
+   \       0x1E   0x2D01             CMP      R5,#+1
+   \       0x20   0xD001             BEQ.N    ??strtoul_0
+   \       0x22   0x2D25             CMP      R5,#+37
+   \       0x24   0xDB05             BLT.N    ??strtoul_1
+    126              {
+    127                  if (ptr != NULL)
+   \                     ??strtoul_0: (+1)
+   \       0x26   0x2C00             CMP      R4,#+0
+   \       0x28   0xD001             BEQ.N    ??strtoul_2
+    128                  {
+    129                      *ptr = str;
+   \       0x2A   0xF8C4 0x8000      STR      R8,[R4, #+0]
+    130                  }
+    131                  return 0;
+   \                     ??strtoul_2: (+1)
+   \       0x2E   0x2000             MOVS     R0,#+0
+   \       0x30   0xE065             B.N      ??strtoul_3
+    132              }
+    133          
+    134              /* Skip leading white spaces */
+    135              for (startp = str; isspace(*startp); ++startp)
+   \                     ??strtoul_1: (+1)
+   \       0x32   0x46C1             MOV      R9,R8
+   \                     ??strtoul_4: (+1)
+   \       0x34   0xF999 0x0000      LDRSB    R0,[R9, #+0]
+   \       0x38   0x....'....        BL       isspace
+   \       0x3C   0x2800             CMP      R0,#+0
+   \       0x3E   0xD002             BEQ.N    ??strtoul_5
+   \       0x40   0xF119 0x0901      ADDS     R9,R9,#+1
+   \       0x44   0xE7F6             B.N      ??strtoul_4
+    136                  ;
+    137          
+    138              /* Check for notations */
+    139              switch (startp[0])
+   \                     ??strtoul_5: (+1)
+   \       0x46   0xF999 0x0000      LDRSB    R0,[R9, #+0]
+   \       0x4A   0x282D             CMP      R0,#+45
+   \       0x4C   0xD012             BEQ.N    ??strtoul_6
+   \       0x4E   0x2830             CMP      R0,#+48
+   \       0x50   0xD115             BNE.N    ??strtoul_7
+    140              {
+    141                  case '0':
+    142                      if ((startp[1] == 'x') || (startp[1] == 'X'))
+   \                     ??strtoul_8: (+1)
+   \       0x52   0xF999 0x0001      LDRSB    R0,[R9, #+1]
+   \       0x56   0x2878             CMP      R0,#+120
+   \       0x58   0xD003             BEQ.N    ??strtoul_9
+   \       0x5A   0xF999 0x0001      LDRSB    R0,[R9, #+1]
+   \       0x5E   0x2858             CMP      R0,#+88
+   \       0x60   0xD107             BNE.N    ??strtoul_10
+    143                      {
+    144                          if ((base == 0) || (base == 16))
+   \                     ??strtoul_9: (+1)
+   \       0x62   0x2D00             CMP      R5,#+0
+   \       0x64   0xD001             BEQ.N    ??strtoul_11
+   \       0x66   0x2D10             CMP      R5,#+16
+   \       0x68   0xD103             BNE.N    ??strtoul_10
+    145                          {
+    146                              base = 16;
+   \                     ??strtoul_11: (+1)
+   \       0x6A   0x2010             MOVS     R0,#+16
+   \       0x6C   0x0005             MOVS     R5,R0
+    147                              startp = &startp[2];
+   \       0x6E   0xF119 0x0902      ADDS     R9,R9,#+2
+    148                          }
+    149                      }
+    150                      break;
+   \                     ??strtoul_10: (+1)
+   \       0x72   0xE004             B.N      ??strtoul_12
+    151                  case '-':
+    152                      neg = 1;
+   \                     ??strtoul_6: (+1)
+   \       0x74   0x2001             MOVS     R0,#+1
+   \       0x76   0x0006             MOVS     R6,R0
+    153                      startp = &startp[1];
+   \       0x78   0xF119 0x0901      ADDS     R9,R9,#+1
+    154                      break;
+   \       0x7C   0xE7FF             B.N      ??strtoul_12
+    155                  default:
+    156                      break;
+    157              }
+    158          
+    159              if (base == 0)
+   \                     ??strtoul_7: (+1)
+   \                     ??strtoul_12: (+1)
+   \       0x7E   0x2D00             CMP      R5,#+0
+   \       0x80   0xD101             BNE.N    ??strtoul_13
+    160                  base = 10;
+   \       0x82   0x200A             MOVS     R0,#+10
+   \       0x84   0x0005             MOVS     R5,R0
+    161          
+    162              /* Check for invalid chars in str */
+    163              for ( endp = startp; (c = *endp) != '\0'; ++endp)
+   \                     ??strtoul_13: (+1)
+   \       0x86   0x46CB             MOV      R11,R9
+   \                     ??strtoul_14: (+1)
+   \       0x88   0xF99B 0x0000      LDRSB    R0,[R11, #+0]
+   \       0x8C   0x0007             MOVS     R7,R0
+   \       0x8E   0x2F00             CMP      R7,#+0
+   \       0x90   0xD027             BEQ.N    ??strtoul_15
+    164              {
+    165                  /* Check for 0..9,Aa-Zz */
+    166                  if (!isalnum(c))
+   \       0x92   0x0038             MOVS     R0,R7
+   \       0x94   0x....'....        BL       isalnum
+   \       0x98   0x2800             CMP      R0,#+0
+   \       0x9A   0xD102             BNE.N    ??strtoul_16
+    167                  {
+    168                      err = 1;
+   \       0x9C   0x2001             MOVS     R0,#+1
+   \       0x9E   0x9000             STR      R0,[SP, #+0]
+    169                      break;
+   \       0xA0   0xE01F             B.N      ??strtoul_15
+    170                  }
+    171          
+    172                  /* Convert int8 to num in 0..36 */
+    173                  if (isdigit(c))
+   \                     ??strtoul_16: (+1)
+   \       0xA2   0x0038             MOVS     R0,R7
+   \       0xA4   0x....'....        BL       isdigit
+   \       0xA8   0x2800             CMP      R0,#+0
+   \       0xAA   0xD001             BEQ.N    ??strtoul_17
+    174                  {
+    175                      c = c - '0';
+   \       0xAC   0x3F30             SUBS     R7,R7,#+48
+   \       0xAE   0xE007             B.N      ??strtoul_18
+    176                  }
+    177                  else
+    178                  {
+    179                      if (isupper(c))
+   \                     ??strtoul_17: (+1)
+   \       0xB0   0x0038             MOVS     R0,R7
+   \       0xB2   0x....'....        BL       isupper
+   \       0xB6   0x2800             CMP      R0,#+0
+   \       0xB8   0xD001             BEQ.N    ??strtoul_19
+    180                      {
+    181                          c = c - 'A' + 10;
+   \       0xBA   0x3F37             SUBS     R7,R7,#+55
+   \       0xBC   0xE000             B.N      ??strtoul_18
+    182                      }
+    183                      else
+    184                      {
+    185                          c = c - 'a' + 10;
+   \                     ??strtoul_19: (+1)
+   \       0xBE   0x3F57             SUBS     R7,R7,#+87
+    186                      }
+    187                  }
+    188          
+    189                  /* check c against base */
+    190                  if (c >= base)
+   \                     ??strtoul_18: (+1)
+   \       0xC0   0x42AF             CMP      R7,R5
+   \       0xC2   0xDB02             BLT.N    ??strtoul_20
+    191                  {
+    192                      err = 1;
+   \       0xC4   0x2001             MOVS     R0,#+1
+   \       0xC6   0x9000             STR      R0,[SP, #+0]
+    193                      break;
+   \       0xC8   0xE00B             B.N      ??strtoul_15
+    194                  }
+    195          
+    196                  if (neg)
+   \                     ??strtoul_20: (+1)
+   \       0xCA   0x2E00             CMP      R6,#+0
+   \       0xCC   0xD004             BEQ.N    ??strtoul_21
+    197                  {
+    198                      rvalue = (rvalue * base) - c;
+   \       0xCE   0xFB05 0xFA0A      MUL      R10,R5,R10
+   \       0xD2   0xEBBA 0x0A07      SUBS     R10,R10,R7
+   \       0xD6   0xE001             B.N      ??strtoul_22
+    199                  }
+    200                  else
+    201                  {
+    202                      rvalue = (rvalue * base) + c;
+   \                     ??strtoul_21: (+1)
+   \       0xD8   0xFB05 0x7A0A      MLA      R10,R5,R10,R7
+    203                  }
+    204              }
+   \                     ??strtoul_22: (+1)
+   \       0xDC   0xF11B 0x0B01      ADDS     R11,R11,#+1
+   \       0xE0   0xE7D2             B.N      ??strtoul_14
+    205          
+    206              /* Upon exit, endp points to the character at which valid info */
+    207              /* STOPS.  No chars including and beyond endp are used.        */
+    208          
+    209              if (ptr != NULL)
+   \                     ??strtoul_15: (+1)
+   \       0xE2   0x2C00             CMP      R4,#+0
+   \       0xE4   0xD001             BEQ.N    ??strtoul_23
+    210                  *ptr = endp;
+   \       0xE6   0xF8C4 0xB000      STR      R11,[R4, #+0]
+    211          
+    212              if (err)
+   \                     ??strtoul_23: (+1)
+   \       0xEA   0x9800             LDR      R0,[SP, #+0]
+   \       0xEC   0x2800             CMP      R0,#+0
+   \       0xEE   0xD005             BEQ.N    ??strtoul_24
+    213              {
+    214                  if (ptr != NULL)
+   \       0xF0   0x2C00             CMP      R4,#+0
+   \       0xF2   0xD001             BEQ.N    ??strtoul_25
+    215                      *ptr = str;
+   \       0xF4   0xF8C4 0x8000      STR      R8,[R4, #+0]
+    216                  
+    217                  return 0;
+   \                     ??strtoul_25: (+1)
+   \       0xF8   0x2000             MOVS     R0,#+0
+   \       0xFA   0xE000             B.N      ??strtoul_3
+    218              }
+    219              else
+    220              {
+    221                  return rvalue;
+   \                     ??strtoul_24: (+1)
+   \       0xFC   0x4650             MOV      R0,R10
+   \                     ??strtoul_3: (+1)
+   \       0xFE   0xE8BD 0x8FF2      POP      {R1,R4-R11,PC}   ;; return
+    222              }
+    223          }
+    224          
+    225          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    226          int strlen (const int8 *str)
+    227          {
+   \                     strlen: (+1)
+   \        0x0   0x0002             MOVS     R2,R0
+    228              int8 *s = (int8 *)str;
+   \        0x2   0x0011             MOVS     R1,R2
+    229              int len = 0;
+   \        0x4   0x2300             MOVS     R3,#+0
+    230          
+    231              if (s == NULL)
+   \        0x6   0x2900             CMP      R1,#+0
+   \        0x8   0xD101             BNE.N    ??strlen_0
+    232                  return 0;
+   \        0xA   0x2000             MOVS     R0,#+0
+   \        0xC   0xE008             B.N      ??strlen_1
+    233          
+    234              while (*s++ != '\0')
+   \                     ??strlen_0: (+1)
+   \        0xE   0x0008             MOVS     R0,R1
+   \       0x10   0x1C41             ADDS     R1,R0,#+1
+   \       0x12   0xF990 0x0000      LDRSB    R0,[R0, #+0]
+   \       0x16   0x2800             CMP      R0,#+0
+   \       0x18   0xD001             BEQ.N    ??strlen_2
+    235                  ++len;
+   \       0x1A   0x1C5B             ADDS     R3,R3,#+1
+   \       0x1C   0xE7F7             B.N      ??strlen_0
+    236          
+    237              return len;
+   \                     ??strlen_2: (+1)
+   \       0x1E   0x0018             MOVS     R0,R3
+   \                     ??strlen_1: (+1)
+   \       0x20   0x4770             BX       LR               ;; return
+    238          }
+    239          
+    240          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    241          int8 * strcat (int8 *dest, const int8 *src)
+    242          {
+   \                     strcat: (+1)
+   \        0x0   0xB5F8             PUSH     {R3-R7,LR}
+   \        0x2   0x0005             MOVS     R5,R0
+   \        0x4   0x000C             MOVS     R4,R1
+    243              int8 *dp;
+    244              int8 *sp = (int8 *)src;
+   \        0x6   0x0027             MOVS     R7,R4
+    245          
+    246              if ((dest != NULL) && (src != NULL))
+   \        0x8   0x2D00             CMP      R5,#+0
+   \        0xA   0xD011             BEQ.N    ??strcat_0
+   \        0xC   0x2C00             CMP      R4,#+0
+   \        0xE   0xD00F             BEQ.N    ??strcat_0
+    247              {
+    248                  dp = &dest[strlen(dest)];
+   \       0x10   0x0028             MOVS     R0,R5
+   \       0x12   0x....'....        BL       strlen
+   \       0x16   0x4428             ADD      R0,R5,R0
+   \       0x18   0x0006             MOVS     R6,R0
+    249          
+    250                  while (*sp != '\0')
+   \                     ??strcat_1: (+1)
+   \       0x1A   0xF997 0x0000      LDRSB    R0,[R7, #+0]
+   \       0x1E   0x2800             CMP      R0,#+0
+   \       0x20   0xD004             BEQ.N    ??strcat_2
+    251                  {
+    252                      *dp++ = *sp++;
+   \       0x22   0x7838             LDRB     R0,[R7, #+0]
+   \       0x24   0x7030             STRB     R0,[R6, #+0]
+   \       0x26   0x1C7F             ADDS     R7,R7,#+1
+   \       0x28   0x1C76             ADDS     R6,R6,#+1
+   \       0x2A   0xE7F6             B.N      ??strcat_1
+    253                  }
+    254                  *dp = '\0';
+   \                     ??strcat_2: (+1)
+   \       0x2C   0x2000             MOVS     R0,#+0
+   \       0x2E   0x7030             STRB     R0,[R6, #+0]
+    255              }
+    256              return dest;
+   \                     ??strcat_0: (+1)
+   \       0x30   0x0028             MOVS     R0,R5
+   \       0x32   0xBDF2             POP      {R1,R4-R7,PC}    ;; return
+    257          }
+    258          
+    259          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    260          int8 * strncat (int8 *dest, const int8 *src, int n)
+    261          {
+   \                     strncat: (+1)
+   \        0x0   0xE92D 0x41F0      PUSH     {R4-R8,LR}
+   \        0x4   0x0004             MOVS     R4,R0
+   \        0x6   0x000D             MOVS     R5,R1
+   \        0x8   0x4690             MOV      R8,R2
+    262              int8 *dp;
+    263              int8 *sp = (int8 *)src;
+   \        0xA   0x002F             MOVS     R7,R5
+    264          
+    265              if ((dest != NULL) && (src != NULL) && (n > 0))
+   \        0xC   0x2C00             CMP      R4,#+0
+   \        0xE   0xD019             BEQ.N    ??strncat_0
+   \       0x10   0x2D00             CMP      R5,#+0
+   \       0x12   0xD017             BEQ.N    ??strncat_0
+   \       0x14   0xF1B8 0x0F01      CMP      R8,#+1
+   \       0x18   0xDB14             BLT.N    ??strncat_0
+    266              {
+    267                  dp = &dest[strlen(dest)];
+   \       0x1A   0x0020             MOVS     R0,R4
+   \       0x1C   0x....'....        BL       strlen
+   \       0x20   0x4420             ADD      R0,R4,R0
+   \       0x22   0x0006             MOVS     R6,R0
+    268          
+    269                  while ((*sp != '\0') && (n-- > 0))
+   \                     ??strncat_1: (+1)
+   \       0x24   0xF997 0x0000      LDRSB    R0,[R7, #+0]
+   \       0x28   0x2800             CMP      R0,#+0
+   \       0x2A   0xD009             BEQ.N    ??strncat_2
+   \       0x2C   0x4640             MOV      R0,R8
+   \       0x2E   0xF1B0 0x0801      SUBS     R8,R0,#+1
+   \       0x32   0x2801             CMP      R0,#+1
+   \       0x34   0xDB04             BLT.N    ??strncat_2
+    270                  {
+    271                      *dp++ = *sp++;
+   \       0x36   0x7838             LDRB     R0,[R7, #+0]
+   \       0x38   0x7030             STRB     R0,[R6, #+0]
+   \       0x3A   0x1C7F             ADDS     R7,R7,#+1
+   \       0x3C   0x1C76             ADDS     R6,R6,#+1
+   \       0x3E   0xE7F1             B.N      ??strncat_1
+    272                  }
+    273                  *dp = '\0';
+   \                     ??strncat_2: (+1)
+   \       0x40   0x2000             MOVS     R0,#+0
+   \       0x42   0x7030             STRB     R0,[R6, #+0]
+    274              }
+    275              return dest;
+   \                     ??strncat_0: (+1)
+   \       0x44   0x0020             MOVS     R0,R4
+   \       0x46   0xE8BD 0x81F0      POP      {R4-R8,PC}       ;; return
+    276          }
+    277          
+    278          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    279          int8 * strcpy (int8 *dest, const int8 *src)
+    280          {
+   \                     strcpy: (+1)
+   \        0x0   0xB410             PUSH     {R4}
+    281              int8 *dp = (int8 *)dest;
+   \        0x2   0x0003             MOVS     R3,R0
+    282              int8 *sp = (int8 *)src;
+   \        0x4   0x000C             MOVS     R4,R1
+    283          
+    284              if ((dest != NULL) && (src != NULL))
+   \        0x6   0x2800             CMP      R0,#+0
+   \        0x8   0xD00C             BEQ.N    ??strcpy_0
+   \        0xA   0x2900             CMP      R1,#+0
+   \        0xC   0xD00A             BEQ.N    ??strcpy_0
+    285              {
+    286                  while (*sp != '\0')
+   \                     ??strcpy_1: (+1)
+   \        0xE   0xF994 0x2000      LDRSB    R2,[R4, #+0]
+   \       0x12   0x2A00             CMP      R2,#+0
+   \       0x14   0xD004             BEQ.N    ??strcpy_2
+    287                  {
+    288                      *dp++ = *sp++;
+   \       0x16   0x7822             LDRB     R2,[R4, #+0]
+   \       0x18   0x701A             STRB     R2,[R3, #+0]
+   \       0x1A   0x1C64             ADDS     R4,R4,#+1
+   \       0x1C   0x1C5B             ADDS     R3,R3,#+1
+   \       0x1E   0xE7F6             B.N      ??strcpy_1
+    289                  }
+    290                  *dp = '\0';
+   \                     ??strcpy_2: (+1)
+   \       0x20   0x2200             MOVS     R2,#+0
+   \       0x22   0x701A             STRB     R2,[R3, #+0]
+    291              }
+    292              return dest;
+   \                     ??strcpy_0: (+1)
+   \       0x24   0xBC10             POP      {R4}
+   \       0x26   0x4770             BX       LR               ;; return
+    293          }
+    294          
+    295          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    296          int8 * strncpy (int8 *dest, const int8 *src, int n)
+    297          {
+   \                     strncpy: (+1)
+   \        0x0   0xB430             PUSH     {R4,R5}
+    298              int8 *dp = (int8 *)dest;
+   \        0x2   0x0004             MOVS     R4,R0
+    299              int8 *sp = (int8 *)src;
+   \        0x4   0x000D             MOVS     R5,R1
+    300          
+    301              if ((dest != NULL) && (src != NULL) && (n > 0))
+   \        0x6   0x2800             CMP      R0,#+0
+   \        0x8   0xD012             BEQ.N    ??strncpy_0
+   \        0xA   0x2900             CMP      R1,#+0
+   \        0xC   0xD010             BEQ.N    ??strncpy_0
+   \        0xE   0x2A01             CMP      R2,#+1
+   \       0x10   0xDB0E             BLT.N    ??strncpy_0
+    302              {
+    303                  while ((*sp != '\0') && (n-- > 0))
+   \                     ??strncpy_1: (+1)
+   \       0x12   0xF995 0x3000      LDRSB    R3,[R5, #+0]
+   \       0x16   0x2B00             CMP      R3,#+0
+   \       0x18   0xD008             BEQ.N    ??strncpy_2
+   \       0x1A   0x0013             MOVS     R3,R2
+   \       0x1C   0x1E5A             SUBS     R2,R3,#+1
+   \       0x1E   0x2B01             CMP      R3,#+1
+   \       0x20   0xDB04             BLT.N    ??strncpy_2
+    304                  {
+    305                      *dp++ = *sp++;
+   \       0x22   0x782B             LDRB     R3,[R5, #+0]
+   \       0x24   0x7023             STRB     R3,[R4, #+0]
+   \       0x26   0x1C6D             ADDS     R5,R5,#+1
+   \       0x28   0x1C64             ADDS     R4,R4,#+1
+   \       0x2A   0xE7F2             B.N      ??strncpy_1
+    306                  }
+    307                  *dp = '\0';
+   \                     ??strncpy_2: (+1)
+   \       0x2C   0x2300             MOVS     R3,#+0
+   \       0x2E   0x7023             STRB     R3,[R4, #+0]
+    308              }
+    309              return dest;
+   \                     ??strncpy_0: (+1)
+   \       0x30   0xBC30             POP      {R4,R5}
+   \       0x32   0x4770             BX       LR               ;; return
+    310          }
+    311          
+    312          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    313          int strcmp (const int8 *s1, const int8 *s2)
+    314          {
+   \                     strcmp: (+1)
+   \        0x0   0xB430             PUSH     {R4,R5}
+   \        0x2   0x0003             MOVS     R3,R0
+    315              /* No checks for NULL */
+    316              int8 *s1p = (int8 *)s1;
+   \        0x4   0x001A             MOVS     R2,R3
+    317              int8 *s2p = (int8 *)s2;
+   \        0x6   0x000C             MOVS     R4,R1
+    318          
+    319              while (*s2p != '\0')
+   \                     ??strcmp_0: (+1)
+   \        0x8   0xF994 0x0000      LDRSB    R0,[R4, #+0]
+   \        0xC   0x2800             CMP      R0,#+0
+   \        0xE   0xD008             BEQ.N    ??strcmp_1
+    320              {
+    321                  if (*s1p != *s2p)
+   \       0x10   0xF992 0x0000      LDRSB    R0,[R2, #+0]
+   \       0x14   0xF994 0x5000      LDRSB    R5,[R4, #+0]
+   \       0x18   0x42A8             CMP      R0,R5
+   \       0x1A   0xD102             BNE.N    ??strcmp_1
+    322                      break;
+    323          
+    324                  ++s1p;
+   \                     ??strcmp_2: (+1)
+   \       0x1C   0x1C52             ADDS     R2,R2,#+1
+    325                  ++s2p;
+   \       0x1E   0x1C64             ADDS     R4,R4,#+1
+   \       0x20   0xE7F2             B.N      ??strcmp_0
+    326              }
+    327              return (*s1p - *s2p);
+   \                     ??strcmp_1: (+1)
+   \       0x22   0xF992 0x0000      LDRSB    R0,[R2, #+0]
+   \       0x26   0xF994 0x2000      LDRSB    R2,[R4, #+0]
+   \       0x2A   0x1A80             SUBS     R0,R0,R2
+   \       0x2C   0xBC30             POP      {R4,R5}
+   \       0x2E   0x4770             BX       LR               ;; return
+    328          }
+    329          
+    330          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    331          int strncmp (const int8 *s1, const int8 *s2, int n)
+    332          {
+   \                     strncmp: (+1)
+   \        0x0   0xB470             PUSH     {R4-R6}
+   \        0x2   0x0004             MOVS     R4,R0
+    333              /* No checks for NULL */
+    334              int8 *s1p = (int8 *)s1;
+   \        0x4   0x0023             MOVS     R3,R4
+    335              int8 *s2p = (int8 *)s2;
+   \        0x6   0x000D             MOVS     R5,R1
+    336          
+    337              if (n <= 0)
+   \        0x8   0x2A01             CMP      R2,#+1
+   \        0xA   0xDA01             BGE.N    ??strncmp_0
+    338                  return 0;
+   \        0xC   0x2000             MOVS     R0,#+0
+   \        0xE   0xE014             B.N      ??strncmp_1
+    339          
+    340              while (*s2p != '\0')
+   \                     ??strncmp_0: (+1)
+   \       0x10   0xF995 0x0000      LDRSB    R0,[R5, #+0]
+   \       0x14   0x2800             CMP      R0,#+0
+   \       0x16   0xD00B             BEQ.N    ??strncmp_2
+    341              {
+    342                  if (*s1p != *s2p)
+   \       0x18   0xF993 0x0000      LDRSB    R0,[R3, #+0]
+   \       0x1C   0xF995 0x6000      LDRSB    R6,[R5, #+0]
+   \       0x20   0x42B0             CMP      R0,R6
+   \       0x22   0xD105             BNE.N    ??strncmp_2
+    343                      break;
+    344          
+    345                  if (--n == 0)
+   \                     ??strncmp_3: (+1)
+   \       0x24   0x1E52             SUBS     R2,R2,#+1
+   \       0x26   0x2A00             CMP      R2,#+0
+   \       0x28   0xD002             BEQ.N    ??strncmp_2
+    346                      break;
+    347          
+    348                  ++s1p;
+   \                     ??strncmp_4: (+1)
+   \       0x2A   0x1C5B             ADDS     R3,R3,#+1
+    349                  ++s2p;
+   \       0x2C   0x1C6D             ADDS     R5,R5,#+1
+   \       0x2E   0xE7EF             B.N      ??strncmp_0
+    350              }
+    351              return (*s1p - *s2p);
+   \                     ??strncmp_2: (+1)
+   \       0x30   0xF993 0x0000      LDRSB    R0,[R3, #+0]
+   \       0x34   0xF995 0x3000      LDRSB    R3,[R5, #+0]
+   \       0x38   0x1AC0             SUBS     R0,R0,R3
+   \                     ??strncmp_1: (+1)
+   \       0x3A   0xBC70             POP      {R4-R6}
+   \       0x3C   0x4770             BX       LR               ;; return
+    352          }
+    353          
+    354          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    355          void * memcpy (void *dest, const void *src, unsigned n)
+    356          {
+   \                     memcpy: (+1)
+   \        0x0   0xB5F0             PUSH     {R4-R7,LR}
+    357              int longs, bytes;
+    358              uint32 *dpl = (uint32 *)dest;
+   \        0x2   0x0007             MOVS     R7,R0
+    359              uint32 *spl = (uint32 *)src;
+   \        0x4   0x468C             MOV      R12,R1
+    360              uint8  *dpb, *spb;
+    361          
+    362              if ((dest != NULL) && (src != NULL) && (n > 0))
+   \        0x6   0x2800             CMP      R0,#+0
+   \        0x8   0xD020             BEQ.N    ??memcpy_0
+   \        0xA   0x2900             CMP      R1,#+0
+   \        0xC   0xD01E             BEQ.N    ??memcpy_0
+   \        0xE   0x2A00             CMP      R2,#+0
+   \       0x10   0xD01C             BEQ.N    ??memcpy_0
+    363              {
+    364                  bytes = (n & 0x3);
+   \       0x12   0xF012 0x0303      ANDS     R3,R2,#0x3
+   \       0x16   0x001E             MOVS     R6,R3
+    365                  longs = (n - bytes) >> 2;
+   \       0x18   0x1B93             SUBS     R3,R2,R6
+   \       0x1A   0x089B             LSRS     R3,R3,#+2
+   \       0x1C   0x469E             MOV      LR,R3
+    366              
+    367                  while (longs--)
+   \                     ??memcpy_1: (+1)
+   \       0x1E   0x4673             MOV      R3,LR
+   \       0x20   0xF1B3 0x0E01      SUBS     LR,R3,#+1
+   \       0x24   0x2B00             CMP      R3,#+0
+   \       0x26   0xD006             BEQ.N    ??memcpy_2
+    368                      *dpl++ = *spl++;
+   \       0x28   0xF8DC 0x3000      LDR      R3,[R12, #+0]
+   \       0x2C   0x603B             STR      R3,[R7, #+0]
+   \       0x2E   0xF11C 0x0C04      ADDS     R12,R12,#+4
+   \       0x32   0x1D3F             ADDS     R7,R7,#+4
+   \       0x34   0xE7F3             B.N      ??memcpy_1
+    369                  
+    370                  dpb = (uint8 *)dpl;
+   \                     ??memcpy_2: (+1)
+   \       0x36   0x003C             MOVS     R4,R7
+    371                  spb = (uint8 *)spl;
+   \       0x38   0x4665             MOV      R5,R12
+    372                  
+    373                  while (bytes--)
+   \                     ??memcpy_3: (+1)
+   \       0x3A   0x0033             MOVS     R3,R6
+   \       0x3C   0x1E5E             SUBS     R6,R3,#+1
+   \       0x3E   0x2B00             CMP      R3,#+0
+   \       0x40   0xD004             BEQ.N    ??memcpy_0
+    374                      *dpb++ = *spb++;
+   \       0x42   0x782B             LDRB     R3,[R5, #+0]
+   \       0x44   0x7023             STRB     R3,[R4, #+0]
+   \       0x46   0x1C6D             ADDS     R5,R5,#+1
+   \       0x48   0x1C64             ADDS     R4,R4,#+1
+   \       0x4A   0xE7F6             B.N      ??memcpy_3
+    375              }
+    376              return dest;
+   \                     ??memcpy_0: (+1)
+   \       0x4C   0xBDF0             POP      {R4-R7,PC}       ;; return
+    377          }
+    378          
+    379          /****************************************************************/
+
+   \                                 In section .text, align 2, keep-with-next
+    380          void * memset (void *s, int c, unsigned n)
+    381          {
+   \                     memset: (+1)
+   \        0x0   0xB410             PUSH     {R4}
+    382              /* Not optimized, but very portable */
+    383              uint8 *sp = (uint8 *)s;
+   \        0x2   0x0004             MOVS     R4,R0
+    384          
+    385              if ((s != NULL) && (n > 0))
+   \        0x4   0x2800             CMP      R0,#+0
+   \        0x6   0xD008             BEQ.N    ??memset_0
+   \        0x8   0x2A00             CMP      R2,#+0
+   \        0xA   0xD006             BEQ.N    ??memset_0
+    386              {
+    387                  while (n--)
+   \                     ??memset_1: (+1)
+   \        0xC   0x0013             MOVS     R3,R2
+   \        0xE   0x1E5A             SUBS     R2,R3,#+1
+   \       0x10   0x2B00             CMP      R3,#+0
+   \       0x12   0xD002             BEQ.N    ??memset_0
+    388                  {
+    389                      *sp++ = (uint8)c;
+   \       0x14   0x7021             STRB     R1,[R4, #+0]
+   \       0x16   0x1C64             ADDS     R4,R4,#+1
+   \       0x18   0xE7F8             B.N      ??memset_1
+    390                  }
+    391              }
+    392              return s;
+   \                     ??memset_0: (+1)
+   \       0x1A   0xBC10             POP      {R4}
+   \       0x1C   0x4770             BX       LR               ;; return
+    393          }
+    394          
+    395          /****************************************************************/
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   isalnum
+       0   isdigit
+       0   isspace
+       0   isupper
+      20   memcpy
+       4   memset
+      12   strcasecmp
+      24   strcat
+        24   -> strlen
+       8   strcmp
+       4   strcpy
+       0   strlen
+      16   strncasecmp
+      24   strncat
+        24   -> strlen
+      12   strncmp
+       8   strncpy
+      40   strtoul
+        40   -> isalnum
+        40   -> isdigit
+        40   -> isspace
+        40   -> isupper
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      34  isalnum
+      18  isdigit
+      18  isspace
+      18  isupper
+      78  memcpy
+      30  memset
+     100  strcasecmp
+      52  strcat
+      48  strcmp
+      40  strcpy
+      34  strlen
+     110  strncasecmp
+      74  strncat
+      62  strncmp
+      52  strncpy
+     258  strtoul
+
+ 
+ 1 026 bytes in section .text
+ 
+ 1 026 bytes of CODE memory
+
+Errors: none
+Warnings: 1

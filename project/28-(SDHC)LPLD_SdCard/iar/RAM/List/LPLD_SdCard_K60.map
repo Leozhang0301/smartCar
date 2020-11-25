@@ -1,0 +1,844 @@
+###############################################################################
+#
+# IAR ELF Linker V8.32.1.169/W32 for ARM                  21/May/2019  22:07:27
+# Copyright 2007-2018 IAR Systems AB.
+#
+#    Output file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Exe\LPLD_SdCard_K60.out
+#    Map file     =  
+#        C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\List\LPLD_SdCard_K60.map
+#    Command line =  
+#        -f C:\Users\TEMPLA~1.000\AppData\Local\Temp\EW4BE9.tmp
+#        ("C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\adc.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\alloc.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\assert.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\Bluetooth.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\Car_control.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\DEV_LCD.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\DEV_SCCB.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\encoder.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\findtrack.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\flash.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\function.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\global.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_ADC.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_CAN.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_DAC.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_DMA.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_ENET.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_FLASH.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_FLEXBUS.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_FTM.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_GPIO.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_I2C.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_LPTMR.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_MCG.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_NVIC.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_PDB.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_PIT.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_RTC.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_SDHC.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_SPI.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_TSI.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_UART.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_USB.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_WDOG.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\imagehandle.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\Img.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\io.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\key.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\LPLD_SdCard.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\McNamm_wheel_control.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\menu.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\Motor.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\OLED.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\OV7725.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\Picture_deal.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\pit.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\printf.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\queue.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\relocate.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\startup_K60.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\stdlib.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\system_MK60DZ10.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\uif.o"
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\Variable.o"
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --no_out_extension -o
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Exe\LPLD_SdCard_K60.out"
+#        --map
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\List\LPLD_SdCard_K60.map"
+#        --config
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\iar_config_files\128KB_Ram.icf"
+#        --semihosting --entry __iar_program_start "D:\”¶”√\605110 IAR for
+#        ARM 8.30\arm\CMSIS\Lib\IAR\iar_cortexM4l_math.a" --vfe --text_out
+#        locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x1fff'0000 { ro section .intvec };
+"A1":  place at 0x1fff'0410 { ro section .noinit };
+define block CodeRelocate { section .textrw_init };
+"P1":  place in [from 0x1fff'0000 to 0x2001'0000] { ro, block CodeRelocate };
+define block CodeRelocateRam { section .textrw };
+define block CSTACK with size = 1K, alignment = 8 { };
+define block HEAP with size = 2K, alignment = 8 { };
+"P2":  place in [from 0x1fff'0000 to 0x2001'0000] {
+          rw, block CodeRelocateRam, block CSTACK, block HEAP };
+initialize manually with packing = copy, complex ranges { section .data };
+initialize manually with packing = copy, complex ranges { section .textrw };
+
+  Section              Kind         Address    Size  Object
+  -------              ----         -------    ----  ------
+"A0":                                         0x400
+  .intvec              ro code  0x1fff'0000   0x400  startup_K60.o [1]
+                              - 0x1fff'0400   0x400
+
+"P1-P2", part 1 of 3:                           0x0
+  .rodata              const    0x1fff'0400     0x0  zero_init3.o [4]
+
+"A1":                                          0x14
+  .noinit              ro code  0x1fff'0410    0x14  startup_K60.o [1]
+                              - 0x1fff'0424    0x14
+
+"P1-P2", part 2 of 3:                        0xf6a8
+  .text                ro code  0x1fff'0424   0x8ec  HW_FTM.o [1]
+  .text                ro code  0x1fff'0d10    0x14  assert.o [1]
+  .text                ro code  0x1fff'0d24    0x86  ABImemcpy.o [4]
+  .text                ro code  0x1fff'0daa    0x3a  zero_init3.o [4]
+  .text                ro code  0x1fff'0de4   0x4d0  printf.o [1]
+  .text                ro code  0x1fff'12b4    0x1c  stdlib.o [1]
+  .text                ro code  0x1fff'12d0   0x622  OLED.o [1]
+  .rodata              const    0x1fff'18f2     0x2  OV7725.o [1]
+  .text                ro code  0x1fff'18f4   0x1f4  HW_GPIO.o [1]
+  .text                ro code  0x1fff'1ae8    0x24  FltCmpLe.o [3]
+  .text                ro code  0x1fff'1b0c    0x22  FltToU32.o [3]
+  .text                ro code  0x1fff'1b30    0x1c  U32ToFlt.o [3]
+  .text                ro code  0x1fff'1b4c    0x80  FltSub.o [3]
+  .text                ro code  0x1fff'1bcc    0xd8  FltMul.o [3]
+  .text                ro code  0x1fff'1ca4    0x24  S32ToFlt.o [3]
+  .text                ro code  0x1fff'1cc8    0xe2  FltAdd.o [3]
+  .text                ro code  0x1fff'1dac   0x5cc  OV7725.o [1]
+  .text                ro code  0x1fff'2378   0x434  HW_DMA.o [1]
+  .text                ro code  0x1fff'27ac   0x1e0  HW_NVIC.o [1]
+  .text                ro code  0x1fff'298c   0x350  DEV_SCCB.o [1]
+  .text                ro code  0x1fff'2cdc   0x4f4  HW_UART.o [1]
+  .text                ro code  0x1fff'31d0   0x384  imagehandle.o [1]
+  .text                ro code  0x1fff'3554    0x10  function.o [1]
+  .text                ro code  0x1fff'3564     0x6  ABImemclr4.o [4]
+  .text                ro code  0x1fff'356c    0x32  ABImemset48.o [4]
+  .text                ro code  0x1fff'35a0   0x364  Motor.o [1]
+  .text                ro code  0x1fff'3904    0x24  FltCmpGe.o [3]
+  .rodata              const    0x1fff'3928   0x228  OLED.o [1]
+  .text                ro code  0x1fff'3b50   0x220  key.o [1]
+  .text                ro code  0x1fff'3d70   0x1f8  menu.o [1]
+  .text                ro code  0x1fff'3f68   0x1e6  HW_CAN.o [1]
+  .text                ro code  0x1fff'4150   0x1e0  encoder.o [1]
+  .text                ro code  0x1fff'4330   0x11c  HW_LPTMR.o [1]
+  .text                ro code  0x1fff'444c   0x1b4  HW_MCG.o [1]
+  .text                ro code  0x1fff'4600   0x1b0  HW_SPI.o [1]
+  .text                ro code  0x1fff'47b0   0x184  system_MK60DZ10.o [1]
+  .text                ro code  0x1fff'4934    0x98  relocate.o [1]
+  .text                ro code  0x1fff'49cc   0x178  HW_PIT.o [1]
+  .text                ro code  0x1fff'4b44   0x13c  pit.o [1]
+  .text                ro code  0x1fff'4c80    0x2a  FltToS32.o [3]
+  .text                ro code  0x1fff'4cac   0x110  McNamm_wheel_control.o [1]
+  .text                ro code  0x1fff'4dbc    0xd4  HW_DAC.o [1]
+  .text                ro code  0x1fff'4e90    0xac  LPLD_SdCard.o [1]
+  .text                ro code  0x1fff'4f3c    0x98  Car_control.o [1]
+  .text                ro code  0x1fff'4fd4    0xa0  HW_I2C.o [1]
+  .text                ro code  0x1fff'5074    0x70  HW_PDB.o [1]
+  .text                ro code  0x1fff'50e4    0x64  HW_ENET.o [1]
+  .text                ro code  0x1fff'5148    0x60  HW_TSI.o [1]
+  .text                ro code  0x1fff'51a8    0x50  HW_RTC.o [1]
+  .rodata              const    0x1fff'51f8    0x48  system_MK60DZ10.o [1]
+  CodeRelocate                  0x1fff'5240    0x48  <Block>
+    Initializer bytes  const    0x1fff'5240    0x48  <for CodeRelocateRam-1>
+  .rodata              const    0x1fff'5288    0x44  HW_LPTMR.o [1]
+  .rodata              const    0x1fff'52cc    0x44  system_MK60DZ10.o [1]
+  .rodata              const    0x1fff'5310    0x44  system_MK60DZ10.o [1]
+  .rodata              const    0x1fff'5354    0x40  HW_DMA.o [1]
+  .rodata              const    0x1fff'5394    0x40  HW_FTM.o [1]
+  .rodata              const    0x1fff'53d4    0x40  HW_GPIO.o [1]
+  .rodata              const    0x1fff'5414    0x40  HW_NVIC.o [1]
+  .rodata              const    0x1fff'5454    0x40  HW_PIT.o [1]
+  .rodata              const    0x1fff'5494    0x30  assert.o [1]
+  .rodata              const    0x1fff'54c4    0x30  system_MK60DZ10.o [1]
+  .rodata              const    0x1fff'54f4    0x30  system_MK60DZ10.o [1]
+  .text                ro code  0x1fff'5524    0x28  data_init.o [4]
+  .rodata              const    0x1fff'554c    0x24  system_MK60DZ10.o [1]
+  .rodata              const    0x1fff'5570    0x24  system_MK60DZ10.o [1]
+  .data_init                    0x1fff'5594    0x24  <Block>
+    Initializer bytes  const    0x1fff'5594    0x24  <for .data-1>
+  .iar.init_table      const    0x1fff'55b8    0x10  - Linker created -
+  .rodata              const    0x1fff'55c8    0x20  system_MK60DZ10.o [1]
+  .text                ro code  0x1fff'55e8    0x1e  cmain.o [4]
+  .text                ro code  0x1fff'5606     0x4  low_level_init.o [2]
+  .text                ro code  0x1fff'560a     0x4  exit.o [2]
+  .text                ro code  0x1fff'5610     0xa  cexit.o [4]
+  .text                ro code  0x1fff'561c    0x14  exit.o [5]
+  .text                ro code  0x1fff'5630    0x18  HW_ADC.o [1]
+  .text                ro code  0x1fff'5648    0x14  io.o [1]
+  .text                ro code  0x1fff'565c    0x10  HW_USB.o [1]
+  .text                ro code  0x1fff'566c     0xc  cstartup_M.o [4]
+  .rodata              const    0x1fff'5678     0x8  system_MK60DZ10.o [1]
+  CodeRelocateRam               0x1fff'5680    0x48  <Block>
+    CodeRelocateRam-1           0x1fff'5680    0x48  <Init block>
+      .textrw          inited   0x1fff'5680    0x48  HW_MCG.o [1]
+  .data                         0x1fff'56c8    0x24  <Block>
+    .data-1                     0x1fff'56c8    0x24  <Init block>
+      .data            inited   0x1fff'56c8     0x4  encoder.o [1]
+      .data            inited   0x1fff'56cc     0x4  HW_MCG.o [1]
+      .data            inited   0x1fff'56d0     0x4  HW_MCG.o [1]
+      .data            inited   0x1fff'56d4     0x4  HW_MCG.o [1]
+      .data            inited   0x1fff'56d8     0x4  HW_MCG.o [1]
+      .data            inited   0x1fff'56dc     0x4  Motor.o [1]
+      .data            inited   0x1fff'56e0     0x4  system_MK60DZ10.o [1]
+      .data            inited   0x1fff'56e4     0x2  OV7725.o [1]
+      .data            inited   0x1fff'56e6     0x2  OV7725.o [1]
+      .data            inited   0x1fff'56e8     0x2  Variable.o [1]
+      .data            inited   0x1fff'56ea     0x1  OV7725.o [1]
+      .data            inited   0x1fff'56eb     0x1  pit.o [1]
+  .bss                          0x1fff'56ec  0xa3e0  <Block>
+    .bss               zero     0x1fff'56ec     0x4  encoder.o [1]
+    .bss               zero     0x1fff'56f0     0x4  encoder.o [1]
+    .bss               zero     0x1fff'56f4     0x4  encoder.o [1]
+    .bss               zero     0x1fff'56f8     0x4  encoder.o [1]
+    .bss               zero     0x1fff'56fc     0x4  encoder.o [1]
+    .bss               zero     0x1fff'5700     0x4  encoder.o [1]
+    .bss               zero     0x1fff'5704    0x1c  encoder.o [1]
+    .bss               zero     0x1fff'5720     0xc  encoder.o [1]
+    .bss               zero     0x1fff'572c    0x14  encoder.o [1]
+    .bss               zero     0x1fff'5740    0x14  function.o [1]
+    .bss               zero     0x1fff'5754     0x8  HW_ADC.o [1]
+    .bss               zero     0x1fff'575c   0x100  HW_CAN.o [1]
+    .bss               zero     0x1fff'585c    0x40  HW_CAN.o [1]
+    .bss               zero     0x1fff'589c    0x40  HW_CAN.o [1]
+    .bss               zero     0x1fff'58dc     0x8  HW_DAC.o [1]
+    .bss               zero     0x1fff'58e4     0x8  HW_DAC.o [1]
+    .bss               zero     0x1fff'58ec     0x8  HW_DAC.o [1]
+    .bss               zero     0x1fff'58f4    0x40  HW_DMA.o [1]
+    .bss               zero     0x1fff'5934    0x10  HW_ENET.o [1]
+    .bss               zero     0x1fff'5944     0xc  HW_FTM.o [1]
+    .bss               zero     0x1fff'5950    0x14  HW_GPIO.o [1]
+    .bss               zero     0x1fff'5964     0x8  HW_I2C.o [1]
+    .bss               zero     0x1fff'596c     0x4  HW_LPTMR.o [1]
+    .bss               zero     0x1fff'5970     0x4  HW_PDB.o [1]
+    .bss               zero     0x1fff'5974     0x4  HW_PDB.o [1]
+    .bss               zero     0x1fff'5978    0x10  HW_PIT.o [1]
+    .bss               zero     0x1fff'5988     0xc  HW_RTC.o [1]
+    .bss               zero     0x1fff'5994    0x18  HW_SPI.o [1]
+    .bss               zero     0x1fff'59ac    0x18  HW_SPI.o [1]
+    .bss               zero     0x1fff'59c4    0x18  HW_SPI.o [1]
+    .bss               zero     0x1fff'59dc     0x8  HW_TSI.o [1]
+    .bss               zero     0x1fff'59e4    0x18  HW_UART.o [1]
+    .bss               zero     0x1fff'59fc    0x18  HW_UART.o [1]
+    .bss               zero     0x1fff'5a14     0x4  HW_USB.o [1]
+    .bss               zero     0x1fff'5a18  0x12c0  imagehandle.o [1]
+    .bss               zero     0x1fff'6cd8  0x12c0  imagehandle.o [1]
+    .bss               zero     0x1fff'7f98  0x12c0  imagehandle.o [1]
+    .bss               zero     0x1fff'9258  0x12c0  imagehandle.o [1]
+    .bss               zero     0x1fff'a518  0x12c0  imagehandle.o [1]
+    .bss               zero     0x1fff'b7d8  0x12c0  imagehandle.o [1]
+    .bss               zero     0x1fff'ca98     0x4  imagehandle.o [1]
+    .bss               zero     0x1fff'ca9c     0x4  imagehandle.o [1]
+    .bss               zero     0x1fff'caa0     0x4  imagehandle.o [1]
+    .bss               zero     0x1fff'caa4     0x4  imagehandle.o [1]
+    .bss               zero     0x1fff'caa8     0x4  imagehandle.o [1]
+    .bss               zero     0x1fff'caac     0x4  imagehandle.o [1]
+    .bss               zero     0x1fff'cab0    0x14  key.o [1]
+    .bss               zero     0x1fff'cac4     0xc  key.o [1]
+    .bss               zero     0x1fff'cad0     0xc  key.o [1]
+    .bss               zero     0x1fff'cadc     0xc  key.o [1]
+    .bss               zero     0x1fff'cae8     0x4  menu.o [1]
+    .bss               zero     0x1fff'caec    0x1c  Motor.o [1]
+    .bss               zero     0x1fff'cb08     0x4  Motor.o [1]
+    .bss               zero     0x1fff'cb0c     0x4  Motor.o [1]
+    .bss               zero     0x1fff'cb10     0x4  Motor.o [1]
+    .bss               zero     0x1fff'cb14     0x4  Motor.o [1]
+    .bss               zero     0x1fff'cb18     0x4  Motor.o [1]
+    .bss               zero     0x1fff'cb1c     0x4  Motor.o [1]
+    .bss               zero     0x1fff'cb20    0x14  OLED.o [1]
+    .bss               zero     0x1fff'cb34    0x14  OV7725.o [1]
+    .bss               zero     0x1fff'cb48    0x14  OV7725.o [1]
+    .bss               zero     0x1fff'cb5c    0x14  OV7725.o [1]
+    .bss               zero     0x1fff'cb70    0x2c  OV7725.o [1]
+    .bss               zero     0x1fff'cb9c   0x4b0  OV7725.o [1]
+    .bss               zero     0x1fff'd04c   0x4b0  OV7725.o [1]
+    .bss               zero     0x1fff'd4fc  0x12c0  OV7725.o [1]
+    .bss               zero     0x1fff'e7bc  0x12c0  OV7725.o [1]
+    .bss               zero     0x1fff'fa7c    0x14  pit.o [1]
+    .bss               zero     0x1fff'fa90     0x4  pit.o [1]
+    .bss               zero     0x1fff'fa94     0x4  pit.o [1]
+    .bss               zero     0x1fff'fa98     0x4  pit.o [1]
+    .bss               zero     0x1fff'fa9c     0x4  pit.o [1]
+    .bss               zero     0x1fff'faa0     0x4  pit.o [1]
+    .bss               zero     0x1fff'faa4     0x4  Variable.o [1]
+    .bss               zero     0x1fff'faa8     0x4  Variable.o [1]
+    .bss               zero     0x1fff'faac     0x4  Variable.o [1]
+    .bss               zero     0x1fff'fab0     0x4  Variable.o [1]
+    .bss               zero     0x1fff'fab4     0x2  Motor.o [1]
+    .bss               zero     0x1fff'fab6     0x2  Variable.o [1]
+    .bss               zero     0x1fff'fab8     0x2  Variable.o [1]
+    .bss               zero     0x1fff'faba     0x2  Variable.o [1]
+    .bss               zero     0x1fff'fabc     0x2  Variable.o [1]
+    .bss               zero     0x1fff'fabe     0x2  Variable.o [1]
+    .bss               zero     0x1fff'fac0     0x1  Car_control.o [1]
+    .bss               zero     0x1fff'fac1     0x1  imagehandle.o [1]
+    .bss               zero     0x1fff'fac2     0x1  key.o [1]
+    .bss               zero     0x1fff'fac3     0x1  key.o [1]
+    .bss               zero     0x1fff'fac4     0x1  menu.o [1]
+    .bss               zero     0x1fff'fac5     0x1  OV7725.o [1]
+    .bss               zero     0x1fff'fac6     0x1  OV7725.o [1]
+    .bss               zero     0x1fff'fac7     0x1  OV7725.o [1]
+    .bss               zero     0x1fff'fac8     0x1  Variable.o [1]
+    .bss               zero     0x1fff'fac9     0x1  Variable.o [1]
+    .bss               zero     0x1fff'faca     0x1  Variable.o [1]
+                              - 0x1fff'facc  0xf6a8
+
+"P1-P2", part 3 of 3:                         0x400
+  CSTACK                        0x1fff'fad0   0x400  <Block>
+    CSTACK             uninit   0x1fff'fad0   0x400  <Block tail>
+                              - 0x1fff'fed0   0x400
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+  0x1fff'0400  0x1fff'040f      0x10
+  0x1fff'facc  0x1fff'facf       0x4
+  0x1fff'fed0  0x2001'0000  0x1'0131
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0xa3df:
+          0x1fff'56ec  0xa3df
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  rw code  ro data  rw data
+    ------                  -------  -------  -------  -------
+command line/config:
+    ----------------------------------------------------------
+    Total:
+
+C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj: [1]
+    Car_control.o               152                          1
+    DEV_SCCB.o                  848
+    HW_ADC.o                     24                          8
+    HW_CAN.o                    486                        384
+    HW_DAC.o                    212                         24
+    HW_DMA.o                  1 076                64       64
+    HW_ENET.o                   100                         16
+    HW_FTM.o                  2 284                64       12
+    HW_GPIO.o                   500                64       20
+    HW_I2C.o                    160                          8
+    HW_LPTMR.o                  284                68        4
+    HW_MCG.o                    436       72       88       16
+    HW_NVIC.o                   480                64
+    HW_PDB.o                    112                          8
+    HW_PIT.o                    376                64       16
+    HW_RTC.o                     80                         12
+    HW_SPI.o                    432                         72
+    HW_TSI.o                     96                          8
+    HW_UART.o                 1 268                         48
+    HW_USB.o                     16                          4
+    LPLD_SdCard.o               172
+    McNamm_wheel_control.o      272
+    Motor.o                     868                 4       58
+    OLED.o                    1 570               552       20
+    OV7725.o                  1 484                 7   12 112
+    Variable.o                                      2       31
+    assert.o                     20                48
+    encoder.o                   480                 4       88
+    function.o                   16                         20
+    imagehandle.o               900                     28 825
+    io.o                         20
+    key.o                       544                         58
+    menu.o                      504                          5
+    pit.o                       316                 1       41
+    printf.o                  1 232
+    relocate.o                  152
+    startup_K60.o             1 044
+    stdlib.o                     28
+    system_MK60DZ10.o           388               420        4
+    ----------------------------------------------------------
+    Total:                   19 432       72    1 514   41 987
+
+dl7M_tln.a: [2]
+    exit.o                        4
+    low_level_init.o              4
+    ----------------------------------------------------------
+    Total:                        8
+
+m7M_tl.a: [3]
+    FltAdd.o                    226
+    FltCmpGe.o                   36
+    FltCmpLe.o                   36
+    FltMul.o                    216
+    FltSub.o                    128
+    FltToS32.o                   42
+    FltToU32.o                   34
+    S32ToFlt.o                   36
+    U32ToFlt.o                   28
+    ----------------------------------------------------------
+    Total:                      782
+
+rt7M_tl.a: [4]
+    ABImemclr4.o                  6
+    ABImemcpy.o                 134
+    ABImemset48.o                50
+    cexit.o                      10
+    cmain.o                      30
+    cstartup_M.o                 12
+    data_init.o                  40
+    zero_init3.o                 58
+    ----------------------------------------------------------
+    Total:                      340
+
+shb_l.a: [5]
+    exit.o                       20
+    ----------------------------------------------------------
+    Total:                       20
+
+    Gaps                         16
+    Linker created                                 16    1 024
+--------------------------------------------------------------
+    Grand Total:             20 598       72    1 530   43 011
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address    Size  Type      Object
+-----                       -------    ----  ----      ------
+.bss$$Base              0x1fff'56ec           --   Gb  - Linker created -
+.bss$$Limit             0x1fff'facc           --   Gb  - Linker created -
+.data$$Base             0x1fff'56c8           --   Gb  - Linker created -
+.data$$Limit            0x1fff'56ec           --   Gb  - Linker created -
+.data_init$$Base        0x1fff'5594           --   Gb  - Linker created -
+.data_init$$Limit       0x1fff'55b8           --   Gb  - Linker created -
+.iar.init_table$$Base   0x1fff'55b8           --   Gb  - Linker created -
+.iar.init_table$$Limit  0x1fff'55c8           --   Gb  - Linker created -
+?main                   0x1fff'55e9          Code  Gb  cmain.o [4]
+ADC0_IRQHandler         0x1fff'5631     0xa  Code  Gb  HW_ADC.o [1]
+ADC1_IRQHandler         0x1fff'563b     0xa  Code  Gb  HW_ADC.o [1]
+ADC_ISR                 0x1fff'5754     0x8  Data  Gb  HW_ADC.o [1]
+ASSERT_FAILED_STR       0x1fff'5494    0x30  Data  Gb  assert.o [1]
+Barrier_flag            0x1fff'faca     0x1  Data  Gb  Variable.o [1]
+CAN0_BUS_OFF_IRQHandler
+                        0x1fff'40cd     0x8  Code  Gb  HW_CAN.o [1]
+CAN0_ERR_IRQHandler     0x1fff'40d5     0xc  Code  Gb  HW_CAN.o [1]
+CAN0_IMEU_IRQHandler    0x1fff'40f7     0x2  Code  Gb  HW_CAN.o [1]
+CAN0_ISR                0x1fff'585c    0x40  Data  Gb  HW_CAN.o [1]
+CAN0_LR_IRQHandler      0x1fff'40f9     0x2  Code  Gb  HW_CAN.o [1]
+CAN0_MESS_IRQHandler    0x1fff'40c5     0x8  Code  Gb  HW_CAN.o [1]
+CAN0_RW_IRQHandler      0x1fff'40eb     0xa  Code  Gb  HW_CAN.o [1]
+CAN0_TW_IRQHandler      0x1fff'40e1     0xa  Code  Gb  HW_CAN.o [1]
+CAN0_WAKE_UP_IRQHandler
+                        0x1fff'40f5     0x2  Code  Gb  HW_CAN.o [1]
+CAN1_BUS_OFF_IRQHandler
+                        0x1fff'4103     0x8  Code  Gb  HW_CAN.o [1]
+CAN1_ERR_IRQHandler     0x1fff'410b     0xc  Code  Gb  HW_CAN.o [1]
+CAN1_IMEU_IRQHandler    0x1fff'414b     0x2  Code  Gb  HW_CAN.o [1]
+CAN1_ISR                0x1fff'589c    0x40  Data  Gb  HW_CAN.o [1]
+CAN1_LR_IRQHandler      0x1fff'414d     0x2  Code  Gb  HW_CAN.o [1]
+CAN1_MESS_IRQHandler    0x1fff'40fb     0x8  Code  Gb  HW_CAN.o [1]
+CAN1_RW_IRQHandler      0x1fff'4121     0xa  Code  Gb  HW_CAN.o [1]
+CAN1_TW_IRQHandler      0x1fff'4117     0xa  Code  Gb  HW_CAN.o [1]
+CAN1_WAKE_UP_IRQHandler
+                        0x1fff'4149     0x2  Code  Gb  HW_CAN.o [1]
+CCD_Show                0x1fff'3e71    0x72  Code  Gb  menu.o [1]
+CSTACK$$Base            0x1fff'fad0           --   Gb  - Linker created -
+CSTACK$$Limit           0x1fff'fed0           --   Gb  - Linker created -
+Camera_Init             0x1fff'2293    0x28  Code  Gb  OV7725.o [1]
+Camera_Show             0x1fff'3dbb    0xb6  Code  Gb  menu.o [1]
+Car_Control             0x1fff'4f3d    0x98  Code  Gb  Car_control.o [1]
+CodeRelocate$$Base      0x1fff'5240           --   Gb  - Linker created -
+CodeRelocate$$Limit     0x1fff'5288           --   Gb  - Linker created -
+CodeRelocateRam$$Base   0x1fff'5680           --   Gb  - Linker created -
+CodeRelocateRam$$Limit  0x1fff'56c8           --   Gb  - Linker created -
+DAC0_IRQHandler         0x1fff'4dbd    0x5a  Code  Gb  HW_DAC.o [1]
+DAC1_IRQHandler         0x1fff'4e17    0x5a  Code  Gb  HW_DAC.o [1]
+DAC_RDPTBOT_ISR         0x1fff'58dc     0x8  Data  Gb  HW_DAC.o [1]
+DAC_RDPTTOP_ISR         0x1fff'58e4     0x8  Data  Gb  HW_DAC.o [1]
+DAC_WATERMK_ISR         0x1fff'58ec     0x8  Data  Gb  HW_DAC.o [1]
+DMA0_IRQHandler         0x1fff'2649    0x14  Code  Gb  HW_DMA.o [1]
+DMA10_IRQHandler        0x1fff'2711    0x14  Code  Gb  HW_DMA.o [1]
+DMA11_IRQHandler        0x1fff'2725    0x14  Code  Gb  HW_DMA.o [1]
+DMA12_IRQHandler        0x1fff'2739    0x14  Code  Gb  HW_DMA.o [1]
+DMA13_IRQHandler        0x1fff'274d    0x14  Code  Gb  HW_DMA.o [1]
+DMA14_IRQHandler        0x1fff'2761    0x14  Code  Gb  HW_DMA.o [1]
+DMA15_IRQHandler        0x1fff'2775    0x14  Code  Gb  HW_DMA.o [1]
+DMA1_IRQHandler         0x1fff'265d    0x14  Code  Gb  HW_DMA.o [1]
+DMA2_IRQHandler         0x1fff'2671    0x14  Code  Gb  HW_DMA.o [1]
+DMA3_IRQHandler         0x1fff'2685    0x14  Code  Gb  HW_DMA.o [1]
+DMA4_IRQHandler         0x1fff'2699    0x14  Code  Gb  HW_DMA.o [1]
+DMA5_IRQHandler         0x1fff'26ad    0x14  Code  Gb  HW_DMA.o [1]
+DMA6_IRQHandler         0x1fff'26c1    0x14  Code  Gb  HW_DMA.o [1]
+DMA7_IRQHandler         0x1fff'26d5    0x14  Code  Gb  HW_DMA.o [1]
+DMA8_IRQHandler         0x1fff'26e9    0x14  Code  Gb  HW_DMA.o [1]
+DMA9_IRQHandler         0x1fff'26fd    0x14  Code  Gb  HW_DMA.o [1]
+DMA_ISR                 0x1fff'58f4    0x40  Data  Gb  HW_DMA.o [1]
+DMA_buffer              0x1fff'4eb1    0x24  Code  Gb  LPLD_SdCard.o [1]
+DMA_flag                0x1fff'fac5     0x1  Data  Gb  OV7725.o [1]
+DMA_init                0x1fff'1fad    0x6a  Code  Gb  OV7725.o [1]
+DMA_init_struct         0x1fff'cb70    0x2c  Data  Gb  OV7725.o [1]
+DMA_isr                 0x1fff'1e83    0x24  Code  Gb  OV7725.o [1]
+DefaultISR              0x1fff'48bf    0x12  Code  Gb  system_MK60DZ10.o [1]
+Dir_Pid                 0x1fff'3809    0x4e  Code  Gb  Motor.o [1]
+ENET_ISR                0x1fff'5934    0x10  Data  Gb  HW_ENET.o [1]
+Eth_Err_Misc_IRQHandler
+                        0x1fff'512f    0x10  Code  Gb  HW_ENET.o [1]
+Eth_IEEE1588_IRQHandler
+                        0x1fff'511f    0x10  Code  Gb  HW_ENET.o [1]
+Eth_RX_IRQHandler       0x1fff'50e5    0x1e  Code  Gb  HW_ENET.o [1]
+Eth_TX_IRQHandler       0x1fff'5103    0x1c  Code  Gb  HW_ENET.o [1]
+F6x8                    0x1fff'3928   0x228  Data  Gb  OLED.o [1]
+FTM0_IRQHandler         0x1fff'0c79     0xa  Code  Gb  HW_FTM.o [1]
+FTM1_IRQHandler         0x1fff'0c83     0xa  Code  Gb  HW_FTM.o [1]
+FTM2_IRQHandler         0x1fff'0c8d     0xa  Code  Gb  HW_FTM.o [1]
+FTM_ISR                 0x1fff'5944     0xc  Data  Gb  HW_FTM.o [1]
+Float_To_String         0x1fff'1773   0x12e  Code  Gb  OLED.o [1]
+GPIO_ISR                0x1fff'5950    0x14  Data  Gb  HW_GPIO.o [1]
+GrayValue               0x1fff'56e6     0x2  Data  Gb  OV7725.o [1]
+HardFault_Handler       0x1fff'48b5     0xa  Code  Gb  system_MK60DZ10.o [1]
+I                       0x1fff'cb08     0x4  Data  Gb  Motor.o [1]
+I2C0_IRQHandler         0x1fff'4fd5    0x46  Code  Gb  HW_I2C.o [1]
+I2C1_IRQHandler         0x1fff'501b    0x46  Code  Gb  HW_I2C.o [1]
+I2C_ISR                 0x1fff'5964     0x8  Data  Gb  HW_I2C.o [1]
+IMG                     0x1fff'a518  0x12c0  Data  Gb  imagehandle.o [1]
+IMG2                    0x1fff'b7d8  0x12c0  Data  Gb  imagehandle.o [1]
+IMG_Handle              0x1fff'31d1   0x1c6  Code  Gb  imagehandle.o [1]
+IO_init                 0x1fff'1efb    0x2c  Code  Gb  OV7725.o [1]
+IO_init_struct          0x1fff'cb34    0x14  Data  Gb  OV7725.o [1]
+ImgThreshold            0x1fff'56e4     0x2  Data  Gb  OV7725.o [1]
+KD                      0x1fff'56e8     0x2  Data  Gb  Variable.o [1]
+KP                      0x1fff'faba     0x2  Data  Gb  Variable.o [1]
+KeyBoard_Init           0x1fff'3cdf    0x5e  Code  Gb  key.o [1]
+KeyBoard_init_struct    0x1fff'cab0    0x14  Data  Gb  key.o [1]
+KeyScan                 0x1fff'3b51   0x18e  Code  Gb  key.o [1]
+KeyScan::backup         0x1fff'cadc     0xc  Data  Lc  key.o [1]
+KeyScan::i              0x1fff'fac3     0x1  Data  Lc  key.o [1]
+KeyScan::keybuf         0x1fff'cad0     0xc  Data  Lc  key.o [1]
+KeyStatus               0x1fff'cac4     0xc  Data  Gb  key.o [1]
+KeyValue                0x1fff'fac2     0x1  Data  Gb  key.o [1]
+L1_init                 0x1fff'4229    0x3a  Code  Gb  encoder.o [1]
+L2_init                 0x1fff'4191    0x6c  Code  Gb  encoder.o [1]
+LCD_CLS                 0x1fff'141b    0x3c  Code  Gb  OLED.o [1]
+LCD_DLY_ms              0x1fff'1457    0x16  Code  Gb  OLED.o [1]
+LCD_Fill                0x1fff'13db    0x40  Code  Gb  OLED.o [1]
+LCD_Init                0x1fff'157d    0x90  Code  Gb  OLED.o [1]
+LCD_P6x8Str             0x1fff'160d    0x72  Code  Gb  OLED.o [1]
+LCD_Set_Pos             0x1fff'13ab    0x30  Code  Gb  OLED.o [1]
+LCD_WrCmd               0x1fff'1365    0x46  Code  Gb  OLED.o [1]
+LCD_WrDat               0x1fff'131d    0x46  Code  Gb  OLED.o [1]
+LCD_Write_Int           0x1fff'18c1    0x32  Code  Gb  OLED.o [1]
+LED_PrintImage          0x1fff'167f    0xf4  Code  Gb  OLED.o [1]
+LPLD_CAN_Interrupt_ClearPending
+                        0x1fff'3f69    0x24  Code  Lc  HW_CAN.o [1]
+LPLD_CAN_Interrupt_GetFlag
+                        0x1fff'3f8d    0x20  Code  Lc  HW_CAN.o [1]
+LPLD_CAN_MB_ISR         0x1fff'4067    0x5e  Code  Lc  HW_CAN.o [1]
+LPLD_CAN_Receive_Interrupt
+                        0x1fff'4007    0x60  Code  Lc  HW_CAN.o [1]
+LPLD_CAN_Transmit_Interrupt
+                        0x1fff'3fad    0x5a  Code  Gb  HW_CAN.o [1]
+LPLD_DMA_EnableIrq      0x1fff'2633    0x16  Code  Gb  HW_DMA.o [1]
+LPLD_DMA_Init           0x1fff'2397   0x29c  Code  Gb  HW_DMA.o [1]
+LPLD_FTM_ClearCounter   0x1fff'05f9     0x6  Code  Gb  HW_FTM.o [1]
+LPLD_FTM_DEC_Init       0x1fff'0c71     0x8  Code  Lc  HW_FTM.o [1]
+LPLD_FTM_GetCounter     0x1fff'05f3     0x6  Code  Gb  HW_FTM.o [1]
+LPLD_FTM_IC_Init        0x1fff'0747    0x98  Code  Lc  HW_FTM.o [1]
+LPLD_FTM_Init           0x1fff'0425   0x116  Code  Gb  HW_FTM.o [1]
+LPLD_FTM_PWM_ChangeDuty
+                        0x1fff'05a7    0x4c  Code  Gb  HW_FTM.o [1]
+LPLD_FTM_PWM_Enable     0x1fff'053b    0x6c  Code  Gb  HW_FTM.o [1]
+LPLD_FTM_PWM_Init       0x1fff'0631   0x116  Code  Lc  HW_FTM.o [1]
+LPLD_FTM_PinInit        0x1fff'07df   0x436  Code  Lc  HW_FTM.o [1]
+LPLD_FTM_QD_Enable      0x1fff'05ff    0x32  Code  Gb  HW_FTM.o [1]
+LPLD_FTM_QD_Init        0x1fff'0c35    0x3c  Code  Lc  HW_FTM.o [1]
+LPLD_GPIO_EnableIrq     0x1fff'19f5    0x4e  Code  Gb  HW_GPIO.o [1]
+LPLD_GPIO_Init          0x1fff'1911    0xe4  Code  Gb  HW_GPIO.o [1]
+LPLD_LPTMR_GetPulseAcc  0x1fff'4407     0xc  Code  Gb  HW_LPTMR.o [1]
+LPLD_LPTMR_Init         0x1fff'4331    0xca  Code  Gb  HW_LPTMR.o [1]
+LPLD_LPTMR_ResetCounter
+                        0x1fff'43fb     0xc  Code  Gb  HW_LPTMR.o [1]
+LPLD_NVIC_Init          0x1fff'2867   0x108  Code  Gb  HW_NVIC.o [1]
+LPLD_PIT_EnableIrq      0x1fff'4a9b    0x28  Code  Gb  HW_PIT.o [1]
+LPLD_PIT_Init           0x1fff'49e9    0xb2  Code  Gb  HW_PIT.o [1]
+LPLD_PLL_Setup          0x1fff'444d   0x1b4  Code  Gb  HW_MCG.o [1]
+LPLD_Set_SYS_DIV        0x1fff'5681    0x48  Code  Gb  HW_MCG.o [1]
+LPLD_UART_Init          0x1fff'2cdd   0x30c  Code  Gb  HW_UART.o [1]
+LPLD_UART_PutChar       0x1fff'2fe9     0xa  Code  Gb  HW_UART.o [1]
+LPTMR_ISR               0x1fff'596c     0x4  Data  Gb  HW_LPTMR.o [1]
+LPT_IRQHandler          0x1fff'4413    0x14  Code  Gb  HW_LPTMR.o [1]
+Left_front_goalspeed    0x1fff'faa4     0x4  Data  Gb  Variable.o [1]
+Left_rear_goalspeed     0x1fff'faac     0x4  Data  Gb  Variable.o [1]
+LuBang                  0x1fff'56eb     0x1  Data  Gb  pit.o [1]
+McNamm_wheel_control    0x1fff'4cad    0x80  Code  Gb  McNamm_wheel_control.o [1]
+Menu                    0x1fff'3d71    0x4a  Code  Gb  menu.o [1]
+Motor_OPEN              0x1fff'fac4     0x1  Data  Gb  menu.o [1]
+Motor_control           0x1fff'3645   0x144  Code  Gb  Motor.o [1]
+Move_Z                  0x1fff'fab8     0x2  Data  Gb  Variable.o [1]
+Move_y                  0x1fff'fab4     0x2  Data  Gb  Motor.o [1]
+NVIC_EncodePriority     0x1fff'282b    0x3c  Code  Lc  HW_NVIC.o [1]
+P                       0x1fff'56dc     0x4  Data  Gb  Motor.o [1]
+P1                      0x1fff'fa94     0x4  Data  Gb  pit.o [1]
+P2                      0x1fff'fa98     0x4  Data  Gb  pit.o [1]
+P3                      0x1fff'fa9c     0x4  Data  Gb  pit.o [1]
+P4                      0x1fff'faa0     0x4  Data  Gb  pit.o [1]
+PCLK_init               0x1fff'1f7f    0x2e  Code  Gb  OV7725.o [1]
+PCLK_init_struct        0x1fff'cb5c    0x14  Data  Gb  OV7725.o [1]
+PDB_IRQHandler          0x1fff'5075    0x58  Code  Gb  HW_PDB.o [1]
+PDB_ISR                 0x1fff'5970     0x4  Data  Gb  HW_PDB.o [1]
+PDB_SE_ISR              0x1fff'5974     0x4  Data  Gb  HW_PDB.o [1]
+PID_Control             0x1fff'3789    0x80  Code  Gb  Motor.o [1]
+PIT0_IRQHandler         0x1fff'4ac3    0x14  Code  Gb  HW_PIT.o [1]
+PIT1_IRQHandler         0x1fff'4ad7    0x14  Code  Gb  HW_PIT.o [1]
+PIT2_IRQHandler         0x1fff'4aeb    0x14  Code  Gb  HW_PIT.o [1]
+PIT3_IRQHandler         0x1fff'4aff    0x14  Code  Gb  HW_PIT.o [1]
+PIT_ISR                 0x1fff'5978    0x10  Data  Gb  HW_PIT.o [1]
+PORTA_IRQHandler        0x1fff'1a43    0x12  Code  Gb  HW_GPIO.o [1]
+PORTB_IRQHandler        0x1fff'1a55    0x12  Code  Gb  HW_GPIO.o [1]
+PORTC_IRQHandler        0x1fff'1a67    0x12  Code  Gb  HW_GPIO.o [1]
+PORTD_IRQHandler        0x1fff'1a79    0x12  Code  Gb  HW_GPIO.o [1]
+PORTE_IRQHandler        0x1fff'1a8b    0x12  Code  Gb  HW_GPIO.o [1]
+Parameter_Setting       0x1fff'3ee3    0x6e  Code  Gb  menu.o [1]
+Pix_Data0               0x1fff'cb9c   0x4b0  Data  Gb  OV7725.o [1]
+Pix_Data1               0x1fff'd04c   0x4b0  Data  Gb  OV7725.o [1]
+R1_init                 0x1fff'4165    0x2c  Code  Gb  encoder.o [1]
+R2_init                 0x1fff'41fd    0x2c  Code  Gb  encoder.o [1]
+RTC_IRQHandler          0x1fff'51a9    0x46  Code  Gb  HW_RTC.o [1]
+RTC_ISR                 0x1fff'5988     0xc  Data  Gb  HW_RTC.o [1]
+Region$$Table$$Base     0x1fff'55b8           --   Gb  - Linker created -
+Region$$Table$$Limit    0x1fff'55c8           --   Gb  - Linker created -
+Right_front_goalspeed   0x1fff'faa8     0x4  Data  Gb  Variable.o [1]
+Right_rear_goalspeed    0x1fff'fab0     0x4  Data  Gb  Variable.o [1]
+SCCB_Ack                0x1fff'2a5d    0x38  Code  Lc  DEV_SCCB.o [1]
+SCCB_GPIO_init          0x1fff'29a7    0x34  Code  Gb  DEV_SCCB.o [1]
+SCCB_NoAck              0x1fff'2a95    0x38  Code  Lc  DEV_SCCB.o [1]
+SCCB_ReadByte           0x1fff'2c27    0x2e  Code  Gb  DEV_SCCB.o [1]
+SCCB_ReadByte_one       0x1fff'2c55    0x88  Code  Lc  DEV_SCCB.o [1]
+SCCB_ReceiveByte        0x1fff'2b51    0x50  Code  Lc  DEV_SCCB.o [1]
+SCCB_SendByte           0x1fff'2b0f    0x42  Code  Lc  DEV_SCCB.o [1]
+SCCB_Start              0x1fff'29db    0x52  Code  Lc  DEV_SCCB.o [1]
+SCCB_Stop               0x1fff'2a2d    0x30  Code  Lc  DEV_SCCB.o [1]
+SCCB_WaitAck            0x1fff'2acd    0x42  Code  Lc  DEV_SCCB.o [1]
+SCCB_WriteByte          0x1fff'2bb5    0x2a  Code  Gb  DEV_SCCB.o [1]
+SCCB_WriteByte_one      0x1fff'2bdf    0x48  Code  Lc  DEV_SCCB.o [1]
+SCCB_delay              0x1fff'298d    0x1a  Code  Lc  DEV_SCCB.o [1]
+SPI0_IRQHandler         0x1fff'4601    0x88  Code  Gb  HW_SPI.o [1]
+SPI0_ISR                0x1fff'5994    0x18  Data  Gb  HW_SPI.o [1]
+SPI1_IRQHandler         0x1fff'4689    0x88  Code  Gb  HW_SPI.o [1]
+SPI1_ISR                0x1fff'59ac    0x18  Data  Gb  HW_SPI.o [1]
+SPI2_IRQHandler         0x1fff'4711    0x88  Code  Gb  HW_SPI.o [1]
+SPI2_ISR                0x1fff'59c4    0x18  Data  Gb  HW_SPI.o [1]
+SetAddressingMode       0x1fff'146d    0x14  Code  Gb  OLED.o [1]
+SetContrastControl      0x1fff'148f    0x14  Code  Gb  OLED.o [1]
+SetStartLine            0x1fff'1481     0xe  Code  Gb  OLED.o [1]
+Set_Charge_Pump         0x1fff'14a3    0x18  Code  Gb  OLED.o [1]
+Set_Common_Config       0x1fff'1551    0x18  Code  Gb  OLED.o [1]
+Set_Common_Remap        0x1fff'1507     0xe  Code  Gb  OLED.o [1]
+Set_Display_Clock       0x1fff'1529    0x14  Code  Gb  OLED.o [1]
+Set_Display_Offset      0x1fff'1515    0x14  Code  Gb  OLED.o [1]
+Set_Display_On_Off      0x1fff'14f9     0xe  Code  Gb  OLED.o [1]
+Set_Entire_Display      0x1fff'14c9     0xe  Code  Gb  OLED.o [1]
+Set_Inverse_Display     0x1fff'14d7     0xe  Code  Gb  OLED.o [1]
+Set_Multiplex_Ratio     0x1fff'14e5    0x14  Code  Gb  OLED.o [1]
+Set_Preint8ge_Period    0x1fff'153d    0x14  Code  Gb  OLED.o [1]
+Set_Segment_Remap       0x1fff'14bb     0xe  Code  Gb  OLED.o [1]
+Set_VCOMH               0x1fff'1569    0x14  Code  Gb  OLED.o [1]
+Speed_Conversion        0x1fff'4d2d    0x72  Code  Gb  McNamm_wheel_control.o [1]
+SystemCoreClock         0x1fff'56e0     0x4  Data  Gb  system_MK60DZ10.o [1]
+SystemCoreClockUpdate   0x1fff'488f    0x26  Code  Gb  system_MK60DZ10.o [1]
+SystemInit              0x1fff'47b1    0xde  Code  Gb  system_MK60DZ10.o [1]
+System_Init             0x1fff'4e91    0x20  Code  Gb  LPLD_SdCard.o [1]
+TSI_IRQHandler          0x1fff'5149    0x4e  Code  Gb  HW_TSI.o [1]
+TSI_ISR                 0x1fff'59dc     0x8  Data  Gb  HW_TSI.o [1]
+UART0_IRQHandler        0x1fff'2ff3    0x2e  Code  Gb  HW_UART.o [1]
+UART1_IRQHandler        0x1fff'3021    0x2e  Code  Gb  HW_UART.o [1]
+UART2_IRQHandler        0x1fff'304f    0x2e  Code  Gb  HW_UART.o [1]
+UART3_IRQHandler        0x1fff'307d    0x2e  Code  Gb  HW_UART.o [1]
+UART4_IRQHandler        0x1fff'30ab    0x2e  Code  Gb  HW_UART.o [1]
+UART5_IRQHandler        0x1fff'30d9    0x2e  Code  Gb  HW_UART.o [1]
+UART_R_ISR              0x1fff'59e4    0x18  Data  Gb  HW_UART.o [1]
+UART_T_ISR              0x1fff'59fc    0x18  Data  Gb  HW_UART.o [1]
+USB_ISR                 0x1fff'5a14     0x4  Data  Gb  HW_USB.o [1]
+USB_OTG_IRQHandler      0x1fff'565d     0xa  Code  Gb  HW_USB.o [1]
+Unzip                   0x1fff'2271    0x22  Code  Gb  OV7725.o [1]
+VSY_init                0x1fff'1f27    0x58  Code  Gb  OV7725.o [1]
+VSY_init_struct         0x1fff'cb48    0x14  Data  Gb  OV7725.o [1]
+VSY_isr                 0x1fff'1df1    0x92  Code  Gb  OV7725.o [1]
+__BOOT_STACK_ADDRESS {Abs}
+                        0x2000'fff8          Data  Gb  <internal module>
+__NVIC_DisableIRQ       0x1fff'27e3    0x24  Code  Lc  HW_NVIC.o [1]
+__NVIC_DisableIRQ       0x1fff'1dcb    0x26  Code  Lc  OV7725.o [1]
+__NVIC_EnableIRQ        0x1fff'2379    0x1e  Code  Lc  HW_DMA.o [1]
+__NVIC_EnableIRQ        0x1fff'18f5    0x1c  Code  Lc  HW_GPIO.o [1]
+__NVIC_EnableIRQ        0x1fff'27c7    0x1c  Code  Lc  HW_NVIC.o [1]
+__NVIC_EnableIRQ        0x1fff'49cd    0x1c  Code  Lc  HW_PIT.o [1]
+__NVIC_EnableIRQ        0x1fff'1dad    0x1e  Code  Lc  OV7725.o [1]
+__NVIC_SetPriority      0x1fff'2807    0x24  Code  Lc  HW_NVIC.o [1]
+__NVIC_SetPriorityGrouping
+                        0x1fff'27ad    0x1a  Code  Lc  HW_NVIC.o [1]
+__VECTOR_RAM {Abs}      0x1fff'0000          Data  Gb  <internal module>
+__VECTOR_TABLE {Abs}    0x1fff'0000          Data  Gb  <internal module>
+__Vectors               0x1fff'0000           --   Gb  startup_K60.o [1]
+__Vectors_End           0x1fff'0400          Data  Gb  startup_K60.o [1]
+__Vectors_Size {Abs}          0x400           --   Gb  startup_K60.o [1]
+__aeabi_cfcmple         0x1fff'1ae9          Code  Gb  FltCmpLe.o [3]
+__aeabi_cfrcmple        0x1fff'3905          Code  Gb  FltCmpGe.o [3]
+__aeabi_f2iz            0x1fff'4c81          Code  Gb  FltToS32.o [3]
+__aeabi_f2uiz           0x1fff'1b0d          Code  Gb  FltToU32.o [3]
+__aeabi_fadd            0x1fff'1cc9          Code  Gb  FltAdd.o [3]
+__aeabi_fmul            0x1fff'1bcd          Code  Gb  FltMul.o [3]
+__aeabi_fsub            0x1fff'1b4d          Code  Gb  FltSub.o [3]
+__aeabi_i2f             0x1fff'1ca5          Code  Gb  S32ToFlt.o [3]
+__aeabi_memclr4         0x1fff'3565          Code  Gb  ABImemclr4.o [4]
+__aeabi_memcpy4         0x1fff'0d25          Code  Gb  ABImemcpy.o [4]
+__aeabi_memcpy8         0x1fff'0d25          Code  Gb  ABImemcpy.o [4]
+__aeabi_ui2f            0x1fff'1b31          Code  Gb  U32ToFlt.o [3]
+__cmain                 0x1fff'55e9          Code  Gb  cmain.o [4]
+__exit                  0x1fff'561d    0x14  Code  Gb  exit.o [5]
+__iar_Memset4_word      0x1fff'356d          Code  Gb  ABImemset48.o [4]
+__iar_Memset8_word      0x1fff'356d          Code  Gb  ABImemset48.o [4]
+__iar_data_init3        0x1fff'5525    0x28  Code  Gb  data_init.o [4]
+__iar_fadd              0x1fff'1b59          Code  Gb  FltSub.o [3]
+__iar_fsub              0x1fff'1cd5          Code  Gb  FltAdd.o [3]
+__iar_fsubStart         0x1fff'1ce5          Code  Gb  FltAdd.o [3]
+__iar_program_start     0x1fff'566d          Code  Gb  cstartup_M.o [4]
+__iar_zero_init3        0x1fff'0dab    0x3a  Code  Gb  zero_init3.o [4]
+__low_level_init        0x1fff'5607     0x4  Code  Gb  low_level_init.o [2]
+__vector_table          0x1fff'0000          Data  Gb  startup_K60.o [1]
+__vector_table_0x1c     0x1fff'001c          Data  Gb  startup_K60.o [1]
+_call_main              0x1fff'55f5          Code  Gb  cmain.o [4]
+_exit                   0x1fff'5611          Code  Gb  cexit.o [4]
+_main                   0x1fff'5603          Code  Gb  cmain.o [4]
+assert_failed           0x1fff'0d11    0x14  Code  Gb  assert.o [1]
+common_relocate         0x1fff'4935    0x98  Code  Gb  relocate.o [1]
+delay                   0x1fff'2019    0x24  Code  Gb  OV7725.o [1]
+delay_flag              0x1fff'fac9     0x1  Data  Gb  Variable.o [1]
+display_flag            0x1fff'ca98     0x4  Data  Gb  imagehandle.o [1]
+dst                     0x1fff'e7bc  0x12c0  Data  Gb  OV7725.o [1]
+encorder_init           0x1fff'4151    0x14  Code  Gb  encoder.o [1]
+excursion_x             0x1fff'fabc     0x2  Data  Gb  Variable.o [1]
+excursion_y             0x1fff'fabe     0x2  Data  Gb  Variable.o [1]
+exit                    0x1fff'560b     0x4  Code  Gb  exit.o [2]
+fieldCnt                0x1fff'fac6     0x1  Data  Gb  OV7725.o [1]
+flag                    0x1fff'5700     0x4  Data  Gb  encoder.o [1]
+flag1                   0x1fff'56fc     0x4  Data  Gb  encoder.o [1]
+flexcan_msgobj_param_t  0x1fff'575c   0x100  Data  Gb  HW_CAN.o [1]
+force_left              0x1fff'fac0     0x1  Data  Gb  Car_control.o [1]
+fps1_n                  0x1fff'caa0     0x4  Data  Gb  imagehandle.o [1]
+fps_num1_n              0x1fff'ca9c     0x4  Data  Gb  imagehandle.o [1]
+ftm1_getSpeed           0x1fff'42b9    0x1c  Code  Gb  encoder.o [1]
+ftm1_init_struct        0x1fff'5704    0x1c  Data  Gb  encoder.o [1]
+ftm2_getSpeed           0x1fff'42d5    0x1a  Code  Gb  encoder.o [1]
+ftm_init_struct3        0x1fff'caec    0x1c  Data  Gb  Motor.o [1]
+g_bus_clock             0x1fff'56d0     0x4  Data  Gb  HW_MCG.o [1]
+g_core_clock            0x1fff'56cc     0x4  Data  Gb  HW_MCG.o [1]
+g_flash_clock           0x1fff'56d4     0x4  Data  Gb  HW_MCG.o [1]
+g_flexbus_clock         0x1fff'56d8     0x4  Data  Gb  HW_MCG.o [1]
+get_img                 0x1fff'1ea7    0x54  Code  Gb  OV7725.o [1]
+get_img::flag           0x1fff'fac7     0x1  Data  Lc  OV7725.o [1]
+getspeed                0x1fff'4263    0x20  Code  Gb  encoder.o [1]
+gpioSpeed               0x1fff'56f8     0x4  Data  Gb  encoder.o [1]
+gpio_init_struct        0x1fff'572c    0x14  Data  Gb  encoder.o [1]
+gpio_init_struct_OLED   0x1fff'cb20    0x14  Data  Gb  OLED.o [1]
+ic_isr                  0x1fff'4b7d    0xc4  Code  Gb  pit.o [1]
+img1                    0x1fff'5a18  0x12c0  Data  Gb  imagehandle.o [1]
+img2                    0x1fff'6cd8  0x12c0  Data  Gb  imagehandle.o [1]
+img3                    0x1fff'7f98  0x12c0  Data  Gb  imagehandle.o [1]
+img4                    0x1fff'9258  0x12c0  Data  Gb  imagehandle.o [1]
+img_display             0x1fff'22bb    0x48  Code  Gb  OV7725.o [1]
+img_extract             0x1fff'21e5    0x8c  Code  Gb  OV7725.o [1]
+img_num                 0x1fff'fac1     0x1  Data  Gb  imagehandle.o [1]
+imgbuff                 0x1fff'd4fc  0x12c0  Data  Gb  OV7725.o [1]
+init_Motor              0x1fff'35a1    0xa4  Code  Gb  Motor.o [1]
+init_gpio_OLED          0x1fff'12d1    0x4c  Code  Gb  OLED.o [1]
+l1_reSpeed              0x1fff'56f4     0x4  Data  Gb  encoder.o [1]
+l2_reSpeed              0x1fff'56c8     0x4  Data  Gb  encoder.o [1]
+light_flag              0x1fff'caa4     0x4  Data  Gb  imagehandle.o [1]
+light_x                 0x1fff'caa8     0x4  Data  Gb  imagehandle.o [1]
+light_y                 0x1fff'caac     0x4  Data  Gb  imagehandle.o [1]
+lptmr_init_structure    0x1fff'5720     0xc  Data  Gb  encoder.o [1]
+lun_Pid                 0x1fff'3857    0x4e  Code  Gb  Motor.o [1]
+main                    0x1fff'4ed5    0x50  Code  Gb  LPLD_SdCard.o [1]
+my_abs                  0x1fff'3555    0x10  Code  Gb  function.o [1]
+nvic_init_struct        0x1fff'5740    0x14  Data  Gb  function.o [1]
+out_char                0x1fff'5649     0xe  Code  Gb  io.o [1]
+ov7725_eagle_img_flag   0x1fff'56ea     0x1  Data  Gb  OV7725.o [1]
+ov7725_init             0x1fff'203d   0x1a8  Code  Gb  OV7725.o [1]
+page                    0x1fff'cae8     0x4  Data  Gb  menu.o [1]
+pid_err                 0x1fff'cb0c     0x4  Data  Gb  Motor.o [1]
+pid_last_err            0x1fff'cb10     0x4  Data  Gb  Motor.o [1]
+pid_last_last_err       0x1fff'cb18     0x4  Data  Gb  Motor.o [1]
+pid_out                 0x1fff'cb1c     0x4  Data  Gb  Motor.o [1]
+pid_result              0x1fff'cb14     0x4  Data  Gb  Motor.o [1]
+pit_init                0x1fff'4b45    0x38  Code  Gb  pit.o [1]
+pit_init_struct         0x1fff'fa7c    0x14  Data  Gb  pit.o [1]
+porta_isr               0x1fff'42f1     0xa  Code  Gb  encoder.o [1]
+printf                  0x1fff'1293    0x1c  Code  Gb  printf.o [1]
+printk                  0x1fff'0ec3   0x3d0  Code  Gb  printf.o [1]
+printk_mknumstr         0x1fff'0e11    0x76  Code  Lc  printf.o [1]
+printk_pad_space        0x1fff'0ea5    0x1e  Code  Lc  printf.o [1]
+printk_pad_zero         0x1fff'0e87    0x1e  Code  Lc  printf.o [1]
+printk_putc             0x1fff'0de5    0x2c  Code  Lc  printf.o [1]
+r1_reSpeed              0x1fff'56ec     0x4  Data  Gb  encoder.o [1]
+r2_reSpeed              0x1fff'56f0     0x4  Data  Gb  encoder.o [1]
+right_getSpeed          0x1fff'4283    0x36  Code  Gb  encoder.o [1]
+set_speed_l             0x1fff'fac8     0x1  Data  Gb  Variable.o [1]
+set_speed_s             0x1fff'fab6     0x2  Data  Gb  Variable.o [1]
+strlen                  0x1fff'12b5    0x1c  Code  Gb  stdlib.o [1]
+touying                 0x1fff'3397   0x18a  Code  Gb  imagehandle.o [1]
+two_ms                  0x1fff'fa90     0x4  Data  Gb  pit.o [1]
+
+
+[1] = C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tl.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  20 598 bytes of readonly  code memory
+      72 bytes of readwrite code memory
+   1 530 bytes of readonly  data memory
+  43 011 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,254 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         21/May/2019  22:07:10
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\xiugai\lib\common\Car_control.c
+#    Command line =  
+#        -f C:\Users\TEMPLA~1.000\AppData\Local\Temp\EW1D45.tmp
+#        (C:\Users\que\Desktop\AAA_xinbiao\xiugai\lib\common\Car_control.c -D
+#        LPLD_K60 -lCN
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -lB
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -o
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config "D:\@@\605110 IAR for
+#        ARM 8.30\arm\inc\c\DLib_Config_Normal.h" -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Me\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\Core\Include\" -I
+#        "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\DSP\Include\" -D
+#        ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\List\Car_control.lst
+#    Object file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\Car_control.o
+#
+###############################################################################
+
+C:\Users\que\Desktop\AAA_xinbiao\xiugai\lib\common\Car_control.c
+      1          #include "Car_Control.h"
+      2          //#include "SEEKFREE_MT9V032.h"
+      3          extern s16 beacon_x;
+      4          extern s16 beacon_y;
+      5          extern u8 avoid_x;
+      6          extern u8 avoid_y;
+      7          extern u8 basic_speed;
+      8          extern u8 set_speed_l;
+      9          extern s16 set_speed_s;
+     10          extern u8 Rotate_speed;
+     11          extern s16 excursion_x;  //ÐÅ±êµÆ×ø±êÆ«ÒÆ
+     12          extern s16 excursion_y;
+     13          extern u8 No_Barrier_flag ;
+     14          extern u8 COL_2;  //98
+     15          extern u8 excursion_flag;
+     16          extern u8 state_flag;
+     17          extern u8 delay_flag;
+     18          extern u8 Barrier_flag ;
+
+   \                                 In section .bss, align 4
+     19          float Distance;
+   \                     Distance:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 1
+     20          u8 force_left =0;
+   \                     force_left:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 1
+     21          u8 force_right = 0;
+   \                     force_right:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 2
+     22          s16 Barrier_X=0;
+   \                     Barrier_X:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     23          s16 Barrier_Y=0;
+   \                     Barrier_Y:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 4
+     24          int congcongcong = 0;
+   \                     congcongcong:
+   \        0x0                      DS8 4
+     25          //static u16 beacon_maybe_blocked =0;
+
+   \                                 In section .text, align 4, keep-with-next
+     26          void Car_Control()
+     27          {
+   \                     Car_Control: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+     28            delay_flag = 0;
+   \        0x2   0x2000             MOVS     R0,#+0
+   \        0x4   0x491A             LDR.N    R1,??Car_Control_0
+   \        0x6   0x7008             STRB     R0,[R1, #+0]
+     29            Barrier_flag = 0;
+   \        0x8   0x2000             MOVS     R0,#+0
+   \        0xA   0x491A             LDR.N    R1,??Car_Control_0+0x4
+   \        0xC   0x7008             STRB     R0,[R1, #+0]
+     30            force_left =0;
+   \        0xE   0x2000             MOVS     R0,#+0
+   \       0x10   0x4919             LDR.N    R1,??Car_Control_0+0x8
+   \       0x12   0x7008             STRB     R0,[R1, #+0]
+     31          
+     32            if(light_flag)
+   \       0x14   0x4819             LDR.N    R0,??Car_Control_0+0xC
+   \       0x16   0x6800             LDR      R0,[R0, #+0]
+   \       0x18   0x2800             CMP      R0,#+0
+   \       0x1A   0xD00E             BEQ.N    ??Car_Control_1
+     33            {
+     34                  set_speed_l = 40;
+   \       0x1C   0x2028             MOVS     R0,#+40
+   \       0x1E   0x4918             LDR.N    R1,??Car_Control_0+0x10
+   \       0x20   0x7008             STRB     R0,[R1, #+0]
+     35                  set_speed_s = 0;
+   \       0x22   0x2000             MOVS     R0,#+0
+   \       0x24   0x4917             LDR.N    R1,??Car_Control_0+0x14
+   \       0x26   0x8008             STRH     R0,[R1, #+0]
+     36                  excursion_x = light_x;   
+   \       0x28   0x4817             LDR.N    R0,??Car_Control_0+0x18
+   \       0x2A   0x6800             LDR      R0,[R0, #+0]
+   \       0x2C   0x4917             LDR.N    R1,??Car_Control_0+0x1C
+   \       0x2E   0x8008             STRH     R0,[R1, #+0]
+     37                  excursion_y = light_y;
+   \       0x30   0x4817             LDR.N    R0,??Car_Control_0+0x20
+   \       0x32   0x6800             LDR      R0,[R0, #+0]
+   \       0x34   0x4917             LDR.N    R1,??Car_Control_0+0x24
+   \       0x36   0x8008             STRH     R0,[R1, #+0]
+   \       0x38   0xE00B             B.N      ??Car_Control_2
+     38                  
+     39            }
+     40            else
+     41            {
+     42          
+     43          
+     44          
+     45                   set_speed_l=0;
+   \                     ??Car_Control_1: (+1)
+   \       0x3A   0x2000             MOVS     R0,#+0
+   \       0x3C   0x4910             LDR.N    R1,??Car_Control_0+0x10
+   \       0x3E   0x7008             STRB     R0,[R1, #+0]
+     46                   excursion_x = 0;   
+   \       0x40   0x2000             MOVS     R0,#+0
+   \       0x42   0x4912             LDR.N    R1,??Car_Control_0+0x1C
+   \       0x44   0x8008             STRH     R0,[R1, #+0]
+     47                   excursion_y = 0;
+   \       0x46   0x2000             MOVS     R0,#+0
+   \       0x48   0x4912             LDR.N    R1,??Car_Control_0+0x24
+   \       0x4A   0x8008             STRH     R0,[R1, #+0]
+     48                   set_speed_s = 20;
+   \       0x4C   0x2014             MOVS     R0,#+20
+   \       0x4E   0x490D             LDR.N    R1,??Car_Control_0+0x14
+   \       0x50   0x8008             STRH     R0,[R1, #+0]
+     49          
+     50                          
+     51             }
+     52          
+     53          
+     54            Speed_Conversion(set_speed_l,set_speed_s,excursion_x,excursion_y);
+   \                     ??Car_Control_2: (+1)
+   \       0x52   0x4810             LDR.N    R0,??Car_Control_0+0x24
+   \       0x54   0xF9B0 0x3000      LDRSH    R3,[R0, #+0]
+   \       0x58   0x480C             LDR.N    R0,??Car_Control_0+0x1C
+   \       0x5A   0xF9B0 0x2000      LDRSH    R2,[R0, #+0]
+   \       0x5E   0x4809             LDR.N    R0,??Car_Control_0+0x14
+   \       0x60   0xF9B0 0x1000      LDRSH    R1,[R0, #+0]
+   \       0x64   0x4806             LDR.N    R0,??Car_Control_0+0x10
+   \       0x66   0x7800             LDRB     R0,[R0, #+0]
+   \       0x68   0x....'....        BL       Speed_Conversion
+     55          
+     56          }
+   \       0x6C   0xBD01             POP      {R0,PC}          ;; return
+   \       0x6E   0xBF00             Nop      
+   \                     ??Car_Control_0:
+   \       0x70   0x....'....        DC32     delay_flag
+   \       0x74   0x....'....        DC32     Barrier_flag
+   \       0x78   0x....'....        DC32     force_left
+   \       0x7C   0x....'....        DC32     light_flag
+   \       0x80   0x....'....        DC32     set_speed_l
+   \       0x84   0x....'....        DC32     set_speed_s
+   \       0x88   0x....'....        DC32     light_x
+   \       0x8C   0x....'....        DC32     excursion_x
+   \       0x90   0x....'....        DC32     light_y
+   \       0x94   0x....'....        DC32     excursion_y
+     57          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   Car_Control
+         8   -> Speed_Conversion
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       2  Barrier_X
+       2  Barrier_Y
+     152  Car_Control
+       4  Distance
+       4  congcongcong
+       1  force_left
+       1  force_right
+
+ 
+  14 bytes in section .bss
+ 152 bytes in section .text
+ 
+ 152 bytes of CODE memory
+  14 bytes of DATA memory
+
+Errors: none
+Warnings: 1

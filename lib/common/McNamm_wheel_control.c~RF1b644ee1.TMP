@@ -1,0 +1,70 @@
+#include "McNamm_wheel_control.h"
+#include "math.h"
+
+extern u8 basic_speed ;
+extern u8 Rotate_speed;
+
+extern s32 Left_front_goalspeed ;/*左前轮目标速度*/
+extern s32 Right_front_goalspeed ;/*右前轮目标速度*/
+extern s32 Left_rear_goalspeed;/*左前轮目标速度*/
+extern s32 Right_rear_goalspeed;/*右前轮目标速度*/
+
+extern s16 beacon_x;  //实际信标灯坐标
+extern s16 beacon_y;
+extern s16 excursion_x;  //信标灯坐标偏移
+extern s16 excursion_y;
+extern u8 coordinate_X ; //等价信标灯坐标
+extern u8 coordinate_Y ;
+
+extern 	u8 state_flag; //信标灯远近标志位
+extern u8 Barrier_flag ; //障碍物标志位
+extern u8 force_left ;
+extern u8 force_right;
+#define a_PARAMETER          (0.09f)               
+#define b_PARAMETER          (0.09f) 
+
+void McNamm_wheel_control(float Vx,float Vy,float Vz)
+{
+    Left_rear_goalspeed    = Vx-Vy-Vz*(a_PARAMETER+b_PARAMETER);  //zuohou
+    Left_front_goalspeed   = Vx+Vy-Vz*(a_PARAMETER+b_PARAMETER);  //
+    Right_front_goalspeed  = Vx-Vy+Vz*(a_PARAMETER+b_PARAMETER);//
+    Right_rear_goalspeed   = Vx+Vy+Vz*(a_PARAMETER+b_PARAMETER);//
+}
+
+void Speed_Conversion2() //测试用
+{
+  float coefficient = 0;
+  float vx=0,vy=0,vz = 0;
+  coefficient = (float)(basic_speed*basic_speed)/(coordinate_X*coordinate_X+coordinate_Y*coordinate_Y);
+  coefficient = (float)sqrt(coefficient);
+	
+  vx = coefficient*coordinate_X;
+  vy = coefficient*coordinate_Y;
+  vz = 1;
+  McNamm_wheel_control(vx,vy,vz);
+}
+
+void Speed_Conversion(u8 setspeedl,s16 setspeeds,s16 x,s16 y)//zhi,0,x,y
+{
+   int speedl,speeds,vx,vy,vz;
+   speedl = setspeedl;
+   speeds = setspeeds;
+   if(light_flag)
+   {
+   vx = 2500;
+     vy = -(110*lun_Pid(speedl,y));  //0正or负
+     vz = 0;
+   }
+    
+
+   else 
+   {
+     vx = 0;
+     vy = 0;
+     vz = 10*Dir_Pid(speeds,y);
+   }
+
+  McNamm_wheel_control(vx,vy,vz);
+}
+
+

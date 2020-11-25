@@ -1,0 +1,404 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         23/Apr/2019  21:09:53
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\k60_144\smartcar\lib\common\Steering.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW5157.tmp
+#        (G:\AIcar\@@\k60_144\smartcar\lib\common\Steering.c -D LPLD_K60
+#        -lCN
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -lB
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -o
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List\Steering.lst
+#    Object file  =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj\Steering.o
+#
+###############################################################################
+
+G:\AIcar\@@\k60_144\smartcar\lib\common\Steering.c
+      1          #include "include.h"
+      2          /*后来加的变量*/
+      3          
+
+   \                                 In section .data, align 4
+      4          int mid = 39;
+   \                     mid:
+   \        0x0   0x0000'0027        DC32 39
+
+   \                                 In section .data, align 4
+      5          int ccd_mid =63;
+   \                     ccd_mid:
+   \        0x0   0x0000'003F        DC32 63
+
+   \                                 In section .data, align 4
+      6          int midpwm = 1134;
+   \                     midpwm:
+   \        0x0   0x0000'046E        DC32 1134
+
+   \                                 In section .bss, align 4
+      7          int Steering_PWM = 0;
+   \                     Steering_PWM:
+   \        0x0                      DS8 4
+      8          
+      9          
+
+   \                                 In section .data, align 4
+     10          float SP = 2.8f;
+   \                     `SP`:
+   \        0x0   0x4033'3333        DC32 40333333H
+
+   \                                 In section .data, align 4
+     11          float SD = 2.1f;
+   \                     SD:
+   \        0x0   0x4006'6666        DC32 40066666H
+     12          //舵机结构体
+
+   \                                 In section .bss, align 4
+     13          FTM_InitTypeDef steering_init_struct;
+   \                     steering_init_struct:
+   \        0x0                      DS8 28
+
+   \                                 In section .bss, align 8
+     14          Steering PID_S;
+   \                     PID_S:
+   \        0x0                      DS8 40
+     15          /*
+     16          name:   steering_init()
+     17          舵机初始化
+     18          */
+
+   \                                 In section .text, align 2, keep-with-next
+     19          void steering_init()
+     20          {
+   \                     steering_init: (+1)
+   \        0x0   0xB51F             PUSH     {R0-R4,LR}
+     21            PID_S.KP = SP;
+   \        0x2   0x....             LDR.N    R4,??DataTable1
+   \        0x4   0x....             LDR.N    R0,??DataTable1_1
+   \        0x6   0x6800             LDR      R0,[R0, #+0]
+   \        0x8   0x....'....        BL       __aeabi_f2d
+   \        0xC   0xE9C4 0x0100      STRD     R0,R1,[R4, #+0]
+     22            PID_S.KD = SD;
+   \       0x10   0x....             LDR.N    R0,??DataTable1_2
+   \       0x12   0x6800             LDR      R0,[R0, #+0]
+   \       0x14   0x....'....        BL       __aeabi_f2d
+   \       0x18   0xE9C4 0x0102      STRD     R0,R1,[R4, #+8]
+     23            PID_S.error = 0;   //误差
+   \       0x1C   0x2000             MOVS     R0,#+0
+   \       0x1E   0x6120             STR      R0,[R4, #+16]
+     24            PID_S.lasterror = 0;   //上次误差
+   \       0x20   0x2000             MOVS     R0,#+0
+   \       0x22   0x6160             STR      R0,[R4, #+20]
+     25            PID_S.SteerPwmAdd = 0.0f;
+   \       0x24   0x2000             MOVS     R0,#+0
+   \       0x26   0x2100             MOVS     R1,#+0
+   \       0x28   0xE9C4 0x0106      STRD     R0,R1,[R4, #+24]
+     26            PID_S.CCD_error  = 0;  //CCD误差
+   \       0x2C   0x2000             MOVS     R0,#+0
+   \       0x2E   0x6220             STR      R0,[R4, #+32]
+     27            
+     28            steering_init_struct.FTM_Ftmx = FTM2;	
+   \       0x30   0x....             LDR.N    R1,??DataTable1_3
+   \       0x32   0x....             LDR.N    R4,??DataTable1_4  ;; 0x400b8000
+   \       0x34   0x600C             STR      R4,[R1, #+0]
+     29            steering_init_struct.FTM_Mode = FTM_MODE_PWM;	
+   \       0x36   0x2001             MOVS     R0,#+1
+   \       0x38   0x7108             STRB     R0,[R1, #+4]
+     30            steering_init_struct.FTM_PwmFreq = 75;
+   \       0x3A   0x204B             MOVS     R0,#+75
+   \       0x3C   0x6088             STR      R0,[R1, #+8]
+     31            
+     32            LPLD_FTM_Init(steering_init_struct);
+   \       0x3E   0xB084             SUB      SP,SP,#+16
+   \       0x40   0x4668             MOV      R0,SP
+   \       0x42   0x221C             MOVS     R2,#+28
+   \       0x44   0x....'....        BL       __aeabi_memcpy4
+   \       0x48   0xBC0F             POP      {R0-R3}
+   \       0x4A   0x....'....        BL       LPLD_FTM_Init
+     33            
+     34            LPLD_FTM_PWM_Enable(FTM2, 
+     35                                FTM_Ch0, 
+     36                                midpwm,  //  中：1134   左：999 右：1269
+     37                                PTB18, 
+     38                                ALIGN_LEFT       
+     39                                  );  
+   \       0x4E   0x2028             MOVS     R0,#+40
+   \       0x50   0x9000             STR      R0,[SP, #+0]
+   \       0x52   0x2332             MOVS     R3,#+50
+   \       0x54   0x....             LDR.N    R0,??DataTable1_5
+   \       0x56   0x6802             LDR      R2,[R0, #+0]
+   \       0x58   0x2100             MOVS     R1,#+0
+   \       0x5A   0x0020             MOVS     R0,R4
+   \       0x5C   0x....'....        BL       LPLD_FTM_PWM_Enable
+     40          }
+   \       0x60   0xBD1F             POP      {R0-R4,PC}       ;; return
+     41          
+
+   \                                 In section .text, align 2, keep-with-next
+     42          void steering_control(void)
+     43          {   
+   \                     steering_control: (+1)
+   \        0x0   0xB570             PUSH     {R4-R6,LR}
+     44            PID_S.CCD_error  = 0;  //CCD误差清零
+   \        0x2   0x....             LDR.N    R6,??DataTable1
+   \        0x4   0x2000             MOVS     R0,#+0
+   \        0x6   0x6230             STR      R0,[R6, #+32]
+     45            
+     46            PID_S.error =  mid - Calculate()  ;  
+   \        0x8   0x....'....        BL       Calculate
+   \        0xC   0x....             LDR.N    R1,??DataTable1_6
+   \        0xE   0x6809             LDR      R1,[R1, #+0]
+   \       0x10   0x1A08             SUBS     R0,R1,R0
+   \       0x12   0x6130             STR      R0,[R6, #+16]
+     47            PID_S.SteerPwmAdd=(PID_S.KP*PID_S.error)+PID_S.KD*(PID_S.error-PID_S.lasterror);  //舵机的pd控制器
+   \       0x14   0x6930             LDR      R0,[R6, #+16]
+   \       0x16   0x....'....        BL       __aeabi_i2d
+   \       0x1A   0xE9D6 0x2300      LDRD     R2,R3,[R6, #+0]
+   \       0x1E   0x....'....        BL       __aeabi_dmul
+   \       0x22   0x0004             MOVS     R4,R0
+   \       0x24   0x000D             MOVS     R5,R1
+   \       0x26   0x6930             LDR      R0,[R6, #+16]
+   \       0x28   0x6971             LDR      R1,[R6, #+20]
+   \       0x2A   0x1A40             SUBS     R0,R0,R1
+   \       0x2C   0x....'....        BL       __aeabi_i2d
+   \       0x30   0xE9D6 0x2302      LDRD     R2,R3,[R6, #+8]
+   \       0x34   0x....'....        BL       __aeabi_dmul
+   \       0x38   0x0022             MOVS     R2,R4
+   \       0x3A   0x002B             MOVS     R3,R5
+   \       0x3C   0x....'....        BL       __aeabi_dadd
+   \       0x40   0xE9C6 0x0106      STRD     R0,R1,[R6, #+24]
+     48            if(PID_S.SteerPwmAdd > 135 )
+   \       0x44   0xE9D6 0x0106      LDRD     R0,R1,[R6, #+24]
+   \       0x48   0x2201             MOVS     R2,#+1
+   \       0x4A   0x....             LDR.N    R3,??DataTable1_7  ;; 0x4060e000
+   \       0x4C   0x....'....        BL       __aeabi_cdrcmple
+   \       0x50   0xD804             BHI.N    ??steering_control_0
+     49            {
+     50              PID_S.SteerPwmAdd = 135;
+   \       0x52   0x2000             MOVS     R0,#+0
+   \       0x54   0x....             LDR.N    R1,??DataTable1_7  ;; 0x4060e000
+   \       0x56   0xE9C6 0x0106      STRD     R0,R1,[R6, #+24]
+   \       0x5A   0xE00A             B.N      ??steering_control_1
+     51            }
+     52            else if(PID_S.SteerPwmAdd < -135 )
+   \                     ??steering_control_0: (+1)
+   \       0x5C   0xE9D6 0x0106      LDRD     R0,R1,[R6, #+24]
+   \       0x60   0x2200             MOVS     R2,#+0
+   \       0x62   0x....             LDR.N    R3,??DataTable1_8  ;; 0xc060e000
+   \       0x64   0x....'....        BL       __aeabi_cdcmple
+   \       0x68   0xD203             BCS.N    ??steering_control_1
+     53            {
+     54              PID_S.SteerPwmAdd = -135;
+   \       0x6A   0x2000             MOVS     R0,#+0
+   \       0x6C   0x....             LDR.N    R1,??DataTable1_8  ;; 0xc060e000
+   \       0x6E   0xE9C6 0x0106      STRD     R0,R1,[R6, #+24]
+     55            }
+     56            Steering_PWM = (int)(midpwm + PID_S.SteerPwmAdd);
+   \                     ??steering_control_1: (+1)
+   \       0x72   0x....             LDR.N    R4,??DataTable1_9
+   \       0x74   0x....             LDR.N    R0,??DataTable1_5
+   \       0x76   0x6800             LDR      R0,[R0, #+0]
+   \       0x78   0x....'....        BL       __aeabi_i2d
+   \       0x7C   0xE9D6 0x2306      LDRD     R2,R3,[R6, #+24]
+   \       0x80   0x....'....        BL       __aeabi_dadd
+   \       0x84   0x....'....        BL       __aeabi_d2iz
+   \       0x88   0x6020             STR      R0,[R4, #+0]
+     57            
+     58            LPLD_FTM_PWM_ChangeDuty(FTM2, FTM_Ch0, Steering_PWM);
+   \       0x8A   0x6822             LDR      R2,[R4, #+0]
+   \       0x8C   0x2100             MOVS     R1,#+0
+   \       0x8E   0x....             LDR.N    R0,??DataTable1_4  ;; 0x400b8000
+   \       0x90   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+     59            
+     60            PID_S.lasterror = PID_S.error;
+   \       0x94   0x6930             LDR      R0,[R6, #+16]
+   \       0x96   0x6170             STR      R0,[R6, #+20]
+     61          }
+   \       0x98   0xBD70             POP      {R4-R6,PC}       ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \        0x0   0x....'....        DC32     PID_S
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \        0x0   0x....'....        DC32     `SP`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \        0x0   0x....'....        DC32     SD
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \        0x0   0x....'....        DC32     steering_init_struct
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_4:
+   \        0x0   0x400B'8000        DC32     0x400b8000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_5:
+   \        0x0   0x....'....        DC32     midpwm
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_6:
+   \        0x0   0x....'....        DC32     mid
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_7:
+   \        0x0   0x4060'E000        DC32     0x4060e000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_8:
+   \        0x0   0xC060'E000        DC32     0xc060e000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_9:
+   \        0x0   0x....'....        DC32     Steering_PWM
+     62          
+     63          
+     64          /*void CCD_control(void)
+     65          {   
+     66            PID_S.error = 0;   //舵机误差清零
+     67            PID_S.lasterror = 0;   //舵机上次误差
+     68            
+     69            PID_S.CCD_error =  ccd_mid - weizhi(&ccd1);      ///weizhi = 63的时候  要达到最大角度
+     70            if(PID_S.CCD_error >= 0)
+     71            {
+     72              PID_S.CCD_error = 63 - PID_S.CCD_error;
+     73            }
+     74            if(PID_S.CCD_error < 0)
+     75              
+     76            {
+     77              PID_S.CCD_error = -63 + PID_S.CCD_error;
+     78            }
+     79            
+     80            
+     81            PID_S.SteerPwmAdd=(2.5*PID_S.CCD_error);  //舵机的P控制器
+     82            if(PID_S.CCD_error >= 0){
+     83              if(PID_S.SteerPwmAdd > 135 )
+     84              {
+     85                PID_S.SteerPwmAdd = 135;
+     86              }
+     87              else if(PID_S.SteerPwmAdd < 0 )
+     88              {
+     89                PID_S.SteerPwmAdd = 0;
+     90              }
+     91            }
+     92            else if(PID_S.CCD_error < 0){
+     93              if(PID_S.SteerPwmAdd <= -135 )
+     94              {
+     95                PID_S.SteerPwmAdd = -135;
+     96              }
+     97              else if(PID_S.SteerPwmAdd > 0 )
+     98              {
+     99                PID_S.SteerPwmAdd = 0;
+    100              }
+    101            }
+    102            
+    103            Steering_PWM = (int)(midpwm - PID_S.SteerPwmAdd);
+    104            LPLD_FTM_PWM_ChangeDuty(FTM2, FTM_Ch0, Steering_PWM);    //midpwm+中间是最大偏角     
+    105            
+    106            CCD_CTL_OPEN = 0;
+    107          }*/
+    108          
+    109          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      16   steering_control
+        16   -> Calculate
+        16   -> LPLD_FTM_PWM_ChangeDuty
+        16   -> __aeabi_d2iz
+        16   -> __aeabi_dadd
+        16   -> __aeabi_dmul
+        16   -> __aeabi_i2d
+        16 __aeabi_cdcmple
+        16 __aeabi_cdrcmple
+      40   steering_init
+        24   -> LPLD_FTM_Init
+        24   -> LPLD_FTM_PWM_Enable
+        24   -> __aeabi_f2d
+        40   -> __aeabi_memcpy4
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       4  ??DataTable1_5
+       4  ??DataTable1_6
+       4  ??DataTable1_7
+       4  ??DataTable1_8
+       4  ??DataTable1_9
+      40  PID_S
+       4  SD
+       4  SP
+       4  Steering_PWM
+       4  ccd_mid
+       4  mid
+       4  midpwm
+     154  steering_control
+      98  steering_init
+      28  steering_init_struct
+
+ 
+  72 bytes in section .bss
+  20 bytes in section .data
+ 292 bytes in section .text
+ 
+ 292 bytes of CODE memory
+  92 bytes of DATA memory
+
+Errors: none
+Warnings: 3

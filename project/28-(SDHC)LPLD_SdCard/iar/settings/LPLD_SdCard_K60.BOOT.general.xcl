@@ -1,0 +1,17 @@
+"G:\AIcar\arm\bin\armproc.dll" 
+
+"G:\AIcar\arm\bin\armpemicro.dll" 
+
+"G:\AIcar\信标\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Exe\LPLD_SdCard_K60.out" 
+
+--plugin="G:\AIcar\arm\bin\armbat.dll" 
+
+--device_macro="G:\AIcar\arm\config\debugger\NXP\Kxx.dmac" 
+
+--device_macro="G:\AIcar\arm\config\debugger\NXP\Kxx_Trace.dmac" 
+
+--flash_loader="G:\AIcar\arm\config\flashloader\Freescale\FlashK60Dxxx128K.board" 
+
+
+
+

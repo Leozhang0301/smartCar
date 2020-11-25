@@ -1,0 +1,992 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         23/Apr/2019  21:09:47
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\k60_144\smartcar\lib\LPLD\HW\HW_PDB.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW3A2E.tmp
+#        (G:\AIcar\@@\k60_144\smartcar\lib\LPLD\HW\HW_PDB.c -D LPLD_K60
+#        -lCN
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -lB
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -o
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List\HW_PDB.lst
+#    Object file  =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj\HW_PDB.o
+#
+###############################################################################
+
+G:\AIcar\@@\k60_144\smartcar\lib\LPLD\HW\HW_PDB.c
+      1          /**
+      2           * @file HW_PDB.c
+      3           * @version 3.0[By LPLD]
+      4           * @date 2013-06-18
+      5           * @brief PDB底层模块相关函数
+      6           *
+      7           * 更改建议:不建议修改
+      8           *
+      9           * 版权所有:北京拉普兰德电子技术有限公司
+     10           * http://www.lpld.cn
+     11           * mail:support@lpld.cn
+     12           *
+     13           * @par
+     14           * 本代码由拉普兰德[LPLD]开发并维护，并向所有使用者开放源代码。
+     15           * 开发者可以随意修使用或改源代码。但本段及以上注释应予以保留。
+     16           * 不得更改或删除原版权所有者姓名，二次开发者可以加注二次版权所有者。
+     17           * 但应在遵守此协议的基础上，开放源代码、不得出售代码本身。
+     18           * 拉普兰德不负责由于使用本代码所带来的任何事故、法律责任或相关不良影响。
+     19           * 拉普兰德无义务解释、说明本代码的具体原理、功能、实现方法。
+     20           * 除非拉普兰德[LPLD]授权，开发者不得将本代码用于商业产品。
+     21           */
+     22          #include "common.h"
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_DisableIRQ(IRQn_Type)
+   \                     __NVIC_DisableIRQ: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+   \        0x2   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \        0x4   0x2900             CMP      R1,#+0
+   \        0x6   0xD40D             BMI.N    ??__NVIC_DisableIRQ_0
+   \        0x8   0x2201             MOVS     R2,#+1
+   \        0xA   0xF010 0x011F      ANDS     R1,R0,#0x1F
+   \        0xE   0x408A             LSLS     R2,R2,R1
+   \       0x10   0x....'....        LDR.W    R1,??DataTable5  ;; 0xe000e180
+   \       0x14   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x16   0x0940             LSRS     R0,R0,#+5
+   \       0x18   0xF841 0x2020      STR      R2,[R1, R0, LSL #+2]
+   \       0x1C   0xF3BF 0x8F4F      DSB      SY
+   \       0x20   0xF3BF 0x8F6F      ISB      SY
+   \                     ??__NVIC_DisableIRQ_0: (+1)
+   \       0x24   0x4770             BX       LR               ;; return
+     23          #include "HW_PDB.h"
+     24          
+     25          //用户自定义中断服务函数数组
+
+   \                                 In section .bss, align 4
+     26          PDB_ISR_CALLBACK PDB_ISR[1];
+   \                     PDB_ISR:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     27          PDB_ISR_CALLBACK PDB_SE_ISR[1];
+   \                     PDB_SE_ISR:
+   \        0x0                      DS8 4
+     28          
+     29          //PDB时钟预分频系数乘数
+
+   \                                 In section .rodata, align 4
+     30          const uint8 pdb_sc_mults[4] = {1, 10, 20, 40};
+   \                     pdb_sc_mults:
+   \        0x0   0x01 0x0A          DC8 1, 10, 20, 40
+   \              0x14 0x28    
+     31          
+     32          
+     33          /*
+     34           * LPLD_PDB_Init
+     35           * PDBx模块通用初始化函数，初始化PDBx计数器周期、工作模式、触发源、中断等配置
+     36           * 
+     37           * 参数:
+     38           *    pdb_init_struct--PDBx初始化结构体，
+     39           *                        具体定义见PDB_InitTypeDef
+     40           *
+     41           * 输出:
+     42           *    0--配置错误
+     43           *    1--配置成功
+     44           */
+
+   \                                 In section .text, align 2, keep-with-next
+     45          uint8 LPLD_PDB_Init(PDB_InitTypeDef pdb_init_struct)
+     46          {
+   \                     LPLD_PDB_Init: (+1)
+   \        0x0   0xB40F             PUSH     {R0-R3}
+   \        0x2   0xE92D 0x4FF8      PUSH     {R3-R11,LR}
+     47            uint32 us = pdb_init_struct.PDB_CounterPeriodUs
+     48                      + pdb_init_struct.PDB_CounterPeriodMs*1000
+     49                      + pdb_init_struct.PDB_CounterPeriodS*1000000;
+   \        0x6   0x....'....        LDR.W    R0,??DataTable5_1  ;; 0xf4240
+   \        0xA   0xF44F 0x717A      MOV      R1,#+1000
+   \        0xE   0x9A0A             LDR      R2,[SP, #+40]
+   \       0x10   0x9B0B             LDR      R3,[SP, #+44]
+   \       0x12   0xFB01 0x2203      MLA      R2,R1,R3,R2
+   \       0x16   0x9C0C             LDR      R4,[SP, #+48]
+   \       0x18   0xFB00 0x2404      MLA      R4,R0,R4,R2
+     50            uint32 delayus = pdb_init_struct.PDB_DelayUs
+     51                      + pdb_init_struct.PDB_DelayMs*1000
+     52                      + pdb_init_struct.PDB_DelayS*1000000;
+   \       0x1C   0x9A0F             LDR      R2,[SP, #+60]
+   \       0x1E   0x9B10             LDR      R3,[SP, #+64]
+   \       0x20   0xFB01 0x2103      MLA      R1,R1,R3,R2
+   \       0x24   0x9D11             LDR      R5,[SP, #+68]
+   \       0x26   0xFB00 0x1505      MLA      R5,R0,R5,R1
+     53            uint8 loadmode = pdb_init_struct.PDB_LoadModeSel;
+   \       0x2A   0xF89D 0x6034      LDRB     R6,[SP, #+52]
+     54            uint8 trriger = pdb_init_struct.PDB_TriggerInputSourceSel;
+   \       0x2E   0xF89D 0x7035      LDRB     R7,[SP, #+53]
+     55            uint32 bus_clk = g_bus_clock/1000000;
+   \       0x32   0x....'....        LDR.W    R0,??DataTable5_2
+   \       0x36   0x6800             LDR      R0,[R0, #+0]
+   \       0x38   0x....'....        LDR.W    R1,??DataTable5_1  ;; 0xf4240
+   \       0x3C   0xFBB0 0xF8F1      UDIV     R8,R0,R1
+     56            uint8 prescaler, mult;
+     57            uint32 mod;
+     58            float32 temp;
+     59            
+     60            //参数检查
+     61            ASSERT( loadmode <= LOADMODE_3 );       //加载模式选择
+   \       0x40   0x0030             MOVS     R0,R6
+   \       0x42   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x44   0x2804             CMP      R0,#+4
+   \       0x46   0xDB04             BLT.N    ??LPLD_PDB_Init_0
+   \       0x48   0x213D             MOVS     R1,#+61
+   \       0x4A   0x....'....        LDR.W    R0,??DataTable5_3
+   \       0x4E   0x....'....        BL       assert_failed
+     62            ASSERT( trriger <= TRIGGER_SOFTWARE );  //触发输入源选择
+   \                     ??LPLD_PDB_Init_0: (+1)
+   \       0x52   0x0038             MOVS     R0,R7
+   \       0x54   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x56   0x2810             CMP      R0,#+16
+   \       0x58   0xDB04             BLT.N    ??LPLD_PDB_Init_1
+   \       0x5A   0x213E             MOVS     R1,#+62
+   \       0x5C   0x....'....        LDR.W    R0,??DataTable5_3
+   \       0x60   0x....'....        BL       assert_failed
+     63            
+     64          /*
+     65           *************************************************
+     66            【LPLD注解】PDB关键系数
+     67            prescaler(总线时钟预分频系数): 2^n(n:0~7)
+     68            mult(prescaler的倍数): 1、10、20、40
+     69            mod(计数器模数，影响计数器周期): 0~0xFFFF
+     70            计数器周期 = (prescaler*mult*mod)/bus_clk
+     71           *************************************************
+     72           */
+     73            
+     74            //根据期望的计数器周期自动设定prescaler、mult和mod的值
+     75            for(uint8 i=0; i<4; i++)
+   \                     ??LPLD_PDB_Init_1: (+1)
+   \       0x64   0x2100             MOVS     R1,#+0
+   \       0x66   0xE004             B.N      ??LPLD_PDB_Init_2
+     76            {
+     77              mult = i;
+     78              for(uint8 j=0; j<8; j++)
+     79              {
+     80                prescaler = j;
+     81                mod = (bus_clk*us)/((1<<j)*pdb_sc_mults[i]);
+     82                if(mod <= 0xFFFFu)
+     83                  break;
+     84              }
+     85              if(mod <= 0xFFFFu)
+     86                break;
+     87              else if(i == 3)
+   \                     ??LPLD_PDB_Init_3: (+1)
+   \       0x68   0x0008             MOVS     R0,R1
+   \       0x6A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x6C   0x2803             CMP      R0,#+3
+   \       0x6E   0xD068             BEQ.N    ??LPLD_PDB_Init_4
+   \                     ??LPLD_PDB_Init_5: (+1)
+   \       0x70   0x1C49             ADDS     R1,R1,#+1
+   \                     ??LPLD_PDB_Init_2: (+1)
+   \       0x72   0x0008             MOVS     R0,R1
+   \       0x74   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x76   0x2804             CMP      R0,#+4
+   \       0x78   0xDA1E             BGE.N    ??LPLD_PDB_Init_6
+   \       0x7A   0x468A             MOV      R10,R1
+   \       0x7C   0x2200             MOVS     R2,#+0
+   \       0x7E   0xE000             B.N      ??LPLD_PDB_Init_7
+   \                     ??LPLD_PDB_Init_8: (+1)
+   \       0x80   0x1C52             ADDS     R2,R2,#+1
+   \                     ??LPLD_PDB_Init_7: (+1)
+   \       0x82   0x0010             MOVS     R0,R2
+   \       0x84   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x86   0x2808             CMP      R0,#+8
+   \       0x88   0xDA13             BGE.N    ??LPLD_PDB_Init_9
+   \       0x8A   0x4691             MOV      R9,R2
+   \       0x8C   0xFB04 0xF308      MUL      R3,R4,R8
+   \       0x90   0xF05F 0x0C01      MOVS     R12,#+1
+   \       0x94   0xFA1C 0xFC02      LSLS     R12,R12,R2
+   \       0x98   0x....             LDR.N    R0,??DataTable5_4
+   \       0x9A   0x468E             MOV      LR,R1
+   \       0x9C   0xFA5F 0xFE8E      UXTB     LR,LR            ;; ZeroExt  LR,LR,#+24,#+24
+   \       0xA0   0xF810 0x000E      LDRB     R0,[R0, LR]
+   \       0xA4   0xFB00 0xFC0C      MUL      R12,R0,R12
+   \       0xA8   0xFBB3 0xFBFC      UDIV     R11,R3,R12
+   \       0xAC   0xF5BB 0x3F80      CMP      R11,#+65536
+   \       0xB0   0xD2E6             BCS.N    ??LPLD_PDB_Init_8
+   \                     ??LPLD_PDB_Init_9: (+1)
+   \       0xB2   0xF5BB 0x3F80      CMP      R11,#+65536
+   \       0xB6   0xD2D7             BCS.N    ??LPLD_PDB_Init_3
+     88                return 0;         //PDB计数周期设置的过小，计算错误
+     89            }
+     90            
+     91            //使能PDB时钟
+     92            SIM->SCGC6 |= SIM_SCGC6_PDB_MASK;
+   \                     ??LPLD_PDB_Init_6: (+1)
+   \       0xB8   0x....             LDR.N    R0,??DataTable5_5  ;; 0x4004803c
+   \       0xBA   0x6801             LDR      R1,[R0, #+0]
+   \       0xBC   0xF451 0x0180      ORRS     R1,R1,#0x400000
+   \       0xC0   0x6001             STR      R1,[R0, #+0]
+     93            
+     94            //初始化SC寄存器
+     95            PDB0->SC = 0x00;
+   \       0xC2   0x....'....        LDR.W    R8,??DataTable5_6  ;; 0x40036000
+   \       0xC6   0x2000             MOVS     R0,#+0
+   \       0xC8   0xF8C8 0x0000      STR      R0,[R8, #+0]
+     96            //使能PDB
+     97            PDB0->SC |= PDB_SC_PDBEN_MASK;
+   \       0xCC   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \       0xD0   0xF050 0x0080      ORRS     R0,R0,#0x80
+   \       0xD4   0xF8C8 0x0000      STR      R0,[R8, #+0]
+     98            PDB0->SC |= PDB_SC_MULT(mult);
+   \       0xD8   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \       0xDC   0xFA5F 0xFA8A      UXTB     R10,R10          ;; ZeroExt  R10,R10,#+24,#+24
+   \       0xE0   0xEA5F 0x0A8A      LSLS     R10,R10,#+2
+   \       0xE4   0xF01A 0x0A0C      ANDS     R10,R10,#0xC
+   \       0xE8   0xEA5A 0x0A00      ORRS     R10,R10,R0
+   \       0xEC   0xF8C8 0xA000      STR      R10,[R8, #+0]
+     99            PDB0->SC |= PDB_SC_PRESCALER(prescaler);
+   \       0xF0   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \       0xF4   0xFA5F 0xF989      UXTB     R9,R9            ;; ZeroExt  R9,R9,#+24,#+24
+   \       0xF8   0xEA5F 0x3909      LSLS     R9,R9,#+12
+   \       0xFC   0xF419 0x49E0      ANDS     R9,R9,#0x7000
+   \      0x100   0xEA59 0x0900      ORRS     R9,R9,R0
+   \      0x104   0xF8C8 0x9000      STR      R9,[R8, #+0]
+    100            //配置MOD、IDLY、CHnDLYm、INTx和POyDLY寄存器的加载模式
+    101            PDB0->SC |= PDB_SC_LDMOD(loadmode); 
+   \      0x108   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \      0x10C   0xB2F6             UXTB     R6,R6            ;; ZeroExt  R6,R6,#+24,#+24
+   \      0x10E   0x04B6             LSLS     R6,R6,#+18
+   \      0x110   0xF416 0x2640      ANDS     R6,R6,#0xC0000
+   \      0x114   0x4306             ORRS     R6,R6,R0
+   \      0x116   0xF8C8 0x6000      STR      R6,[R8, #+0]
+    102            //配置触发输入源
+    103            PDB0->SC |= PDB_SC_TRGSEL(trriger);
+   \      0x11A   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \      0x11E   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \      0x120   0x023F             LSLS     R7,R7,#+8
+   \      0x122   0xF417 0x6770      ANDS     R7,R7,#0xF00
+   \      0x126   0x4307             ORRS     R7,R7,R0
+   \      0x128   0xF8C8 0x7000      STR      R7,[R8, #+0]
+    104            
+    105            //是否使能连续模式
+    106            if(pdb_init_struct.PDB_ContinuousModeEnable == TRUE)
+   \      0x12C   0xF89D 0x0036      LDRB     R0,[SP, #+54]
+   \      0x130   0x2801             CMP      R0,#+1
+   \      0x132   0xD108             BNE.N    ??LPLD_PDB_Init_10
+    107              PDB0->SC |= PDB_SC_CONT_MASK;
+   \      0x134   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \      0x138   0xF050 0x0002      ORRS     R0,R0,#0x2
+   \      0x13C   0xF8C8 0x0000      STR      R0,[R8, #+0]
+   \      0x140   0xE007             B.N      ??LPLD_PDB_Init_11
+   \                     ??LPLD_PDB_Init_4: (+1)
+   \      0x142   0x2000             MOVS     R0,#+0
+   \      0x144   0xE064             B.N      ??LPLD_PDB_Init_12
+    108            else
+    109              PDB0->SC &= ~(PDB_SC_CONT_MASK);
+   \                     ??LPLD_PDB_Init_10: (+1)
+   \      0x146   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \      0x14A   0xF030 0x0002      BICS     R0,R0,#0x2
+   \      0x14E   0xF8C8 0x0000      STR      R0,[R8, #+0]
+    110            
+    111            //是否使能DMA
+    112            if(pdb_init_struct.PDB_DmaEnable == TRUE)
+   \                     ??LPLD_PDB_Init_11: (+1)
+   \      0x152   0xF89D 0x0037      LDRB     R0,[SP, #+55]
+   \      0x156   0x2801             CMP      R0,#+1
+   \      0x158   0xD106             BNE.N    ??LPLD_PDB_Init_13
+    113              PDB0->SC |= PDB_SC_DMAEN_MASK;
+   \      0x15A   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \      0x15E   0xF450 0x4000      ORRS     R0,R0,#0x8000
+   \      0x162   0xF8C8 0x0000      STR      R0,[R8, #+0]
+   \      0x166   0xE005             B.N      ??LPLD_PDB_Init_14
+    114            else
+    115              PDB0->SC &= ~(PDB_SC_DMAEN_MASK);
+   \                     ??LPLD_PDB_Init_13: (+1)
+   \      0x168   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \      0x16C   0xF430 0x4000      BICS     R0,R0,#0x8000
+   \      0x170   0xF8C8 0x0000      STR      R0,[R8, #+0]
+    116            
+    117            if(pdb_init_struct.PDB_Isr != NULL)
+   \                     ??LPLD_PDB_Init_14: (+1)
+   \      0x174   0x9812             LDR      R0,[SP, #+72]
+   \      0x176   0x2800             CMP      R0,#+0
+   \      0x178   0xD013             BEQ.N    ??LPLD_PDB_Init_15
+    118            {
+    119              PDB_ISR[0] = pdb_init_struct.PDB_Isr;
+   \      0x17A   0x9812             LDR      R0,[SP, #+72]
+   \      0x17C   0x....             LDR.N    R1,??DataTable5_7
+   \      0x17E   0x6008             STR      R0,[R1, #+0]
+    120              //是否使能PDB中断
+    121              if(pdb_init_struct.PDB_IntEnable == TRUE)
+   \      0x180   0xF89D 0x0038      LDRB     R0,[SP, #+56]
+   \      0x184   0x2801             CMP      R0,#+1
+   \      0x186   0xD106             BNE.N    ??LPLD_PDB_Init_16
+    122                PDB0->SC |= PDB_SC_PDBIE_MASK;
+   \      0x188   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \      0x18C   0xF050 0x0020      ORRS     R0,R0,#0x20
+   \      0x190   0xF8C8 0x0000      STR      R0,[R8, #+0]
+   \      0x194   0xE005             B.N      ??LPLD_PDB_Init_15
+    123              else
+    124                PDB0->SC &= ~(PDB_SC_PDBIE_MASK);
+   \                     ??LPLD_PDB_Init_16: (+1)
+   \      0x196   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \      0x19A   0xF030 0x0020      BICS     R0,R0,#0x20
+   \      0x19E   0xF8C8 0x0000      STR      R0,[R8, #+0]
+    125            }
+    126            
+    127            if(pdb_init_struct.PDB_SeqErrIsr != NULL)
+   \                     ??LPLD_PDB_Init_15: (+1)
+   \      0x1A2   0x9813             LDR      R0,[SP, #+76]
+   \      0x1A4   0x2800             CMP      R0,#+0
+   \      0x1A6   0xD013             BEQ.N    ??LPLD_PDB_Init_17
+    128            {
+    129              PDB_SE_ISR[0] = pdb_init_struct.PDB_SeqErrIsr;
+   \      0x1A8   0x9813             LDR      R0,[SP, #+76]
+   \      0x1AA   0x....             LDR.N    R1,??DataTable5_8
+   \      0x1AC   0x6008             STR      R0,[R1, #+0]
+    130              //是否使能PDB序列错误中断
+    131              if(pdb_init_struct.PDB_SeqErrIntEnable == TRUE)
+   \      0x1AE   0xF89D 0x0039      LDRB     R0,[SP, #+57]
+   \      0x1B2   0x2801             CMP      R0,#+1
+   \      0x1B4   0xD106             BNE.N    ??LPLD_PDB_Init_18
+    132                PDB0->SC |= PDB_SC_PDBEIE_MASK;
+   \      0x1B6   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \      0x1BA   0xF450 0x3000      ORRS     R0,R0,#0x20000
+   \      0x1BE   0xF8C8 0x0000      STR      R0,[R8, #+0]
+   \      0x1C2   0xE005             B.N      ??LPLD_PDB_Init_17
+    133              else
+    134                PDB0->SC &= ~(PDB_SC_PDBEIE_MASK);
+   \                     ??LPLD_PDB_Init_18: (+1)
+   \      0x1C4   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \      0x1C8   0xF430 0x3000      BICS     R0,R0,#0x20000
+   \      0x1CC   0xF8C8 0x0000      STR      R0,[R8, #+0]
+    135            }
+    136            
+    137            //设置PDB中断延时时间
+    138            if( delayus <= us )
+   \                     ??LPLD_PDB_Init_17: (+1)
+   \      0x1D0   0x42AC             CMP      R4,R5
+   \      0x1D2   0xD316             BCC.N    ??LPLD_PDB_Init_19
+    139            {
+    140              temp = (float32)mod/(float32)us;
+   \      0x1D4   0x4658             MOV      R0,R11
+   \      0x1D6   0x....'....        BL       __aeabi_ui2f
+   \      0x1DA   0x0006             MOVS     R6,R0
+   \      0x1DC   0x0020             MOVS     R0,R4
+   \      0x1DE   0x....'....        BL       __aeabi_ui2f
+   \      0x1E2   0x0001             MOVS     R1,R0
+   \      0x1E4   0x0030             MOVS     R0,R6
+   \      0x1E6   0x....'....        BL       __aeabi_fdiv
+   \      0x1EA   0x0004             MOVS     R4,R0
+    141              PDB0->IDLY = (uint32)(delayus*temp);
+   \      0x1EC   0x0028             MOVS     R0,R5
+   \      0x1EE   0x....'....        BL       __aeabi_ui2f
+   \      0x1F2   0x0001             MOVS     R1,R0
+   \      0x1F4   0x0020             MOVS     R0,R4
+   \      0x1F6   0x....'....        BL       __aeabi_fmul
+   \      0x1FA   0x....'....        BL       __aeabi_f2uiz
+   \      0x1FE   0x....             LDR.N    R1,??DataTable5_9  ;; 0x4003600c
+   \      0x200   0x6008             STR      R0,[R1, #+0]
+    142            }
+    143            
+    144            //加载值
+    145            PDB0->SC |= PDB_SC_LDOK_MASK;
+   \                     ??LPLD_PDB_Init_19: (+1)
+   \      0x202   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \      0x206   0xF050 0x0001      ORRS     R0,R0,#0x1
+   \      0x20A   0xF8C8 0x0000      STR      R0,[R8, #+0]
+    146            
+    147            return 1;
+   \      0x20E   0x2001             MOVS     R0,#+1
+   \                     ??LPLD_PDB_Init_12: (+1)
+   \      0x210   0xE8BD 0x0FF2      POP      {R1,R4-R11}
+   \      0x214   0xF85D 0xFB14      LDR      PC,[SP], #+20    ;; return
+    148          }
+    149          
+    150          /*
+    151           * LPLD_PDB_Deinit
+    152           * PDBx模块反初始化函数，禁用PDBx所有功能
+    153           * 
+    154           * 参数:
+    155           *    无
+    156           *
+    157           * 输出:
+    158           *    无
+    159           */
+
+   \                                 In section .text, align 2, keep-with-next
+    160          void LPLD_PDB_Deinit(void)
+    161          {
+   \                     LPLD_PDB_Deinit: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    162           
+    163            PDB0->CH[0].C1 = 0;
+   \        0x2   0x2000             MOVS     R0,#+0
+   \        0x4   0x....             LDR.N    R1,??DataTable5_10  ;; 0x40036010
+   \        0x6   0x6008             STR      R0,[R1, #+0]
+    164            PDB0->CH[1].C1 = 0;
+   \        0x8   0x2000             MOVS     R0,#+0
+   \        0xA   0x....             LDR.N    R1,??DataTable5_11  ;; 0x40036038
+   \        0xC   0x6008             STR      R0,[R1, #+0]
+    165            
+    166            PDB0->DAC[0].INTC = 0;
+   \        0xE   0x2000             MOVS     R0,#+0
+   \       0x10   0x....             LDR.N    R1,??DataTable5_12  ;; 0x40036150
+   \       0x12   0x6008             STR      R0,[R1, #+0]
+    167            PDB0->DAC[1].INTC = 0;
+   \       0x14   0x2000             MOVS     R0,#+0
+   \       0x16   0x....             LDR.N    R1,??DataTable5_13  ;; 0x40036158
+   \       0x18   0x6008             STR      R0,[R1, #+0]
+    168            
+    169            PDB0->SC = 0;
+   \       0x1A   0x2000             MOVS     R0,#+0
+   \       0x1C   0x....             LDR.N    R1,??DataTable5_6  ;; 0x40036000
+   \       0x1E   0x6008             STR      R0,[R1, #+0]
+    170            
+    171            //禁用PDB时钟
+    172            SIM->SCGC6 &= ~(SIM_SCGC6_PDB_MASK);
+   \       0x20   0x....             LDR.N    R0,??DataTable5_5  ;; 0x4004803c
+   \       0x22   0x6801             LDR      R1,[R0, #+0]
+   \       0x24   0xF431 0x0180      BICS     R1,R1,#0x400000
+   \       0x28   0x6001             STR      R1,[R0, #+0]
+    173            
+    174            disable_irq(PDB0_IRQn);
+   \       0x2A   0x2048             MOVS     R0,#+72
+   \       0x2C   0x....'....        BL       __NVIC_DisableIRQ
+    175          }
+   \       0x30   0xBD01             POP      {R0,PC}          ;; return
+    176          
+    177          
+    178          /*
+    179           * LPLD_PDB_AdcTriggerCfg
+    180           * PDBx触发ADCx模块配置函数
+    181           * 
+    182           * 参数:
+    183           *    adcx--ADCx模块号
+    184           *      |__ADC0          --ADC0
+    185           *      |__ADC1          --ADC1
+    186           *    cfg--ADCx预触发功能配置，可多个值合并配置(eg. cfg=PRETRIG_EN_A|PRETRIG_DLY_A;)
+    187           *      ADCx A组配置
+    188           *      |__PRETRIG_EN_A  --使能ADCx的A组预触发功能
+    189           *      |__PRETRIG_DLY_A --使能ADCx的A组延时输出预触发功能
+    190           *      |__PRETRIG_BB_A  --使能ADCx的A组“Back to Back”模式
+    191           *      ADCx B组配置
+    192           *      |__PRETRIG_EN_B  --使能ADCx的B组预触发功能
+    193           *      |__PRETRIG_DLY_B --使能ADCx的B组延时输出预触发功能
+    194           *      |__PRETRIG_BB_B  --使能ADCx的B组“Back to Back”模式
+    195           *    delay--ADCx A或B组的延时输出预触发时间，单位us
+    196           *      |__0~0xFFFF      --0~4095us
+    197           *
+    198           * 输出:
+    199           *    0--配置错误
+    200           *    1--配置成功
+    201           */
+
+   \                                 In section .text, align 2, keep-with-next
+    202          uint8 LPLD_PDB_AdcTriggerCfg(ADC_Type *adcx, uint32 cfg, uint16 delay)
+    203          {
+   \                     LPLD_PDB_AdcTriggerCfg: (+1)
+   \        0x0   0xE92D 0x41F0      PUSH     {R4-R8,LR}
+    204            uint8 n,m;
+    205            uint8 prescaler, mult;
+    206            uint32 bus_clk = g_bus_clock/1000000;
+   \        0x4   0x....             LDR.N    R3,??DataTable5_2
+   \        0x6   0x681B             LDR      R3,[R3, #+0]
+   \        0x8   0x....             LDR.N    R4,??DataTable5_1  ;; 0xf4240
+   \        0xA   0xFBB3 0xF3F4      UDIV     R3,R3,R4
+    207          
+    208            if(adcx == ADC0)
+   \        0xE   0x....             LDR.N    R4,??DataTable5_14  ;; 0x4003b000
+   \       0x10   0x42A0             CMP      R0,R4
+   \       0x12   0xD13D             BNE.N    ??LPLD_PDB_AdcTriggerCfg_0
+    209              n = 0;
+   \       0x14   0x2000             MOVS     R0,#+0
+    210            else if(adcx == ADC1)
+    211              n = 1;
+    212            else
+    213              return 0;
+    214              
+    215            if(cfg & 0x01)
+   \                     ??LPLD_PDB_AdcTriggerCfg_1: (+1)
+   \       0x16   0x07CC             LSLS     R4,R1,#+31
+   \       0x18   0xD541             BPL.N    ??LPLD_PDB_AdcTriggerCfg_2
+    216              m = 0;
+   \       0x1A   0x2400             MOVS     R4,#+0
+    217            else if(cfg & 0x02)
+    218              m = 1;
+    219            else
+    220              return 0;
+    221            
+    222            prescaler = 1<<((PDB0->SC & PDB_SC_PRESCALER_MASK) >> PDB_SC_PRESCALER_SHIFT);
+   \                     ??LPLD_PDB_AdcTriggerCfg_3: (+1)
+   \       0x1C   0x....             LDR.N    R5,??DataTable5_6  ;; 0x40036000
+   \       0x1E   0x2701             MOVS     R7,#+1
+   \       0x20   0x682E             LDR      R6,[R5, #+0]
+   \       0x22   0x0B36             LSRS     R6,R6,#+12
+   \       0x24   0xF016 0x0607      ANDS     R6,R6,#0x7
+   \       0x28   0xFA17 0xF606      LSLS     R6,R7,R6
+    223            mult = pdb_sc_mults[(PDB0->SC & PDB_SC_MULT_MASK) >> PDB_SC_MULT_SHIFT];
+   \       0x2C   0x....             LDR.N    R7,??DataTable5_4
+   \       0x2E   0xF8D5 0xC000      LDR      R12,[R5, #+0]
+   \       0x32   0xF3CC 0x0C81      UBFX     R12,R12,#+2,#+2
+   \       0x36   0xF817 0x700C      LDRB     R7,[R7, R12]
+    224            
+    225            PDB0->CH[n].C1 |= cfg;        //根据参数配置BB模式、选择预触发输出、使能预触发
+   \       0x3A   0xF05F 0x0C28      MOVS     R12,#+40
+   \       0x3E   0x....'....        LDR.W    LR,??DataTable5_10  ;; 0x40036010
+   \       0x42   0x4680             MOV      R8,R0
+   \       0x44   0xFA5F 0xF888      UXTB     R8,R8            ;; ZeroExt  R8,R8,#+24,#+24
+   \       0x48   0xFB0C 0xF808      MUL      R8,R12,R8
+   \       0x4C   0xF85E 0x8008      LDR      R8,[LR, R8]
+   \       0x50   0xEA51 0x0108      ORRS     R1,R1,R8
+   \       0x54   0x4680             MOV      R8,R0
+   \       0x56   0xFA5F 0xF888      UXTB     R8,R8            ;; ZeroExt  R8,R8,#+24,#+24
+   \       0x5A   0xFB0C 0xF808      MUL      R8,R12,R8
+   \       0x5E   0xF84E 0x1008      STR      R1,[LR, R8]
+    226            PDB0->CH[n].DLY[m] = (bus_clk * delay)/(prescaler * mult);    //配置ADCn的m组预触发延时值
+   \       0x62   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x64   0xFB0C 0xF000      MUL      R0,R12,R0
+   \       0x68   0x4470             ADD      R0,LR,R0
+   \       0x6A   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \       0x6C   0xEB00 0x0084      ADD      R0,R0,R4, LSL #+2
+   \       0x70   0xB292             UXTH     R2,R2            ;; ZeroExt  R2,R2,#+16,#+16
+   \       0x72   0xFB02 0xF203      MUL      R2,R2,R3
+   \       0x76   0xB2F6             UXTB     R6,R6            ;; ZeroExt  R6,R6,#+24,#+24
+   \       0x78   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \       0x7A   0x437E             MULS     R6,R7,R6
+   \       0x7C   0xFBB2 0xF1F6      UDIV     R1,R2,R6
+   \       0x80   0x6081             STR      R1,[R0, #+8]
+    227            
+    228            PDB0->SC |= PDB_SC_LDOK_MASK; //加载值
+   \       0x82   0x6828             LDR      R0,[R5, #+0]
+   \       0x84   0xF050 0x0001      ORRS     R0,R0,#0x1
+   \       0x88   0x6028             STR      R0,[R5, #+0]
+    229            
+    230            return 1;
+   \       0x8A   0x2001             MOVS     R0,#+1
+   \                     ??LPLD_PDB_AdcTriggerCfg_4: (+1)
+   \       0x8C   0xE8BD 0x81F0      POP      {R4-R8,PC}       ;; return
+   \                     ??LPLD_PDB_AdcTriggerCfg_0: (+1)
+   \       0x90   0x....             LDR.N    R4,??DataTable5_15  ;; 0x400bb000
+   \       0x92   0x42A0             CMP      R0,R4
+   \       0x94   0xD101             BNE.N    ??LPLD_PDB_AdcTriggerCfg_5
+   \       0x96   0x2001             MOVS     R0,#+1
+   \       0x98   0xE7BD             B.N      ??LPLD_PDB_AdcTriggerCfg_1
+   \                     ??LPLD_PDB_AdcTriggerCfg_5: (+1)
+   \       0x9A   0x2000             MOVS     R0,#+0
+   \       0x9C   0xE7F6             B.N      ??LPLD_PDB_AdcTriggerCfg_4
+   \                     ??LPLD_PDB_AdcTriggerCfg_2: (+1)
+   \       0x9E   0x078C             LSLS     R4,R1,#+30
+   \       0xA0   0xD501             BPL.N    ??LPLD_PDB_AdcTriggerCfg_6
+   \       0xA2   0x2401             MOVS     R4,#+1
+   \       0xA4   0xE7BA             B.N      ??LPLD_PDB_AdcTriggerCfg_3
+   \                     ??LPLD_PDB_AdcTriggerCfg_6: (+1)
+   \       0xA6   0x2000             MOVS     R0,#+0
+   \       0xA8   0xE7F0             B.N      ??LPLD_PDB_AdcTriggerCfg_4
+    231          }
+    232          
+    233          /*
+    234           * LPLD_PDB_DacTriggerCfg
+    235           * PDBx触发DACx模块配置函数
+    236           * 
+    237           * 参数:
+    238           *    dacx--DACx模块号
+    239           *      |__DAC0          --DAC0
+    240           *      |__DAC1          --DAC1
+    241           *    cfg--DACx触发功能配置
+    242           *      |__EXT_TRIG_EN   --使能外部触发
+    243           *      |__EINT_TRIG_EN  --使能内部间隔触发
+    244           *    int_delay--DACx间隔触发时间，单位us
+    245           *      |__0~0xFFFF      --0~4095us
+    246           *
+    247           * 输出:
+    248           *    0--配置错误
+    249           *    1--配置成功
+    250           */
+
+   \                                 In section .text, align 2, keep-with-next
+    251          uint8 LPLD_PDB_DacTriggerCfg(DAC_Type *dacx, uint32 cfg, uint16 int_delay)
+    252          {
+   \                     LPLD_PDB_DacTriggerCfg: (+1)
+   \        0x0   0xB4F0             PUSH     {R4-R7}
+    253            uint8 n;
+    254            uint8 prescaler, mult;
+    255            uint32 bus_clk = g_bus_clock/1000000;
+   \        0x2   0x....             LDR.N    R3,??DataTable5_2
+   \        0x4   0x681B             LDR      R3,[R3, #+0]
+   \        0x6   0x....             LDR.N    R4,??DataTable5_1  ;; 0xf4240
+   \        0x8   0xFBB3 0xF3F4      UDIV     R3,R3,R4
+    256            
+    257            if(dacx == DAC0)
+   \        0xC   0x....             LDR.N    R4,??DataTable5_16  ;; 0x400cc000
+   \        0xE   0x42A0             CMP      R0,R4
+   \       0x10   0xD12D             BNE.N    ??LPLD_PDB_DacTriggerCfg_0
+    258              n = 0;
+   \       0x12   0x2500             MOVS     R5,#+0
+    259            else if(dacx == DAC1)
+    260              n = 1;
+    261            else
+    262              return 0;
+    263            
+    264            prescaler = 1<<((PDB0->SC & PDB_SC_PRESCALER_MASK) >> PDB_SC_PRESCALER_SHIFT);
+   \                     ??LPLD_PDB_DacTriggerCfg_1: (+1)
+   \       0x14   0x....             LDR.N    R0,??DataTable5_6  ;; 0x40036000
+   \       0x16   0x2601             MOVS     R6,#+1
+   \       0x18   0x6804             LDR      R4,[R0, #+0]
+   \       0x1A   0x0B24             LSRS     R4,R4,#+12
+   \       0x1C   0xF014 0x0407      ANDS     R4,R4,#0x7
+   \       0x20   0xFA16 0xF404      LSLS     R4,R6,R4
+    265            mult = pdb_sc_mults[(PDB0->SC & PDB_SC_MULT_MASK) >> PDB_SC_MULT_SHIFT];
+   \       0x24   0x....             LDR.N    R6,??DataTable5_4
+   \       0x26   0x6807             LDR      R7,[R0, #+0]
+   \       0x28   0xF3C7 0x0781      UBFX     R7,R7,#+2,#+2
+   \       0x2C   0x5DF6             LDRB     R6,[R6, R7]
+    266            
+    267            PDB0->DAC[n].INTC |= cfg;     //配置使能外部触发或者内部间隔触发
+   \       0x2E   0x....             LDR.N    R7,??DataTable5_12  ;; 0x40036150
+   \       0x30   0x46AC             MOV      R12,R5
+   \       0x32   0xFA5F 0xFC8C      UXTB     R12,R12          ;; ZeroExt  R12,R12,#+24,#+24
+   \       0x36   0xF857 0xC03C      LDR      R12,[R7, R12, LSL #+3]
+   \       0x3A   0xEA51 0x010C      ORRS     R1,R1,R12
+   \       0x3E   0x46AC             MOV      R12,R5
+   \       0x40   0xFA5F 0xFC8C      UXTB     R12,R12          ;; ZeroExt  R12,R12,#+24,#+24
+   \       0x44   0xF847 0x103C      STR      R1,[R7, R12, LSL #+3]
+    268            PDB0->DAC[n].INT = (bus_clk * int_delay)/(prescaler * mult);    //配置DACn的间隔触发时间
+   \       0x48   0xB292             UXTH     R2,R2            ;; ZeroExt  R2,R2,#+16,#+16
+   \       0x4A   0xFB02 0xF203      MUL      R2,R2,R3
+   \       0x4E   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \       0x50   0xB2F6             UXTB     R6,R6            ;; ZeroExt  R6,R6,#+24,#+24
+   \       0x52   0x4374             MULS     R4,R6,R4
+   \       0x54   0xFBB2 0xF1F4      UDIV     R1,R2,R4
+   \       0x58   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0x5A   0xEB07 0x02C5      ADD      R2,R7,R5, LSL #+3
+   \       0x5E   0x6051             STR      R1,[R2, #+4]
+    269            
+    270            PDB0->SC |= PDB_SC_LDOK_MASK; //加载值
+   \       0x60   0x6801             LDR      R1,[R0, #+0]
+   \       0x62   0xF051 0x0101      ORRS     R1,R1,#0x1
+   \       0x66   0x6001             STR      R1,[R0, #+0]
+    271            
+    272            return 1;
+   \       0x68   0x2001             MOVS     R0,#+1
+   \                     ??LPLD_PDB_DacTriggerCfg_2: (+1)
+   \       0x6A   0xBCF0             POP      {R4-R7}
+   \       0x6C   0x4770             BX       LR               ;; return
+   \                     ??LPLD_PDB_DacTriggerCfg_0: (+1)
+   \       0x6E   0x....             LDR.N    R4,??DataTable5_17  ;; 0x400cd000
+   \       0x70   0x42A0             CMP      R0,R4
+   \       0x72   0xD101             BNE.N    ??LPLD_PDB_DacTriggerCfg_3
+   \       0x74   0x2501             MOVS     R5,#+1
+   \       0x76   0xE7CD             B.N      ??LPLD_PDB_DacTriggerCfg_1
+   \                     ??LPLD_PDB_DacTriggerCfg_3: (+1)
+   \       0x78   0x2000             MOVS     R0,#+0
+   \       0x7A   0xE7F6             B.N      ??LPLD_PDB_DacTriggerCfg_2
+    273          }
+    274          
+    275          /*
+    276           * PDB中断处理函数
+    277           * 与启动文件startup_K60.s中的中断向量表关联
+    278           * 用户无需修改，程序自动进入对应通道中断函数
+    279           */
+
+   \                                 In section .text, align 2, keep-with-next
+    280          void PDB_IRQHandler(void)
+    281          {
+   \                     PDB_IRQHandler: (+1)
+   \        0x0   0xB538             PUSH     {R3-R5,LR}
+    282          #if (UCOS_II > 0u)
+    283            OS_CPU_SR  cpu_sr = 0u;
+    284            OS_ENTER_CRITICAL(); //告知系统此时已经进入了中断服务子函数
+    285            OSIntEnter();
+    286            OS_EXIT_CRITICAL();
+    287          #endif
+    288            
+    289            //是否为PDB中断
+    290            if((PDB0->SC & PDB_SC_PDBIF_MASK) && (PDB0->SC & PDB_SC_PDBIE_MASK))
+   \        0x2   0x....             LDR.N    R4,??DataTable5_6  ;; 0x40036000
+   \        0x4   0x6820             LDR      R0,[R4, #+0]
+   \        0x6   0x0640             LSLS     R0,R0,#+25
+   \        0x8   0xD509             BPL.N    ??PDB_IRQHandler_0
+   \        0xA   0x6820             LDR      R0,[R4, #+0]
+   \        0xC   0x0680             LSLS     R0,R0,#+26
+   \        0xE   0xD506             BPL.N    ??PDB_IRQHandler_0
+    291            {
+    292              //调用用户自定义中断服务
+    293              PDB_ISR[0]();  
+   \       0x10   0x....             LDR.N    R0,??DataTable5_7
+   \       0x12   0x6800             LDR      R0,[R0, #+0]
+   \       0x14   0x4780             BLX      R0
+    294              //清除中断标志位  
+    295              PDB0->SC &= ~PDB_SC_PDBIF_MASK;
+   \       0x16   0x6820             LDR      R0,[R4, #+0]
+   \       0x18   0xF030 0x0040      BICS     R0,R0,#0x40
+   \       0x1C   0x6020             STR      R0,[R4, #+0]
+    296            }
+    297            
+    298            //是否为PDB序列错误中断 CH0
+    299            if((PDB0->CH[0].S & PDB_S_ERR(1)) && (PDB0->SC & PDB_SC_PDBEIE_MASK))
+   \                     ??PDB_IRQHandler_0: (+1)
+   \       0x1E   0x....             LDR.N    R5,??DataTable5_18  ;; 0x40036014
+   \       0x20   0x6828             LDR      R0,[R5, #+0]
+   \       0x22   0x07C0             LSLS     R0,R0,#+31
+   \       0x24   0xD509             BPL.N    ??PDB_IRQHandler_1
+   \       0x26   0x6820             LDR      R0,[R4, #+0]
+   \       0x28   0x0380             LSLS     R0,R0,#+14
+   \       0x2A   0xD506             BPL.N    ??PDB_IRQHandler_1
+    300            {
+    301              //调用用户自定义中断服务
+    302              PDB_SE_ISR[0]();  
+   \       0x2C   0x....             LDR.N    R0,??DataTable5_8
+   \       0x2E   0x6800             LDR      R0,[R0, #+0]
+   \       0x30   0x4780             BLX      R0
+    303              PDB0->CH[0].S |= PDB_S_ERR(1);
+   \       0x32   0x6828             LDR      R0,[R5, #+0]
+   \       0x34   0xF050 0x0001      ORRS     R0,R0,#0x1
+   \       0x38   0x6028             STR      R0,[R5, #+0]
+    304            }
+    305            
+    306            //是否为PDB序列错误中断 CH1
+    307            if((PDB0->CH[1].S & PDB_S_ERR(2)) && (PDB0->SC & PDB_SC_PDBEIE_MASK))
+   \                     ??PDB_IRQHandler_1: (+1)
+   \       0x3A   0x....             LDR.N    R5,??DataTable5_19  ;; 0x4003603c
+   \       0x3C   0x6828             LDR      R0,[R5, #+0]
+   \       0x3E   0x0780             LSLS     R0,R0,#+30
+   \       0x40   0xD509             BPL.N    ??PDB_IRQHandler_2
+   \       0x42   0x6820             LDR      R0,[R4, #+0]
+   \       0x44   0x0380             LSLS     R0,R0,#+14
+   \       0x46   0xD506             BPL.N    ??PDB_IRQHandler_2
+    308            {
+    309              //调用用户自定义中断服务
+    310              PDB_SE_ISR[0]();  
+   \       0x48   0x....             LDR.N    R0,??DataTable5_8
+   \       0x4A   0x6800             LDR      R0,[R0, #+0]
+   \       0x4C   0x4780             BLX      R0
+    311              PDB0->CH[1].S |= PDB_S_ERR(2);
+   \       0x4E   0x6828             LDR      R0,[R5, #+0]
+   \       0x50   0xF050 0x0002      ORRS     R0,R0,#0x2
+   \       0x54   0x6028             STR      R0,[R5, #+0]
+    312            }
+    313            
+    314          #if (UCOS_II > 0u)
+    315            OSIntExit();          //告知系统此时即将离开中断服务子函数
+    316          #endif
+    317          }
+   \                     ??PDB_IRQHandler_2: (+1)
+   \       0x56   0xBD31             POP      {R0,R4,R5,PC}    ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5:
+   \        0x0   0xE000'E180        DC32     0xe000e180
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_1:
+   \        0x0   0x000F'4240        DC32     0xf4240
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_2:
+   \        0x0   0x....'....        DC32     g_bus_clock
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_3:
+   \        0x0   0x....'....        DC32     ?_0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_4:
+   \        0x0   0x....'....        DC32     pdb_sc_mults
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_5:
+   \        0x0   0x4004'803C        DC32     0x4004803c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_6:
+   \        0x0   0x4003'6000        DC32     0x40036000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_7:
+   \        0x0   0x....'....        DC32     PDB_ISR
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_8:
+   \        0x0   0x....'....        DC32     PDB_SE_ISR
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_9:
+   \        0x0   0x4003'600C        DC32     0x4003600c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_10:
+   \        0x0   0x4003'6010        DC32     0x40036010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_11:
+   \        0x0   0x4003'6038        DC32     0x40036038
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_12:
+   \        0x0   0x4003'6150        DC32     0x40036150
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_13:
+   \        0x0   0x4003'6158        DC32     0x40036158
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_14:
+   \        0x0   0x4003'B000        DC32     0x4003b000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_15:
+   \        0x0   0x400B'B000        DC32     0x400bb000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_16:
+   \        0x0   0x400C'C000        DC32     0x400cc000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_17:
+   \        0x0   0x400C'D000        DC32     0x400cd000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_18:
+   \        0x0   0x4003'6014        DC32     0x40036014
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_19:
+   \        0x0   0x4003'603C        DC32     0x4003603c
+
+   \                                 In section .rodata, align 4
+   \                     ?_0:
+   \        0x0   0x47 0x3A          DC8 47H, 3AH, 5CH, 41H, 49H, 63H, 61H, 72H
+   \              0x5C 0x41    
+   \              0x49 0x63    
+   \              0x61 0x72    
+   \        0x8   0x5C 0xE4          DC8 5CH, 0E4H, 0BFH, 0A1H, 0E6H, 0A0H, 87H, 5CH
+   \              0xBF 0xA1    
+   \              0xE6 0xA0    
+   \              0x87 0x5C    
+   \       0x10   0x6B 0x36          DC8 6BH, 36H, 30H, 5FH, 31H, 34H, 34H, 5CH
+   \              0x30 0x5F    
+   \              0x31 0x34    
+   \              0x34 0x5C    
+   \       0x18   0x73 0x6D          DC8 73H, 6DH, 61H, 72H, 74H, 63H, 61H, 72H
+   \              0x61 0x72    
+   \              0x74 0x63    
+   \              0x61 0x72    
+   \       0x20   0x5C 0x6C          DC8 5CH, 6CH, 69H, 62H, 5CH, 4CH, 50H, 4CH
+   \              0x69 0x62    
+   \              0x5C 0x4C    
+   \              0x50 0x4C    
+   \       0x28   0x44 0x5C          DC8 44H, 5CH, 48H, 57H, 5CH, 48H, 57H, 5FH
+   \              0x48 0x57    
+   \              0x5C 0x48    
+   \              0x57 0x5F    
+   \       0x30   0x50 0x44          DC8 50H, 44H, 42H, 2EH, 63H, 0
+   \              0x42 0x2E    
+   \              0x63 0x00    
+   \       0x36   0x00 0x00          DC8 0, 0
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      24   LPLD_PDB_AdcTriggerCfg
+      16   LPLD_PDB_DacTriggerCfg
+       8   LPLD_PDB_Deinit
+         8   -> __NVIC_DisableIRQ
+      56   LPLD_PDB_Init
+        56   -> __aeabi_f2uiz
+        56   -> __aeabi_fdiv
+        56   -> __aeabi_fmul
+        56   -> __aeabi_ui2f
+        56   -> assert_failed
+      16   PDB_IRQHandler
+        16   -- Indirect call
+       0   __NVIC_DisableIRQ
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable5
+       4  ??DataTable5_1
+       4  ??DataTable5_10
+       4  ??DataTable5_11
+       4  ??DataTable5_12
+       4  ??DataTable5_13
+       4  ??DataTable5_14
+       4  ??DataTable5_15
+       4  ??DataTable5_16
+       4  ??DataTable5_17
+       4  ??DataTable5_18
+       4  ??DataTable5_19
+       4  ??DataTable5_2
+       4  ??DataTable5_3
+       4  ??DataTable5_4
+       4  ??DataTable5_5
+       4  ??DataTable5_6
+       4  ??DataTable5_7
+       4  ??DataTable5_8
+       4  ??DataTable5_9
+      56  ?_0
+     170  LPLD_PDB_AdcTriggerCfg
+     124  LPLD_PDB_DacTriggerCfg
+      50  LPLD_PDB_Deinit
+     536  LPLD_PDB_Init
+      88  PDB_IRQHandler
+       4  PDB_ISR
+       4  PDB_SE_ISR
+      38  __NVIC_DisableIRQ
+       4  pdb_sc_mults
+
+ 
+     8 bytes in section .bss
+    60 bytes in section .rodata
+ 1 086 bytes in section .text
+ 
+ 1 086 bytes of CODE  memory
+    60 bytes of CONST memory
+     8 bytes of DATA  memory
+
+Errors: none
+Warnings: 1

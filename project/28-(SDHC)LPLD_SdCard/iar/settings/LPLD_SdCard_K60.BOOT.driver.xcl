@@ -1,0 +1,17 @@
+"--endian=little" 
+
+"--cpu=Cortex-M4" 
+
+"--fpu=None" 
+
+"-p" 
+
+"G:\AIcar\arm\CONFIG\debugger\NXP\MK60DN512Zxxx10.ddf" 
+
+"--semihosting" 
+
+"--device=MK60DN512Zxxx10" 
+
+
+
+

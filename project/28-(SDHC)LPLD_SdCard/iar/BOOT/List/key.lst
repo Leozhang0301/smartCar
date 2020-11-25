@@ -1,0 +1,460 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         23/Apr/2019  21:09:49
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\k60_144\smartcar\lib\Jay\key.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW444B.tmp
+#        (G:\AIcar\@@\k60_144\smartcar\lib\Jay\key.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -lB
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -o
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List\key.lst
+#    Object file  =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj\key.o
+#
+###############################################################################
+
+G:\AIcar\@@\k60_144\smartcar\lib\Jay\key.c
+      1          /*
+      2           *  
+      3           *  
+      4           *  @JayLin林杰 @厦门大学嘉庚学院 @博学队
+      5           */
+      6          #include  "common.h"
+      7          #include "include.h"
+      8             
+      9             
+
+   \                                 In section .bss, align 4
+     10          GPIO_InitTypeDef KeyBoard_init_struct;
+   \                     KeyBoard_init_struct:
+   \        0x0                      DS8 20
+     11          #define 	KEY_IN_0  PTE0_I
+     12          #define 	KEY_IN_1  PTE1_I
+     13          #define 	KEY_IN_2  PTE2_I
+     14          
+     15          #define 	KEY_OUT_0  PTE3_O
+     16          #define 	KEY_OUT_1  PTE4_O
+     17          
+     18          
+     19          //#define 	KEY_OUT_0  PTE4_O
+     20          //#define 	KEY_OUT_1  PTE3_O
+     21          //按键状态 1：按下 0：弹起
+     22          //u8 KeyStatus[3][3]={0};
+
+   \                                 In section .bss, align 4
+     23          uint8 KeyStatus[2][3]={0};
+   \                     KeyStatus:
+   \        0x0                      DS8 8
+     24          //键值
+
+   \                                 In section .bss, align 1
+     25          uint8 KeyValue = 0;
+   \                     KeyValue:
+   \        0x0                      DS8 1
+     26          
+     27          /*************************
+     28          函数名:KeyScan
+     29          返回值:无
+     30          传参:无
+     31          描述: 按键扫描函数
+     32          本函数支持多安静同时按下
+     33          请将本函数放至定时器中断
+     34          **************************/
+
+   \                                 In section .text, align 2, keep-with-next
+     35          void KeyScan(void)
+     36          {
+   \                     KeyScan: (+1)
+   \        0x0   0xB430             PUSH     {R4,R5}
+     37          	u8 i=0;
+   \        0x2   0x2000             MOVS     R0,#+0
+     38          	static u8 index=0;
+     39          	static u8 keybuf[2][3]={0};
+     40          	
+     41                  //读取按键当前状态
+     42          	keybuf[index][0] = (keybuf[index][0] << 1) | KEY_IN_0;
+   \        0x4   0x....             LDR.N    R1,??DataTable1
+   \        0x6   0x....             LDR.N    R2,??DataTable1_1
+   \        0x8   0x780B             LDRB     R3,[R1, #+0]
+   \        0xA   0x2003             MOVS     R0,#+3
+   \        0xC   0x4343             MULS     R3,R0,R3
+   \        0xE   0x5CD3             LDRB     R3,[R2, R3]
+   \       0x10   0x005B             LSLS     R3,R3,#+1
+   \       0x12   0x....             LDR.N    R0,??DataTable1_2  ;; 0x43fe2200
+   \       0x14   0x6800             LDR      R0,[R0, #+0]
+   \       0x16   0x4303             ORRS     R3,R0,R3
+   \       0x18   0x780C             LDRB     R4,[R1, #+0]
+   \       0x1A   0x2003             MOVS     R0,#+3
+   \       0x1C   0x4344             MULS     R4,R0,R4
+   \       0x1E   0x5513             STRB     R3,[R2, R4]
+     43          	keybuf[index][1] = (keybuf[index][1] << 1) | KEY_IN_1;
+   \       0x20   0x780B             LDRB     R3,[R1, #+0]
+   \       0x22   0x2003             MOVS     R0,#+3
+   \       0x24   0x4343             MULS     R3,R0,R3
+   \       0x26   0x4413             ADD      R3,R2,R3
+   \       0x28   0x780C             LDRB     R4,[R1, #+0]
+   \       0x2A   0x2003             MOVS     R0,#+3
+   \       0x2C   0x4344             MULS     R4,R0,R4
+   \       0x2E   0xEB02 0x0004      ADD      R0,R2,R4
+   \       0x32   0x7844             LDRB     R4,[R0, #+1]
+   \       0x34   0x0064             LSLS     R4,R4,#+1
+   \       0x36   0x....             LDR.N    R0,??DataTable1_3  ;; 0x43fe2204
+   \       0x38   0x6800             LDR      R0,[R0, #+0]
+   \       0x3A   0x4304             ORRS     R4,R0,R4
+   \       0x3C   0x705C             STRB     R4,[R3, #+1]
+     44          	keybuf[index][2] = (keybuf[index][2] << 1) | KEY_IN_2;
+   \       0x3E   0x780B             LDRB     R3,[R1, #+0]
+   \       0x40   0x2003             MOVS     R0,#+3
+   \       0x42   0x4343             MULS     R3,R0,R3
+   \       0x44   0x4413             ADD      R3,R2,R3
+   \       0x46   0x780C             LDRB     R4,[R1, #+0]
+   \       0x48   0x2003             MOVS     R0,#+3
+   \       0x4A   0x4344             MULS     R4,R0,R4
+   \       0x4C   0xEB02 0x0004      ADD      R0,R2,R4
+   \       0x50   0x7884             LDRB     R4,[R0, #+2]
+   \       0x52   0x0064             LSLS     R4,R4,#+1
+   \       0x54   0x....             LDR.N    R0,??DataTable1_4  ;; 0x43fe2208
+   \       0x56   0x6800             LDR      R0,[R0, #+0]
+   \       0x58   0x4304             ORRS     R4,R0,R4
+   \       0x5A   0x709C             STRB     R4,[R3, #+2]
+     45          	
+     46          	
+     47          	for( i=0; i<3; i++) 
+   \       0x5C   0x2300             MOVS     R3,#+0
+   \       0x5E   0xE03D             B.N      ??KeyScan_0
+     48                  {
+     49          		if((keybuf[index][i] & 0x07) == 0x07)
+     50          		{
+     51                                  if(KeyStatus[index][i] == 1)
+     52          			{
+     53          				KeyValue = index*3 + i + 1;//完整的一次按下
+     54          			}
+     55          			KeyStatus[index][i] = 0;//弹起
+     56          		}
+     57          		else if((keybuf[index][i] & 0x07) == 0x00)
+   \                     ??KeyScan_1: (+1)
+   \       0x60   0x780C             LDRB     R4,[R1, #+0]
+   \       0x62   0x2003             MOVS     R0,#+3
+   \       0x64   0x4344             MULS     R4,R0,R4
+   \       0x66   0xEB02 0x0004      ADD      R0,R2,R4
+   \       0x6A   0x001C             MOVS     R4,R3
+   \       0x6C   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \       0x6E   0x5D00             LDRB     R0,[R0, R4]
+   \       0x70   0xF010 0x0F07      TST      R0,#0x7
+   \       0x74   0xD131             BNE.N    ??KeyScan_2
+     58          		{
+     59          			
+     60          			KeyStatus[index][i] = 1;//按下
+   \       0x76   0x....             LDR.N    R4,??DataTable1_5
+   \       0x78   0x780D             LDRB     R5,[R1, #+0]
+   \       0x7A   0x2003             MOVS     R0,#+3
+   \       0x7C   0x4345             MULS     R5,R0,R5
+   \       0x7E   0xEB04 0x0005      ADD      R0,R4,R5
+   \       0x82   0x001C             MOVS     R4,R3
+   \       0x84   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \       0x86   0x2501             MOVS     R5,#+1
+   \       0x88   0x5505             STRB     R5,[R0, R4]
+   \       0x8A   0xE026             B.N      ??KeyScan_2
+     61          		}	
+   \                     ??KeyScan_3: (+1)
+   \       0x8C   0x780C             LDRB     R4,[R1, #+0]
+   \       0x8E   0x2003             MOVS     R0,#+3
+   \       0x90   0x4344             MULS     R4,R0,R4
+   \       0x92   0xEB02 0x0004      ADD      R0,R2,R4
+   \       0x96   0x001C             MOVS     R4,R3
+   \       0x98   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \       0x9A   0x5D00             LDRB     R0,[R0, R4]
+   \       0x9C   0xF010 0x0007      ANDS     R0,R0,#0x7
+   \       0xA0   0x2807             CMP      R0,#+7
+   \       0xA2   0xD1DD             BNE.N    ??KeyScan_1
+   \       0xA4   0x....             LDR.N    R4,??DataTable1_5
+   \       0xA6   0x780D             LDRB     R5,[R1, #+0]
+   \       0xA8   0x2003             MOVS     R0,#+3
+   \       0xAA   0x4345             MULS     R5,R0,R5
+   \       0xAC   0xEB04 0x0005      ADD      R0,R4,R5
+   \       0xB0   0x001D             MOVS     R5,R3
+   \       0xB2   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \       0xB4   0x5D40             LDRB     R0,[R0, R5]
+   \       0xB6   0x2801             CMP      R0,#+1
+   \       0xB8   0xD106             BNE.N    ??KeyScan_4
+   \       0xBA   0x7808             LDRB     R0,[R1, #+0]
+   \       0xBC   0x2503             MOVS     R5,#+3
+   \       0xBE   0xFB05 0x3000      MLA      R0,R5,R0,R3
+   \       0xC2   0x1C40             ADDS     R0,R0,#+1
+   \       0xC4   0x....             LDR.N    R5,??DataTable1_6
+   \       0xC6   0x7028             STRB     R0,[R5, #+0]
+   \                     ??KeyScan_4: (+1)
+   \       0xC8   0x780D             LDRB     R5,[R1, #+0]
+   \       0xCA   0x2003             MOVS     R0,#+3
+   \       0xCC   0x4345             MULS     R5,R0,R5
+   \       0xCE   0xEB04 0x0005      ADD      R0,R4,R5
+   \       0xD2   0x001C             MOVS     R4,R3
+   \       0xD4   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \       0xD6   0x2500             MOVS     R5,#+0
+   \       0xD8   0x5505             STRB     R5,[R0, R4]
+     62                  }
+   \                     ??KeyScan_2: (+1)
+   \       0xDA   0x1C5B             ADDS     R3,R3,#+1
+   \                     ??KeyScan_0: (+1)
+   \       0xDC   0x0018             MOVS     R0,R3
+   \       0xDE   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0xE0   0x2803             CMP      R0,#+3
+   \       0xE2   0xDBD3             BLT.N    ??KeyScan_3
+     63                  //为下一次扫描做准备
+     64          	(index >= 1)?index=0:index++;
+   \                     ??KeyScan_5: (+1)
+   \       0xE4   0x7808             LDRB     R0,[R1, #+0]
+   \       0xE6   0x2800             CMP      R0,#+0
+   \       0xE8   0xD003             BEQ.N    ??KeyScan_6
+   \       0xEA   0x2000             MOVS     R0,#+0
+   \       0xEC   0x7008             STRB     R0,[R1, #+0]
+   \       0xEE   0x7808             LDRB     R0,[R1, #+0]
+   \       0xF0   0xE003             B.N      ??KeyScan_7
+   \                     ??KeyScan_6: (+1)
+   \       0xF2   0x7808             LDRB     R0,[R1, #+0]
+   \       0xF4   0x7808             LDRB     R0,[R1, #+0]
+   \       0xF6   0x1C40             ADDS     R0,R0,#+1
+   \       0xF8   0x7008             STRB     R0,[R1, #+0]
+     65          	switch(index)
+   \                     ??KeyScan_7: (+1)
+   \       0xFA   0x7808             LDRB     R0,[R1, #+0]
+   \       0xFC   0x2800             CMP      R0,#+0
+   \       0xFE   0xD002             BEQ.N    ??KeyScan_8
+   \      0x100   0x2801             CMP      R0,#+1
+   \      0x102   0xD007             BEQ.N    ??KeyScan_9
+   \      0x104   0xE00D             B.N      ??KeyScan_10
+     66          	{
+     67          		case 0:KEY_OUT_0=0;KEY_OUT_1=1;break;
+   \                     ??KeyScan_8: (+1)
+   \      0x106   0x2000             MOVS     R0,#+0
+   \      0x108   0x....             LDR.N    R1,??DataTable1_7  ;; 0x43fe200c
+   \      0x10A   0x6008             STR      R0,[R1, #+0]
+   \      0x10C   0x2001             MOVS     R0,#+1
+   \      0x10E   0x....             LDR.N    R1,??DataTable1_8  ;; 0x43fe2010
+   \      0x110   0x6008             STR      R0,[R1, #+0]
+   \      0x112   0xE006             B.N      ??KeyScan_11
+     68          		case 1:KEY_OUT_0=1;KEY_OUT_1=0;break;
+   \                     ??KeyScan_9: (+1)
+   \      0x114   0x2001             MOVS     R0,#+1
+   \      0x116   0x....             LDR.N    R1,??DataTable1_7  ;; 0x43fe200c
+   \      0x118   0x6008             STR      R0,[R1, #+0]
+   \      0x11A   0x2000             MOVS     R0,#+0
+   \      0x11C   0x....             LDR.N    R1,??DataTable1_8  ;; 0x43fe2010
+   \      0x11E   0x6008             STR      R0,[R1, #+0]
+   \      0x120   0xE7FF             B.N      ??KeyScan_11
+     69          
+     70          		
+     71          		default:break;
+     72          	}
+     73          }
+   \                     ??KeyScan_10: (+1)
+   \                     ??KeyScan_11: (+1)
+   \      0x122   0xBC30             POP      {R4,R5}
+   \      0x124   0x4770             BX       LR               ;; return
+
+   \                                 In section .bss, align 1
+   \                     `KeyScan::index`:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 4
+   \                     `KeyScan::keybuf`:
+   \        0x0                      DS8 8
+     74          
+     75          
+
+   \                                 In section .text, align 2, keep-with-next
+     76          void KeyBoard_Init(void)
+     77          {
+   \                     KeyBoard_Init: (+1)
+   \        0x0   0xB538             PUSH     {R3-R5,LR}
+     78            KeyBoard_init_struct.GPIO_PTx = PTE;
+   \        0x2   0x....             LDR.N    R4,??DataTable1_9
+   \        0x4   0x....             LDR.N    R5,??DataTable1_10  ;; 0x400ff100
+   \        0x6   0x6025             STR      R5,[R4, #+0]
+     79            KeyBoard_init_struct.GPIO_Pins = GPIO_Pin3 | GPIO_Pin4;
+   \        0x8   0x2018             MOVS     R0,#+24
+   \        0xA   0x6060             STR      R0,[R4, #+4]
+     80            KeyBoard_init_struct.GPIO_PinControl=OUTPUT_DSH;
+   \        0xC   0x2040             MOVS     R0,#+64
+   \        0xE   0x60A0             STR      R0,[R4, #+8]
+     81            KeyBoard_init_struct.GPIO_Output = OUTPUT_H;
+   \       0x10   0x2001             MOVS     R0,#+1
+   \       0x12   0x7360             STRB     R0,[R4, #+13]
+     82            KeyBoard_init_struct.GPIO_Dir =DIR_OUTPUT;
+   \       0x14   0x2001             MOVS     R0,#+1
+   \       0x16   0x7320             STRB     R0,[R4, #+12]
+     83            LPLD_GPIO_Init(KeyBoard_init_struct);
+   \       0x18   0x0021             MOVS     R1,R4
+   \       0x1A   0xB084             SUB      SP,SP,#+16
+   \       0x1C   0x4668             MOV      R0,SP
+   \       0x1E   0x2214             MOVS     R2,#+20
+   \       0x20   0x....'....        BL       __aeabi_memcpy4
+   \       0x24   0xBC0F             POP      {R0-R3}
+   \       0x26   0x....'....        BL       LPLD_GPIO_Init
+     84            
+     85            
+     86            
+     87            KeyBoard_init_struct.GPIO_PTx = PTE;
+   \       0x2A   0x6025             STR      R5,[R4, #+0]
+     88            KeyBoard_init_struct.GPIO_Output = OUTPUT_L;
+   \       0x2C   0x2000             MOVS     R0,#+0
+   \       0x2E   0x7360             STRB     R0,[R4, #+13]
+     89            KeyBoard_init_struct.GPIO_Dir =DIR_INPUT;
+   \       0x30   0x2000             MOVS     R0,#+0
+   \       0x32   0x7320             STRB     R0,[R4, #+12]
+     90            KeyBoard_init_struct.GPIO_PinControl = INPUT_PULL_UP;
+   \       0x34   0x2003             MOVS     R0,#+3
+   \       0x36   0x60A0             STR      R0,[R4, #+8]
+     91            KeyBoard_init_struct.GPIO_Pins = GPIO_Pin0|GPIO_Pin1|GPIO_Pin2;
+   \       0x38   0x2007             MOVS     R0,#+7
+   \       0x3A   0x6060             STR      R0,[R4, #+4]
+     92            LPLD_GPIO_Init(KeyBoard_init_struct);
+   \       0x3C   0x0021             MOVS     R1,R4
+   \       0x3E   0xB084             SUB      SP,SP,#+16
+   \       0x40   0x4668             MOV      R0,SP
+   \       0x42   0x2214             MOVS     R2,#+20
+   \       0x44   0x....'....        BL       __aeabi_memcpy4
+   \       0x48   0xBC0F             POP      {R0-R3}
+   \       0x4A   0x....'....        BL       LPLD_GPIO_Init
+     93          
+     94            KEY_OUT_0=0;KEY_OUT_1=1;
+   \       0x4E   0x2000             MOVS     R0,#+0
+   \       0x50   0x....             LDR.N    R1,??DataTable1_7  ;; 0x43fe200c
+   \       0x52   0x6008             STR      R0,[R1, #+0]
+   \       0x54   0x2001             MOVS     R0,#+1
+   \       0x56   0x....             LDR.N    R1,??DataTable1_8  ;; 0x43fe2010
+   \       0x58   0x6008             STR      R0,[R1, #+0]
+     95            
+     96          }
+   \       0x5A   0xBD31             POP      {R0,R4,R5,PC}    ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \        0x0   0x....'....        DC32     `KeyScan::index`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \        0x0   0x....'....        DC32     `KeyScan::keybuf`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \        0x0   0x43FE'2200        DC32     0x43fe2200
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \        0x0   0x43FE'2204        DC32     0x43fe2204
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_4:
+   \        0x0   0x43FE'2208        DC32     0x43fe2208
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_5:
+   \        0x0   0x....'....        DC32     KeyStatus
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_6:
+   \        0x0   0x....'....        DC32     KeyValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_7:
+   \        0x0   0x43FE'200C        DC32     0x43fe200c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_8:
+   \        0x0   0x43FE'2010        DC32     0x43fe2010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_9:
+   \        0x0   0x....'....        DC32     KeyBoard_init_struct
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_10:
+   \        0x0   0x400F'F100        DC32     0x400ff100
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      32   KeyBoard_Init
+        16   -> LPLD_GPIO_Init
+        32   -> __aeabi_memcpy4
+       8   KeyScan
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_10
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       4  ??DataTable1_5
+       4  ??DataTable1_6
+       4  ??DataTable1_7
+       4  ??DataTable1_8
+       4  ??DataTable1_9
+      92  KeyBoard_Init
+      20  KeyBoard_init_struct
+     294  KeyScan
+       8  KeyStatus
+       1  KeyValue
+       1  index
+       8  keybuf
+
+ 
+  38 bytes in section .bss
+ 430 bytes in section .text
+ 
+ 430 bytes of CODE memory
+  38 bytes of DATA memory
+
+Errors: none
+Warnings: 3

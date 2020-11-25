@@ -1,0 +1,1108 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         08/Jul/2019  22:53:49
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\xiugai\lib\common\imagehandle.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EWAE4E.tmp
+#        (G:\AIcar\@@\xiugai\lib\common\imagehandle.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -lB
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -o "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\" -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -On -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List\imagehandle.lst
+#    Object file  =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj\imagehandle.o
+#
+###############################################################################
+
+G:\AIcar\@@\xiugai\lib\common\imagehandle.c
+      1          
+      2          #include "include.h"
+
+   \                                 In section .bss, align 4
+      3          unsigned char img1[IMG_ROWS][IMG_COLS] ={0}; 
+   \                     img1:
+   \        0x0                      DS8 4800
+
+   \                                 In section .bss, align 4
+      4          unsigned char img2[IMG_ROWS][IMG_COLS] ={0}; 
+   \                     img2:
+   \        0x0                      DS8 4800
+
+   \                                 In section .bss, align 4
+      5          unsigned char img3[IMG_ROWS][IMG_COLS] ={0}; 
+   \                     img3:
+   \        0x0                      DS8 4800
+
+   \                                 In section .bss, align 4
+      6          unsigned char img4[IMG_ROWS][IMG_COLS] ={0}; 
+   \                     img4:
+   \        0x0                      DS8 4800
+      7          //unsigned char img5[IMG_ROWS][IMG_COLS]={0};
+
+   \                                 In section .bss, align 4
+      8          unsigned char IMG[IMG_ROWS][IMG_COLS] ={0}; 
+   \                     IMG:
+   \        0x0                      DS8 4800
+
+   \                                 In section .bss, align 4
+      9          unsigned char IMG2[IMG_ROWS][IMG_COLS] ={0}; 
+   \                     IMG2:
+   \        0x0                      DS8 4800
+
+   \                                 In section .bss, align 1
+     10          u8 img_num=0;
+   \                     img_num:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 4
+     11          int  deal_flag = 0;
+   \                     deal_flag:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     12          int  display_flag=0;
+   \                     display_flag:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     13          int diudeng_num=0;
+   \                     diudeng_num:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     14          int diudeng_x=0;
+   \                     diudeng_x:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     15          int diudeng_y=0;
+   \                     diudeng_y:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     16          int diudeng_flag=0;
+   \                     diudeng_flag:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     17          int baidian=0;
+   \                     baidian:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     18          int x=0;
+   \                     x:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     19          int y=0;
+   \                     y:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     20          int last_flag=0;
+   \                     last_flag:
+   \        0x0                      DS8 4
+     21          
+
+   \                                 In section .bss, align 4
+     22          int fps_num1_n=0;
+   \                     fps_num1_n:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     23          int fps1_n=0;
+   \                     fps1_n:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     24          int light_flag=0;
+   \                     light_flag:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     25          int light_x=0,light_y=0;
+   \                     light_x:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+   \                     light_y:
+   \        0x0                      DS8 4
+     26          
+     27          
+     28          void touying();
+
+   \                                 In section .bss, align 4
+     29          int FACHEflag = 0;
+   \                     FACHEflag:
+   \        0x0                      DS8 4
+     30          
+     31          
+
+   \                                 In section .text, align 2, keep-with-next
+     32          void IMG_Handle()
+     33          {
+   \                     IMG_Handle: (+1)
+   \        0x0   0xB570             PUSH     {R4-R6,LR}
+     34              img_num++;
+   \        0x2   0x....'....        LDR.W    R0,??DataTable1
+   \        0x6   0x7801             LDRB     R1,[R0, #+0]
+   \        0x8   0x1C49             ADDS     R1,R1,#+1
+   \        0xA   0x7001             STRB     R1,[R0, #+0]
+     35              if(img_num==1)
+   \        0xC   0x7801             LDRB     R1,[R0, #+0]
+   \        0xE   0x2901             CMP      R1,#+1
+   \       0x10   0xD116             BNE.N    ??IMG_Handle_0
+     36              {
+     37                  for(int i=0;i<IMG_ROWS;i++)
+   \       0x12   0x2000             MOVS     R0,#+0
+   \                     ??IMG_Handle_1: (+1)
+   \       0x14   0x283C             CMP      R0,#+60
+   \       0x16   0xDA63             BGE.N    ??IMG_Handle_2
+     38                  {
+     39                      for(int j=0;j<IMG_COLS;j++)
+   \       0x18   0x2100             MOVS     R1,#+0
+   \                     ??IMG_Handle_3: (+1)
+   \       0x1A   0x2950             CMP      R1,#+80
+   \       0x1C   0xDA0E             BGE.N    ??IMG_Handle_4
+     40                      {
+     41                          img1[i][j] = imgbuff[i][j];
+   \       0x1E   0x2250             MOVS     R2,#+80
+   \       0x20   0x....'....        LDR.W    R3,??DataTable1_1
+   \       0x24   0xFB02 0xF400      MUL      R4,R2,R0
+   \       0x28   0x4423             ADD      R3,R3,R4
+   \       0x2A   0x....'....        LDR.W    R4,??DataTable1_2
+   \       0x2E   0xFB02 0xF200      MUL      R2,R2,R0
+   \       0x32   0x4422             ADD      R2,R4,R2
+   \       0x34   0x5C52             LDRB     R2,[R2, R1]
+   \       0x36   0x545A             STRB     R2,[R3, R1]
+     42                      }
+   \       0x38   0x1C49             ADDS     R1,R1,#+1
+   \       0x3A   0xE7EE             B.N      ??IMG_Handle_3
+     43                  }
+   \                     ??IMG_Handle_4: (+1)
+   \       0x3C   0x1C40             ADDS     R0,R0,#+1
+   \       0x3E   0xE7E9             B.N      ??IMG_Handle_1
+     44                  //return;
+     45              }
+     46              else if(img_num==2)
+   \                     ??IMG_Handle_0: (+1)
+   \       0x40   0x7801             LDRB     R1,[R0, #+0]
+   \       0x42   0x2902             CMP      R1,#+2
+   \       0x44   0xD116             BNE.N    ??IMG_Handle_5
+     47              {
+     48                  for(int i=0;i<IMG_ROWS;i++)
+   \       0x46   0x2100             MOVS     R1,#+0
+   \                     ??IMG_Handle_6: (+1)
+   \       0x48   0x293C             CMP      R1,#+60
+   \       0x4A   0xDA49             BGE.N    ??IMG_Handle_2
+     49                  {
+     50                      for(int j=0;j<IMG_COLS;j++)
+   \       0x4C   0x2200             MOVS     R2,#+0
+   \                     ??IMG_Handle_7: (+1)
+   \       0x4E   0x2A50             CMP      R2,#+80
+   \       0x50   0xDA0E             BGE.N    ??IMG_Handle_8
+     51                      {
+     52                          img2[i][j] = imgbuff[i][j];
+   \       0x52   0x2050             MOVS     R0,#+80
+   \       0x54   0x....'....        LDR.W    R3,??DataTable1_3
+   \       0x58   0xFB00 0xF401      MUL      R4,R0,R1
+   \       0x5C   0x4423             ADD      R3,R3,R4
+   \       0x5E   0x....'....        LDR.W    R4,??DataTable1_2
+   \       0x62   0xFB00 0xF001      MUL      R0,R0,R1
+   \       0x66   0x4420             ADD      R0,R4,R0
+   \       0x68   0x5C80             LDRB     R0,[R0, R2]
+   \       0x6A   0x5498             STRB     R0,[R3, R2]
+     53                      }
+   \       0x6C   0x1C52             ADDS     R2,R2,#+1
+   \       0x6E   0xE7EE             B.N      ??IMG_Handle_7
+     54                  }
+   \                     ??IMG_Handle_8: (+1)
+   \       0x70   0x1C49             ADDS     R1,R1,#+1
+   \       0x72   0xE7E9             B.N      ??IMG_Handle_6
+     55                 // return;
+     56              }
+     57               else if(img_num==3)
+   \                     ??IMG_Handle_5: (+1)
+   \       0x74   0x7801             LDRB     R1,[R0, #+0]
+   \       0x76   0x2903             CMP      R1,#+3
+   \       0x78   0xD116             BNE.N    ??IMG_Handle_9
+     58              {
+     59                  for(int i=0;i<IMG_ROWS;i++)
+   \       0x7A   0x2100             MOVS     R1,#+0
+   \                     ??IMG_Handle_10: (+1)
+   \       0x7C   0x293C             CMP      R1,#+60
+   \       0x7E   0xDA2F             BGE.N    ??IMG_Handle_2
+     60                  {
+     61                      for(int j=0;j<IMG_COLS;j++)
+   \       0x80   0x2200             MOVS     R2,#+0
+   \                     ??IMG_Handle_11: (+1)
+   \       0x82   0x2A50             CMP      R2,#+80
+   \       0x84   0xDA0E             BGE.N    ??IMG_Handle_12
+     62                      {
+     63                          img3[i][j] = imgbuff[i][j];
+   \       0x86   0x2050             MOVS     R0,#+80
+   \       0x88   0x....'....        LDR.W    R3,??DataTable1_4
+   \       0x8C   0xFB00 0xF401      MUL      R4,R0,R1
+   \       0x90   0x4423             ADD      R3,R3,R4
+   \       0x92   0x....'....        LDR.W    R4,??DataTable1_2
+   \       0x96   0xFB00 0xF001      MUL      R0,R0,R1
+   \       0x9A   0x4420             ADD      R0,R4,R0
+   \       0x9C   0x5C80             LDRB     R0,[R0, R2]
+   \       0x9E   0x5498             STRB     R0,[R3, R2]
+     64                      }
+   \       0xA0   0x1C52             ADDS     R2,R2,#+1
+   \       0xA2   0xE7EE             B.N      ??IMG_Handle_11
+     65                  }
+   \                     ??IMG_Handle_12: (+1)
+   \       0xA4   0x1C49             ADDS     R1,R1,#+1
+   \       0xA6   0xE7E9             B.N      ??IMG_Handle_10
+     66                  //img_num=0;
+     67                  //deal_flag = 1;
+     68              }
+     69               else if(img_num==4)
+   \                     ??IMG_Handle_9: (+1)
+   \       0xA8   0x7801             LDRB     R1,[R0, #+0]
+   \       0xAA   0x2904             CMP      R1,#+4
+   \       0xAC   0xD118             BNE.N    ??IMG_Handle_2
+     70              {
+     71                  for(int i=0;i<IMG_ROWS;i++)
+   \       0xAE   0x2200             MOVS     R2,#+0
+   \                     ??IMG_Handle_13: (+1)
+   \       0xB0   0x2A3C             CMP      R2,#+60
+   \       0xB2   0xDA13             BGE.N    ??IMG_Handle_14
+     72                  {
+     73                      for(int j=0;j<IMG_COLS;j++)
+   \       0xB4   0x2300             MOVS     R3,#+0
+   \                     ??IMG_Handle_15: (+1)
+   \       0xB6   0x2B50             CMP      R3,#+80
+   \       0xB8   0xDA0E             BGE.N    ??IMG_Handle_16
+     74                      {
+     75                          img4[i][j] = imgbuff[i][j];
+   \       0xBA   0x2150             MOVS     R1,#+80
+   \       0xBC   0x....'....        LDR.W    R4,??DataTable1_5
+   \       0xC0   0xFB01 0xF502      MUL      R5,R1,R2
+   \       0xC4   0x442C             ADD      R4,R4,R5
+   \       0xC6   0x....'....        LDR.W    R5,??DataTable1_2
+   \       0xCA   0xFB01 0xF102      MUL      R1,R1,R2
+   \       0xCE   0x4429             ADD      R1,R5,R1
+   \       0xD0   0x5CC9             LDRB     R1,[R1, R3]
+   \       0xD2   0x54E1             STRB     R1,[R4, R3]
+     76                      }
+   \       0xD4   0x1C5B             ADDS     R3,R3,#+1
+   \       0xD6   0xE7EE             B.N      ??IMG_Handle_15
+     77                  }
+   \                     ??IMG_Handle_16: (+1)
+   \       0xD8   0x1C52             ADDS     R2,R2,#+1
+   \       0xDA   0xE7E9             B.N      ??IMG_Handle_13
+     78                  img_num=0;
+   \                     ??IMG_Handle_14: (+1)
+   \       0xDC   0x2100             MOVS     R1,#+0
+   \       0xDE   0x7001             STRB     R1,[R0, #+0]
+     79                  //deal_flag = 1;
+     80              }
+     81          //    else if(img_num==5)
+     82          //    {
+     83          //      for(int i=0;i<IMG_ROWS;i++)
+     84          //      {
+     85          //        for(int j=0;j<IMG_COLS;j++)
+     86          //        {
+     87          //          img5[i][j]=imgbuff[i][j];
+     88          //        }
+     89          //      }
+     90          //      img_num=0;
+     91          //    }
+     92             // if(deal_flag)
+     93              //{
+     94                 for(int i=0;i<IMG_ROWS;i++)
+   \                     ??IMG_Handle_2: (+1)
+   \       0xE0   0x2100             MOVS     R1,#+0
+   \                     ??IMG_Handle_17: (+1)
+   \       0xE2   0x293C             CMP      R1,#+60
+   \       0xE4   0xDA23             BGE.N    ??IMG_Handle_18
+     95                  {
+     96                      for(int j=0;j<IMG_COLS;j++)
+   \       0xE6   0x2200             MOVS     R2,#+0
+   \                     ??IMG_Handle_19: (+1)
+   \       0xE8   0x2A50             CMP      R2,#+80
+   \       0xEA   0xDA1E             BGE.N    ??IMG_Handle_20
+     97                      {
+     98                          IMG[i][j] = img1[i][j]&img2[i][j]&img3[i][j]&img4[i][j];
+   \       0xEC   0x2350             MOVS     R3,#+80
+   \       0xEE   0x....             LDR.N    R0,??DataTable1_6
+   \       0xF0   0xFB03 0xF401      MUL      R4,R3,R1
+   \       0xF4   0x4404             ADD      R4,R0,R4
+   \       0xF6   0x....             LDR.N    R0,??DataTable1_1
+   \       0xF8   0xFB03 0xF501      MUL      R5,R3,R1
+   \       0xFC   0x4428             ADD      R0,R0,R5
+   \       0xFE   0x5C85             LDRB     R5,[R0, R2]
+   \      0x100   0x....             LDR.N    R0,??DataTable1_3
+   \      0x102   0xFB03 0xF601      MUL      R6,R3,R1
+   \      0x106   0x4430             ADD      R0,R0,R6
+   \      0x108   0x5C80             LDRB     R0,[R0, R2]
+   \      0x10A   0x4005             ANDS     R5,R0,R5
+   \      0x10C   0x....             LDR.N    R0,??DataTable1_4
+   \      0x10E   0xFB03 0xF601      MUL      R6,R3,R1
+   \      0x112   0x4430             ADD      R0,R0,R6
+   \      0x114   0x5C80             LDRB     R0,[R0, R2]
+   \      0x116   0x4005             ANDS     R5,R0,R5
+   \      0x118   0x....             LDR.N    R0,??DataTable1_5
+   \      0x11A   0xFB03 0xF301      MUL      R3,R3,R1
+   \      0x11E   0x4418             ADD      R0,R0,R3
+   \      0x120   0x5C80             LDRB     R0,[R0, R2]
+   \      0x122   0x4005             ANDS     R5,R0,R5
+   \      0x124   0x54A5             STRB     R5,[R4, R2]
+     99                      }
+   \      0x126   0x1C52             ADDS     R2,R2,#+1
+   \      0x128   0xE7DE             B.N      ??IMG_Handle_19
+    100                  }
+   \                     ??IMG_Handle_20: (+1)
+   \      0x12A   0x1C49             ADDS     R1,R1,#+1
+   \      0x12C   0xE7D9             B.N      ??IMG_Handle_17
+    101                 for(int i=0;i<IMG_ROWS;i++)
+   \                     ??IMG_Handle_18: (+1)
+   \      0x12E   0x2100             MOVS     R1,#+0
+   \                     ??IMG_Handle_21: (+1)
+   \      0x130   0x293C             CMP      R1,#+60
+   \      0x132   0xDA23             BGE.N    ??IMG_Handle_22
+    102                  {
+    103                      for(int j=0;j<IMG_COLS;j++)
+   \      0x134   0x2200             MOVS     R2,#+0
+   \                     ??IMG_Handle_23: (+1)
+   \      0x136   0x2A50             CMP      R2,#+80
+   \      0x138   0xDA1E             BGE.N    ??IMG_Handle_24
+    104                      {
+    105                          IMG2[i][j] = img1[i][j]|img2[i][j]|img3[i][j]|img4[i][j];
+   \      0x13A   0x2350             MOVS     R3,#+80
+   \      0x13C   0x....             LDR.N    R0,??DataTable1_7
+   \      0x13E   0xFB03 0xF401      MUL      R4,R3,R1
+   \      0x142   0x4404             ADD      R4,R0,R4
+   \      0x144   0x....             LDR.N    R0,??DataTable1_1
+   \      0x146   0xFB03 0xF501      MUL      R5,R3,R1
+   \      0x14A   0x4428             ADD      R0,R0,R5
+   \      0x14C   0x5C85             LDRB     R5,[R0, R2]
+   \      0x14E   0x....             LDR.N    R0,??DataTable1_3
+   \      0x150   0xFB03 0xF601      MUL      R6,R3,R1
+   \      0x154   0x4430             ADD      R0,R0,R6
+   \      0x156   0x5C80             LDRB     R0,[R0, R2]
+   \      0x158   0x4305             ORRS     R5,R0,R5
+   \      0x15A   0x....             LDR.N    R0,??DataTable1_4
+   \      0x15C   0xFB03 0xF601      MUL      R6,R3,R1
+   \      0x160   0x4430             ADD      R0,R0,R6
+   \      0x162   0x5C80             LDRB     R0,[R0, R2]
+   \      0x164   0x4305             ORRS     R5,R0,R5
+   \      0x166   0x....             LDR.N    R0,??DataTable1_5
+   \      0x168   0xFB03 0xF301      MUL      R3,R3,R1
+   \      0x16C   0x4418             ADD      R0,R0,R3
+   \      0x16E   0x5C80             LDRB     R0,[R0, R2]
+   \      0x170   0x4305             ORRS     R5,R0,R5
+   \      0x172   0x54A5             STRB     R5,[R4, R2]
+    106                      }
+   \      0x174   0x1C52             ADDS     R2,R2,#+1
+   \      0x176   0xE7DE             B.N      ??IMG_Handle_23
+    107                  }
+   \                     ??IMG_Handle_24: (+1)
+   \      0x178   0x1C49             ADDS     R1,R1,#+1
+   \      0x17A   0xE7D9             B.N      ??IMG_Handle_21
+    108                 for(int i=0;i<IMG_ROWS;i++)
+   \                     ??IMG_Handle_22: (+1)
+   \      0x17C   0x2400             MOVS     R4,#+0
+   \                     ??IMG_Handle_25: (+1)
+   \      0x17E   0x2C3C             CMP      R4,#+60
+   \      0x180   0xDA1B             BGE.N    ??IMG_Handle_26
+    109                  {
+    110                      for(int j=0;j<IMG_COLS;j++)
+   \      0x182   0x2500             MOVS     R5,#+0
+   \                     ??IMG_Handle_27: (+1)
+   \      0x184   0x2D50             CMP      R5,#+80
+   \      0x186   0xDA16             BGE.N    ??IMG_Handle_28
+    111                      {
+    112                          imgbuff[i][j] = my_abs( IMG2[i][j]- IMG[i][j]);
+   \      0x188   0x2150             MOVS     R1,#+80
+   \      0x18A   0x....             LDR.N    R0,??DataTable1_2
+   \      0x18C   0xFB01 0xF204      MUL      R2,R1,R4
+   \      0x190   0xEB00 0x0602      ADD      R6,R0,R2
+   \      0x194   0x....             LDR.N    R0,??DataTable1_7
+   \      0x196   0xFB01 0xF204      MUL      R2,R1,R4
+   \      0x19A   0x4410             ADD      R0,R0,R2
+   \      0x19C   0x5D40             LDRB     R0,[R0, R5]
+   \      0x19E   0x....             LDR.N    R2,??DataTable1_6
+   \      0x1A0   0xFB01 0xF104      MUL      R1,R1,R4
+   \      0x1A4   0x4411             ADD      R1,R2,R1
+   \      0x1A6   0x5D49             LDRB     R1,[R1, R5]
+   \      0x1A8   0x1A40             SUBS     R0,R0,R1
+   \      0x1AA   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \      0x1AC   0x....'....        BL       my_abs
+   \      0x1B0   0x5570             STRB     R0,[R6, R5]
+    113                      }
+   \      0x1B2   0x1C6D             ADDS     R5,R5,#+1
+   \      0x1B4   0xE7E6             B.N      ??IMG_Handle_27
+    114                  }
+   \                     ??IMG_Handle_28: (+1)
+   \      0x1B6   0x1C64             ADDS     R4,R4,#+1
+   \      0x1B8   0xE7E1             B.N      ??IMG_Handle_25
+    115                  fps_num1_n++;
+   \                     ??IMG_Handle_26: (+1)
+   \      0x1BA   0x....             LDR.N    R0,??DataTable1_8
+   \      0x1BC   0x6801             LDR      R1,[R0, #+0]
+   \      0x1BE   0x1C49             ADDS     R1,R1,#+1
+   \      0x1C0   0x6001             STR      R1,[R0, #+0]
+    116                  //deal_flag=0;
+    117                  display_flag=1;
+   \      0x1C2   0x2001             MOVS     R0,#+1
+   \      0x1C4   0x....             LDR.N    R1,??DataTable1_9
+   \      0x1C6   0x6008             STR      R0,[R1, #+0]
+    118                  touying();
+   \      0x1C8   0x....'....        BL       touying
+    119          }
+   \      0x1CC   0xBD70             POP      {R4-R6,PC}       ;; return
+    120          
+
+   \                                 In section .text, align 2, keep-with-next
+    121          void touying()
+    122          {
+   \                     touying: (+1)
+   \        0x0   0xE92D 0x41F8      PUSH     {R3-R8,LR}
+   \        0x4   0xB0A3             SUB      SP,SP,#+140
+    123             unsigned char rows[IMG_ROWS] ={0};
+   \        0x6   0xA814             ADD      R0,SP,#+80
+   \        0x8   0x213C             MOVS     R1,#+60
+   \        0xA   0x....'....        BL       __aeabi_memclr4
+    124             unsigned char cols[IMG_COLS] ={0};
+   \        0xE   0x4668             MOV      R0,SP
+   \       0x10   0x2150             MOVS     R1,#+80
+   \       0x12   0x....'....        BL       __aeabi_memclr4
+    125             unsigned char num=0;
+   \       0x16   0xF05F 0x0800      MOVS     R8,#+0
+    126             
+    127             int r1=100,r2=100,c1=100,c2=100;
+   \       0x1A   0x2464             MOVS     R4,#+100
+   \       0x1C   0x2564             MOVS     R5,#+100
+   \       0x1E   0x2664             MOVS     R6,#+100
+   \       0x20   0x2764             MOVS     R7,#+100
+    128             for(int i=0;i<IMG_ROWS;i++)
+   \       0x22   0x2000             MOVS     R0,#+0
+   \                     ??touying_0: (+1)
+   \       0x24   0x283C             CMP      R0,#+60
+   \       0x26   0xDA15             BGE.N    ??touying_1
+    129              {
+    130                  for(int j=0;j<IMG_COLS;j++)
+   \       0x28   0x2100             MOVS     R1,#+0
+   \                     ??touying_2: (+1)
+   \       0x2A   0x2950             CMP      R1,#+80
+   \       0x2C   0xDA0B             BGE.N    ??touying_3
+    131                  {
+    132                      if(imgbuff[i][j]>100)
+   \       0x2E   0x....             LDR.N    R2,??DataTable1_2
+   \       0x30   0x2350             MOVS     R3,#+80
+   \       0x32   0xFB03 0xF300      MUL      R3,R3,R0
+   \       0x36   0x441A             ADD      R2,R2,R3
+   \       0x38   0x5C52             LDRB     R2,[R2, R1]
+   \       0x3A   0x2A65             CMP      R2,#+101
+   \       0x3C   0xDB01             BLT.N    ??touying_4
+    133                      {
+    134                        num++;
+   \       0x3E   0xF118 0x0801      ADDS     R8,R8,#+1
+    135                      }
+    136                  }
+   \                     ??touying_4: (+1)
+   \       0x42   0x1C49             ADDS     R1,R1,#+1
+   \       0x44   0xE7F1             B.N      ??touying_2
+    137                  rows[i] = num;
+   \                     ??touying_3: (+1)
+   \       0x46   0xA914             ADD      R1,SP,#+80
+   \       0x48   0xF801 0x8000      STRB     R8,[R1, R0]
+    138                  num = 0;
+   \       0x4C   0x2100             MOVS     R1,#+0
+   \       0x4E   0x4688             MOV      R8,R1
+    139              }
+   \       0x50   0x1C40             ADDS     R0,R0,#+1
+   \       0x52   0xE7E7             B.N      ??touying_0
+    140             for(int i=0;i<IMG_COLS;i++)
+   \                     ??touying_1: (+1)
+   \       0x54   0x2000             MOVS     R0,#+0
+   \                     ??touying_5: (+1)
+   \       0x56   0x2850             CMP      R0,#+80
+   \       0x58   0xDA15             BGE.N    ??touying_6
+    141              {
+    142                  for(int j=0;j<IMG_ROWS;j++)
+   \       0x5A   0x2100             MOVS     R1,#+0
+   \                     ??touying_7: (+1)
+   \       0x5C   0x293C             CMP      R1,#+60
+   \       0x5E   0xDA0B             BGE.N    ??touying_8
+    143                  {
+    144                      if(imgbuff[j][i]>100)
+   \       0x60   0x....             LDR.N    R2,??DataTable1_2
+   \       0x62   0x2350             MOVS     R3,#+80
+   \       0x64   0xFB03 0xF301      MUL      R3,R3,R1
+   \       0x68   0x441A             ADD      R2,R2,R3
+   \       0x6A   0x5C12             LDRB     R2,[R2, R0]
+   \       0x6C   0x2A65             CMP      R2,#+101
+   \       0x6E   0xDB01             BLT.N    ??touying_9
+    145                      {
+    146                          num++;
+   \       0x70   0xF118 0x0801      ADDS     R8,R8,#+1
+    147                      }
+    148                  }
+   \                     ??touying_9: (+1)
+   \       0x74   0x1C49             ADDS     R1,R1,#+1
+   \       0x76   0xE7F1             B.N      ??touying_7
+    149                  cols[i] = num;
+   \                     ??touying_8: (+1)
+   \       0x78   0x4669             MOV      R1,SP
+   \       0x7A   0xF801 0x8000      STRB     R8,[R1, R0]
+    150                  num = 0;
+   \       0x7E   0x2100             MOVS     R1,#+0
+   \       0x80   0x4688             MOV      R8,R1
+    151              }
+   \       0x82   0x1C40             ADDS     R0,R0,#+1
+   \       0x84   0xE7E7             B.N      ??touying_5
+    152             for(int i=0;i<IMG_ROWS-1;i++)
+   \                     ??touying_6: (+1)
+   \       0x86   0x2100             MOVS     R1,#+0
+   \                     ??touying_10: (+1)
+   \       0x88   0x293B             CMP      R1,#+59
+   \       0x8A   0xDA24             BGE.N    ??touying_11
+    153              {
+    154                  if((rows[i]==0)&&(rows[i+1]!=0))
+   \       0x8C   0xAA14             ADD      R2,SP,#+80
+   \       0x8E   0x5C50             LDRB     R0,[R2, R1]
+   \       0x90   0x2800             CMP      R0,#+0
+   \       0x92   0xD106             BNE.N    ??touying_12
+   \       0x94   0xA814             ADD      R0,SP,#+80
+   \       0x96   0x4408             ADD      R0,R0,R1
+   \       0x98   0x7840             LDRB     R0,[R0, #+1]
+   \       0x9A   0x2800             CMP      R0,#+0
+   \       0x9C   0xD001             BEQ.N    ??touying_12
+    155                  {
+    156                      r1 = i+1;
+   \       0x9E   0x1C48             ADDS     R0,R1,#+1
+   \       0xA0   0x0004             MOVS     R4,R0
+    157                  }
+    158                  if((rows[i]!=0)&&(rows[i+1]==0))
+   \                     ??touying_12: (+1)
+   \       0xA2   0x5C50             LDRB     R0,[R2, R1]
+   \       0xA4   0x2800             CMP      R0,#+0
+   \       0xA6   0xD006             BEQ.N    ??touying_13
+   \       0xA8   0xA814             ADD      R0,SP,#+80
+   \       0xAA   0x4408             ADD      R0,R0,R1
+   \       0xAC   0x7840             LDRB     R0,[R0, #+1]
+   \       0xAE   0x2800             CMP      R0,#+0
+   \       0xB0   0xD101             BNE.N    ??touying_13
+    159                  {
+    160                      r2 = i;
+   \       0xB2   0x000D             MOVS     R5,R1
+   \       0xB4   0xE005             B.N      ??touying_14
+    161                  }
+    162                  else if((i==(IMG_ROWS-1))&&(rows[i]!=0))
+   \                     ??touying_13: (+1)
+   \       0xB6   0x293B             CMP      R1,#+59
+   \       0xB8   0xD103             BNE.N    ??touying_14
+   \       0xBA   0x5C50             LDRB     R0,[R2, R1]
+   \       0xBC   0x2800             CMP      R0,#+0
+   \       0xBE   0xD000             BEQ.N    ??touying_14
+    163                  {
+    164                      r2 = i;
+   \       0xC0   0x000D             MOVS     R5,R1
+    165                  }
+    166                  if(rows[i]<=4&&rows[i]!=0)
+   \                     ??touying_14: (+1)
+   \       0xC2   0x5C50             LDRB     R0,[R2, R1]
+   \       0xC4   0x2805             CMP      R0,#+5
+   \       0xC6   0xDA04             BGE.N    ??touying_15
+   \       0xC8   0x5C50             LDRB     R0,[R2, R1]
+   \       0xCA   0x2800             CMP      R0,#+0
+   \       0xCC   0xD001             BEQ.N    ??touying_15
+    167                  {
+    168                    r1=i;
+   \       0xCE   0x000C             MOVS     R4,R1
+    169                    r2=i;
+   \       0xD0   0x000D             MOVS     R5,R1
+    170                  }
+    171              }
+   \                     ??touying_15: (+1)
+   \       0xD2   0x1C49             ADDS     R1,R1,#+1
+   \       0xD4   0xE7D8             B.N      ??touying_10
+    172             for(int i=0;i<IMG_COLS-2;i++)
+   \                     ??touying_11: (+1)
+   \       0xD6   0x2100             MOVS     R1,#+0
+   \                     ??touying_16: (+1)
+   \       0xD8   0x294E             CMP      R1,#+78
+   \       0xDA   0xDA2E             BGE.N    ??touying_17
+    173              {
+    174                  if((cols[i]==0)&&(cols[i+1]!=0)&&((cols[i+2]!=0)))
+   \       0xDC   0x466A             MOV      R2,SP
+   \       0xDE   0x5C50             LDRB     R0,[R2, R1]
+   \       0xE0   0x2800             CMP      R0,#+0
+   \       0xE2   0xD10B             BNE.N    ??touying_18
+   \       0xE4   0x4668             MOV      R0,SP
+   \       0xE6   0x4408             ADD      R0,R0,R1
+   \       0xE8   0x7840             LDRB     R0,[R0, #+1]
+   \       0xEA   0x2800             CMP      R0,#+0
+   \       0xEC   0xD006             BEQ.N    ??touying_18
+   \       0xEE   0x4668             MOV      R0,SP
+   \       0xF0   0x4408             ADD      R0,R0,R1
+   \       0xF2   0x7880             LDRB     R0,[R0, #+2]
+   \       0xF4   0x2800             CMP      R0,#+0
+   \       0xF6   0xD001             BEQ.N    ??touying_18
+    175                  {
+    176                      c1 = i+1;
+   \       0xF8   0x1C48             ADDS     R0,R1,#+1
+   \       0xFA   0x0006             MOVS     R6,R0
+    177                  }
+    178                  if(((cols[i]==0)&&(cols[i+1]!=0)&&(cols[i+2]!=0)))
+   \                     ??touying_18: (+1)
+   \       0xFC   0x5C50             LDRB     R0,[R2, R1]
+   \       0xFE   0x2800             CMP      R0,#+0
+   \      0x100   0xD10B             BNE.N    ??touying_19
+   \      0x102   0x4668             MOV      R0,SP
+   \      0x104   0x4408             ADD      R0,R0,R1
+   \      0x106   0x7840             LDRB     R0,[R0, #+1]
+   \      0x108   0x2800             CMP      R0,#+0
+   \      0x10A   0xD006             BEQ.N    ??touying_19
+   \      0x10C   0x4668             MOV      R0,SP
+   \      0x10E   0x4408             ADD      R0,R0,R1
+   \      0x110   0x7880             LDRB     R0,[R0, #+2]
+   \      0x112   0x2800             CMP      R0,#+0
+   \      0x114   0xD001             BEQ.N    ??touying_19
+    179                  {
+    180                      c2 = i;
+   \      0x116   0x000F             MOVS     R7,R1
+   \      0x118   0xE005             B.N      ??touying_20
+    181                  }
+    182                  else if((i == (IMG_COLS-1))&&(cols[i]!=0))
+   \                     ??touying_19: (+1)
+   \      0x11A   0x294F             CMP      R1,#+79
+   \      0x11C   0xD103             BNE.N    ??touying_20
+   \      0x11E   0x5C50             LDRB     R0,[R2, R1]
+   \      0x120   0x2800             CMP      R0,#+0
+   \      0x122   0xD000             BEQ.N    ??touying_20
+    183                  {
+    184                      c2 = i;
+   \      0x124   0x000F             MOVS     R7,R1
+    185                  }
+    186                  if(cols[i]<=4&&cols[i]!=0)
+   \                     ??touying_20: (+1)
+   \      0x126   0x5C50             LDRB     R0,[R2, R1]
+   \      0x128   0x2805             CMP      R0,#+5
+   \      0x12A   0xDA04             BGE.N    ??touying_21
+   \      0x12C   0x5C50             LDRB     R0,[R2, R1]
+   \      0x12E   0x2800             CMP      R0,#+0
+   \      0x130   0xD001             BEQ.N    ??touying_21
+    187                  {
+    188                    c2=i;
+   \      0x132   0x000F             MOVS     R7,R1
+    189                    c1=i;
+   \      0x134   0x000E             MOVS     R6,R1
+    190                  }
+    191              }
+   \                     ??touying_21: (+1)
+   \      0x136   0x1C49             ADDS     R1,R1,#+1
+   \      0x138   0xE7CE             B.N      ??touying_16
+    192             if(r1!=100&&r2!=100&&c1!=100&&c2!=100)
+   \                     ??touying_17: (+1)
+   \      0x13A   0x2C64             CMP      R4,#+100
+   \      0x13C   0xD037             BEQ.N    ??touying_22
+   \      0x13E   0x2D64             CMP      R5,#+100
+   \      0x140   0xD035             BEQ.N    ??touying_22
+   \      0x142   0x2E64             CMP      R6,#+100
+   \      0x144   0xD033             BEQ.N    ??touying_22
+   \      0x146   0x2F64             CMP      R7,#+100
+   \      0x148   0xD031             BEQ.N    ??touying_22
+    193             {
+    194                  last_flag=1;
+   \      0x14A   0x2001             MOVS     R0,#+1
+   \      0x14C   0x....             LDR.N    R1,??DataTable1_10
+   \      0x14E   0x6008             STR      R0,[R1, #+0]
+    195                  light_flag=1;
+   \      0x150   0x2001             MOVS     R0,#+1
+   \      0x152   0x....             LDR.N    R1,??DataTable1_11
+   \      0x154   0x6008             STR      R0,[R1, #+0]
+    196                  diudeng_flag=1;
+   \      0x156   0x2001             MOVS     R0,#+1
+   \      0x158   0x....             LDR.N    R1,??DataTable1_12
+   \      0x15A   0x6008             STR      R0,[R1, #+0]
+    197                  FACHEflag ++;
+   \      0x15C   0x....             LDR.N    R0,??DataTable1_13
+   \      0x15E   0x6801             LDR      R1,[R0, #+0]
+   \      0x160   0x1C49             ADDS     R1,R1,#+1
+   \      0x162   0x6001             STR      R1,[R0, #+0]
+    198                  if(r1 == r2)
+   \      0x164   0x42AC             CMP      R4,R5
+   \      0x166   0xD102             BNE.N    ??touying_23
+    199                  {
+    200                    light_x = r1;
+   \      0x168   0x....             LDR.N    R0,??DataTable1_14
+   \      0x16A   0x6004             STR      R4,[R0, #+0]
+   \      0x16C   0xE008             B.N      ??touying_24
+    201                  }
+    202                  else
+    203                  {
+    204                     light_x=(int)(my_abs(r1+r2)/2);
+   \                     ??touying_23: (+1)
+   \      0x16E   0x1928             ADDS     R0,R5,R4
+   \      0x170   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \      0x172   0x....'....        BL       my_abs
+   \      0x176   0x2102             MOVS     R1,#+2
+   \      0x178   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \      0x17C   0x....             LDR.N    R1,??DataTable1_14
+   \      0x17E   0x6008             STR      R0,[R1, #+0]
+    205                  }
+    206                  if(c1 == c2)
+   \                     ??touying_24: (+1)
+   \      0x180   0x42BE             CMP      R6,R7
+   \      0x182   0xD102             BNE.N    ??touying_25
+    207                  {
+    208                    light_y=c1;
+   \      0x184   0x....             LDR.N    R0,??DataTable1_15
+   \      0x186   0x6006             STR      R6,[R0, #+0]
+   \      0x188   0xE008             B.N      ??touying_26
+    209                  }
+    210                  else
+    211                  {
+    212                     light_y=(int)(my_abs(c1+c2)/2);
+   \                     ??touying_25: (+1)
+   \      0x18A   0x19B8             ADDS     R0,R7,R6
+   \      0x18C   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \      0x18E   0x....'....        BL       my_abs
+   \      0x192   0x2102             MOVS     R1,#+2
+   \      0x194   0xFB90 0xF0F1      SDIV     R0,R0,R1
+   \      0x198   0x....             LDR.N    R1,??DataTable1_15
+   \      0x19A   0x6008             STR      R0,[R1, #+0]
+    213          //           LCD_Write_Int(80, 5, c1);
+    214          //           LCD_Write_Int(100, 5, c2);
+    215                  }
+    216                  diudeng_x=light_x;
+   \                     ??touying_26: (+1)
+   \      0x19C   0x....             LDR.N    R0,??DataTable1_14
+   \      0x19E   0x6800             LDR      R0,[R0, #+0]
+   \      0x1A0   0x....             LDR.N    R1,??DataTable1_16
+   \      0x1A2   0x6008             STR      R0,[R1, #+0]
+    217                  diudeng_y=light_y;
+   \      0x1A4   0x....             LDR.N    R0,??DataTable1_15
+   \      0x1A6   0x6800             LDR      R0,[R0, #+0]
+   \      0x1A8   0x....             LDR.N    R1,??DataTable1_17
+   \      0x1AA   0x6008             STR      R0,[R1, #+0]
+   \      0x1AC   0xE01A             B.N      ??touying_27
+    218             }
+    219             else
+    220             {
+    221          
+    222               if(last_flag==1)
+   \                     ??touying_22: (+1)
+   \      0x1AE   0x....             LDR.N    R0,??DataTable1_10
+   \      0x1B0   0x6801             LDR      R1,[R0, #+0]
+   \      0x1B2   0x2901             CMP      R1,#+1
+   \      0x1B4   0xD10D             BNE.N    ??touying_28
+    223               {
+    224                 //diudeng_num++;
+    225                 light_flag=1;
+   \      0x1B6   0x2101             MOVS     R1,#+1
+   \      0x1B8   0x....             LDR.N    R2,??DataTable1_11
+   \      0x1BA   0x6011             STR      R1,[R2, #+0]
+    226                 light_x=diudeng_x;
+   \      0x1BC   0x....             LDR.N    R1,??DataTable1_16
+   \      0x1BE   0x6809             LDR      R1,[R1, #+0]
+   \      0x1C0   0x....             LDR.N    R2,??DataTable1_14
+   \      0x1C2   0x6011             STR      R1,[R2, #+0]
+    227                 light_y=diudeng_y;
+   \      0x1C4   0x....             LDR.N    R1,??DataTable1_17
+   \      0x1C6   0x6809             LDR      R1,[R1, #+0]
+   \      0x1C8   0x....             LDR.N    R2,??DataTable1_15
+   \      0x1CA   0x6011             STR      R1,[R2, #+0]
+    228                 last_flag=0;
+   \      0x1CC   0x2100             MOVS     R1,#+0
+   \      0x1CE   0x6001             STR      R1,[R0, #+0]
+   \      0x1D0   0xE008             B.N      ??touying_27
+    229               }
+    230               else
+    231               {
+    232                 light_flag=0;
+   \                     ??touying_28: (+1)
+   \      0x1D2   0x2000             MOVS     R0,#+0
+   \      0x1D4   0x....             LDR.N    R1,??DataTable1_11
+   \      0x1D6   0x6008             STR      R0,[R1, #+0]
+    233                 light_x=0;
+   \      0x1D8   0x2000             MOVS     R0,#+0
+   \      0x1DA   0x....             LDR.N    R1,??DataTable1_14
+   \      0x1DC   0x6008             STR      R0,[R1, #+0]
+    234                 light_y=0;
+   \      0x1DE   0x2000             MOVS     R0,#+0
+   \      0x1E0   0x....             LDR.N    R1,??DataTable1_15
+   \      0x1E2   0x6008             STR      R0,[R1, #+0]
+    235               }
+    236          //     if(diudeng_num>=8)
+    237          //     {
+    238          //       diudeng_flag=0;
+    239          //       diudeng_num=0;
+    240          //     }
+    241          
+    242             }
+    243          }
+   \                     ??touying_27: (+1)
+   \      0x1E4   0xB024             ADD      SP,SP,#+144
+   \      0x1E6   0xE8BD 0x81F0      POP      {R4-R8,PC}       ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \        0x0   0x....'....        DC32     img_num
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \        0x0   0x....'....        DC32     img1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \        0x0   0x....'....        DC32     imgbuff
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \        0x0   0x....'....        DC32     img2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_4:
+   \        0x0   0x....'....        DC32     img3
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_5:
+   \        0x0   0x....'....        DC32     img4
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_6:
+   \        0x0   0x....'....        DC32     IMG
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_7:
+   \        0x0   0x....'....        DC32     IMG2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_8:
+   \        0x0   0x....'....        DC32     fps_num1_n
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_9:
+   \        0x0   0x....'....        DC32     display_flag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_10:
+   \        0x0   0x....'....        DC32     last_flag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_11:
+   \        0x0   0x....'....        DC32     light_flag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_12:
+   \        0x0   0x....'....        DC32     diudeng_flag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_13:
+   \        0x0   0x....'....        DC32     FACHEflag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_14:
+   \        0x0   0x....'....        DC32     light_x
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_15:
+   \        0x0   0x....'....        DC32     light_y
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_16:
+   \        0x0   0x....'....        DC32     diudeng_x
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_17:
+   \        0x0   0x....'....        DC32     diudeng_y
+
+   \                                 In section .rodata, align 4
+   \        0x0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00         
+   \       0x17   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00         
+   \       0x2E   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+
+   \                                 In section .rodata, align 4
+   \        0x0   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00         
+   \       0x17   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00         
+   \       0x2E   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00         
+   \       0x45   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00         
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      16   IMG_Handle
+        16   -> my_abs
+        16   -> touying
+     168   touying
+       168   -> __aeabi_memclr4
+       168   -> my_abs
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_10
+       4  ??DataTable1_11
+       4  ??DataTable1_12
+       4  ??DataTable1_13
+       4  ??DataTable1_14
+       4  ??DataTable1_15
+       4  ??DataTable1_16
+       4  ??DataTable1_17
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       4  ??DataTable1_5
+       4  ??DataTable1_6
+       4  ??DataTable1_7
+       4  ??DataTable1_8
+       4  ??DataTable1_9
+      60  ?_0
+      80  ?_1
+       4  FACHEflag
+    4800  IMG
+    4800  IMG2
+     462  IMG_Handle
+       4  baidian
+       4  deal_flag
+       4  display_flag
+       4  diudeng_flag
+       4  diudeng_num
+       4  diudeng_x
+       4  diudeng_y
+       4  fps1_n
+       4  fps_num1_n
+    4800  img1
+    4800  img2
+    4800  img3
+    4800  img4
+       1  img_num
+       4  last_flag
+       4  light_flag
+       4  light_x
+       4  light_y
+     490  touying
+       4  x
+       4  y
+
+ 
+ 28 865 bytes in section .bss
+    140 bytes in section .rodata
+  1 024 bytes in section .text
+ 
+  1 024 bytes of CODE  memory
+    140 bytes of CONST memory
+ 28 865 bytes of DATA  memory
+
+Errors: none
+Warnings: 1

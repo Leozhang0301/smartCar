@@ -1,0 +1,1602 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         18/May/2019  16:18:21
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_UART.c
+#    Command line =  
+#        -f C:\Users\TEMPLA~1.000\AppData\Local\Temp\EW9206.tmp
+#        (C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_UART.c -D
+#        LPLD_K60 -lCN
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -lB
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -o
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config "D:\@@\605110 IAR for
+#        ARM 8.30\arm\inc\c\DLib_Config_Normal.h" -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Me\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\Core\Include\" -I
+#        "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\DSP\Include\" -D
+#        ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List\HW_UART.lst
+#    Object file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_UART.o
+#
+###############################################################################
+
+C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_UART.c
+      1          /**
+      2           * @file HW_UART.c
+      3           * @version 3.0[By LPLD]
+      4           * @date 2013-06-18
+      5           * @brief UART底层模块相关函数
+      6           *
+      7           * 更改建议:不建议修改
+      8           *
+      9           * 版权所有:北京拉普兰德电子技术有限公司
+     10           * http://www.lpld.cn
+     11           * mail:support@lpld.cn
+     12           *
+     13           * @par
+     14           * 本代码由拉普兰德[LPLD]开发并维护，并向所有使用者开放源代码。
+     15           * 开发者可以随意修使用或改源代码。但本段及以上注释应予以保留。
+     16           * 不得更改或删除原版权所有者姓名，二次开发者可以加注二次版权所有者。
+     17           * 但应在遵守此协议的基础上，开放源代码、不得出售代码本身。
+     18           * 拉普兰德不负责由于使用本代码所带来的任何事故、法律责任或相关不良影响。
+     19           * 拉普兰德无义务解释、说明本代码的具体原理、功能、实现方法。
+     20           * 除非拉普兰德[LPLD]授权，开发者不得将本代码用于商业产品。
+     21           */
+     22          #include "common.h"
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_EnableIRQ(IRQn_Type)
+   \                     __NVIC_EnableIRQ: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+   \        0x2   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \        0x4   0x2900             CMP      R1,#+0
+   \        0x6   0xD409             BMI.N    ??__NVIC_EnableIRQ_0
+   \        0x8   0x2201             MOVS     R2,#+1
+   \        0xA   0xF010 0x011F      ANDS     R1,R0,#0x1F
+   \        0xE   0x408A             LSLS     R2,R2,R1
+   \       0x10   0x....'....        LDR.W    R1,??DataTable10  ;; 0xe000e100
+   \       0x14   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x16   0x0940             LSRS     R0,R0,#+5
+   \       0x18   0xF841 0x2020      STR      R2,[R1, R0, LSL #+2]
+   \                     ??__NVIC_EnableIRQ_0: (+1)
+   \       0x1C   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_DisableIRQ(IRQn_Type)
+   \                     __NVIC_DisableIRQ: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+   \        0x2   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \        0x4   0x2900             CMP      R1,#+0
+   \        0x6   0xD40D             BMI.N    ??__NVIC_DisableIRQ_0
+   \        0x8   0x2201             MOVS     R2,#+1
+   \        0xA   0xF010 0x011F      ANDS     R1,R0,#0x1F
+   \        0xE   0x408A             LSLS     R2,R2,R1
+   \       0x10   0x....'....        LDR.W    R1,??DataTable10_1  ;; 0xe000e180
+   \       0x14   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x16   0x0940             LSRS     R0,R0,#+5
+   \       0x18   0xF841 0x2020      STR      R2,[R1, R0, LSL #+2]
+   \       0x1C   0xF3BF 0x8F4F      DSB      SY
+   \       0x20   0xF3BF 0x8F6F      ISB      SY
+   \                     ??__NVIC_DisableIRQ_0: (+1)
+   \       0x24   0x4770             BX       LR               ;; return
+     23          #include "HW_UART.h"
+     24          
+     25          //用户接收中断函数入口地址数组
+
+   \                                 In section .bss, align 4
+     26          UART_ISR_CALLBACK UART_R_ISR[6];
+   \                     UART_R_ISR:
+   \        0x0                      DS8 24
+     27          //用户发送中断函数入口地址数组
+
+   \                                 In section .bss, align 4
+     28          UART_ISR_CALLBACK UART_T_ISR[6];  
+   \                     UART_T_ISR:
+   \        0x0                      DS8 24
+     29          
+     30          
+     31          /*
+     32           * LPLD_UART_Init
+     33           * 初始化UART通道、波特率、发送接收引脚
+     34           * 
+     35           * 参数:
+     36           *    uart_init_structure--UART初始化结构体，
+     37           *                        具体定义见UART_InitTypeDef
+     38           *
+     39           * 输出:
+     40           *    无
+     41           *
+     42           */
+
+   \                                 In section .text, align 2, keep-with-next
+     43          void LPLD_UART_Init(UART_InitTypeDef uart_init_structure)
+     44          {
+   \                     LPLD_UART_Init: (+1)
+   \        0x0   0xB40F             PUSH     {R0-R3}
+   \        0x2   0xB5F0             PUSH     {R4-R7,LR}
+     45            register uint16 sbr, brfa;
+     46            uint32 sysclk;
+     47            uint8 temp, x;
+     48            UART_Type *uartx = uart_init_structure.UART_Uartx;
+   \        0x4   0x9A05             LDR      R2,[SP, #+20]
+     49            uint32 baud = uart_init_structure.UART_BaudRate;
+   \        0x6   0x9806             LDR      R0,[SP, #+24]
+     50            PortPinsEnum_Type tx_pin = uart_init_structure.UART_TxPin;
+   \        0x8   0xF89D 0x101C      LDRB     R1,[SP, #+28]
+     51            PortPinsEnum_Type rx_pin = uart_init_structure.UART_RxPin;
+   \        0xC   0xF89D 0x701D      LDRB     R7,[SP, #+29]
+     52            UART_ISR_CALLBACK rx_isr = uart_init_structure.UART_RxIsr;
+   \       0x10   0x9B08             LDR      R3,[SP, #+32]
+     53            UART_ISR_CALLBACK tx_isr = uart_init_structure.UART_TxIsr;
+   \       0x12   0x9C09             LDR      R4,[SP, #+36]
+     54            
+     55            if(baud == NULL)
+   \       0x14   0x2800             CMP      R0,#+0
+   \       0x16   0xD101             BNE.N    ??LPLD_UART_Init_0
+     56            {
+     57              baud = 9600;
+   \       0x18   0xF44F 0x5016      MOV      R0,#+9600
+     58            }
+     59            
+     60            //使能选中的UART串口通道时钟，相应GPIO的UART复用功能   
+     61            if(uartx == UART0)
+   \                     ??LPLD_UART_Init_0: (+1)
+   \       0x1C   0x....'....        LDR.W    R5,??DataTable10_2  ;; 0x4006a000
+   \       0x20   0x42AA             CMP      R2,R5
+   \       0x22   0xD141             BNE.N    ??LPLD_UART_Init_1
+     62            {
+     63              x = 0;
+   \       0x24   0x2500             MOVS     R5,#+0
+     64              sysclk = g_core_clock;
+   \       0x26   0x....'....        LDR.W    R6,??DataTable10_3
+   \       0x2A   0x6836             LDR      R6,[R6, #+0]
+     65              SIM->SCGC4 |= SIM_SCGC4_UART0_MASK;
+   \       0x2C   0x....'....        LDR.W    R12,??DataTable10_4  ;; 0x40048034
+   \       0x30   0xF8DC 0xE000      LDR      LR,[R12, #+0]
+   \       0x34   0xF45E 0x6E80      ORRS     LR,LR,#0x400
+   \       0x38   0xF8CC 0xE000      STR      LR,[R12, #+0]
+     66              
+     67              if(tx_pin == PTA2)
+   \       0x3C   0x468C             MOV      R12,R1
+   \       0x3E   0xFA5F 0xFC8C      UXTB     R12,R12          ;; ZeroExt  R12,R12,#+24,#+24
+   \       0x42   0xF1BC 0x0F02      CMP      R12,#+2
+   \       0x46   0xD106             BNE.N    ??LPLD_UART_Init_2
+     68                PORTA->PCR[2] = PORT_PCR_MUX(2); 
+   \       0x48   0xF44F 0x7100      MOV      R1,#+512
+   \       0x4C   0x....'....        LDR.W    R12,??DataTable10_5  ;; 0x40049008
+   \       0x50   0xF8CC 0x1000      STR      R1,[R12, #+0]
+   \       0x54   0xE00F             B.N      ??LPLD_UART_Init_3
+     69              else if(tx_pin == PTA14)
+   \                     ??LPLD_UART_Init_2: (+1)
+   \       0x56   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0x58   0x290E             CMP      R1,#+14
+   \       0x5A   0xD106             BNE.N    ??LPLD_UART_Init_4
+     70                PORTA->PCR[14] = PORT_PCR_MUX(3); 
+   \       0x5C   0xF44F 0x7140      MOV      R1,#+768
+   \       0x60   0x....'....        LDR.W    R12,??DataTable10_6  ;; 0x40049038
+   \       0x64   0xF8CC 0x1000      STR      R1,[R12, #+0]
+   \       0x68   0xE005             B.N      ??LPLD_UART_Init_3
+     71              else
+     72                PORTB->PCR[17] = PORT_PCR_MUX(3); 
+   \                     ??LPLD_UART_Init_4: (+1)
+   \       0x6A   0xF44F 0x7140      MOV      R1,#+768
+   \       0x6E   0x....'....        LDR.W    R12,??DataTable10_7  ;; 0x4004a044
+   \       0x72   0xF8CC 0x1000      STR      R1,[R12, #+0]
+     73              
+     74              if(rx_pin == PTA1)
+   \                     ??LPLD_UART_Init_3: (+1)
+   \       0x76   0x0039             MOVS     R1,R7
+   \       0x78   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0x7A   0x2901             CMP      R1,#+1
+   \       0x7C   0xD105             BNE.N    ??LPLD_UART_Init_5
+     75                PORTA->PCR[1] = PORT_PCR_MUX(2); 
+   \       0x7E   0xF44F 0x7100      MOV      R1,#+512
+   \       0x82   0x....'....        LDR.W    R7,??DataTable10_8  ;; 0x40049004
+   \       0x86   0x6039             STR      R1,[R7, #+0]
+   \       0x88   0xE0EC             B.N      ??LPLD_UART_Init_6
+     76              else if(rx_pin == PTA15)
+   \                     ??LPLD_UART_Init_5: (+1)
+   \       0x8A   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \       0x8C   0x2F0F             CMP      R7,#+15
+   \       0x8E   0xD105             BNE.N    ??LPLD_UART_Init_7
+     77                PORTA->PCR[15] = PORT_PCR_MUX(3); 
+   \       0x90   0xF44F 0x7140      MOV      R1,#+768
+   \       0x94   0x....'....        LDR.W    R7,??DataTable10_9  ;; 0x4004903c
+   \       0x98   0x6039             STR      R1,[R7, #+0]
+   \       0x9A   0xE0E3             B.N      ??LPLD_UART_Init_6
+     78              else
+     79                PORTB->PCR[16] = PORT_PCR_MUX(3); 
+   \                     ??LPLD_UART_Init_7: (+1)
+   \       0x9C   0xF44F 0x7140      MOV      R1,#+768
+   \       0xA0   0x....'....        LDR.W    R7,??DataTable10_10  ;; 0x4004a040
+   \       0xA4   0x6039             STR      R1,[R7, #+0]
+   \       0xA6   0xE0DD             B.N      ??LPLD_UART_Init_6
+     80            }
+     81            else
+     82            {
+     83              if (uartx == UART1)
+   \                     ??LPLD_UART_Init_1: (+1)
+   \       0xA8   0x....'....        LDR.W    R5,??DataTable10_11  ;; 0x4006b000
+   \       0xAC   0x42AA             CMP      R2,R5
+   \       0xAE   0xD12A             BNE.N    ??LPLD_UART_Init_8
+     84              {
+     85                x = 1;
+   \       0xB0   0x2501             MOVS     R5,#+1
+     86                sysclk = g_core_clock;
+   \       0xB2   0x....'....        LDR.W    R6,??DataTable10_3
+   \       0xB6   0x6836             LDR      R6,[R6, #+0]
+     87                SIM->SCGC4 |= SIM_SCGC4_UART1_MASK;
+   \       0xB8   0x....'....        LDR.W    R12,??DataTable10_4  ;; 0x40048034
+   \       0xBC   0xF8DC 0xE000      LDR      LR,[R12, #+0]
+   \       0xC0   0xF45E 0x6E00      ORRS     LR,LR,#0x800
+   \       0xC4   0xF8CC 0xE000      STR      LR,[R12, #+0]
+     88                
+     89                if(tx_pin == PTE0)   
+   \       0xC8   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0xCA   0x297C             CMP      R1,#+124
+   \       0xCC   0xD106             BNE.N    ??LPLD_UART_Init_9
+     90                  PORTE->PCR[0] = PORT_PCR_MUX(3); 
+   \       0xCE   0xF44F 0x7140      MOV      R1,#+768
+   \       0xD2   0x....'....        LDR.W    R12,??DataTable10_12  ;; 0x4004d000
+   \       0xD6   0xF8CC 0x1000      STR      R1,[R12, #+0]
+   \       0xDA   0xE005             B.N      ??LPLD_UART_Init_10
+     91                else
+     92                  PORTC->PCR[4] = PORT_PCR_MUX(3); 
+   \                     ??LPLD_UART_Init_9: (+1)
+   \       0xDC   0xF44F 0x7140      MOV      R1,#+768
+   \       0xE0   0x....'....        LDR.W    R12,??DataTable10_13  ;; 0x4004b010
+   \       0xE4   0xF8CC 0x1000      STR      R1,[R12, #+0]
+     93                
+     94                if(rx_pin == PTE1)
+   \                     ??LPLD_UART_Init_10: (+1)
+   \       0xE8   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \       0xEA   0x2F7D             CMP      R7,#+125
+   \       0xEC   0xD105             BNE.N    ??LPLD_UART_Init_11
+     95                  PORTE->PCR[1] = PORT_PCR_MUX(3); 
+   \       0xEE   0xF44F 0x7140      MOV      R1,#+768
+   \       0xF2   0x....'....        LDR.W    R7,??DataTable10_14  ;; 0x4004d004
+   \       0xF6   0x6039             STR      R1,[R7, #+0]
+   \       0xF8   0xE0B4             B.N      ??LPLD_UART_Init_6
+     96                else
+     97                  PORTC->PCR[3] = PORT_PCR_MUX(3); 
+   \                     ??LPLD_UART_Init_11: (+1)
+   \       0xFA   0xF44F 0x7140      MOV      R1,#+768
+   \       0xFE   0x....'....        LDR.W    R7,??DataTable10_15  ;; 0x4004b00c
+   \      0x102   0x6039             STR      R1,[R7, #+0]
+   \      0x104   0xE0AE             B.N      ??LPLD_UART_Init_6
+     98              }
+     99              else
+    100              {
+    101                sysclk = g_bus_clock;
+   \                     ??LPLD_UART_Init_8: (+1)
+   \      0x106   0x....'....        LDR.W    R5,??DataTable10_16
+   \      0x10A   0x682E             LDR      R6,[R5, #+0]
+    102                if (uartx == UART2)
+   \      0x10C   0x....'....        LDR.W    R5,??DataTable10_17  ;; 0x4006c000
+   \      0x110   0x42AA             CMP      R2,R5
+   \      0x112   0xD10F             BNE.N    ??LPLD_UART_Init_12
+    103                {
+    104                  x = 2;
+   \      0x114   0x2502             MOVS     R5,#+2
+    105                  SIM->SCGC4 |= SIM_SCGC4_UART2_MASK;
+   \      0x116   0x....'....        LDR.W    R1,??DataTable10_4  ;; 0x40048034
+   \      0x11A   0x680F             LDR      R7,[R1, #+0]
+   \      0x11C   0xF457 0x5780      ORRS     R7,R7,#0x1000
+   \      0x120   0x600F             STR      R7,[R1, #+0]
+    106                  
+    107                  PORTD->PCR[3] = PORT_PCR_MUX(3); 
+   \      0x122   0xF44F 0x7140      MOV      R1,#+768
+   \      0x126   0x....'....        LDR.W    R7,??DataTable10_18  ;; 0x4004c00c
+   \      0x12A   0x6039             STR      R1,[R7, #+0]
+    108                  PORTD->PCR[2] = PORT_PCR_MUX(3);
+   \      0x12C   0x....'....        LDR.W    R7,??DataTable10_19  ;; 0x4004c008
+   \      0x130   0x6039             STR      R1,[R7, #+0]
+   \      0x132   0xE097             B.N      ??LPLD_UART_Init_6
+    109                }
+    110                else
+    111                {
+    112                  if(uartx == UART3)
+   \                     ??LPLD_UART_Init_12: (+1)
+   \      0x134   0x....'....        LDR.W    R5,??DataTable10_20  ;; 0x4006d000
+   \      0x138   0x42AA             CMP      R2,R5
+   \      0x13A   0xD13E             BNE.N    ??LPLD_UART_Init_13
+    113                  {
+    114                    x = 3;
+   \      0x13C   0x2503             MOVS     R5,#+3
+    115                    SIM->SCGC4 |= SIM_SCGC4_UART3_MASK;
+   \      0x13E   0x....'....        LDR.W    R12,??DataTable10_4  ;; 0x40048034
+   \      0x142   0xF8DC 0xE000      LDR      LR,[R12, #+0]
+   \      0x146   0xF45E 0x5E00      ORRS     LR,LR,#0x2000
+   \      0x14A   0xF8CC 0xE000      STR      LR,[R12, #+0]
+    116                    
+    117                    if(tx_pin == PTE4)
+   \      0x14E   0x468C             MOV      R12,R1
+   \      0x150   0xFA5F 0xFC8C      UXTB     R12,R12          ;; ZeroExt  R12,R12,#+24,#+24
+   \      0x154   0xF1BC 0x0F80      CMP      R12,#+128
+   \      0x158   0xD106             BNE.N    ??LPLD_UART_Init_14
+    118                      PORTE->PCR[4] = PORT_PCR_MUX(3); 
+   \      0x15A   0xF44F 0x7140      MOV      R1,#+768
+   \      0x15E   0x....'....        LDR.W    R12,??DataTable10_21  ;; 0x4004d010
+   \      0x162   0xF8CC 0x1000      STR      R1,[R12, #+0]
+   \      0x166   0xE00F             B.N      ??LPLD_UART_Init_15
+    119                    else if(tx_pin == PTB11)
+   \                     ??LPLD_UART_Init_14: (+1)
+   \      0x168   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x16A   0x292B             CMP      R1,#+43
+   \      0x16C   0xD106             BNE.N    ??LPLD_UART_Init_16
+    120                      PORTB->PCR[11] = PORT_PCR_MUX(3); 
+   \      0x16E   0xF44F 0x7140      MOV      R1,#+768
+   \      0x172   0x....'....        LDR.W    R12,??DataTable10_22  ;; 0x4004a02c
+   \      0x176   0xF8CC 0x1000      STR      R1,[R12, #+0]
+   \      0x17A   0xE005             B.N      ??LPLD_UART_Init_15
+    121                    else 
+    122                      PORTC->PCR[17] = PORT_PCR_MUX(3); 
+   \                     ??LPLD_UART_Init_16: (+1)
+   \      0x17C   0xF44F 0x7140      MOV      R1,#+768
+   \      0x180   0x....'....        LDR.W    R12,??DataTable10_23  ;; 0x4004b044
+   \      0x184   0xF8CC 0x1000      STR      R1,[R12, #+0]
+    123                    
+    124                    if(rx_pin == PTE5)
+   \                     ??LPLD_UART_Init_15: (+1)
+   \      0x188   0x0039             MOVS     R1,R7
+   \      0x18A   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x18C   0x2981             CMP      R1,#+129
+   \      0x18E   0xD105             BNE.N    ??LPLD_UART_Init_17
+    125                      PORTE->PCR[5] = PORT_PCR_MUX(3); 
+   \      0x190   0xF44F 0x7140      MOV      R1,#+768
+   \      0x194   0x....'....        LDR.W    R7,??DataTable10_24  ;; 0x4004d014
+   \      0x198   0x6039             STR      R1,[R7, #+0]
+   \      0x19A   0xE063             B.N      ??LPLD_UART_Init_6
+    126                    else if(rx_pin == PTB10)
+   \                     ??LPLD_UART_Init_17: (+1)
+   \      0x19C   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \      0x19E   0x2F2A             CMP      R7,#+42
+   \      0x1A0   0xD105             BNE.N    ??LPLD_UART_Init_18
+    127                      PORTB->PCR[10] = PORT_PCR_MUX(3); 
+   \      0x1A2   0xF44F 0x7140      MOV      R1,#+768
+   \      0x1A6   0x....'....        LDR.W    R7,??DataTable10_25  ;; 0x4004a028
+   \      0x1AA   0x6039             STR      R1,[R7, #+0]
+   \      0x1AC   0xE05A             B.N      ??LPLD_UART_Init_6
+    128                    else
+    129                      PORTC->PCR[16] = PORT_PCR_MUX(3);
+   \                     ??LPLD_UART_Init_18: (+1)
+   \      0x1AE   0xF44F 0x7140      MOV      R1,#+768
+   \      0x1B2   0x....'....        LDR.W    R7,??DataTable10_26  ;; 0x4004b040
+   \      0x1B6   0x6039             STR      R1,[R7, #+0]
+   \      0x1B8   0xE054             B.N      ??LPLD_UART_Init_6
+    130                  }
+    131                  else
+    132                  {
+    133                    if(uartx == UART4)
+   \                     ??LPLD_UART_Init_13: (+1)
+   \      0x1BA   0x....'....        LDR.W    R5,??DataTable10_27  ;; 0x400ea000
+   \      0x1BE   0x42AA             CMP      R2,R5
+   \      0x1C0   0xD127             BNE.N    ??LPLD_UART_Init_19
+    134                    {
+    135                      x = 4;
+   \      0x1C2   0x2504             MOVS     R5,#+4
+    136                      SIM->SCGC1 |= SIM_SCGC1_UART4_MASK;
+   \      0x1C4   0x....'....        LDR.W    R12,??DataTable10_28  ;; 0x40048028
+   \      0x1C8   0xF8DC 0xE000      LDR      LR,[R12, #+0]
+   \      0x1CC   0xF45E 0x6E80      ORRS     LR,LR,#0x400
+   \      0x1D0   0xF8CC 0xE000      STR      LR,[R12, #+0]
+    137                      
+    138                      if(tx_pin == PTE24)
+   \      0x1D4   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x1D6   0x2994             CMP      R1,#+148
+   \      0x1D8   0xD106             BNE.N    ??LPLD_UART_Init_20
+    139                        PORTE->PCR[24] = PORT_PCR_MUX(3); 
+   \      0x1DA   0xF44F 0x7140      MOV      R1,#+768
+   \      0x1DE   0x....'....        LDR.W    R12,??DataTable10_29  ;; 0x4004d060
+   \      0x1E2   0xF8CC 0x1000      STR      R1,[R12, #+0]
+   \      0x1E6   0xE005             B.N      ??LPLD_UART_Init_21
+    140                      else
+    141                        PORTC->PCR[15] = PORT_PCR_MUX(3); 
+   \                     ??LPLD_UART_Init_20: (+1)
+   \      0x1E8   0xF44F 0x7140      MOV      R1,#+768
+   \      0x1EC   0x....'....        LDR.W    R12,??DataTable10_30  ;; 0x4004b03c
+   \      0x1F0   0xF8CC 0x1000      STR      R1,[R12, #+0]
+    142                      
+    143                      if(rx_pin == PTE25)
+   \                     ??LPLD_UART_Init_21: (+1)
+   \      0x1F4   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \      0x1F6   0x2F95             CMP      R7,#+149
+   \      0x1F8   0xD105             BNE.N    ??LPLD_UART_Init_22
+    144                        PORTE->PCR[25] = PORT_PCR_MUX(3); 
+   \      0x1FA   0xF44F 0x7140      MOV      R1,#+768
+   \      0x1FE   0x....'....        LDR.W    R7,??DataTable10_31  ;; 0x4004d064
+   \      0x202   0x6039             STR      R1,[R7, #+0]
+   \      0x204   0xE02E             B.N      ??LPLD_UART_Init_6
+    145                      else
+    146                        PORTC->PCR[14] = PORT_PCR_MUX(3);
+   \                     ??LPLD_UART_Init_22: (+1)
+   \      0x206   0xF44F 0x7140      MOV      R1,#+768
+   \      0x20A   0x....'....        LDR.W    R7,??DataTable10_32  ;; 0x4004b038
+   \      0x20E   0x6039             STR      R1,[R7, #+0]
+   \      0x210   0xE028             B.N      ??LPLD_UART_Init_6
+    147                    }
+    148                    else
+    149                    {
+    150                      x = 5;
+   \                     ??LPLD_UART_Init_19: (+1)
+   \      0x212   0x2505             MOVS     R5,#+5
+    151                      uartx = UART5;
+   \      0x214   0x....'....        LDR.W    R2,??DataTable10_33  ;; 0x400eb000
+    152                      SIM->SCGC1 |= SIM_SCGC1_UART5_MASK;
+   \      0x218   0x....'....        LDR.W    R12,??DataTable10_28  ;; 0x40048028
+   \      0x21C   0xF8DC 0xE000      LDR      LR,[R12, #+0]
+   \      0x220   0xF45E 0x6E00      ORRS     LR,LR,#0x800
+   \      0x224   0xF8CC 0xE000      STR      LR,[R12, #+0]
+    153                      
+    154                      if(tx_pin == PTD9)
+   \      0x228   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x22A   0x2965             CMP      R1,#+101
+   \      0x22C   0xD106             BNE.N    ??LPLD_UART_Init_23
+    155                        PORTD->PCR[9] = PORT_PCR_MUX(3); 
+   \      0x22E   0xF44F 0x7140      MOV      R1,#+768
+   \      0x232   0x....'....        LDR.W    R12,??DataTable10_34  ;; 0x4004c024
+   \      0x236   0xF8CC 0x1000      STR      R1,[R12, #+0]
+   \      0x23A   0xE005             B.N      ??LPLD_UART_Init_24
+    156                      else
+    157                        PORTE->PCR[8] = PORT_PCR_MUX(3); 
+   \                     ??LPLD_UART_Init_23: (+1)
+   \      0x23C   0xF44F 0x7140      MOV      R1,#+768
+   \      0x240   0x....'....        LDR.W    R12,??DataTable10_35  ;; 0x4004d020
+   \      0x244   0xF8CC 0x1000      STR      R1,[R12, #+0]
+    158                      
+    159                      if(rx_pin == PTD8)
+   \                     ??LPLD_UART_Init_24: (+1)
+   \      0x248   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \      0x24A   0x2F64             CMP      R7,#+100
+   \      0x24C   0xD105             BNE.N    ??LPLD_UART_Init_25
+    160                        PORTD->PCR[8] = PORT_PCR_MUX(3); 
+   \      0x24E   0xF44F 0x7140      MOV      R1,#+768
+   \      0x252   0x....'....        LDR.W    R7,??DataTable10_36  ;; 0x4004c020
+   \      0x256   0x6039             STR      R1,[R7, #+0]
+   \      0x258   0xE004             B.N      ??LPLD_UART_Init_6
+    161                      else
+    162                        PORTE->PCR[9] = PORT_PCR_MUX(3); 
+   \                     ??LPLD_UART_Init_25: (+1)
+   \      0x25A   0xF44F 0x7140      MOV      R1,#+768
+   \      0x25E   0x....'....        LDR.W    R7,??DataTable10_37  ;; 0x4004d024
+   \      0x262   0x6039             STR      R1,[R7, #+0]
+    163                    }
+    164                  }
+    165                }
+    166              }
+    167            }
+    168            
+    169            //在配置好其他寄存器前，先关闭发送器和接收器
+    170            uartx->C2 &= ~(UART_C2_TE_MASK | UART_C2_RE_MASK );
+   \                     ??LPLD_UART_Init_6: (+1)
+   \      0x264   0x78D1             LDRB     R1,[R2, #+3]
+   \      0x266   0xF011 0x01F3      ANDS     R1,R1,#0xF3
+   \      0x26A   0x70D1             STRB     R1,[R2, #+3]
+    171            
+    172            //配置UART为 8位, 无奇偶校验 */
+    173            uartx->C1 = 0;	
+   \      0x26C   0x2100             MOVS     R1,#+0
+   \      0x26E   0x7091             STRB     R1,[R2, #+2]
+    174            
+    175            //计算波特率
+    176            sbr = (uint16)((sysclk)/(baud * 16));
+   \      0x270   0x0101             LSLS     R1,R0,#+4
+   \      0x272   0xFBB6 0xF7F1      UDIV     R7,R6,R1
+    177            
+    178            //保存UARTx_BDH寄存器中除了SBR的值
+    179            temp = uartx->BDH & ~(UART_BDH_SBR(0x1F));
+   \      0x276   0xF892 0xC000      LDRB     R12,[R2, #+0]
+   \      0x27A   0xF01C 0x0CE0      ANDS     R12,R12,#0xE0
+    180            
+    181            uartx->BDH = temp |  UART_BDH_SBR(((sbr & 0x1F00) >> 8));
+   \      0x27E   0xF3C7 0x2104      UBFX     R1,R7,#+8,#+5
+   \      0x282   0xEA51 0x0C0C      ORRS     R12,R1,R12
+   \      0x286   0xF882 0xC000      STRB     R12,[R2, #+0]
+    182            uartx->BDL = (uint8)(sbr & UART_BDL_SBR_MASK);
+   \      0x28A   0x7057             STRB     R7,[R2, #+1]
+    183            
+    184            //配置波特率的微调分数
+    185            brfa = (((sysclk*32)/(baud * 16)) - (sbr * 32));
+   \      0x28C   0x0171             LSLS     R1,R6,#+5
+   \      0x28E   0x0100             LSLS     R0,R0,#+4
+   \      0x290   0xFBB1 0xF0F0      UDIV     R0,R1,R0
+   \      0x294   0xB2BF             UXTH     R7,R7            ;; ZeroExt  R7,R7,#+16,#+16
+   \      0x296   0xEBB0 0x1047      SUBS     R0,R0,R7, LSL #+5
+    186            
+    187            //保存UARTx_C4寄存器中除了BRFA的值
+    188            temp = uartx->C4 & ~(UART_C4_BRFA(0x1F));
+   \      0x29A   0x7A91             LDRB     R1,[R2, #+10]
+   \      0x29C   0xF011 0x01E0      ANDS     R1,R1,#0xE0
+    189            
+    190            uartx->C4 = temp |  UART_C4_BRFA(brfa);    
+   \      0x2A0   0xF010 0x001F      ANDS     R0,R0,#0x1F
+   \      0x2A4   0x4308             ORRS     R0,R0,R1
+   \      0x2A6   0x7290             STRB     R0,[R2, #+10]
+    191            
+    192            //配置发送接收中断
+    193            if(uart_init_structure.UART_RxIntEnable == TRUE && rx_isr != NULL)
+   \      0x2A8   0xF89D 0x001E      LDRB     R0,[SP, #+30]
+   \      0x2AC   0x2801             CMP      R0,#+1
+   \      0x2AE   0xD10D             BNE.N    ??LPLD_UART_Init_26
+   \      0x2B0   0x0018             MOVS     R0,R3
+   \      0x2B2   0x2800             CMP      R0,#+0
+   \      0x2B4   0xD00A             BEQ.N    ??LPLD_UART_Init_26
+    194            {
+    195              uartx->C2 |= UART_C2_RIE_MASK; 
+   \      0x2B6   0x78D0             LDRB     R0,[R2, #+3]
+   \      0x2B8   0xF050 0x0020      ORRS     R0,R0,#0x20
+   \      0x2BC   0x70D0             STRB     R0,[R2, #+3]
+    196              UART_R_ISR[x] = rx_isr;
+   \      0x2BE   0x....'....        LDR.W    R0,??DataTable10_38
+   \      0x2C2   0x0029             MOVS     R1,R5
+   \      0x2C4   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \      0x2C6   0xF840 0x3021      STR      R3,[R0, R1, LSL #+2]
+   \      0x2CA   0xE003             B.N      ??LPLD_UART_Init_27
+    197            } 
+    198            else
+    199            {
+    200              uartx->C2 &= ~(UART_C2_RIE_MASK); 
+   \                     ??LPLD_UART_Init_26: (+1)
+   \      0x2CC   0x78D0             LDRB     R0,[R2, #+3]
+   \      0x2CE   0xF010 0x00DF      ANDS     R0,R0,#0xDF
+   \      0x2D2   0x70D0             STRB     R0,[R2, #+3]
+    201            }
+    202            if(uart_init_structure.UART_TxIntEnable == TRUE && tx_isr != NULL)
+   \                     ??LPLD_UART_Init_27: (+1)
+   \      0x2D4   0xF89D 0x001F      LDRB     R0,[SP, #+31]
+   \      0x2D8   0x2801             CMP      R0,#+1
+   \      0x2DA   0xD10C             BNE.N    ??LPLD_UART_Init_28
+   \      0x2DC   0x0020             MOVS     R0,R4
+   \      0x2DE   0x2800             CMP      R0,#+0
+   \      0x2E0   0xD009             BEQ.N    ??LPLD_UART_Init_28
+    203            {
+    204              uartx->C2 |= UART_C2_TIE_MASK; 
+   \      0x2E2   0x78D0             LDRB     R0,[R2, #+3]
+   \      0x2E4   0xF050 0x0080      ORRS     R0,R0,#0x80
+   \      0x2E8   0x70D0             STRB     R0,[R2, #+3]
+    205              UART_T_ISR[x] = tx_isr;
+   \      0x2EA   0x....'....        LDR.W    R0,??DataTable10_39
+   \      0x2EE   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \      0x2F0   0xF840 0x4025      STR      R4,[R0, R5, LSL #+2]
+   \      0x2F4   0xE003             B.N      ??LPLD_UART_Init_29
+    206            } 
+    207            else
+    208            {
+    209              uartx->C2 &= ~(UART_C2_TIE_MASK); 
+   \                     ??LPLD_UART_Init_28: (+1)
+   \      0x2F6   0x78D0             LDRB     R0,[R2, #+3]
+   \      0x2F8   0xF010 0x007F      ANDS     R0,R0,#0x7F
+   \      0x2FC   0x70D0             STRB     R0,[R2, #+3]
+    210            }
+    211            
+    212            //使能发送器和接收器
+    213            uartx->C2 |= (UART_C2_TE_MASK | UART_C2_RE_MASK );    
+   \                     ??LPLD_UART_Init_29: (+1)
+   \      0x2FE   0x78D0             LDRB     R0,[R2, #+3]
+   \      0x300   0xF050 0x000C      ORRS     R0,R0,#0xC
+   \      0x304   0x70D0             STRB     R0,[R2, #+3]
+    214          }
+   \      0x306   0xBCF0             POP      {R4-R7}
+   \      0x308   0xF85D 0xFB14      LDR      PC,[SP], #+20    ;; return
+    215          
+    216          /*
+    217           * LPLD_UART_GetChar
+    218           * 串口查询方式读取一个字节
+    219           * 
+    220           * 参数:
+    221           *    uartx--UART模块号
+    222           *      |__UART0          --UART0
+    223           *      |__UART1          --UART1
+    224           *      |__UART2          --UART2
+    225           *      |__UART3          --UART3
+    226           *      |__UART4          --UART4
+    227           *      |__UART5          --UART5
+    228           *
+    229           * 输出:
+    230           *    串口接收的1个字节
+    231           *
+    232           */
+
+   \                                 In section .text, align 2, keep-with-next
+    233          uint8 LPLD_UART_GetChar(UART_Type *uartx)
+    234          {
+    235            //等待数据接收
+    236            while (!(uartx->S1 & UART_S1_RDRF_MASK));
+   \                     LPLD_UART_GetChar: (+1)
+   \                     ??LPLD_UART_GetChar_0: (+1)
+   \        0x0   0x7901             LDRB     R1,[R0, #+4]
+   \        0x2   0x0689             LSLS     R1,R1,#+26
+   \        0x4   0xD5FC             BPL.N    ??LPLD_UART_GetChar_0
+    237            
+    238            //返回接收的1个字节数据
+    239            return uartx->D;
+   \        0x6   0x79C0             LDRB     R0,[R0, #+7]
+   \        0x8   0x4770             BX       LR               ;; return
+    240          }
+    241          
+    242          /********************************************************************/
+    243          /*
+    244           * LPLD_UART_GetChar_Present
+    245           * 检查是否接收到字符
+    246           * 
+    247           * 参数:
+    248           *    uartx--UART模块号
+    249           *      |__UART0          --UART0
+    250           *      |__UART1          --UART1
+    251           *      |__UART2          --UART2
+    252           *      |__UART3          --UART3
+    253           *      |__UART4          --UART4
+    254           *      |__UART5          --UART5
+    255           *
+    256           * 输出:
+    257           *  0       没有接收到字符
+    258           *  1       已经接收到字符
+    259           */
+
+   \                                 In section .text, align 2, keep-with-next
+    260          int32 LPLD_UART_GetChar_Present(UART_Type *uartx)
+    261          {
+    262              return (uartx->S1 & UART_S1_RDRF_MASK);
+   \                     LPLD_UART_GetChar_Present: (+1)
+   \        0x0   0x7900             LDRB     R0,[R0, #+4]
+   \        0x2   0xF010 0x0020      ANDS     R0,R0,#0x20
+   \        0x6   0x4770             BX       LR               ;; return
+    263          }
+    264          
+    265          /*
+    266           * LPLD_UART_PutChar
+    267           * 串口查询方式发送一个字节
+    268           * 
+    269           * 参数:
+    270           *    uartx--UART模块号
+    271           *      |__UART0          --UART0
+    272           *      |__UART1          --UART1
+    273           *      |__UART2          --UART2
+    274           *      |__UART3          --UART3
+    275           *      |__UART4          --UART4
+    276           *      |__UART5          --UART5
+    277           *    ch--待发送的1个字节
+    278           *
+    279           * 输出:
+    280           *    无
+    281           *
+    282           */
+
+   \                                 In section .text, align 2, keep-with-next
+    283          void LPLD_UART_PutChar(UART_Type *uartx, int8 ch)
+    284          {
+    285            //等待FIFO准备就绪
+    286            while(!(uartx->S1 & UART_S1_TDRE_MASK));
+   \                     LPLD_UART_PutChar: (+1)
+   \                     ??LPLD_UART_PutChar_0: (+1)
+   \        0x0   0x7902             LDRB     R2,[R0, #+4]
+   \        0x2   0x0612             LSLS     R2,R2,#+24
+   \        0x4   0xD5FC             BPL.N    ??LPLD_UART_PutChar_0
+    287            
+    288            //将要发送的1个字节发给UART数据寄存器
+    289            uartx->D = (uint8)ch;
+   \        0x6   0x71C1             STRB     R1,[R0, #+7]
+    290          }
+   \        0x8   0x4770             BX       LR               ;; return
+    291          
+    292          
+    293          /*
+    294           * LPLD_UART_PutCharArr
+    295           * 串口查询方式发送字节型数组
+    296           * 
+    297           * 参数:
+    298           *    uartx--UART模块号
+    299           *      |__UART0          --UART0
+    300           *      |__UART1          --UART1
+    301           *      |__UART2          --UART2
+    302           *      |__UART3          --UART3
+    303           *      |__UART4          --UART4
+    304           *      |__UART5          --UART5
+    305           *    *ch--待发送的字节数组头地址
+    306           *    len--字节数组长度
+    307           *
+    308           * 输出:
+    309           *    无
+    310           *
+    311           */
+
+   \                                 In section .text, align 2, keep-with-next
+    312          void LPLD_UART_PutCharArr(UART_Type *uartx, int8 *ch, int32 len)
+    313          {
+   \                     LPLD_UART_PutCharArr: (+1)
+   \        0x0   0xB570             PUSH     {R4-R6,LR}
+   \        0x2   0x0004             MOVS     R4,R0
+   \        0x4   0x000D             MOVS     R5,R1
+   \        0x6   0x0016             MOVS     R6,R2
+   \        0x8   0xE005             B.N      ??LPLD_UART_PutCharArr_0
+    314            while(len--)
+    315            {
+    316              LPLD_UART_PutChar(uartx, *(ch++));
+   \                     ??LPLD_UART_PutCharArr_1: (+1)
+   \        0xA   0xF995 0x1000      LDRSB    R1,[R5, #+0]
+   \        0xE   0x0020             MOVS     R0,R4
+   \       0x10   0x....'....        BL       LPLD_UART_PutChar
+   \       0x14   0x1C6D             ADDS     R5,R5,#+1
+    317            }
+   \                     ??LPLD_UART_PutCharArr_0: (+1)
+   \       0x16   0x0030             MOVS     R0,R6
+   \       0x18   0x1E46             SUBS     R6,R0,#+1
+   \       0x1A   0x2800             CMP      R0,#+0
+   \       0x1C   0xD1F5             BNE.N    ??LPLD_UART_PutCharArr_1
+    318          }
+   \       0x1E   0xBD70             POP      {R4-R6,PC}       ;; return
+    319          
+    320          /*
+    321           * LPLD_UART_EnableIrq
+    322           * 使能串口数据接收中断
+    323           * 
+    324           * 参数:
+    325           *    uart_init_structure--UART初始化结构体，
+    326           *                        具体定义见UART_InitTypeDef
+    327           *
+    328           * 输出:
+    329           *    无
+    330           *
+    331           */
+
+   \                                 In section .text, align 2, keep-with-next
+    332          void LPLD_UART_EnableIrq(UART_InitTypeDef uart_init_structure)
+    333          {
+   \                     LPLD_UART_EnableIrq: (+1)
+   \        0x0   0xB40F             PUSH     {R0-R3}
+   \        0x2   0xB580             PUSH     {R7,LR}
+    334            if(uart_init_structure.UART_Uartx == UART0)
+   \        0x4   0x9802             LDR      R0,[SP, #+8]
+   \        0x6   0x....             LDR.N    R1,??DataTable10_2  ;; 0x4006a000
+   \        0x8   0x4288             CMP      R0,R1
+   \        0xA   0xD103             BNE.N    ??LPLD_UART_EnableIrq_0
+    335            {
+    336              enable_irq(UART0_RX_TX_IRQn);
+   \        0xC   0x202D             MOVS     R0,#+45
+   \        0xE   0x....'....        BL       __NVIC_EnableIRQ
+   \       0x12   0xE026             B.N      ??LPLD_UART_EnableIrq_1
+    337            }
+    338            else if(uart_init_structure.UART_Uartx == UART1)
+   \                     ??LPLD_UART_EnableIrq_0: (+1)
+   \       0x14   0x9802             LDR      R0,[SP, #+8]
+   \       0x16   0x....             LDR.N    R1,??DataTable10_11  ;; 0x4006b000
+   \       0x18   0x4288             CMP      R0,R1
+   \       0x1A   0xD103             BNE.N    ??LPLD_UART_EnableIrq_2
+    339            {
+    340              enable_irq(UART1_RX_TX_IRQn);
+   \       0x1C   0x202F             MOVS     R0,#+47
+   \       0x1E   0x....'....        BL       __NVIC_EnableIRQ
+   \       0x22   0xE01E             B.N      ??LPLD_UART_EnableIrq_1
+    341            }
+    342            else if(uart_init_structure.UART_Uartx == UART2)
+   \                     ??LPLD_UART_EnableIrq_2: (+1)
+   \       0x24   0x9802             LDR      R0,[SP, #+8]
+   \       0x26   0x....             LDR.N    R1,??DataTable10_17  ;; 0x4006c000
+   \       0x28   0x4288             CMP      R0,R1
+   \       0x2A   0xD103             BNE.N    ??LPLD_UART_EnableIrq_3
+    343            {
+    344              enable_irq(UART2_RX_TX_IRQn);
+   \       0x2C   0x2031             MOVS     R0,#+49
+   \       0x2E   0x....'....        BL       __NVIC_EnableIRQ
+   \       0x32   0xE016             B.N      ??LPLD_UART_EnableIrq_1
+    345            }
+    346            else if(uart_init_structure.UART_Uartx == UART3)
+   \                     ??LPLD_UART_EnableIrq_3: (+1)
+   \       0x34   0x9802             LDR      R0,[SP, #+8]
+   \       0x36   0x....             LDR.N    R1,??DataTable10_20  ;; 0x4006d000
+   \       0x38   0x4288             CMP      R0,R1
+   \       0x3A   0xD103             BNE.N    ??LPLD_UART_EnableIrq_4
+    347            {
+    348              enable_irq(UART3_RX_TX_IRQn);
+   \       0x3C   0x2033             MOVS     R0,#+51
+   \       0x3E   0x....'....        BL       __NVIC_EnableIRQ
+   \       0x42   0xE00E             B.N      ??LPLD_UART_EnableIrq_1
+    349            }
+    350            else if(uart_init_structure.UART_Uartx == UART4)
+   \                     ??LPLD_UART_EnableIrq_4: (+1)
+   \       0x44   0x9802             LDR      R0,[SP, #+8]
+   \       0x46   0x....             LDR.N    R1,??DataTable10_27  ;; 0x400ea000
+   \       0x48   0x4288             CMP      R0,R1
+   \       0x4A   0xD103             BNE.N    ??LPLD_UART_EnableIrq_5
+    351            {
+    352              enable_irq(UART4_RX_TX_IRQn);
+   \       0x4C   0x2035             MOVS     R0,#+53
+   \       0x4E   0x....'....        BL       __NVIC_EnableIRQ
+   \       0x52   0xE006             B.N      ??LPLD_UART_EnableIrq_1
+    353            }
+    354            else if(uart_init_structure.UART_Uartx == UART5)
+   \                     ??LPLD_UART_EnableIrq_5: (+1)
+   \       0x54   0x9802             LDR      R0,[SP, #+8]
+   \       0x56   0x....             LDR.N    R1,??DataTable10_33  ;; 0x400eb000
+   \       0x58   0x4288             CMP      R0,R1
+   \       0x5A   0xD102             BNE.N    ??LPLD_UART_EnableIrq_1
+    355            {
+    356              enable_irq(UART5_RX_TX_IRQn);
+   \       0x5C   0x2037             MOVS     R0,#+55
+   \       0x5E   0x....'....        BL       __NVIC_EnableIRQ
+    357            }
+    358          }
+   \                     ??LPLD_UART_EnableIrq_1: (+1)
+   \       0x62   0xBC01             POP      {R0}
+   \       0x64   0xF85D 0xFB14      LDR      PC,[SP], #+20    ;; return
+    359          
+    360          /*
+    361           * LPLD_UART_DisableIrq
+    362           * 禁用串口数据接收中断
+    363           * 
+    364           * 参数:
+    365           *    uart_init_structure--UART初始化结构体，
+    366           *                        具体定义见UART_InitTypeDef
+    367           *
+    368           * 输出:
+    369           *    无
+    370           *
+    371           */
+
+   \                                 In section .text, align 2, keep-with-next
+    372          void LPLD_UART_DisableIrq(UART_InitTypeDef uart_init_structure)
+    373          {
+   \                     LPLD_UART_DisableIrq: (+1)
+   \        0x0   0xB40F             PUSH     {R0-R3}
+   \        0x2   0xB580             PUSH     {R7,LR}
+    374            //根据中断请求号使能相应中断
+    375            if(uart_init_structure.UART_Uartx == UART0)
+   \        0x4   0x9802             LDR      R0,[SP, #+8]
+   \        0x6   0x....             LDR.N    R1,??DataTable10_2  ;; 0x4006a000
+   \        0x8   0x4288             CMP      R0,R1
+   \        0xA   0xD103             BNE.N    ??LPLD_UART_DisableIrq_0
+    376              disable_irq(UART0_RX_TX_IRQn);
+   \        0xC   0x202D             MOVS     R0,#+45
+   \        0xE   0x....'....        BL       __NVIC_DisableIRQ
+   \       0x12   0xE026             B.N      ??LPLD_UART_DisableIrq_1
+    377            else if(uart_init_structure.UART_Uartx == UART1)
+   \                     ??LPLD_UART_DisableIrq_0: (+1)
+   \       0x14   0x9802             LDR      R0,[SP, #+8]
+   \       0x16   0x....             LDR.N    R1,??DataTable10_11  ;; 0x4006b000
+   \       0x18   0x4288             CMP      R0,R1
+   \       0x1A   0xD103             BNE.N    ??LPLD_UART_DisableIrq_2
+    378              disable_irq(UART1_RX_TX_IRQn);
+   \       0x1C   0x202F             MOVS     R0,#+47
+   \       0x1E   0x....'....        BL       __NVIC_DisableIRQ
+   \       0x22   0xE01E             B.N      ??LPLD_UART_DisableIrq_1
+    379            else if(uart_init_structure.UART_Uartx == UART2)
+   \                     ??LPLD_UART_DisableIrq_2: (+1)
+   \       0x24   0x9802             LDR      R0,[SP, #+8]
+   \       0x26   0x....             LDR.N    R1,??DataTable10_17  ;; 0x4006c000
+   \       0x28   0x4288             CMP      R0,R1
+   \       0x2A   0xD103             BNE.N    ??LPLD_UART_DisableIrq_3
+    380              disable_irq(UART2_RX_TX_IRQn);
+   \       0x2C   0x2031             MOVS     R0,#+49
+   \       0x2E   0x....'....        BL       __NVIC_DisableIRQ
+   \       0x32   0xE016             B.N      ??LPLD_UART_DisableIrq_1
+    381            else if(uart_init_structure.UART_Uartx == UART3)
+   \                     ??LPLD_UART_DisableIrq_3: (+1)
+   \       0x34   0x9802             LDR      R0,[SP, #+8]
+   \       0x36   0x....             LDR.N    R1,??DataTable10_20  ;; 0x4006d000
+   \       0x38   0x4288             CMP      R0,R1
+   \       0x3A   0xD103             BNE.N    ??LPLD_UART_DisableIrq_4
+    382              disable_irq(UART3_RX_TX_IRQn);
+   \       0x3C   0x2033             MOVS     R0,#+51
+   \       0x3E   0x....'....        BL       __NVIC_DisableIRQ
+   \       0x42   0xE00E             B.N      ??LPLD_UART_DisableIrq_1
+    383            else if(uart_init_structure.UART_Uartx == UART4)
+   \                     ??LPLD_UART_DisableIrq_4: (+1)
+   \       0x44   0x9802             LDR      R0,[SP, #+8]
+   \       0x46   0x....             LDR.N    R1,??DataTable10_27  ;; 0x400ea000
+   \       0x48   0x4288             CMP      R0,R1
+   \       0x4A   0xD103             BNE.N    ??LPLD_UART_DisableIrq_5
+    384              disable_irq(UART4_RX_TX_IRQn);
+   \       0x4C   0x2035             MOVS     R0,#+53
+   \       0x4E   0x....'....        BL       __NVIC_DisableIRQ
+   \       0x52   0xE006             B.N      ??LPLD_UART_DisableIrq_1
+    385            else if(uart_init_structure.UART_Uartx == UART5)
+   \                     ??LPLD_UART_DisableIrq_5: (+1)
+   \       0x54   0x9802             LDR      R0,[SP, #+8]
+   \       0x56   0x....             LDR.N    R1,??DataTable10_33  ;; 0x400eb000
+   \       0x58   0x4288             CMP      R0,R1
+   \       0x5A   0xD102             BNE.N    ??LPLD_UART_DisableIrq_1
+    386              disable_irq(UART5_RX_TX_IRQn);
+   \       0x5C   0x2037             MOVS     R0,#+55
+   \       0x5E   0x....'....        BL       __NVIC_DisableIRQ
+    387          }
+   \                     ??LPLD_UART_DisableIrq_1: (+1)
+   \       0x62   0xBC01             POP      {R0}
+   \       0x64   0xF85D 0xFB14      LDR      PC,[SP], #+20    ;; return
+    388          
+    389          //HW层中断函数，用户无需调用
+
+   \                                 In section .text, align 2, keep-with-next
+    390          void UART0_IRQHandler(void)
+    391          {
+   \                     UART0_IRQHandler: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+    392          #if (UCOS_II > 0u)
+    393            OS_CPU_SR  cpu_sr = 0u;
+    394            OS_ENTER_CRITICAL(); //告知系统此时已经进入了中断服务子函数
+    395            OSIntEnter();
+    396            OS_EXIT_CRITICAL();
+    397          #endif
+    398            
+    399            //进入接收中断函数
+    400            if((UART0->S1 & UART_S1_RDRF_MASK) && (UART0->C2 & UART_C2_RIE_MASK))
+   \        0x2   0x....             LDR.N    R4,??DataTable10_40  ;; 0x4006a004
+   \        0x4   0x7820             LDRB     R0,[R4, #+0]
+   \        0x6   0x0680             LSLS     R0,R0,#+26
+   \        0x8   0xD506             BPL.N    ??UART0_IRQHandler_0
+   \        0xA   0x....             LDR.N    R0,??DataTable10_41  ;; 0x4006a003
+   \        0xC   0x7800             LDRB     R0,[R0, #+0]
+   \        0xE   0x0680             LSLS     R0,R0,#+26
+   \       0x10   0xD502             BPL.N    ??UART0_IRQHandler_0
+    401            {
+    402              UART_R_ISR[0]();
+   \       0x12   0x....             LDR.N    R0,??DataTable10_38
+   \       0x14   0x6800             LDR      R0,[R0, #+0]
+   \       0x16   0x4780             BLX      R0
+    403            }
+    404            //进入发送中断函数
+    405            if((UART0->S1 & UART_S1_TDRE_MASK) && (UART0->C2 & UART_C2_TIE_MASK))
+   \                     ??UART0_IRQHandler_0: (+1)
+   \       0x18   0x7820             LDRB     R0,[R4, #+0]
+   \       0x1A   0x0600             LSLS     R0,R0,#+24
+   \       0x1C   0xD506             BPL.N    ??UART0_IRQHandler_1
+   \       0x1E   0x....             LDR.N    R0,??DataTable10_41  ;; 0x4006a003
+   \       0x20   0x7800             LDRB     R0,[R0, #+0]
+   \       0x22   0x0600             LSLS     R0,R0,#+24
+   \       0x24   0xD502             BPL.N    ??UART0_IRQHandler_1
+    406            {
+    407              UART_T_ISR[0]();
+   \       0x26   0x....             LDR.N    R0,??DataTable10_39
+   \       0x28   0x6800             LDR      R0,[R0, #+0]
+   \       0x2A   0x4780             BLX      R0
+    408            }
+    409            
+    410          #if (UCOS_II > 0u)
+    411            OSIntExit();          //告知系统此时即将离开中断服务子函数
+    412          #endif
+    413          }
+   \                     ??UART0_IRQHandler_1: (+1)
+   \       0x2C   0xBD10             POP      {R4,PC}          ;; return
+    414          
+    415          //HW层中断函数，用户无需调用
+
+   \                                 In section .text, align 2, keep-with-next
+    416          void UART1_IRQHandler(void)
+    417          {
+   \                     UART1_IRQHandler: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+    418          #if (UCOS_II > 0u)
+    419            OS_CPU_SR  cpu_sr = 0u;
+    420            OS_ENTER_CRITICAL(); //告知系统此时已经进入了中断服务子函数
+    421            OSIntEnter();
+    422            OS_EXIT_CRITICAL();
+    423          #endif
+    424            
+    425            //进入接收中断函数
+    426            if((UART1->S1 & UART_S1_RDRF_MASK) && (UART1->C2 & UART_C2_RIE_MASK))
+   \        0x2   0x....             LDR.N    R4,??DataTable10_42  ;; 0x4006b004
+   \        0x4   0x7820             LDRB     R0,[R4, #+0]
+   \        0x6   0x0680             LSLS     R0,R0,#+26
+   \        0x8   0xD506             BPL.N    ??UART1_IRQHandler_0
+   \        0xA   0x....             LDR.N    R0,??DataTable10_43  ;; 0x4006b003
+   \        0xC   0x7800             LDRB     R0,[R0, #+0]
+   \        0xE   0x0680             LSLS     R0,R0,#+26
+   \       0x10   0xD502             BPL.N    ??UART1_IRQHandler_0
+    427            {
+    428              UART_R_ISR[1]();
+   \       0x12   0x....             LDR.N    R0,??DataTable10_38
+   \       0x14   0x6840             LDR      R0,[R0, #+4]
+   \       0x16   0x4780             BLX      R0
+    429            }
+    430            //进入发送中断函数
+    431            if((UART1->S1 & UART_S1_TDRE_MASK) && (UART1->C2 & UART_C2_TIE_MASK))
+   \                     ??UART1_IRQHandler_0: (+1)
+   \       0x18   0x7820             LDRB     R0,[R4, #+0]
+   \       0x1A   0x0600             LSLS     R0,R0,#+24
+   \       0x1C   0xD506             BPL.N    ??UART1_IRQHandler_1
+   \       0x1E   0x....             LDR.N    R0,??DataTable10_43  ;; 0x4006b003
+   \       0x20   0x7800             LDRB     R0,[R0, #+0]
+   \       0x22   0x0600             LSLS     R0,R0,#+24
+   \       0x24   0xD502             BPL.N    ??UART1_IRQHandler_1
+    432            {
+    433              UART_T_ISR[1]();
+   \       0x26   0x....             LDR.N    R0,??DataTable10_39
+   \       0x28   0x6840             LDR      R0,[R0, #+4]
+   \       0x2A   0x4780             BLX      R0
+    434            }
+    435            
+    436          #if (UCOS_II > 0u)
+    437            OSIntExit();          //告知系统此时即将离开中断服务子函数
+    438          #endif
+    439          }
+   \                     ??UART1_IRQHandler_1: (+1)
+   \       0x2C   0xBD10             POP      {R4,PC}          ;; return
+    440          
+    441          //HW层中断函数，用户无需调用
+
+   \                                 In section .text, align 2, keep-with-next
+    442          void UART2_IRQHandler(void)
+    443          {
+   \                     UART2_IRQHandler: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+    444          #if (UCOS_II > 0u)
+    445            OS_CPU_SR  cpu_sr = 0u;
+    446            OS_ENTER_CRITICAL(); //告知系统此时已经进入了中断服务子函数
+    447            OSIntEnter();
+    448            OS_EXIT_CRITICAL();
+    449          #endif
+    450            
+    451            //进入接收中断函数
+    452            if((UART2->S1 & UART_S1_RDRF_MASK) && (UART2->C2 & UART_C2_RIE_MASK))
+   \        0x2   0x....             LDR.N    R4,??DataTable10_44  ;; 0x4006c004
+   \        0x4   0x7820             LDRB     R0,[R4, #+0]
+   \        0x6   0x0680             LSLS     R0,R0,#+26
+   \        0x8   0xD506             BPL.N    ??UART2_IRQHandler_0
+   \        0xA   0x....             LDR.N    R0,??DataTable10_45  ;; 0x4006c003
+   \        0xC   0x7800             LDRB     R0,[R0, #+0]
+   \        0xE   0x0680             LSLS     R0,R0,#+26
+   \       0x10   0xD502             BPL.N    ??UART2_IRQHandler_0
+    453            {
+    454              UART_R_ISR[2]();
+   \       0x12   0x....             LDR.N    R0,??DataTable10_38
+   \       0x14   0x6880             LDR      R0,[R0, #+8]
+   \       0x16   0x4780             BLX      R0
+    455            }
+    456            //进入发送中断函数
+    457            if((UART2->S1 & UART_S1_TDRE_MASK) && (UART2->C2 & UART_C2_TIE_MASK))
+   \                     ??UART2_IRQHandler_0: (+1)
+   \       0x18   0x7820             LDRB     R0,[R4, #+0]
+   \       0x1A   0x0600             LSLS     R0,R0,#+24
+   \       0x1C   0xD506             BPL.N    ??UART2_IRQHandler_1
+   \       0x1E   0x....             LDR.N    R0,??DataTable10_45  ;; 0x4006c003
+   \       0x20   0x7800             LDRB     R0,[R0, #+0]
+   \       0x22   0x0600             LSLS     R0,R0,#+24
+   \       0x24   0xD502             BPL.N    ??UART2_IRQHandler_1
+    458            {
+    459              UART_T_ISR[2]();
+   \       0x26   0x....             LDR.N    R0,??DataTable10_39
+   \       0x28   0x6880             LDR      R0,[R0, #+8]
+   \       0x2A   0x4780             BLX      R0
+    460            }
+    461            
+    462          #if (UCOS_II > 0u)
+    463            OSIntExit();          //告知系统此时即将离开中断服务子函数
+    464          #endif
+    465          }
+   \                     ??UART2_IRQHandler_1: (+1)
+   \       0x2C   0xBD10             POP      {R4,PC}          ;; return
+    466          
+    467          //HW层中断函数，用户无需调用
+
+   \                                 In section .text, align 2, keep-with-next
+    468          void UART3_IRQHandler(void)
+    469          {
+   \                     UART3_IRQHandler: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+    470          #if (UCOS_II > 0u)
+    471            OS_CPU_SR  cpu_sr = 0u;
+    472            OS_ENTER_CRITICAL(); //告知系统此时已经进入了中断服务子函数
+    473            OSIntEnter();
+    474            OS_EXIT_CRITICAL();
+    475          #endif
+    476            
+    477            //进入接收中断函数
+    478            if((UART3->S1 & UART_S1_RDRF_MASK) && (UART3->C2 & UART_C2_RIE_MASK))
+   \        0x2   0x....             LDR.N    R4,??DataTable10_46  ;; 0x4006d004
+   \        0x4   0x7820             LDRB     R0,[R4, #+0]
+   \        0x6   0x0680             LSLS     R0,R0,#+26
+   \        0x8   0xD506             BPL.N    ??UART3_IRQHandler_0
+   \        0xA   0x....             LDR.N    R0,??DataTable10_47  ;; 0x4006d003
+   \        0xC   0x7800             LDRB     R0,[R0, #+0]
+   \        0xE   0x0680             LSLS     R0,R0,#+26
+   \       0x10   0xD502             BPL.N    ??UART3_IRQHandler_0
+    479            {
+    480              UART_R_ISR[3]();
+   \       0x12   0x....             LDR.N    R0,??DataTable10_38
+   \       0x14   0x68C0             LDR      R0,[R0, #+12]
+   \       0x16   0x4780             BLX      R0
+    481            }
+    482            //进入发送中断函数
+    483            if((UART3->S1 & UART_S1_TDRE_MASK) && (UART3->C2 & UART_C2_TIE_MASK))
+   \                     ??UART3_IRQHandler_0: (+1)
+   \       0x18   0x7820             LDRB     R0,[R4, #+0]
+   \       0x1A   0x0600             LSLS     R0,R0,#+24
+   \       0x1C   0xD506             BPL.N    ??UART3_IRQHandler_1
+   \       0x1E   0x....             LDR.N    R0,??DataTable10_47  ;; 0x4006d003
+   \       0x20   0x7800             LDRB     R0,[R0, #+0]
+   \       0x22   0x0600             LSLS     R0,R0,#+24
+   \       0x24   0xD502             BPL.N    ??UART3_IRQHandler_1
+    484            {
+    485              UART_T_ISR[3]();
+   \       0x26   0x....             LDR.N    R0,??DataTable10_39
+   \       0x28   0x68C0             LDR      R0,[R0, #+12]
+   \       0x2A   0x4780             BLX      R0
+    486            }
+    487            
+    488          #if (UCOS_II > 0u)
+    489            OSIntExit();          //告知系统此时即将离开中断服务子函数
+    490          #endif
+    491          }
+   \                     ??UART3_IRQHandler_1: (+1)
+   \       0x2C   0xBD10             POP      {R4,PC}          ;; return
+    492          
+    493          //HW层中断函数，用户无需调用
+
+   \                                 In section .text, align 2, keep-with-next
+    494          void UART4_IRQHandler(void)
+    495          {
+   \                     UART4_IRQHandler: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+    496          #if (UCOS_II > 0u)
+    497            OS_CPU_SR  cpu_sr = 0u;
+    498            OS_ENTER_CRITICAL(); //告知系统此时已经进入了中断服务子函数
+    499            OSIntEnter();
+    500            OS_EXIT_CRITICAL();
+    501          #endif
+    502            
+    503            //进入接收中断函数
+    504            if((UART4->S1 & UART_S1_RDRF_MASK) && (UART4->C2 & UART_C2_RIE_MASK))
+   \        0x2   0x....             LDR.N    R4,??DataTable10_48  ;; 0x400ea004
+   \        0x4   0x7820             LDRB     R0,[R4, #+0]
+   \        0x6   0x0680             LSLS     R0,R0,#+26
+   \        0x8   0xD506             BPL.N    ??UART4_IRQHandler_0
+   \        0xA   0x....             LDR.N    R0,??DataTable10_49  ;; 0x400ea003
+   \        0xC   0x7800             LDRB     R0,[R0, #+0]
+   \        0xE   0x0680             LSLS     R0,R0,#+26
+   \       0x10   0xD502             BPL.N    ??UART4_IRQHandler_0
+    505            {
+    506              UART_R_ISR[4]();
+   \       0x12   0x....             LDR.N    R0,??DataTable10_38
+   \       0x14   0x6900             LDR      R0,[R0, #+16]
+   \       0x16   0x4780             BLX      R0
+    507            }
+    508            //进入发送中断函数
+    509            if((UART4->S1 & UART_S1_TDRE_MASK) && (UART4->C2 & UART_C2_TIE_MASK))
+   \                     ??UART4_IRQHandler_0: (+1)
+   \       0x18   0x7820             LDRB     R0,[R4, #+0]
+   \       0x1A   0x0600             LSLS     R0,R0,#+24
+   \       0x1C   0xD506             BPL.N    ??UART4_IRQHandler_1
+   \       0x1E   0x....             LDR.N    R0,??DataTable10_49  ;; 0x400ea003
+   \       0x20   0x7800             LDRB     R0,[R0, #+0]
+   \       0x22   0x0600             LSLS     R0,R0,#+24
+   \       0x24   0xD502             BPL.N    ??UART4_IRQHandler_1
+    510            {
+    511              UART_T_ISR[4]();
+   \       0x26   0x....             LDR.N    R0,??DataTable10_39
+   \       0x28   0x6900             LDR      R0,[R0, #+16]
+   \       0x2A   0x4780             BLX      R0
+    512            }
+    513            
+    514          #if (UCOS_II > 0u)
+    515            OSIntExit();          //告知系统此时即将离开中断服务子函数
+    516          #endif
+    517          }
+   \                     ??UART4_IRQHandler_1: (+1)
+   \       0x2C   0xBD10             POP      {R4,PC}          ;; return
+    518          
+    519          //HW层中断函数，用户无需调用
+
+   \                                 In section .text, align 2, keep-with-next
+    520          void UART5_IRQHandler(void)
+    521          {
+   \                     UART5_IRQHandler: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+    522          #if (UCOS_II > 0u)
+    523            OS_CPU_SR  cpu_sr = 0u;
+    524            OS_ENTER_CRITICAL(); //告知系统此时已经进入了中断服务子函数
+    525            OSIntEnter();
+    526            OS_EXIT_CRITICAL();
+    527          #endif
+    528            
+    529            //进入接收中断函数
+    530            if((UART5->S1 & UART_S1_RDRF_MASK) && (UART5->C2 & UART_C2_RIE_MASK))
+   \        0x2   0x....             LDR.N    R4,??DataTable10_50  ;; 0x400eb004
+   \        0x4   0x7820             LDRB     R0,[R4, #+0]
+   \        0x6   0x0680             LSLS     R0,R0,#+26
+   \        0x8   0xD506             BPL.N    ??UART5_IRQHandler_0
+   \        0xA   0x....             LDR.N    R0,??DataTable10_51  ;; 0x400eb003
+   \        0xC   0x7800             LDRB     R0,[R0, #+0]
+   \        0xE   0x0680             LSLS     R0,R0,#+26
+   \       0x10   0xD502             BPL.N    ??UART5_IRQHandler_0
+    531            {
+    532              UART_R_ISR[5]();
+   \       0x12   0x....             LDR.N    R0,??DataTable10_38
+   \       0x14   0x6940             LDR      R0,[R0, #+20]
+   \       0x16   0x4780             BLX      R0
+    533            }
+    534            //进入发送中断函数
+    535            if((UART5->S1 & UART_S1_TDRE_MASK) && (UART5->C2 & UART_C2_TIE_MASK))
+   \                     ??UART5_IRQHandler_0: (+1)
+   \       0x18   0x7820             LDRB     R0,[R4, #+0]
+   \       0x1A   0x0600             LSLS     R0,R0,#+24
+   \       0x1C   0xD506             BPL.N    ??UART5_IRQHandler_1
+   \       0x1E   0x....             LDR.N    R0,??DataTable10_51  ;; 0x400eb003
+   \       0x20   0x7800             LDRB     R0,[R0, #+0]
+   \       0x22   0x0600             LSLS     R0,R0,#+24
+   \       0x24   0xD502             BPL.N    ??UART5_IRQHandler_1
+    536            {
+    537              UART_T_ISR[5]();
+   \       0x26   0x....             LDR.N    R0,??DataTable10_39
+   \       0x28   0x6940             LDR      R0,[R0, #+20]
+   \       0x2A   0x4780             BLX      R0
+    538            }
+    539            
+    540          #if (UCOS_II > 0u)
+    541            OSIntExit();          //告知系统此时即将离开中断服务子函数
+    542          #endif
+    543          }
+   \                     ??UART5_IRQHandler_1: (+1)
+   \       0x2C   0xBD10             POP      {R4,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10:
+   \        0x0   0xE000'E100        DC32     0xe000e100
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_1:
+   \        0x0   0xE000'E180        DC32     0xe000e180
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_2:
+   \        0x0   0x4006'A000        DC32     0x4006a000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_3:
+   \        0x0   0x....'....        DC32     g_core_clock
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_4:
+   \        0x0   0x4004'8034        DC32     0x40048034
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_5:
+   \        0x0   0x4004'9008        DC32     0x40049008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_6:
+   \        0x0   0x4004'9038        DC32     0x40049038
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_7:
+   \        0x0   0x4004'A044        DC32     0x4004a044
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_8:
+   \        0x0   0x4004'9004        DC32     0x40049004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_9:
+   \        0x0   0x4004'903C        DC32     0x4004903c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_10:
+   \        0x0   0x4004'A040        DC32     0x4004a040
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_11:
+   \        0x0   0x4006'B000        DC32     0x4006b000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_12:
+   \        0x0   0x4004'D000        DC32     0x4004d000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_13:
+   \        0x0   0x4004'B010        DC32     0x4004b010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_14:
+   \        0x0   0x4004'D004        DC32     0x4004d004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_15:
+   \        0x0   0x4004'B00C        DC32     0x4004b00c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_16:
+   \        0x0   0x....'....        DC32     g_bus_clock
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_17:
+   \        0x0   0x4006'C000        DC32     0x4006c000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_18:
+   \        0x0   0x4004'C00C        DC32     0x4004c00c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_19:
+   \        0x0   0x4004'C008        DC32     0x4004c008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_20:
+   \        0x0   0x4006'D000        DC32     0x4006d000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_21:
+   \        0x0   0x4004'D010        DC32     0x4004d010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_22:
+   \        0x0   0x4004'A02C        DC32     0x4004a02c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_23:
+   \        0x0   0x4004'B044        DC32     0x4004b044
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_24:
+   \        0x0   0x4004'D014        DC32     0x4004d014
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_25:
+   \        0x0   0x4004'A028        DC32     0x4004a028
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_26:
+   \        0x0   0x4004'B040        DC32     0x4004b040
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_27:
+   \        0x0   0x400E'A000        DC32     0x400ea000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_28:
+   \        0x0   0x4004'8028        DC32     0x40048028
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_29:
+   \        0x0   0x4004'D060        DC32     0x4004d060
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_30:
+   \        0x0   0x4004'B03C        DC32     0x4004b03c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_31:
+   \        0x0   0x4004'D064        DC32     0x4004d064
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_32:
+   \        0x0   0x4004'B038        DC32     0x4004b038
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_33:
+   \        0x0   0x400E'B000        DC32     0x400eb000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_34:
+   \        0x0   0x4004'C024        DC32     0x4004c024
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_35:
+   \        0x0   0x4004'D020        DC32     0x4004d020
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_36:
+   \        0x0   0x4004'C020        DC32     0x4004c020
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_37:
+   \        0x0   0x4004'D024        DC32     0x4004d024
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_38:
+   \        0x0   0x....'....        DC32     UART_R_ISR
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_39:
+   \        0x0   0x....'....        DC32     UART_T_ISR
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_40:
+   \        0x0   0x4006'A004        DC32     0x4006a004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_41:
+   \        0x0   0x4006'A003        DC32     0x4006a003
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_42:
+   \        0x0   0x4006'B004        DC32     0x4006b004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_43:
+   \        0x0   0x4006'B003        DC32     0x4006b003
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_44:
+   \        0x0   0x4006'C004        DC32     0x4006c004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_45:
+   \        0x0   0x4006'C003        DC32     0x4006c003
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_46:
+   \        0x0   0x4006'D004        DC32     0x4006d004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_47:
+   \        0x0   0x4006'D003        DC32     0x4006d003
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_48:
+   \        0x0   0x400E'A004        DC32     0x400ea004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_49:
+   \        0x0   0x400E'A003        DC32     0x400ea003
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_50:
+   \        0x0   0x400E'B004        DC32     0x400eb004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_51:
+   \        0x0   0x400E'B003        DC32     0x400eb003
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      24   LPLD_UART_DisableIrq
+        24   -> __NVIC_DisableIRQ
+      24   LPLD_UART_EnableIrq
+        24   -> __NVIC_EnableIRQ
+       0   LPLD_UART_GetChar
+       0   LPLD_UART_GetChar_Present
+      36   LPLD_UART_Init
+       0   LPLD_UART_PutChar
+      16   LPLD_UART_PutCharArr
+        16   -> LPLD_UART_PutChar
+       8   UART0_IRQHandler
+         8   -- Indirect call
+       8   UART1_IRQHandler
+         8   -- Indirect call
+       8   UART2_IRQHandler
+         8   -- Indirect call
+       8   UART3_IRQHandler
+         8   -- Indirect call
+       8   UART4_IRQHandler
+         8   -- Indirect call
+       8   UART5_IRQHandler
+         8   -- Indirect call
+       0   __NVIC_DisableIRQ
+       0   __NVIC_EnableIRQ
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable10
+       4  ??DataTable10_1
+       4  ??DataTable10_10
+       4  ??DataTable10_11
+       4  ??DataTable10_12
+       4  ??DataTable10_13
+       4  ??DataTable10_14
+       4  ??DataTable10_15
+       4  ??DataTable10_16
+       4  ??DataTable10_17
+       4  ??DataTable10_18
+       4  ??DataTable10_19
+       4  ??DataTable10_2
+       4  ??DataTable10_20
+       4  ??DataTable10_21
+       4  ??DataTable10_22
+       4  ??DataTable10_23
+       4  ??DataTable10_24
+       4  ??DataTable10_25
+       4  ??DataTable10_26
+       4  ??DataTable10_27
+       4  ??DataTable10_28
+       4  ??DataTable10_29
+       4  ??DataTable10_3
+       4  ??DataTable10_30
+       4  ??DataTable10_31
+       4  ??DataTable10_32
+       4  ??DataTable10_33
+       4  ??DataTable10_34
+       4  ??DataTable10_35
+       4  ??DataTable10_36
+       4  ??DataTable10_37
+       4  ??DataTable10_38
+       4  ??DataTable10_39
+       4  ??DataTable10_4
+       4  ??DataTable10_40
+       4  ??DataTable10_41
+       4  ??DataTable10_42
+       4  ??DataTable10_43
+       4  ??DataTable10_44
+       4  ??DataTable10_45
+       4  ??DataTable10_46
+       4  ??DataTable10_47
+       4  ??DataTable10_48
+       4  ??DataTable10_49
+       4  ??DataTable10_5
+       4  ??DataTable10_50
+       4  ??DataTable10_51
+       4  ??DataTable10_6
+       4  ??DataTable10_7
+       4  ??DataTable10_8
+       4  ??DataTable10_9
+     104  LPLD_UART_DisableIrq
+     104  LPLD_UART_EnableIrq
+      10  LPLD_UART_GetChar
+       8  LPLD_UART_GetChar_Present
+     780  LPLD_UART_Init
+      10  LPLD_UART_PutChar
+      32  LPLD_UART_PutCharArr
+      46  UART0_IRQHandler
+      46  UART1_IRQHandler
+      46  UART2_IRQHandler
+      46  UART3_IRQHandler
+      46  UART4_IRQHandler
+      46  UART5_IRQHandler
+      24  UART_R_ISR
+      24  UART_T_ISR
+      38  __NVIC_DisableIRQ
+      30  __NVIC_EnableIRQ
+
+ 
+    48 bytes in section .bss
+ 1 600 bytes in section .text
+ 
+ 1 600 bytes of CODE memory
+    48 bytes of DATA memory
+
+Errors: none
+Warnings: 1

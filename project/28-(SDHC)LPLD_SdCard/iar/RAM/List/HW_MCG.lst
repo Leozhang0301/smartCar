@@ -1,0 +1,576 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         18/May/2019  16:18:18
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_MCG.c
+#    Command line =  
+#        -f C:\Users\TEMPLA~1.000\AppData\Local\Temp\EW8656.tmp
+#        (C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_MCG.c -D
+#        LPLD_K60 -lCN
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -lB
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -o
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config "D:\@@\605110 IAR for
+#        ARM 8.30\arm\inc\c\DLib_Config_Normal.h" -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Me\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\Core\Include\" -I
+#        "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\DSP\Include\" -D
+#        ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List\HW_MCG.lst
+#    Object file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_MCG.o
+#
+###############################################################################
+
+C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_MCG.c
+      1          /**
+      2           * @file HW_MCG.c
+      3           * @version 3.0[By LPLD]
+      4           * @date 2013-06-18
+      5           * @brief MCG底层模块相关函数
+      6           *
+      7           * 更改建议:不建议修改
+      8           *
+      9           * 版权所有:北京拉普兰德电子技术有限公司
+     10           * http://www.lpld.cn
+     11           * mail:support@lpld.cn
+     12           *
+     13           * @par
+     14           * 本代码由拉普兰德[LPLD]开发并维护，并向所有使用者开放源代码。
+     15           * 开发者可以随意修使用或改源代码。但本段及以上注释应予以保留。
+     16           * 不得更改或删除原版权所有者姓名，二次开发者可以加注二次版权所有者。
+     17           * 但应在遵守此协议的基础上，开放源代码、不得出售代码本身。
+     18           * 拉普兰德不负责由于使用本代码所带来的任何事故、法律责任或相关不良影响。
+     19           * 拉普兰德无义务解释、说明本代码的具体原理、功能、实现方法。
+     20           * 除非拉普兰德[LPLD]授权，开发者不得将本代码用于商业产品。
+     21           */
+     22          #include "common.h"
+     23          #include "HW_MCG.h"
+     24          
+     25          
+
+   \                                 In section .data, align 4
+     26          uint32 g_core_clock = -1ul;
+   \                     g_core_clock:
+   \        0x0   0xFFFF'FFFF        DC32 4294967295
+
+   \                                 In section .data, align 4
+     27          uint32 g_bus_clock = -1ul;
+   \                     g_bus_clock:
+   \        0x0   0xFFFF'FFFF        DC32 4294967295
+
+   \                                 In section .data, align 4
+     28          uint32 g_flash_clock = -1ul;
+   \                     g_flash_clock:
+   \        0x0   0xFFFF'FFFF        DC32 4294967295
+
+   \                                 In section .data, align 4
+     29          uint32 g_flexbus_clock = -1ul;
+   \                     g_flexbus_clock:
+   \        0x0   0xFFFF'FFFF        DC32 4294967295
+     30          
+     31          /*
+     32           * LPLD_PLL_Setup
+     33           * 初始化内核时钟及其他系统时钟
+     34           * 
+     35           * 参数:
+     36           *    core_clk_mhz--期望内核时钟频率
+     37           *      |__PLLx--参见HAL_MCG.h中的PLL_option定义
+     38           *
+     39           * 输出:
+     40           *    内核频率，单位MHz
+     41           */
+
+   \                                 In section .text, align 4, keep-with-next
+     42          uint8 LPLD_PLL_Setup(PllOptionEnum_Type core_clk_mhz)
+     43          {
+   \                     LPLD_PLL_Setup: (+1)
+   \        0x0   0xE92D 0x43F8      PUSH     {R3-R9,LR}
+   \        0x4   0x0001             MOVS     R1,R0
+     44            uint8 pll_freq;
+     45            uint8 prdiv, vdiv;
+     46            uint8 core_div, bus_div, flexbus_div, flash_div;
+     47            
+     48          /*
+     49           *************************************************
+     50            【LPLD注解】MCG关键系数
+     51            prdiv(PLL分频系数): 0~31(1~32)
+     52            vdiv(PLL倍频系数): 0~31(24~55)
+     53            PLL参考时钟范围: 2MHz~4MHz
+     54            PLL参考时钟 = 外部参考时钟(CPU_XTAL_CLK_HZ)/prdiv
+     55            CoreClk = PLL参考时钟 x PLL倍频系数 /OUTDIV1
+     56           *************************************************
+     57           */
+     58            
+     59            // 对于MK60DZ10来说，core_clk_mhz建议不要超过100，这里限制为最高200
+     60            core_clk_mhz = (PllOptionEnum_Type)(core_clk_mhz>200u?200u:core_clk_mhz);
+   \        0x6   0x0008             MOVS     R0,R1
+   \        0x8   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \        0xA   0x28C9             CMP      R0,#+201
+   \        0xC   0xD301             BCC.N    ??LPLD_PLL_Setup_1
+   \        0xE   0x21C8             MOVS     R1,#+200
+   \       0x10   0xE7FF             B.N      ??LPLD_PLL_Setup_2
+     61            
+     62            // 根据期望主频选择分频和倍频系数
+     63            switch(core_clk_mhz)
+   \                     ??LPLD_PLL_Setup_1: (+1)
+   \                     ??LPLD_PLL_Setup_2: (+1)
+   \       0x12   0x0008             MOVS     R0,R1
+   \       0x14   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x16   0x2830             CMP      R0,#+48
+   \       0x18   0xD00E             BEQ.N    ??LPLD_PLL_Setup_3
+   \       0x1A   0x2832             CMP      R0,#+50
+   \       0x1C   0xD01D             BEQ.N    ??LPLD_PLL_Setup_4
+   \       0x1E   0x2860             CMP      R0,#+96
+   \       0x20   0xD01F             BEQ.N    ??LPLD_PLL_Setup_5
+   \       0x22   0x2864             CMP      R0,#+100
+   \       0x24   0xD021             BEQ.N    ??LPLD_PLL_Setup_6
+   \       0x26   0x2878             CMP      R0,#+120
+   \       0x28   0xD023             BEQ.N    ??LPLD_PLL_Setup_7
+   \       0x2A   0x2896             CMP      R0,#+150
+   \       0x2C   0xD025             BEQ.N    ??LPLD_PLL_Setup_8
+   \       0x2E   0x28B4             CMP      R0,#+180
+   \       0x30   0xD027             BEQ.N    ??LPLD_PLL_Setup_9
+   \       0x32   0x28C8             CMP      R0,#+200
+   \       0x34   0xD029             BEQ.N    ??LPLD_PLL_Setup_10
+   \       0x36   0xE02C             B.N      ??LPLD_PLL_Setup_11
+     64            {
+     65            case PLL_48:
+     66              prdiv = 24u;
+   \                     ??LPLD_PLL_Setup_3: (+1)
+   \       0x38   0xF05F 0x0C18      MOVS     R12,#+24
+     67              vdiv = 0u;
+   \       0x3C   0x2600             MOVS     R6,#+0
+     68              break;
+     69            case PLL_50:
+     70              prdiv = 24u;
+     71              vdiv = 1u;
+     72              break;
+     73            case PLL_96:
+     74              prdiv = 24u;
+     75              vdiv = 24u;
+     76              break;
+     77            case PLL_100:
+     78              prdiv = 24u;
+     79              vdiv = 26u;
+     80              break;
+     81            case PLL_120:
+     82              prdiv = 19u;
+     83              vdiv = 24u;
+     84              break;
+     85            case PLL_150:
+     86              prdiv = 15u;
+     87              vdiv = 24u;
+     88              break;
+     89            case PLL_180:
+     90              prdiv = 14u;
+     91              vdiv = 30u;
+     92              break;
+     93            case PLL_200:
+     94              prdiv = 12u;
+     95              vdiv = 28u;
+     96              break;
+     97            default:
+     98              return LPLD_PLL_Setup(PLL_96);
+     99            }
+    100            
+    101            pll_freq = core_clk_mhz * 1;
+   \                     ??LPLD_PLL_Setup_12: (+1)
+   \       0x3E   0x000D             MOVS     R5,R1
+    102            core_div = 0;
+   \       0x40   0x2000             MOVS     R0,#+0
+    103            if((bus_div = (uint8)(core_clk_mhz/BUS_CLK_MHZ - 1u)) == (uint8)-1)
+   \       0x42   0x000A             MOVS     R2,R1
+   \       0x44   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \       0x46   0x2332             MOVS     R3,#+50
+   \       0x48   0xFBB2 0xF2F3      UDIV     R2,R2,R3
+   \       0x4C   0x1E54             SUBS     R4,R2,#+1
+   \       0x4E   0x0022             MOVS     R2,R4
+   \       0x50   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \       0x52   0x2AFF             CMP      R2,#+255
+   \       0x54   0xD121             BNE.N    ??LPLD_PLL_Setup_13
+    104            {
+    105              bus_div = 0;
+   \       0x56   0x2400             MOVS     R4,#+0
+   \       0x58   0xE029             B.N      ??LPLD_PLL_Setup_14
+    106            }
+   \                     ??LPLD_PLL_Setup_4: (+1)
+   \       0x5A   0xF05F 0x0C18      MOVS     R12,#+24
+   \       0x5E   0x2601             MOVS     R6,#+1
+   \       0x60   0xE7ED             B.N      ??LPLD_PLL_Setup_12
+   \                     ??LPLD_PLL_Setup_5: (+1)
+   \       0x62   0xF05F 0x0C18      MOVS     R12,#+24
+   \       0x66   0x2618             MOVS     R6,#+24
+   \       0x68   0xE7E9             B.N      ??LPLD_PLL_Setup_12
+   \                     ??LPLD_PLL_Setup_6: (+1)
+   \       0x6A   0xF05F 0x0C18      MOVS     R12,#+24
+   \       0x6E   0x261A             MOVS     R6,#+26
+   \       0x70   0xE7E5             B.N      ??LPLD_PLL_Setup_12
+   \                     ??LPLD_PLL_Setup_7: (+1)
+   \       0x72   0xF05F 0x0C13      MOVS     R12,#+19
+   \       0x76   0x2618             MOVS     R6,#+24
+   \       0x78   0xE7E1             B.N      ??LPLD_PLL_Setup_12
+   \                     ??LPLD_PLL_Setup_8: (+1)
+   \       0x7A   0xF05F 0x0C0F      MOVS     R12,#+15
+   \       0x7E   0x2618             MOVS     R6,#+24
+   \       0x80   0xE7DD             B.N      ??LPLD_PLL_Setup_12
+   \                     ??LPLD_PLL_Setup_9: (+1)
+   \       0x82   0xF05F 0x0C0E      MOVS     R12,#+14
+   \       0x86   0x261E             MOVS     R6,#+30
+   \       0x88   0xE7D9             B.N      ??LPLD_PLL_Setup_12
+   \                     ??LPLD_PLL_Setup_10: (+1)
+   \       0x8A   0xF05F 0x0C0C      MOVS     R12,#+12
+   \       0x8E   0x261C             MOVS     R6,#+28
+   \       0x90   0xE7D5             B.N      ??LPLD_PLL_Setup_12
+   \                     ??LPLD_PLL_Setup_11: (+1)
+   \       0x92   0x2060             MOVS     R0,#+96
+   \       0x94   0xF7FF 0xFFB4      BL       LPLD_PLL_Setup
+   \       0x98   0xE07B             B.N      ??LPLD_PLL_Setup_15
+    107            else if(core_clk_mhz/(bus_div+1) > BUS_CLK_MHZ)
+   \                     ??LPLD_PLL_Setup_13: (+1)
+   \       0x9A   0x000A             MOVS     R2,R1
+   \       0x9C   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \       0x9E   0x0023             MOVS     R3,R4
+   \       0xA0   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \       0xA2   0x1C5B             ADDS     R3,R3,#+1
+   \       0xA4   0xFB92 0xF2F3      SDIV     R2,R2,R3
+   \       0xA8   0x2A33             CMP      R2,#+51
+   \       0xAA   0xD300             BCC.N    ??LPLD_PLL_Setup_14
+    108            {
+    109              bus_div += 1;
+   \       0xAC   0x1C64             ADDS     R4,R4,#+1
+    110            }
+    111            if((flexbus_div = (core_clk_mhz/FLEXBUS_CLK_MHZ - 1u)) == (uint8)-1)
+   \                     ??LPLD_PLL_Setup_14: (+1)
+   \       0xAE   0x000A             MOVS     R2,R1
+   \       0xB0   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \       0xB2   0x2332             MOVS     R3,#+50
+   \       0xB4   0xFBB2 0xF2F3      UDIV     R2,R2,R3
+   \       0xB8   0x1E52             SUBS     R2,R2,#+1
+   \       0xBA   0x0013             MOVS     R3,R2
+   \       0xBC   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \       0xBE   0x2BFF             CMP      R3,#+255
+   \       0xC0   0xD101             BNE.N    ??LPLD_PLL_Setup_16
+    112            {
+    113              flexbus_div = 0;
+   \       0xC2   0x2200             MOVS     R2,#+0
+   \       0xC4   0xE009             B.N      ??LPLD_PLL_Setup_17
+    114            }
+    115            else if(core_clk_mhz/(flexbus_div+1) > FLEXBUS_CLK_MHZ)
+   \                     ??LPLD_PLL_Setup_16: (+1)
+   \       0xC6   0x000B             MOVS     R3,R1
+   \       0xC8   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \       0xCA   0x0017             MOVS     R7,R2
+   \       0xCC   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \       0xCE   0x1C7F             ADDS     R7,R7,#+1
+   \       0xD0   0xFB93 0xF3F7      SDIV     R3,R3,R7
+   \       0xD4   0x2B33             CMP      R3,#+51
+   \       0xD6   0xD300             BCC.N    ??LPLD_PLL_Setup_17
+    116            {
+    117              flexbus_div += 1;
+   \       0xD8   0x1C52             ADDS     R2,R2,#+1
+    118            }
+    119            if((flash_div = (core_clk_mhz/FLASH_CLK_MHZ - 1u)) == (uint8)-1)
+   \                     ??LPLD_PLL_Setup_17: (+1)
+   \       0xDA   0x000B             MOVS     R3,R1
+   \       0xDC   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \       0xDE   0x2719             MOVS     R7,#+25
+   \       0xE0   0xFBB3 0xF3F7      UDIV     R3,R3,R7
+   \       0xE4   0x1E5B             SUBS     R3,R3,#+1
+   \       0xE6   0x001F             MOVS     R7,R3
+   \       0xE8   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \       0xEA   0x2FFF             CMP      R7,#+255
+   \       0xEC   0xD101             BNE.N    ??LPLD_PLL_Setup_18
+    120            {
+    121              flash_div = 0;
+   \       0xEE   0x2300             MOVS     R3,#+0
+   \       0xF0   0xE008             B.N      ??LPLD_PLL_Setup_19
+    122            }
+    123            else if(core_clk_mhz/(flash_div+1) > FLASH_CLK_MHZ)
+   \                     ??LPLD_PLL_Setup_18: (+1)
+   \       0xF2   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0xF4   0x001F             MOVS     R7,R3
+   \       0xF6   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \       0xF8   0x1C7F             ADDS     R7,R7,#+1
+   \       0xFA   0xFB91 0xF1F7      SDIV     R1,R1,R7
+   \       0xFE   0x291A             CMP      R1,#+26
+   \      0x100   0xD300             BCC.N    ??LPLD_PLL_Setup_19
+    124            {
+    125              flash_div += 1;
+   \      0x102   0x1C5B             ADDS     R3,R3,#+1
+    126            }
+    127            
+    128            // 这里假设复位后 MCG 模块默认为 FEI 模式
+    129            
+    130            // 首先移动到 FBE 模式
+    131            MCG->C2 = 0;
+   \                     ??LPLD_PLL_Setup_19: (+1)
+   \      0x104   0x2100             MOVS     R1,#+0
+   \      0x106   0x4F24             LDR.N    R7,??LPLD_PLL_Setup_0  ;; 0x40064001
+   \      0x108   0x7039             STRB     R1,[R7, #+0]
+    132            
+    133            // 振荡器初始化完成后,释放锁存状态下的 oscillator 和 GPIO 
+    134            SIM->SCGC4 |= SIM_SCGC4_LLWU_MASK;
+   \      0x10A   0x4924             LDR.N    R1,??LPLD_PLL_Setup_0+0x4  ;; 0x40048034
+   \      0x10C   0x680F             LDR      R7,[R1, #+0]
+   \      0x10E   0xF057 0x5780      ORRS     R7,R7,#0x10000000
+   \      0x112   0x600F             STR      R7,[R1, #+0]
+    135            LLWU->CS |= LLWU_CS_ACKISO_MASK;
+   \      0x114   0x4922             LDR.N    R1,??LPLD_PLL_Setup_0+0x8  ;; 0x4007c008
+   \      0x116   0x780F             LDRB     R7,[R1, #+0]
+   \      0x118   0xF057 0x0780      ORRS     R7,R7,#0x80
+   \      0x11C   0x700F             STRB     R7,[R1, #+0]
+    136            
+    137            // 选择外部 oscilator 、参考分频器 and 清零 IREFS 启动外部osc
+    138            // CLKS=2, FRDIV=3, IREFS=0, IRCLKEN=0, IREFSTEN=0
+    139            MCG->C1 = MCG_C1_CLKS(2) | MCG_C1_FRDIV(3);  
+   \      0x11E   0x4F21             LDR.N    R7,??LPLD_PLL_Setup_0+0xC  ;; 0x40064000
+   \      0x120   0x2198             MOVS     R1,#+152
+   \      0x122   0x7039             STRB     R1,[R7, #+0]
+    140            
+    141            while (MCG->S & MCG_S_IREFST_MASK){}; // 等待参考时钟清零
+   \                     ??LPLD_PLL_Setup_20: (+1)
+   \      0x124   0xF8DF 0x8080      LDR.W    R8,??LPLD_PLL_Setup_0+0x10  ;; 0x40064006
+   \      0x128   0xF898 0x1000      LDRB     R1,[R8, #+0]
+   \      0x12C   0x06C9             LSLS     R1,R1,#+27
+   \      0x12E   0xD4F9             BMI.N    ??LPLD_PLL_Setup_20
+    142            
+    143            while (((MCG->S & MCG_S_CLKST_MASK) >> MCG_S_CLKST_SHIFT) != 0x2){}; // 等待时钟状态显示为外部参考时钟(ext ref clk)
+   \                     ??LPLD_PLL_Setup_21: (+1)
+   \      0x130   0xF898 0x1000      LDRB     R1,[R8, #+0]
+   \      0x134   0xF3C1 0x0181      UBFX     R1,R1,#+2,#+2
+   \      0x138   0x2902             CMP      R1,#+2
+   \      0x13A   0xD1F9             BNE.N    ??LPLD_PLL_Setup_21
+    144            
+    145            // 进入FBE模式
+    146            // 配置 PLL 参考分频器, PLLCLKEN=0, PLLSTEN=0, PRDIV=5
+    147            // 用晶振频率来选择 PRDIV 值. 仅在有频率晶振的时候支持
+    148            // 产生 2MHz 的参考时钟给 PLL.
+    149            MCG->C5 = MCG_C5_PRDIV(prdiv); // 设置 PLL 匹配晶振的参考分频数 
+   \      0x13C   0xF01C 0x0C1F      ANDS     R12,R12,#0x1F
+   \      0x140   0x491A             LDR.N    R1,??LPLD_PLL_Setup_0+0x14  ;; 0x40064004
+   \      0x142   0xF881 0xC000      STRB     R12,[R1, #+0]
+    150            
+    151            // 确保MCG_C6处于复位状态,禁止LOLIE、PLL、和时钟控制器,清PLL VCO分频器
+    152            MCG->C6 = 0x0;
+   \      0x146   0xF8DF 0x9068      LDR.W    R9,??LPLD_PLL_Setup_0+0x18  ;; 0x40064005
+   \      0x14A   0x2100             MOVS     R1,#+0
+   \      0x14C   0xF889 0x1000      STRB     R1,[R9, #+0]
+    153            
+    154            //设置系统时钟分频系数
+    155            LPLD_Set_SYS_DIV(core_div, bus_div, flexbus_div, flash_div);  
+   \      0x150   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \      0x152   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \      0x154   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \      0x156   0x0021             MOVS     R1,R4
+   \      0x158   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x15A   0x....'....        BL       LPLD_Set_SYS_DIV
+    156            
+    157            //设置倍频系数
+    158            MCG->C6 = MCG_C6_PLLS_MASK | MCG_C6_VDIV(vdiv); 
+   \      0x15E   0xF016 0x061F      ANDS     R6,R6,#0x1F
+   \      0x162   0xF056 0x0640      ORRS     R6,R6,#0x40
+   \      0x166   0xF889 0x6000      STRB     R6,[R9, #+0]
+    159            
+    160            while (!(MCG->S & MCG_S_PLLST_MASK)){}; // wait for PLL status bit to set
+   \                     ??LPLD_PLL_Setup_22: (+1)
+   \      0x16A   0xF898 0x0000      LDRB     R0,[R8, #+0]
+   \      0x16E   0x0680             LSLS     R0,R0,#+26
+   \      0x170   0xD5FB             BPL.N    ??LPLD_PLL_Setup_22
+    161            
+    162            while (!(MCG->S & MCG_S_LOCK_MASK)){}; // Wait for LOCK bit to set
+   \                     ??LPLD_PLL_Setup_23: (+1)
+   \      0x172   0xF898 0x0000      LDRB     R0,[R8, #+0]
+   \      0x176   0x0640             LSLS     R0,R0,#+25
+   \      0x178   0xD5FB             BPL.N    ??LPLD_PLL_Setup_23
+    163            
+    164            // 已经进入PBE模式
+    165            
+    166            // Transition into PEE by setting CLKS to 0
+    167            // CLKS=0, FRDIV=3, IREFS=0, IRCLKEN=0, IREFSTEN=0
+    168            MCG->C1 &= ~MCG_C1_CLKS_MASK;
+   \      0x17A   0x7838             LDRB     R0,[R7, #+0]
+   \      0x17C   0xF010 0x003F      ANDS     R0,R0,#0x3F
+   \      0x180   0x7038             STRB     R0,[R7, #+0]
+    169            
+    170            // Wait for clock status bits to update
+    171            while (((MCG->S & MCG_S_CLKST_MASK) >> MCG_S_CLKST_SHIFT) != 0x3){};
+   \                     ??LPLD_PLL_Setup_24: (+1)
+   \      0x182   0xF898 0x0000      LDRB     R0,[R8, #+0]
+   \      0x186   0xF3C0 0x0081      UBFX     R0,R0,#+2,#+2
+   \      0x18A   0x2803             CMP      R0,#+3
+   \      0x18C   0xD1F9             BNE.N    ??LPLD_PLL_Setup_24
+    172            
+    173            // 已经进入PEE模式
+    174            
+    175            return pll_freq;
+   \      0x18E   0x0028             MOVS     R0,R5
+   \      0x190   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \                     ??LPLD_PLL_Setup_15: (+1)
+   \      0x192   0xE8BD 0x83F2      POP      {R1,R4-R9,PC}    ;; return
+   \      0x196   0xBF00             Nop      
+   \                     ??LPLD_PLL_Setup_0:
+   \      0x198   0x4006'4001        DC32     0x40064001
+   \      0x19C   0x4004'8034        DC32     0x40048034
+   \      0x1A0   0x4007'C008        DC32     0x4007c008
+   \      0x1A4   0x4006'4000        DC32     0x40064000
+   \      0x1A8   0x4006'4006        DC32     0x40064006
+   \      0x1AC   0x4006'4004        DC32     0x40064004
+   \      0x1B0   0x4006'4005        DC32     0x40064005
+    176          } 
+    177          
+    178          
+    179          /*
+    180           * LPLD_Set_SYS_DIV
+    181           * 设置系统始终分频
+    182           *
+    183           * 说明:
+    184           * 这段代码必须放置在RAM中，目的是防止程序跑飞，详见官方文档errata e2448.
+    185           * 当Flash时钟分频改变的时候，Flash预读取必须禁用.
+    186           * 禁止从Flash中运行以下代码.
+    187           * 在预读取被重新使能之前必须在时钟分频改变后有一段小的延时.
+    188           *
+    189           * 参数:
+    190           *    outdiv1~outdiv4--分别为core, bus, FlexBus, Flash时钟分频系数
+    191           */
+
+   \                                 In section .textrw, align 4, keep-with-next
+    192          RAMFUNC void LPLD_Set_SYS_DIV(uint32 outdiv1, uint32 outdiv2, uint32 outdiv3, uint32 outdiv4)
+    193          {
+   \                     LPLD_Set_SYS_DIV: (+1)
+   \        0x0   0xB470             PUSH     {R4-R6}
+    194            uint32 temp_reg;
+    195            uint8 i;
+    196            
+    197            temp_reg = FMC->PFAPR; // 备份 FMC_PFAPR 寄存器
+   \        0x2   0x4D0F             LDR.N    R5,??LPLD_Set_SYS_DIV_0  ;; 0x4001f000
+   \        0x4   0x682C             LDR      R4,[R5, #+0]
+    198            
+    199            // 设置 M0PFD 到 M7PFD 为 1 禁用预先读取
+    200            FMC->PFAPR |= FMC_PFAPR_M7PFD_MASK | FMC_PFAPR_M6PFD_MASK | FMC_PFAPR_M5PFD_MASK
+    201                       | FMC_PFAPR_M4PFD_MASK | FMC_PFAPR_M3PFD_MASK | FMC_PFAPR_M2PFD_MASK
+    202                       | FMC_PFAPR_M1PFD_MASK | FMC_PFAPR_M0PFD_MASK;
+   \        0x6   0x682E             LDR      R6,[R5, #+0]
+   \        0x8   0xF456 0x067F      ORRS     R6,R6,#0xFF0000
+   \        0xC   0x602E             STR      R6,[R5, #+0]
+    203            
+    204            // 设置时钟分频为期望值  
+    205            SIM->CLKDIV1 = SIM_CLKDIV1_OUTDIV1(outdiv1) | SIM_CLKDIV1_OUTDIV2(outdiv2) 
+    206                        | SIM_CLKDIV1_OUTDIV3(outdiv3) | SIM_CLKDIV1_OUTDIV4(outdiv4);
+   \        0xE   0x0609             LSLS     R1,R1,#+24
+   \       0x10   0xF011 0x6170      ANDS     R1,R1,#0xF000000
+   \       0x14   0xEA51 0x7100      ORRS     R1,R1,R0, LSL #+28
+   \       0x18   0x0512             LSLS     R2,R2,#+20
+   \       0x1A   0xF412 0x0270      ANDS     R2,R2,#0xF00000
+   \       0x1E   0x4311             ORRS     R1,R2,R1
+   \       0x20   0x0418             LSLS     R0,R3,#+16
+   \       0x22   0xF410 0x2070      ANDS     R0,R0,#0xF0000
+   \       0x26   0x4301             ORRS     R1,R0,R1
+   \       0x28   0x4806             LDR.N    R0,??LPLD_Set_SYS_DIV_0+0x4  ;; 0x40048044
+   \       0x2A   0x6001             STR      R1,[R0, #+0]
+    207          
+    208            // 延时一小段时间等待改变
+    209            for (i = 0 ; i < outdiv4 ; i++)
+   \       0x2C   0x2000             MOVS     R0,#+0
+   \       0x2E   0xE000             B.N      ??LPLD_Set_SYS_DIV_1
+   \                     ??LPLD_Set_SYS_DIV_2: (+1)
+   \       0x30   0x1C40             ADDS     R0,R0,#+1
+   \                     ??LPLD_Set_SYS_DIV_1: (+1)
+   \       0x32   0x0001             MOVS     R1,R0
+   \       0x34   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0x36   0x4299             CMP      R1,R3
+   \       0x38   0xD3FA             BCC.N    ??LPLD_Set_SYS_DIV_2
+    210            {}
+    211            
+    212            FMC->PFAPR = temp_reg; // 回复原先的 FMC_PFAPR 寄存器值
+   \       0x3A   0x602C             STR      R4,[R5, #+0]
+    213            
+    214            return;
+   \       0x3C   0xBC70             POP      {R4-R6}
+   \       0x3E   0x4770             BX       LR               ;; return
+   \                     ??LPLD_Set_SYS_DIV_0:
+   \       0x40   0x4001'F000        DC32     0x4001f000
+   \       0x44   0x4004'8044        DC32     0x40048044
+    215          } // set_sys_dividers
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      32   LPLD_PLL_Setup
+        32   -> LPLD_PLL_Setup
+        32   -> LPLD_Set_SYS_DIV
+      12   LPLD_Set_SYS_DIV
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+     436  LPLD_PLL_Setup
+      72  LPLD_Set_SYS_DIV
+       4  g_bus_clock
+       4  g_core_clock
+       4  g_flash_clock
+       4  g_flexbus_clock
+
+ 
+  16 bytes in section .data
+ 436 bytes in section .text
+  72 bytes in section .textrw
+ 
+ 508 bytes of CODE memory
+  16 bytes of DATA memory
+
+Errors: none
+Warnings: 1

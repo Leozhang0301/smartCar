@@ -1,0 +1,659 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         21/May/2019  22:07:19
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  C:\Users\que\Desktop\AAA_xinbiao\xiugai\lib\common\menu.c
+#    Command line =  
+#        -f C:\Users\TEMPLA~1.000\AppData\Local\Temp\EW3FDD.tmp
+#        (C:\Users\que\Desktop\AAA_xinbiao\xiugai\lib\common\menu.c -D LPLD_K60
+#        -lCN
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -lB
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -o
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config "D:\@@\605110 IAR for
+#        ARM 8.30\arm\inc\c\DLib_Config_Normal.h" -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Me\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\Core\Include\" -I
+#        "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\DSP\Include\" -D
+#        ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\List\menu.lst
+#    Object file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\menu.o
+#
+###############################################################################
+
+C:\Users\que\Desktop\AAA_xinbiao\xiugai\lib\common\menu.c
+      1          #include "include.h"
+      2          //extern u8 state_flag;
+
+   \                                 In section .data, align 1
+      3          boolean Menu_Open = 1;
+   \                     Menu_Open:
+   \        0x0   0x01               DC8 1
+
+   \                                 In section .bss, align 1
+      4          boolean Camera_flag = 0;
+   \                     Camera_flag:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 1
+      5          boolean CCD_flag = 0;
+   \                     CCD_flag:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 1
+      6          boolean Motor_OPEN = 0;
+   \                     Motor_OPEN:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 4
+      7          int goal = 0;
+   \                     goal:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+      8          int page = 0;
+   \                     page:
+   \        0x0                      DS8 4
+      9          
+     10          
+
+   \                                 In section .text, align 2, keep-with-next
+     11          void Menu()
+     12          {
+   \                     Menu: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+     13            if(page == 0)
+   \        0x2   0x....             LDR.N    R4,??DataTable3
+   \        0x4   0x6820             LDR      R0,[R4, #+0]
+   \        0x6   0x2800             CMP      R0,#+0
+   \        0x8   0xD104             BNE.N    ??Menu_0
+     14            {
+     15              Camera_Show();
+   \        0xA   0x....'....        BL       Camera_Show
+     16              KeyValue=0;
+   \        0xE   0x2000             MOVS     R0,#+0
+   \       0x10   0x....             LDR.N    R1,??DataTable3_1
+   \       0x12   0x7008             STRB     R0,[R1, #+0]
+     17            }
+     18            if(page == 1)
+   \                     ??Menu_0: (+1)
+   \       0x14   0x6820             LDR      R0,[R4, #+0]
+   \       0x16   0x2801             CMP      R0,#+1
+   \       0x18   0xD105             BNE.N    ??Menu_1
+     19            {
+     20              CCD_Show();
+   \       0x1A   0x....'....        BL       CCD_Show
+     21              KeyValue=0;
+   \       0x1E   0x2000             MOVS     R0,#+0
+   \       0x20   0x....             LDR.N    R1,??DataTable3_1
+   \       0x22   0x7008             STRB     R0,[R1, #+0]
+   \       0x24   0xE010             B.N      ??Menu_2
+     22            }
+     23            else if (page == 2)
+   \                     ??Menu_1: (+1)
+   \       0x26   0x6820             LDR      R0,[R4, #+0]
+   \       0x28   0x2802             CMP      R0,#+2
+   \       0x2A   0xD105             BNE.N    ??Menu_3
+     24            {
+     25              Parameter_Setting();
+   \       0x2C   0x....'....        BL       Parameter_Setting
+     26              KeyValue=0;
+   \       0x30   0x2000             MOVS     R0,#+0
+   \       0x32   0x....             LDR.N    R1,??DataTable3_1
+   \       0x34   0x7008             STRB     R0,[R1, #+0]
+   \       0x36   0xE007             B.N      ??Menu_2
+     27            }
+     28              else if (page == 3)
+   \                     ??Menu_3: (+1)
+   \       0x38   0x6820             LDR      R0,[R4, #+0]
+   \       0x3A   0x2803             CMP      R0,#+3
+   \       0x3C   0xD104             BNE.N    ??Menu_2
+     29            {
+     30              Parameter_Setting();
+   \       0x3E   0x....'....        BL       Parameter_Setting
+     31              KeyValue=7;
+   \       0x42   0x2007             MOVS     R0,#+7
+   \       0x44   0x....             LDR.N    R1,??DataTable3_1
+   \       0x46   0x7008             STRB     R0,[R1, #+0]
+     32            }
+     33          }
+   \                     ??Menu_2: (+1)
+   \       0x48   0xBD10             POP      {R4,PC}          ;; return
+     34          
+
+   \                                 In section .text, align 2, keep-with-next
+     35          void Camera_Show()
+     36          {
+   \                     Camera_Show: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+     37            
+     38            if(display_flag==1)
+   \        0x2   0x....             LDR.N    R4,??DataTable3_2
+   \        0x4   0x6820             LDR      R0,[R4, #+0]
+   \        0x6   0x2801             CMP      R0,#+1
+   \        0x8   0xD103             BNE.N    ??Camera_Show_0
+     39            {
+     40              img_display();
+   \        0xA   0x....'....        BL       img_display
+     41              display_flag=0;
+   \        0xE   0x2000             MOVS     R0,#+0
+   \       0x10   0x6020             STR      R0,[R4, #+0]
+     42            }
+     43          
+     44          LCD_Write_Int(80, 4,  ImgThreshold);
+   \                     ??Camera_Show_0: (+1)
+   \       0x12   0x....             LDR.N    R4,??DataTable3_3
+   \       0x14   0xF9B4 0x0000      LDRSH    R0,[R4, #+0]
+   \       0x18   0x0002             MOVS     R2,R0
+   \       0x1A   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \       0x1C   0x2104             MOVS     R1,#+4
+   \       0x1E   0x2050             MOVS     R0,#+80
+   \       0x20   0x....'....        BL       LCD_Write_Int
+     45          
+     46            switch(KeyValue) {
+   \       0x24   0x....             LDR.N    R0,??DataTable3_1
+   \       0x26   0x7800             LDRB     R0,[R0, #+0]
+   \       0x28   0x2801             CMP      R0,#+1
+   \       0x2A   0xD00D             BEQ.N    ??Camera_Show_1
+   \       0x2C   0xD342             BCC.N    ??Camera_Show_2
+   \       0x2E   0x2803             CMP      R0,#+3
+   \       0x30   0xD01A             BEQ.N    ??Camera_Show_3
+   \       0x32   0xD30C             BCC.N    ??Camera_Show_4
+   \       0x34   0x2805             CMP      R0,#+5
+   \       0x36   0xD027             BEQ.N    ??Camera_Show_5
+   \       0x38   0xD31E             BCC.N    ??Camera_Show_6
+   \       0x3A   0x2807             CMP      R0,#+7
+   \       0x3C   0xD02D             BEQ.N    ??Camera_Show_7
+   \       0x3E   0xD324             BCC.N    ??Camera_Show_8
+   \       0x40   0x2809             CMP      R0,#+9
+   \       0x42   0xD037             BEQ.N    ??Camera_Show_9
+   \       0x44   0xD32A             BCC.N    ??Camera_Show_10
+   \       0x46   0xE035             B.N      ??Camera_Show_2
+     47            case 1:
+     48              LCD_CLS();
+   \                     ??Camera_Show_1: (+1)
+   \       0x48   0x....'....        BL       LCD_CLS
+     49              break;
+   \       0x4C   0xE032             B.N      ??Camera_Show_2
+     50            case 2:
+     51              if(LuBang == 1)LuBang =0;
+   \                     ??Camera_Show_4: (+1)
+   \       0x4E   0x....             LDR.N    R1,??DataTable3_4
+   \       0x50   0x7808             LDRB     R0,[R1, #+0]
+   \       0x52   0x2801             CMP      R0,#+1
+   \       0x54   0xD102             BNE.N    ??Camera_Show_11
+   \       0x56   0x2000             MOVS     R0,#+0
+   \       0x58   0x7008             STRB     R0,[R1, #+0]
+   \       0x5A   0xE004             B.N      ??Camera_Show_12
+     52              else if(LuBang == 0)LuBang =1;     
+   \                     ??Camera_Show_11: (+1)
+   \       0x5C   0x7808             LDRB     R0,[R1, #+0]
+   \       0x5E   0x2800             CMP      R0,#+0
+   \       0x60   0xD101             BNE.N    ??Camera_Show_12
+   \       0x62   0x2001             MOVS     R0,#+1
+   \       0x64   0x7008             STRB     R0,[R1, #+0]
+     53              break;
+   \                     ??Camera_Show_12: (+1)
+   \       0x66   0xE025             B.N      ??Camera_Show_2
+     54            case 3:
+     55              if(Motor_OPEN == 0)
+   \                     ??Camera_Show_3: (+1)
+   \       0x68   0x....             LDR.N    R1,??DataTable3_5
+   \       0x6A   0x7808             LDRB     R0,[R1, #+0]
+   \       0x6C   0x2800             CMP      R0,#+0
+   \       0x6E   0xD102             BNE.N    ??Camera_Show_13
+     56              { 
+     57                Motor_OPEN = 1;
+   \       0x70   0x2001             MOVS     R0,#+1
+   \       0x72   0x7008             STRB     R0,[R1, #+0]
+   \       0x74   0xE7FF             B.N      ??Camera_Show_14
+     58                //GO =SpeedHigh;
+     59              }
+     60              else if (Motor_OPEN == 1)
+     61              {
+     62               // GO = 0;
+     63              } 
+     64              break;
+   \                     ??Camera_Show_13: (+1)
+   \                     ??Camera_Show_14: (+1)
+   \       0x76   0xE01D             B.N      ??Camera_Show_2
+     65            case 4:
+     66                  ImgThreshold+=5;
+   \                     ??Camera_Show_6: (+1)
+   \       0x78   0x8820             LDRH     R0,[R4, #+0]
+   \       0x7A   0x1D40             ADDS     R0,R0,#+5
+   \       0x7C   0x8020             STRH     R0,[R4, #+0]
+     67              SCCB_WriteByte(OV7725_CNST,ImgThreshold);
+   \       0x7E   0x8821             LDRH     R1,[R4, #+0]
+   \       0x80   0x209C             MOVS     R0,#+156
+   \       0x82   0x....'....        BL       SCCB_WriteByte
+     68              break;
+   \       0x86   0xE015             B.N      ??Camera_Show_2
+     69            case 5:
+     70          
+     71              break;
+   \                     ??Camera_Show_5: (+1)
+   \       0x88   0xE014             B.N      ??Camera_Show_2
+     72            case 6:
+     73              ImgThreshold-=5;
+   \                     ??Camera_Show_8: (+1)
+   \       0x8A   0x8820             LDRH     R0,[R4, #+0]
+   \       0x8C   0x1F40             SUBS     R0,R0,#+5
+   \       0x8E   0x8020             STRH     R0,[R4, #+0]
+     74              SCCB_WriteByte(OV7725_CNST,ImgThreshold);
+   \       0x90   0x8821             LDRH     R1,[R4, #+0]
+   \       0x92   0x209C             MOVS     R0,#+156
+   \       0x94   0x....'....        BL       SCCB_WriteByte
+     75              break;
+   \       0x98   0xE00C             B.N      ??Camera_Show_2
+     76            case 7:
+     77              //P--;
+     78              break;
+   \                     ??Camera_Show_7: (+1)
+   \       0x9A   0xE00B             B.N      ??Camera_Show_2
+     79            case 8:
+     80              page --;
+   \                     ??Camera_Show_10: (+1)
+   \       0x9C   0x....             LDR.N    R0,??DataTable3
+   \       0x9E   0x6801             LDR      R1,[R0, #+0]
+   \       0xA0   0x1E49             SUBS     R1,R1,#+1
+   \       0xA2   0x6001             STR      R1,[R0, #+0]
+     81              if(page < 0) page = 2;
+   \       0xA4   0x6801             LDR      R1,[R0, #+0]
+   \       0xA6   0x2900             CMP      R1,#+0
+   \       0xA8   0xD501             BPL.N    ??Camera_Show_15
+   \       0xAA   0x2102             MOVS     R1,#+2
+   \       0xAC   0x6001             STR      R1,[R0, #+0]
+     82              LCD_CLS(); 
+   \                     ??Camera_Show_15: (+1)
+   \       0xAE   0x....'....        BL       LCD_CLS
+     83              break;
+   \       0xB2   0xE7FF             B.N      ??Camera_Show_2
+     84            case 9:
+     85              //P++;
+     86              break;
+     87            }
+     88          }
+   \                     ??Camera_Show_9: (+1)
+   \                     ??Camera_Show_2: (+1)
+   \       0xB4   0xBD10             POP      {R4,PC}          ;; return
+     89          
+
+   \                                 In section .text, align 2, keep-with-next
+     90          void CCD_Show()
+     91          {
+   \                     CCD_Show: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+     92            LCD_Write_Int(0,4,2);
+   \        0x2   0x2202             MOVS     R2,#+2
+   \        0x4   0x2104             MOVS     R1,#+4
+   \        0x6   0x2000             MOVS     R0,#+0
+   \        0x8   0x....'....        BL       LCD_Write_Int
+     93            /*Camera_flag = 0; 
+     94            CCD_flag = 1;
+     95            LCD_P6x8Str(1,1,"yz:");
+     96            //LCD_Write_Float_Dot(40,1,__threshold,0);
+     97            //  LCD_P6x8Str(1,1,"SCTL:");
+     98            //  LCD_Write_Float_Dot(40,1,sctl,0);
+     99            //  LCD_P6x8Str(61,1,"CCTL:");
+    100            //  LCD_Write_Float_Dot(101,1,cctl,0);
+    101            LCD_P6x8Str(1,2,"NUM:");
+    102            //LCD_Write_Float_Dot(40,2,white_num,0);
+    103            LCD_P6x8Str(61,2,"M_I:");
+    104            LCD_Write_Float_Dot(101,2,MIDDLE_I,0);*/
+    105            switch(KeyValue) {
+   \        0xC   0x....             LDR.N    R0,??DataTable3_1
+   \        0xE   0x7800             LDRB     R0,[R0, #+0]
+   \       0x10   0x2801             CMP      R0,#+1
+   \       0x12   0xD00D             BEQ.N    ??CCD_Show_0
+   \       0x14   0xD32C             BCC.N    ??CCD_Show_1
+   \       0x16   0x2803             CMP      R0,#+3
+   \       0x18   0xD00E             BEQ.N    ??CCD_Show_2
+   \       0x1A   0xD30C             BCC.N    ??CCD_Show_3
+   \       0x1C   0x2805             CMP      R0,#+5
+   \       0x1E   0xD00D             BEQ.N    ??CCD_Show_4
+   \       0x20   0xD30B             BCC.N    ??CCD_Show_5
+   \       0x22   0x2807             CMP      R0,#+7
+   \       0x24   0xD00C             BEQ.N    ??CCD_Show_6
+   \       0x26   0xD30A             BCC.N    ??CCD_Show_7
+   \       0x28   0x2809             CMP      R0,#+9
+   \       0x2A   0xD016             BEQ.N    ??CCD_Show_8
+   \       0x2C   0xD309             BCC.N    ??CCD_Show_9
+   \       0x2E   0xE01F             B.N      ??CCD_Show_1
+    106            case 1:
+    107              LCD_CLS();
+   \                     ??CCD_Show_0: (+1)
+   \       0x30   0x....'....        BL       LCD_CLS
+    108              break;
+   \       0x34   0xE01C             B.N      ??CCD_Show_1
+    109            case 2:
+    110              break;
+   \                     ??CCD_Show_3: (+1)
+   \       0x36   0xE01B             B.N      ??CCD_Show_1
+    111            case 3:
+    112              break;
+   \                     ??CCD_Show_2: (+1)
+   \       0x38   0xE01A             B.N      ??CCD_Show_1
+    113            case 4:
+    114              break;
+   \                     ??CCD_Show_5: (+1)
+   \       0x3A   0xE019             B.N      ??CCD_Show_1
+    115            case 5:
+    116              //__threshold++;
+    117              break;
+   \                     ??CCD_Show_4: (+1)
+   \       0x3C   0xE018             B.N      ??CCD_Show_1
+    118            case 6:
+    119              //__threshold--;
+    120              break;
+   \                     ??CCD_Show_7: (+1)
+   \       0x3E   0xE017             B.N      ??CCD_Show_1
+    121            case 7:
+    122              break;
+   \                     ??CCD_Show_6: (+1)
+   \       0x40   0xE016             B.N      ??CCD_Show_1
+    123            case 8:
+    124              page --;
+   \                     ??CCD_Show_9: (+1)
+   \       0x42   0x....             LDR.N    R0,??DataTable3
+   \       0x44   0x6801             LDR      R1,[R0, #+0]
+   \       0x46   0x1E49             SUBS     R1,R1,#+1
+   \       0x48   0x6001             STR      R1,[R0, #+0]
+    125              if(page < 0) page = 2;
+   \       0x4A   0x6801             LDR      R1,[R0, #+0]
+   \       0x4C   0x2900             CMP      R1,#+0
+   \       0x4E   0xD501             BPL.N    ??CCD_Show_10
+   \       0x50   0x2102             MOVS     R1,#+2
+   \       0x52   0x6001             STR      R1,[R0, #+0]
+    126              LCD_CLS(); 
+   \                     ??CCD_Show_10: (+1)
+   \       0x54   0x....'....        BL       LCD_CLS
+    127              break;
+   \       0x58   0xE00A             B.N      ??CCD_Show_1
+    128            case 9:
+    129              page ++;
+   \                     ??CCD_Show_8: (+1)
+   \       0x5A   0x....             LDR.N    R0,??DataTable3
+   \       0x5C   0x6801             LDR      R1,[R0, #+0]
+   \       0x5E   0x1C49             ADDS     R1,R1,#+1
+   \       0x60   0x6001             STR      R1,[R0, #+0]
+    130              if(page > 2) page = 0;
+   \       0x62   0x6801             LDR      R1,[R0, #+0]
+   \       0x64   0x2903             CMP      R1,#+3
+   \       0x66   0xDB01             BLT.N    ??CCD_Show_11
+   \       0x68   0x2100             MOVS     R1,#+0
+   \       0x6A   0x6001             STR      R1,[R0, #+0]
+    131              LCD_CLS(); 
+   \                     ??CCD_Show_11: (+1)
+   \       0x6C   0x....'....        BL       LCD_CLS
+    132              break;
+    133            }
+    134          }
+   \                     ??CCD_Show_1: (+1)
+   \       0x70   0xBD01             POP      {R0,PC}          ;; return
+    135          
+
+   \                                 In section .text, align 2, keep-with-next
+    136          void Parameter_Setting()
+    137          {
+   \                     Parameter_Setting: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    138              LCD_Write_Int(0,4,3);
+   \        0x2   0x2203             MOVS     R2,#+3
+   \        0x4   0x2104             MOVS     R1,#+4
+   \        0x6   0x2000             MOVS     R0,#+0
+   \        0x8   0x....'....        BL       LCD_Write_Int
+    139            /*Camera_flag = 0; 
+    140            CCD_flag = 0;
+    141            LCD_P6x8Str(0,goal,"*");
+    142            LCD_P6x8Str(10,0,"speedhigh:");
+    143            LCD_Write_Float_Dot(90,0,SpeedHigh,0);
+    144            LCD_P6x8Str(10,1,"speedlow:");
+    145            LCD_Write_Float_Dot(90,1,SpeedLow,0);
+    146            LCD_P6x8Str(10,2,"offset:");
+    147            LCD_Write_Float_Dot(90,2,offset,0);
+    148            LCD_P6x8Str(10,3,"offset_k:"); 
+    149            LCD_Write_Float_Dot(90,3,offset_k,1);
+    150            LCD_P6x8Str(10,4,"i_max:"); 
+    151            LCD_Write_Float_Dot(90,4,i_max,0);
+    152            LCD_P6x8Str(10,5,"i_min:"); 
+    153            LCD_Write_Float_Dot(90,5,i_min,0);
+    154            LCD_P6x8Str(10,6,"EDS_MAX:"); 
+    155            LCD_Write_Float_Dot(90,6,EDS_MAX,0);
+    156            LCD_P6x8Str(0,7,"-Parameter_Setting-");*/
+    157            switch(KeyValue) {
+   \        0xC   0x....             LDR.N    R0,??DataTable3_1
+   \        0xE   0x7800             LDRB     R0,[R0, #+0]
+   \       0x10   0x2801             CMP      R0,#+1
+   \       0x12   0xD00D             BEQ.N    ??Parameter_Setting_0
+   \       0x14   0xD32A             BCC.N    ??Parameter_Setting_1
+   \       0x16   0x2803             CMP      R0,#+3
+   \       0x18   0xD00C             BEQ.N    ??Parameter_Setting_2
+   \       0x1A   0xD30A             BCC.N    ??Parameter_Setting_3
+   \       0x1C   0x2805             CMP      R0,#+5
+   \       0x1E   0xD00B             BEQ.N    ??Parameter_Setting_4
+   \       0x20   0xD309             BCC.N    ??Parameter_Setting_5
+   \       0x22   0x2807             CMP      R0,#+7
+   \       0x24   0xD00A             BEQ.N    ??Parameter_Setting_6
+   \       0x26   0xD308             BCC.N    ??Parameter_Setting_7
+   \       0x28   0x2809             CMP      R0,#+9
+   \       0x2A   0xD014             BEQ.N    ??Parameter_Setting_8
+   \       0x2C   0xD307             BCC.N    ??Parameter_Setting_9
+   \       0x2E   0xE01D             B.N      ??Parameter_Setting_1
+    158            case 1:
+    159              //LCD_CLS();
+    160              break;
+   \                     ??Parameter_Setting_0: (+1)
+   \       0x30   0xE01C             B.N      ??Parameter_Setting_1
+    161            case 2:
+    162              //goal ++ ;
+    163              //if(goal>6)
+    164                //goal=6;
+    165              //LCD_CLS();
+    166              break;
+   \                     ??Parameter_Setting_3: (+1)
+   \       0x32   0xE01B             B.N      ??Parameter_Setting_1
+    167            case 3:
+    168              //goal --;    
+    169          //    if(goal<0)
+    170          //      goal=0;  
+    171          //    LCD_CLS();
+    172              break;
+   \                     ??Parameter_Setting_2: (+1)
+   \       0x34   0xE01A             B.N      ??Parameter_Setting_1
+    173            case 4:
+    174              break;
+   \                     ??Parameter_Setting_5: (+1)
+   \       0x36   0xE019             B.N      ??Parameter_Setting_1
+    175            case 5:
+    176          //    if(goal == 0) SpeedHigh++;
+    177          //    else if(goal == 1) SpeedLow ++;
+    178          //    else if(goal == 2) offset ++;
+    179          //    else if(goal == 3) offset_k +=0.1f;
+    180          //    else if(goal == 4) i_max ++;
+    181          //    else if(goal == 5) i_min ++;
+    182          //    else if(goal == 6) EDS_MAX ++;
+    183              break;
+   \                     ??Parameter_Setting_4: (+1)
+   \       0x38   0xE018             B.N      ??Parameter_Setting_1
+    184            case 6:
+    185          //    if(goal == 0) SpeedHigh--;
+    186          //    else if(goal == 1) SpeedLow --;
+    187          //    else if(goal == 2) offset --;
+    188          //    else if(goal == 3) offset_k -=0.1f;
+    189          //    else if(goal == 4) i_max --;
+    190          //    else if(goal == 5) i_min --;
+    191          //    else if(goal == 6) EDS_MAX --;
+    192              break;
+   \                     ??Parameter_Setting_7: (+1)
+   \       0x3A   0xE017             B.N      ??Parameter_Setting_1
+    193            case 7:
+    194              break;
+   \                     ??Parameter_Setting_6: (+1)
+   \       0x3C   0xE016             B.N      ??Parameter_Setting_1
+    195            case 8:
+    196              page --;
+   \                     ??Parameter_Setting_9: (+1)
+   \       0x3E   0x....             LDR.N    R0,??DataTable3
+   \       0x40   0x6801             LDR      R1,[R0, #+0]
+   \       0x42   0x1E49             SUBS     R1,R1,#+1
+   \       0x44   0x6001             STR      R1,[R0, #+0]
+    197              if(page < 0) page = 2;
+   \       0x46   0x6801             LDR      R1,[R0, #+0]
+   \       0x48   0x2900             CMP      R1,#+0
+   \       0x4A   0xD501             BPL.N    ??Parameter_Setting_10
+   \       0x4C   0x2102             MOVS     R1,#+2
+   \       0x4E   0x6001             STR      R1,[R0, #+0]
+    198              LCD_CLS(); 
+   \                     ??Parameter_Setting_10: (+1)
+   \       0x50   0x....'....        BL       LCD_CLS
+    199              break;
+   \       0x54   0xE00A             B.N      ??Parameter_Setting_1
+    200            case 9:
+    201              page ++;
+   \                     ??Parameter_Setting_8: (+1)
+   \       0x56   0x....             LDR.N    R0,??DataTable3
+   \       0x58   0x6801             LDR      R1,[R0, #+0]
+   \       0x5A   0x1C49             ADDS     R1,R1,#+1
+   \       0x5C   0x6001             STR      R1,[R0, #+0]
+    202              if(page > 2) page = 0;
+   \       0x5E   0x6801             LDR      R1,[R0, #+0]
+   \       0x60   0x2903             CMP      R1,#+3
+   \       0x62   0xDB01             BLT.N    ??Parameter_Setting_11
+   \       0x64   0x2100             MOVS     R1,#+0
+   \       0x66   0x6001             STR      R1,[R0, #+0]
+    203              LCD_CLS(); 
+   \                     ??Parameter_Setting_11: (+1)
+   \       0x68   0x....'....        BL       LCD_CLS
+    204              break;
+    205            }
+    206          }
+   \                     ??Parameter_Setting_1: (+1)
+   \       0x6C   0xBD01             POP      {R0,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3:
+   \        0x0   0x....'....        DC32     page
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_1:
+   \        0x0   0x....'....        DC32     KeyValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_2:
+   \        0x0   0x....'....        DC32     display_flag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_3:
+   \        0x0   0x....'....        DC32     ImgThreshold
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_4:
+   \        0x0   0x....'....        DC32     LuBang
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_5:
+   \        0x0   0x....'....        DC32     Motor_OPEN
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   CCD_Show
+         8   -> LCD_CLS
+         8   -> LCD_Write_Int
+       8   Camera_Show
+         8   -> LCD_CLS
+         8   -> LCD_Write_Int
+         8   -> SCCB_WriteByte
+         8   -> img_display
+       8   Menu
+         8   -> CCD_Show
+         8   -> Camera_Show
+         8   -> Parameter_Setting
+       8   Parameter_Setting
+         8   -> LCD_CLS
+         8   -> LCD_Write_Int
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable3
+       4  ??DataTable3_1
+       4  ??DataTable3_2
+       4  ??DataTable3_3
+       4  ??DataTable3_4
+       4  ??DataTable3_5
+     114  CCD_Show
+       1  CCD_flag
+     182  Camera_Show
+       1  Camera_flag
+      74  Menu
+       1  Menu_Open
+       1  Motor_OPEN
+     110  Parameter_Setting
+       4  goal
+       4  page
+
+ 
+  11 bytes in section .bss
+   1 byte  in section .data
+ 504 bytes in section .text
+ 
+ 504 bytes of CODE memory
+  12 bytes of DATA memory
+
+Errors: none
+Warnings: 2

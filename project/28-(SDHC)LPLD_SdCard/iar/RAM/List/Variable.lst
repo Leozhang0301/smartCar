@@ -1,0 +1,372 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         18/May/2019  16:18:38
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\common\Variable.c
+#    Command line =  
+#        -f C:\Users\TEMPLA~1.000\AppData\Local\Temp\EWD485.tmp
+#        (C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\common\Variable.c -D
+#        LPLD_K60 -lCN
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -lB
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -o
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config "D:\@@\605110 IAR for
+#        ARM 8.30\arm\inc\c\DLib_Config_Normal.h" -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Me\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\Core\Include\" -I
+#        "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\DSP\Include\" -D
+#        ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List\Variable.lst
+#    Object file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\Variable.o
+#
+###############################################################################
+
+C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\common\Variable.c
+      1          #include "Variable.h"
+      2          //#include "SEEKFREE_MT9V032.h"
+      3          //右轮是从机发送的，左轮是主机自己读取的
+
+   \                                 In section .bss, align 2
+      4          s16 Right_front_speed;/*右前轮速度*/
+   \                     Right_front_speed:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+      5          s16 Left_front_speed;/*左前轮速度*/
+   \                     Left_front_speed:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+      6          s16 Right_rear_speed;/*右后轮速度*/
+   \                     Right_rear_speed:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+      7          s16 Left_rear_speed;/*左后轮速度*/
+   \                     Left_rear_speed:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 4
+      8          s32 Left_front_goalspeed;/*左前轮目标速度*/
+   \                     Left_front_goalspeed:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+      9          s32 Right_front_goalspeed;/*右前轮目标速度*/
+   \                     Right_front_goalspeed:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     10          s32 Left_rear_goalspeed;/*左前轮目标速度*/
+   \                     Left_rear_goalspeed:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     11          s32 Right_rear_goalspeed;/*右前轮目标速度*/
+   \                     Right_rear_goalspeed:
+   \        0x0                      DS8 4
+     12          
+
+   \                                 In section .bss, align 1
+     13          u8 set_speed_l =0;  //行走速度
+   \                     set_speed_l:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 2
+     14          s16 set_speed_s =0;  // 转圈速度
+   \                     set_speed_s:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     15          s16 Move_Z = 0; //Z轴速度
+   \                     Move_Z:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     16          s16 KP = 0.7;//18;  //方向环的PD
+   \                     KP:
+   \        0x0                      DS8 2
+
+   \                                 In section .data, align 2
+     17          s16 KD = 2;//40;
+   \                     KD:
+   \        0x0   0x0002             DC16 2
+
+   \                                 In section .data, align 2
+     18          s16 KP_show = 180 ;  //方向环的PD，用来oled参数显示的
+   \                     KP_show:
+   \        0x0   0x00B4             DC16 180
+
+   \                                 In section .data, align 2
+     19          s16 KD_show = 400 ;
+   \                     KD_show:
+   \        0x0   0x0190             DC16 400
+
+   \                                 In section .bss, align 4
+     20          _pid_t pid_left_front;     /*结构体 左前轮PID参数*/
+   \                     pid_left_front:
+   \        0x0                      DS8 16
+
+   \                                 In section .bss, align 4
+     21          _pid_t pid_right_front;		/*结构体 右前轮PID参数*/
+   \                     pid_right_front:
+   \        0x0                      DS8 16
+
+   \                                 In section .bss, align 4
+     22          _pid_t pid_left_rear;			/*结构体 左后轮PID参数*/
+   \                     pid_left_rear:
+   \        0x0                      DS8 16
+
+   \                                 In section .bss, align 4
+     23          _pid_t pid_right_rear;			/*结构体 右后轮PID参数*/
+   \                     pid_right_rear:
+   \        0x0                      DS8 16
+     24          
+     25          
+     26          //调试所用参数（show.c里面用到）
+
+   \                                 In section .data, align 1
+     27          u8 basic_speed =30;
+   \                     basic_speed:
+   \        0x0   0x1E               DC8 30
+
+   \                                 In section .data, align 1
+     28          u8 Rotate_speed = 40; //
+   \                     Rotate_speed:
+   \        0x0   0x28               DC8 40
+
+   \                                 In section .bss, align 1
+     29          u8 coordinate_X = 0;  //等价信标灯的坐标  X坐标
+   \                     coordinate_X:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 1
+     30          u8 coordinate_Y = 0;  //Y坐标
+   \                     coordinate_Y:
+   \        0x0                      DS8 1
+     31          //u8 menu =1;     //菜单选项
+     32          
+     33          //调试所用参数（main里面用到）
+
+   \                                 In section .bss, align 1
+     34          u8 shield_flag =0;
+   \                     shield_flag:
+   \        0x0                      DS8 1
+     35          
+     36          
+
+   \                                 In section .bss, align 4
+     37          u8 prama[5] = {0};       //写入flash里面的数
+   \                     prama:
+   \        0x0                      DS8 8
+
+   \                                 In section .bss, align 4
+     38          u8 R_prama[5] = {0};		 //读出flash里面的数
+   \                     R_prama:
+   \        0x0                      DS8 8
+
+   \                                 In section .data, align 1
+     39          u8 My_sectorNum = 20;     //扇区号
+   \                     My_sectorNum:
+   \        0x0   0x14               DC8 20
+     40          
+     41          //u8 threshold ;/*阈值*/
+     42          
+     43          
+     44          
+
+   \                                 In section .bss, align 2
+     45          s16 use_time = 0;      /*测量程序执行时间*/
+   \                     use_time:
+   \        0x0                      DS8 2
+     46          
+
+   \                                 In section .bss, align 1
+     47          u8 Data_State=0;/*主从机传送数据状态*/
+   \                     Data_State:
+   \        0x0                      DS8 1
+     48          
+     49          /*障碍坐标*/
+
+   \                                 In section .bss, align 1
+     50          u8 avoid_x =0 ;
+   \                     avoid_x:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 1
+     51          u8 avoid_y = 0 ;
+   \                     avoid_y:
+   \        0x0                      DS8 1
+
+   \                                 In section .data, align 1
+     52          u8 COL_2 = 98;
+   \                     COL_2:
+   \        0x0   0x62               DC8 98
+     53          #define NO_Barrier_advoidance 1  // 0: 需要检测障碍   1：不检测障碍
+
+   \                                 In section .bss, align 1
+     54          u8 delay_flag =0;// 检测到障碍物后的延时标志位,使角度打死一小段时间
+   \                     delay_flag:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 1
+     55          u8 Barrier_flag = 0;
+   \                     Barrier_flag:
+   \        0x0                      DS8 1
+     56          
+     57          /*信标灯坐标*/
+
+   \                                 In section .bss, align 2
+     58          s16 beacon_x=0;
+   \                     beacon_x:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     59          s16 beacon_y=0;
+   \                     beacon_y:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     60          s16 excursion_x = 0;  //信标灯坐标偏移
+   \                     excursion_x:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     61          s16 excursion_y = 0;
+   \                     excursion_y:
+   \        0x0                      DS8 2
+
+   \                                 In section .data, align 1
+     62          u8 beacon_threshold =2;
+   \                     beacon_threshold:
+   \        0x0   0x02               DC8 2
+
+   \                                 In section .bss, align 2
+     63          s16 twinkle_delay=0;/*闪烁延时参数*/
+   \                     twinkle_delay:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 1
+     64          u8 No_Barrier_flag =0;
+   \                     No_Barrier_flag:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 1
+     65          u8 excursion_flag =0; //近距离偏移标志位
+   \                     excursion_flag:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 1
+     66          u8 state_flag = 0;    //距离信标灯远近标志位
+   \                     state_flag:
+   \        0x0                      DS8 1
+     67          
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  Barrier_flag
+       1  COL_2
+       1  Data_State
+       2  KD
+       2  KD_show
+       2  KP
+       2  KP_show
+       4  Left_front_goalspeed
+       2  Left_front_speed
+       4  Left_rear_goalspeed
+       2  Left_rear_speed
+       2  Move_Z
+       1  My_sectorNum
+       1  No_Barrier_flag
+       8  R_prama
+       4  Right_front_goalspeed
+       2  Right_front_speed
+       4  Right_rear_goalspeed
+       2  Right_rear_speed
+       1  Rotate_speed
+       1  avoid_x
+       1  avoid_y
+       1  basic_speed
+       1  beacon_threshold
+       2  beacon_x
+       2  beacon_y
+       1  coordinate_X
+       1  coordinate_Y
+       1  delay_flag
+       1  excursion_flag
+       2  excursion_x
+       2  excursion_y
+      16  pid_left_front
+      16  pid_left_rear
+      16  pid_right_front
+      16  pid_right_rear
+       8  prama
+       1  set_speed_l
+       2  set_speed_s
+       1  shield_flag
+       1  state_flag
+       2  twinkle_delay
+       2  use_time
+
+ 
+ 134 bytes in section .bss
+  11 bytes in section .data
+ 
+ 145 bytes of DATA memory
+
+Errors: none
+Warnings: 2

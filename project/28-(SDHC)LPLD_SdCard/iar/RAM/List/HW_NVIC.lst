@@ -1,0 +1,523 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         18/May/2019  16:18:19
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_NVIC.c
+#    Command line =  
+#        -f C:\Users\TEMPLA~1.000\AppData\Local\Temp\EW8916.tmp
+#        (C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_NVIC.c -D
+#        LPLD_K60 -lCN
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -lB
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -o
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config "D:\@@\605110 IAR for
+#        ARM 8.30\arm\inc\c\DLib_Config_Normal.h" -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Me\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\Core\Include\" -I
+#        "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\DSP\Include\" -D
+#        ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List\HW_NVIC.lst
+#    Object file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_NVIC.o
+#
+###############################################################################
+
+C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_NVIC.c
+      1          /**
+      2           * @file HW_NVIC.c
+      3           * @version 3.02[By LPLD]
+      4           * @date 2013-11-29
+      5           * @brief 内核NVIC模块相关函数
+      6           *
+      7           * 更改建议:不建议修改
+      8           *
+      9           * 版权所有:北京拉普兰德电子技术有限公司
+     10           * http://www.lpld.cn
+     11           * mail:support@lpld.cn
+     12           *
+     13           * @par
+     14           * 本代码由拉普兰德[LPLD]开发并维护，并向所有使用者开放源代码。
+     15           * 开发者可以随意修使用或改源代码。但本段及以上注释应予以保留。
+     16           * 不得更改或删除原版权所有者姓名，二次开发者可以加注二次版权所有者。
+     17           * 但应在遵守此协议的基础上，开放源代码、不得出售代码本身。
+     18           * 拉普兰德不负责由于使用本代码所带来的任何事故、法律责任或相关不良影响。
+     19           * 拉普兰德无义务解释、说明本代码的具体原理、功能、实现方法。
+     20           * 除非拉普兰德[LPLD]授权，开发者不得将本代码用于商业产品。
+     21           */
+     22          #include "HW_NVIC.h"
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_SetPriorityGrouping(uint32_t)
+   \                     __NVIC_SetPriorityGrouping: (+1)
+   \        0x0   0xF010 0x0007      ANDS     R0,R0,#0x7
+   \        0x4   0x....             LDR.N    R3,??DataTable4  ;; 0xe000ed0c
+   \        0x6   0x681A             LDR      R2,[R3, #+0]
+   \        0x8   0xF64F 0x01FF      MOVW     R1,#+63743
+   \        0xC   0x400A             ANDS     R2,R1,R2
+   \        0xE   0x....             LDR.N    R1,??DataTable4_1  ;; 0x5fa0000
+   \       0x10   0xEA51 0x2100      ORRS     R1,R1,R0, LSL #+8
+   \       0x14   0x430A             ORRS     R2,R1,R2
+   \       0x16   0x601A             STR      R2,[R3, #+0]
+   \       0x18   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_EnableIRQ(IRQn_Type)
+   \                     __NVIC_EnableIRQ: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+   \        0x2   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \        0x4   0x2900             CMP      R1,#+0
+   \        0x6   0xD408             BMI.N    ??__NVIC_EnableIRQ_0
+   \        0x8   0x2201             MOVS     R2,#+1
+   \        0xA   0xF010 0x011F      ANDS     R1,R0,#0x1F
+   \        0xE   0x408A             LSLS     R2,R2,R1
+   \       0x10   0x....             LDR.N    R1,??DataTable4_2  ;; 0xe000e100
+   \       0x12   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x14   0x0940             LSRS     R0,R0,#+5
+   \       0x16   0xF841 0x2020      STR      R2,[R1, R0, LSL #+2]
+   \                     ??__NVIC_EnableIRQ_0: (+1)
+   \       0x1A   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_DisableIRQ(IRQn_Type)
+   \                     __NVIC_DisableIRQ: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+   \        0x2   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \        0x4   0x2900             CMP      R1,#+0
+   \        0x6   0xD40C             BMI.N    ??__NVIC_DisableIRQ_0
+   \        0x8   0x2201             MOVS     R2,#+1
+   \        0xA   0xF010 0x011F      ANDS     R1,R0,#0x1F
+   \        0xE   0x408A             LSLS     R2,R2,R1
+   \       0x10   0x....             LDR.N    R1,??DataTable4_3  ;; 0xe000e180
+   \       0x12   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x14   0x0940             LSRS     R0,R0,#+5
+   \       0x16   0xF841 0x2020      STR      R2,[R1, R0, LSL #+2]
+   \       0x1A   0xF3BF 0x8F4F      DSB      SY
+   \       0x1E   0xF3BF 0x8F6F      ISB      SY
+   \                     ??__NVIC_DisableIRQ_0: (+1)
+   \       0x22   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_SetPriority(IRQn_Type, uint32_t)
+   \                     __NVIC_SetPriority: (+1)
+   \        0x0   0x0002             MOVS     R2,R0
+   \        0x2   0xB252             SXTB     R2,R2            ;; SignExt  R2,R2,#+24,#+24
+   \        0x4   0x2A00             CMP      R2,#+0
+   \        0x6   0xD404             BMI.N    ??__NVIC_SetPriority_0
+   \        0x8   0x0109             LSLS     R1,R1,#+4
+   \        0xA   0x....             LDR.N    R2,??DataTable4_4  ;; 0xe000e400
+   \        0xC   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \        0xE   0x5411             STRB     R1,[R2, R0]
+   \       0x10   0xE007             B.N      ??__NVIC_SetPriority_1
+   \                     ??__NVIC_SetPriority_0: (+1)
+   \       0x12   0x0109             LSLS     R1,R1,#+4
+   \       0x14   0x....             LDR.N    R2,??DataTable4_5  ;; 0xe000ed18
+   \       0x16   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x18   0xF010 0x000F      ANDS     R0,R0,#0xF
+   \       0x1C   0x4410             ADD      R0,R2,R0
+   \       0x1E   0xF800 0x1C04      STRB     R1,[R0, #-4]
+   \                     ??__NVIC_SetPriority_1: (+1)
+   \       0x22   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp uint32_t NVIC_EncodePriority(uint32_t, uint32_t, uint32_t)
+   \                     NVIC_EncodePriority: (+1)
+   \        0x0   0xB410             PUSH     {R4}
+   \        0x2   0xF010 0x0007      ANDS     R0,R0,#0x7
+   \        0x6   0xF1D0 0x0307      RSBS     R3,R0,#+7
+   \        0xA   0x2B05             CMP      R3,#+5
+   \        0xC   0xD301             BCC.N    ??NVIC_EncodePriority_0
+   \        0xE   0x2304             MOVS     R3,#+4
+   \       0x10   0xE001             B.N      ??NVIC_EncodePriority_1
+   \                     ??NVIC_EncodePriority_0: (+1)
+   \       0x12   0xF1D0 0x0307      RSBS     R3,R0,#+7
+   \                     ??NVIC_EncodePriority_1: (+1)
+   \       0x16   0x1D04             ADDS     R4,R0,#+4
+   \       0x18   0x2C07             CMP      R4,#+7
+   \       0x1A   0xD201             BCS.N    ??NVIC_EncodePriority_2
+   \       0x1C   0x2000             MOVS     R0,#+0
+   \       0x1E   0xE000             B.N      ??NVIC_EncodePriority_3
+   \                     ??NVIC_EncodePriority_2: (+1)
+   \       0x20   0x1EC0             SUBS     R0,R0,#+3
+   \                     ??NVIC_EncodePriority_3: (+1)
+   \       0x22   0x2401             MOVS     R4,#+1
+   \       0x24   0xFA14 0xF303      LSLS     R3,R4,R3
+   \       0x28   0x1E5B             SUBS     R3,R3,#+1
+   \       0x2A   0x4019             ANDS     R1,R3,R1
+   \       0x2C   0x4081             LSLS     R1,R1,R0
+   \       0x2E   0xFA14 0xF000      LSLS     R0,R4,R0
+   \       0x32   0x1E40             SUBS     R0,R0,#+1
+   \       0x34   0x4010             ANDS     R0,R0,R2
+   \       0x36   0x4308             ORRS     R0,R0,R1
+   \       0x38   0xBC10             POP      {R4}
+   \       0x3A   0x4770             BX       LR               ;; return
+     23          
+     24          /*
+     25           * LPLD_NVIC_Init
+     26           *
+     27           * 在该函数中配置IRQn_Type通道优先级，并根据需要在NVIC中使能IRQn_Type
+     28           * 在函数中调用了core_m4.h中的NVIC函数管理M4内核的16个中断优先级
+     29           * 16个中断优先级通过分组的形式进行管理，将NVIC中的优先级分为5组，NVIC_PriorityGroup_0 -- 5
+     30           * 每组包含抢占式优先级（NVIC_IRQChannelPreemptionPriority）和响应式优先级（NVIC_IRQChannelSubPriority）
+     31           *
+     32           * 优先级仲裁:
+     33           * >1 PreemptionPriority优先级高的才能抢占PreemptionPriority优先级低的中断异常;
+     34           * (即NVIC_IRQChannelPreemptionPriority值越小优先级越高);
+     35           * >2 PreemptionPriority优先级相同的中断异常之间不能相互抢占;
+     36           * >3 如果PreemptionPriority优先级相等，再比较SubPriority响应优先级，SubPriority响应优先级值越小中断优先级越高;
+     37           *
+     38           * NVIC中的优先级分组划分见NVIC_InitTypeDef中的NVIC 中断分组
+     39           * 
+     40           * 参数:
+     41           *    NVIC_InitStructure--NVIC初始化结构体，
+     42           *                        具体定义见NVIC_InitTypeDef
+     43           * 输出:
+     44           *    0:配置失败
+     45           *    1:配置成功
+     46           *
+     47          */
+
+   \                                 In section .text, align 2, keep-with-next
+     48          uint8 LPLD_NVIC_Init(NVIC_InitTypeDef NVIC_InitStructure)
+     49          {
+   \                     LPLD_NVIC_Init: (+1)
+   \        0x0   0xB40F             PUSH     {R0-R3}
+   \        0x2   0xE92D 0x43F8      PUSH     {R3-R9,LR}
+     50            uint8  request = 1;
+   \        0x6   0x2601             MOVS     R6,#+1
+     51            IRQn_Type int_id = NVIC_InitStructure.NVIC_IRQChannel;
+   \        0x8   0xF99D 0x7020      LDRSB    R7,[SP, #+32]
+     52            uint32 nvic_priority_group = NVIC_InitStructure.NVIC_IRQChannelGroupPriority; 
+   \        0xC   0xF8DD 0x8024      LDR      R8,[SP, #+36]
+     53            uint32 nvic_preemption_priority = NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority;
+   \       0x10   0x9D0A             LDR      R5,[SP, #+40]
+     54            uint32 nvic_sub_priority = NVIC_InitStructure.NVIC_IRQChannelSubPriority;
+   \       0x12   0x9C0B             LDR      R4,[SP, #+44]
+     55            boolean status = NVIC_InitStructure.NVIC_IRQChannelEnable;
+   \       0x14   0xF89D 0x9030      LDRB     R9,[SP, #+48]
+     56            uint32 temp;
+     57            //参数检查
+     58            ASSERT(IS_NVIC_PRIORITY_GROUP(nvic_priority_group));
+   \       0x18   0xF1B8 0x0F07      CMP      R8,#+7
+   \       0x1C   0xD00F             BEQ.N    ??LPLD_NVIC_Init_0
+   \       0x1E   0xF1B8 0x0F06      CMP      R8,#+6
+   \       0x22   0xD00C             BEQ.N    ??LPLD_NVIC_Init_0
+   \       0x24   0xF1B8 0x0F05      CMP      R8,#+5
+   \       0x28   0xD009             BEQ.N    ??LPLD_NVIC_Init_0
+   \       0x2A   0xF1B8 0x0F04      CMP      R8,#+4
+   \       0x2E   0xD006             BEQ.N    ??LPLD_NVIC_Init_0
+   \       0x30   0xF1B8 0x0F03      CMP      R8,#+3
+   \       0x34   0xD003             BEQ.N    ??LPLD_NVIC_Init_0
+   \       0x36   0x213A             MOVS     R1,#+58
+   \       0x38   0x....             LDR.N    R0,??DataTable4_6
+   \       0x3A   0x....'....        BL       assert_failed
+     59            ASSERT(IS_NVIC_PREEMPTION_PRIORITY(nvic_preemption_priority));
+   \                     ??LPLD_NVIC_Init_0: (+1)
+   \       0x3E   0x2D10             CMP      R5,#+16
+   \       0x40   0xD303             BCC.N    ??LPLD_NVIC_Init_1
+   \       0x42   0x213B             MOVS     R1,#+59
+   \       0x44   0x....             LDR.N    R0,??DataTable4_6
+   \       0x46   0x....'....        BL       assert_failed
+     60            ASSERT(IS_NVIC_SUB_PRIORITY(nvic_sub_priority));
+   \                     ??LPLD_NVIC_Init_1: (+1)
+   \       0x4A   0x2C10             CMP      R4,#+16
+   \       0x4C   0xD303             BCC.N    ??LPLD_NVIC_Init_2
+   \       0x4E   0x213C             MOVS     R1,#+60
+   \       0x50   0x....             LDR.N    R0,??DataTable4_6
+   \       0x52   0x....'....        BL       assert_failed
+     61            //根据 NVIC中断分组 配置抢占优先级
+     62            switch(nvic_priority_group)
+   \                     ??LPLD_NVIC_Init_2: (+1)
+   \       0x56   0xF1B8 0x0F03      CMP      R8,#+3
+   \       0x5A   0xD040             BEQ.N    ??LPLD_NVIC_Init_3
+   \       0x5C   0xD348             BCC.N    ??LPLD_NVIC_Init_4
+   \       0x5E   0xF1B8 0x0F05      CMP      R8,#+5
+   \       0x62   0xD02A             BEQ.N    ??LPLD_NVIC_Init_5
+   \       0x64   0xD332             BCC.N    ??LPLD_NVIC_Init_6
+   \       0x66   0xF1B8 0x0F07      CMP      R8,#+7
+   \       0x6A   0xD001             BEQ.N    ??LPLD_NVIC_Init_7
+   \       0x6C   0xD31C             BCC.N    ??LPLD_NVIC_Init_8
+   \       0x6E   0xE03F             B.N      ??LPLD_NVIC_Init_4
+     63            {
+     64                case NVIC_PriorityGroup_0: NVIC_SetPriorityGrouping(NVIC_PriorityGroup_0);
+   \                     ??LPLD_NVIC_Init_7: (+1)
+   \       0x70   0x2007             MOVS     R0,#+7
+   \       0x72   0x....'....        BL       __NVIC_SetPriorityGrouping
+     65                        if(nvic_preemption_priority > 0 || nvic_sub_priority >15)
+   \       0x76   0x2D00             CMP      R5,#+0
+   \       0x78   0xD101             BNE.N    ??LPLD_NVIC_Init_9
+   \       0x7A   0x2C10             CMP      R4,#+16
+   \       0x7C   0xD300             BCC.N    ??LPLD_NVIC_Init_10
+     66                          request = 0;
+   \                     ??LPLD_NVIC_Init_9: (+1)
+   \       0x7E   0x2600             MOVS     R6,#+0
+     67                        break;
+     68                case NVIC_PriorityGroup_1: NVIC_SetPriorityGrouping(NVIC_PriorityGroup_1);
+     69                        if(nvic_preemption_priority > 1 || nvic_sub_priority >7)
+     70                          request = 0;
+     71                        break;
+     72                case NVIC_PriorityGroup_2: NVIC_SetPriorityGrouping(NVIC_PriorityGroup_2);
+     73                        if(nvic_preemption_priority > 3 || nvic_sub_priority >3)
+     74                          request = 0;
+     75                        break;
+     76                case NVIC_PriorityGroup_3: NVIC_SetPriorityGrouping(NVIC_PriorityGroup_3);
+     77                        if(nvic_preemption_priority > 7 || nvic_sub_priority >1)
+     78                          request = 0;
+     79                        break;
+     80                case NVIC_PriorityGroup_4: NVIC_SetPriorityGrouping(NVIC_PriorityGroup_4);
+     81                        if(nvic_preemption_priority > 15 || nvic_sub_priority >0)
+     82                          request = 0;
+     83                        break;
+     84                default:return 0;
+     85            }
+     86            //根据中断分抢占设置中断抢占优先级
+     87            //根据中断分抢占设置中断响应优先级
+     88            temp = NVIC_EncodePriority(nvic_priority_group,\
+     89                                       nvic_preemption_priority,\
+     90                                       nvic_sub_priority);
+   \                     ??LPLD_NVIC_Init_10: (+1)
+   \                     ??LPLD_NVIC_Init_11: (+1)
+   \       0x80   0x0022             MOVS     R2,R4
+   \       0x82   0x0029             MOVS     R1,R5
+   \       0x84   0x4640             MOV      R0,R8
+   \       0x86   0x....'....        BL       NVIC_EncodePriority
+   \       0x8A   0x0001             MOVS     R1,R0
+     91            //设置中断向量号,并在M4内核中设置NVIC优先级
+     92            NVIC_SetPriority(int_id,temp);
+   \       0x8C   0x0038             MOVS     R0,R7
+   \       0x8E   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x90   0x....'....        BL       __NVIC_SetPriority
+     93            
+     94            if(status == TRUE)
+   \       0x94   0xFA5F 0xF989      UXTB     R9,R9            ;; ZeroExt  R9,R9,#+24,#+24
+   \       0x98   0xF1B9 0x0F01      CMP      R9,#+1
+   \       0x9C   0xD12A             BNE.N    ??LPLD_NVIC_Init_12
+     95            {
+     96              NVIC_EnableIRQ(int_id);
+   \       0x9E   0x0038             MOVS     R0,R7
+   \       0xA0   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0xA2   0x....'....        BL       __NVIC_EnableIRQ
+   \       0xA6   0xE029             B.N      ??LPLD_NVIC_Init_13
+     97            }
+   \                     ??LPLD_NVIC_Init_8: (+1)
+   \       0xA8   0x2006             MOVS     R0,#+6
+   \       0xAA   0x....'....        BL       __NVIC_SetPriorityGrouping
+   \       0xAE   0x2D02             CMP      R5,#+2
+   \       0xB0   0xD201             BCS.N    ??LPLD_NVIC_Init_14
+   \       0xB2   0x2C08             CMP      R4,#+8
+   \       0xB4   0xD300             BCC.N    ??LPLD_NVIC_Init_15
+   \                     ??LPLD_NVIC_Init_14: (+1)
+   \       0xB6   0x2600             MOVS     R6,#+0
+   \                     ??LPLD_NVIC_Init_15: (+1)
+   \       0xB8   0xE7E2             B.N      ??LPLD_NVIC_Init_11
+   \                     ??LPLD_NVIC_Init_5: (+1)
+   \       0xBA   0x2005             MOVS     R0,#+5
+   \       0xBC   0x....'....        BL       __NVIC_SetPriorityGrouping
+   \       0xC0   0x2D04             CMP      R5,#+4
+   \       0xC2   0xD201             BCS.N    ??LPLD_NVIC_Init_16
+   \       0xC4   0x2C04             CMP      R4,#+4
+   \       0xC6   0xD300             BCC.N    ??LPLD_NVIC_Init_17
+   \                     ??LPLD_NVIC_Init_16: (+1)
+   \       0xC8   0x2600             MOVS     R6,#+0
+   \                     ??LPLD_NVIC_Init_17: (+1)
+   \       0xCA   0xE7D9             B.N      ??LPLD_NVIC_Init_11
+   \                     ??LPLD_NVIC_Init_6: (+1)
+   \       0xCC   0x2004             MOVS     R0,#+4
+   \       0xCE   0x....'....        BL       __NVIC_SetPriorityGrouping
+   \       0xD2   0x2D08             CMP      R5,#+8
+   \       0xD4   0xD201             BCS.N    ??LPLD_NVIC_Init_18
+   \       0xD6   0x2C02             CMP      R4,#+2
+   \       0xD8   0xD300             BCC.N    ??LPLD_NVIC_Init_19
+   \                     ??LPLD_NVIC_Init_18: (+1)
+   \       0xDA   0x2600             MOVS     R6,#+0
+   \                     ??LPLD_NVIC_Init_19: (+1)
+   \       0xDC   0xE7D0             B.N      ??LPLD_NVIC_Init_11
+   \                     ??LPLD_NVIC_Init_3: (+1)
+   \       0xDE   0x2003             MOVS     R0,#+3
+   \       0xE0   0x....'....        BL       __NVIC_SetPriorityGrouping
+   \       0xE4   0x2D10             CMP      R5,#+16
+   \       0xE6   0xD201             BCS.N    ??LPLD_NVIC_Init_20
+   \       0xE8   0x2C00             CMP      R4,#+0
+   \       0xEA   0xD000             BEQ.N    ??LPLD_NVIC_Init_21
+   \                     ??LPLD_NVIC_Init_20: (+1)
+   \       0xEC   0x2600             MOVS     R6,#+0
+   \                     ??LPLD_NVIC_Init_21: (+1)
+   \       0xEE   0xE7C7             B.N      ??LPLD_NVIC_Init_11
+   \                     ??LPLD_NVIC_Init_4: (+1)
+   \       0xF0   0x2000             MOVS     R0,#+0
+   \       0xF2   0xE005             B.N      ??LPLD_NVIC_Init_22
+     98            else
+     99            {
+    100              NVIC_DisableIRQ(int_id);
+   \                     ??LPLD_NVIC_Init_12: (+1)
+   \       0xF4   0x0038             MOVS     R0,R7
+   \       0xF6   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0xF8   0x....'....        BL       __NVIC_DisableIRQ
+    101            }
+    102            return request;
+   \                     ??LPLD_NVIC_Init_13: (+1)
+   \       0xFC   0x0030             MOVS     R0,R6
+   \       0xFE   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \                     ??LPLD_NVIC_Init_22: (+1)
+   \      0x100   0xE8BD 0x03F2      POP      {R1,R4-R9}
+   \      0x104   0xF85D 0xFB14      LDR      PC,[SP], #+20    ;; return
+    103          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4:
+   \        0x0   0xE000'ED0C        DC32     0xe000ed0c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_1:
+   \        0x0   0x05FA'0000        DC32     0x5fa0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_2:
+   \        0x0   0xE000'E100        DC32     0xe000e100
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_3:
+   \        0x0   0xE000'E180        DC32     0xe000e180
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_4:
+   \        0x0   0xE000'E400        DC32     0xe000e400
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_5:
+   \        0x0   0xE000'ED18        DC32     0xe000ed18
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_6:
+   \        0x0   0x....'....        DC32     ?_0
+
+   \                                 In section .rodata, align 4
+   \                     ?_0:
+   \        0x0   0x43 0x3A          DC8 43H, 3AH, 5CH, 55H, 73H, 65H, 72H, 73H
+   \              0x5C 0x55    
+   \              0x73 0x65    
+   \              0x72 0x73    
+   \        0x8   0x5C 0x71          DC8 5CH, 71H, 75H, 65H, 5CH, 44H, 65H, 73H
+   \              0x75 0x65    
+   \              0x5C 0x44    
+   \              0x65 0x73    
+   \       0x10   0x6B 0x74          DC8 6BH, 74H, 6FH, 70H, 5CH, 41H, 41H, 41H
+   \              0x6F 0x70    
+   \              0x5C 0x41    
+   \              0x41 0x41    
+   \       0x18   0x5F 0x78          DC8 5FH, 78H, 69H, 6EH, 62H, 69H, 61H, 6FH
+   \              0x69 0x6E    
+   \              0x62 0x69    
+   \              0x61 0x6F    
+   \       0x20   0x5C 0x73          DC8 5CH, 73H, 6DH, 61H, 72H, 74H, 63H, 61H
+   \              0x6D 0x61    
+   \              0x72 0x74    
+   \              0x63 0x61    
+   \       0x28   0x72 0x5C          DC8 72H, 5CH, 6CH, 69H, 62H, 5CH, 4CH, 50H
+   \              0x6C 0x69    
+   \              0x62 0x5C    
+   \              0x4C 0x50    
+   \       0x30   0x4C 0x44          DC8 4CH, 44H, 5CH, 48H, 57H, 5CH, 48H, 57H
+   \              0x5C 0x48    
+   \              0x57 0x5C    
+   \              0x48 0x57    
+   \       0x38   0x5F 0x4E          DC8 5FH, 4EH, 56H, 49H, 43H, 2EH, 63H, 0
+   \              0x56 0x49    
+   \              0x43 0x2E    
+   \              0x63 0x00    
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      48   LPLD_NVIC_Init
+        48   -> NVIC_EncodePriority
+        48   -> __NVIC_DisableIRQ
+        48   -> __NVIC_EnableIRQ
+        48   -> __NVIC_SetPriority
+        48   -> __NVIC_SetPriorityGrouping
+        48   -> assert_failed
+       4   NVIC_EncodePriority
+       0   __NVIC_DisableIRQ
+       0   __NVIC_EnableIRQ
+       0   __NVIC_SetPriority
+       0   __NVIC_SetPriorityGrouping
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable4
+       4  ??DataTable4_1
+       4  ??DataTable4_2
+       4  ??DataTable4_3
+       4  ??DataTable4_4
+       4  ??DataTable4_5
+       4  ??DataTable4_6
+      64  ?_0
+     264  LPLD_NVIC_Init
+      60  NVIC_EncodePriority
+      36  __NVIC_DisableIRQ
+      28  __NVIC_EnableIRQ
+      36  __NVIC_SetPriority
+      26  __NVIC_SetPriorityGrouping
+
+ 
+  64 bytes in section .rodata
+ 478 bytes in section .text
+ 
+ 478 bytes of CODE  memory
+  64 bytes of CONST memory
+
+Errors: none
+Warnings: 1

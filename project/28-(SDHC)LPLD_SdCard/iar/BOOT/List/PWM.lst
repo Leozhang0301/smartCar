@@ -1,0 +1,567 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         23/Apr/2019  21:09:51
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\k60_144\smartcar\lib\Jay\PWM.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW4D1D.tmp
+#        (G:\AIcar\@@\k60_144\smartcar\lib\Jay\PWM.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -lB
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -o
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List\PWM.lst
+#    Object file  =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj\PWM.o
+#
+###############################################################################
+
+G:\AIcar\@@\k60_144\smartcar\lib\Jay\PWM.c
+      1          /*
+      2           *  
+      3           *  
+      4           *  @JayLin林杰 @厦门大学嘉庚学院 @博学队
+      5           */
+      6          #include  "common.h"
+      7          #include "include.h"
+      8          
+
+   \                                 In section .bss, align 1
+      9          uint8 CarModel = 0;
+   \                     CarModel:
+   \        0x0                      DS8 1
+     10          //FTM_InitTypeDef steering_init_struct;
+
+   \                                 In section .bss, align 2
+     11          int16 angleMid;
+   \                     angleMid:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     12          int16 angleMax;
+   \                     angleMax:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     13          int16 angleMin;  
+   \                     angleMin:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     14          int16 angle;
+   \                     angle:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     15          int16 img_error = 0;
+   \                     img_error:
+   \        0x0                      DS8 2
+     16          
+
+   \                                 In section .data, align 4
+     17          float steer_p = 2.01f;
+   \                     steer_p:
+   \        0x0   0x4000'A3D7        DC32 4000A3D7H
+
+   \                                 In section .data, align 4
+     18          float steer_d = 3.81f;
+   \                     steer_d:
+   \        0x0   0x4073'D70A        DC32 4073D70AH
+     19          
+     20          /*void SteeringGear_Init(void)//舵机
+     21          {
+     22          #if plateNumber == 0
+     23            steer_p = 2.15f;
+     24            steer_d = 4.21f;
+     25            angleMid = 902;
+     26            angleMax = 902 + 120;
+     27            angleMin = 902 - 120;
+     28          #elif plateNumber == 1
+     29            steer_p = 2.15f;
+     30            steer_d = 3.51f;
+     31            angleMid = 1317;
+     32            angleMax = 1317 + 120;
+     33            angleMin = 1317 - 120;
+     34          #else
+     35            steer_p = 2.01f;
+     36            steer_d = 3.51f;
+     37            angleMid = 1010;
+     38            angleMax = 1010 + 120;
+     39            angleMin = 1010 - 120;
+     40          #endif
+     41            angle = angleMid;
+     42            //steering_init_struct.FTM_Ftmx = FTM2;	
+     43            steering_init_struct.FTM_Mode = FTM_MODE_PWM;	
+     44            steering_init_struct.FTM_PwmFreq = 75;
+     45            
+     46            LPLD_FTM_Init(steering_init_struct);
+     47            
+     48            LPLD_FTM_PWM_Enable(FTM2, 
+     49                                FTM_Ch0, 
+     50                                angleMid,  
+     51                                PTB18, 
+     52                                ALIGN_LEFT);
+     53          }*/
+     54          
+     55          
+
+   \                                 In section .bss, align 4
+     56          FTM_InitTypeDef ftm_pwm_init_struct;
+   \                     ftm_pwm_init_struct:
+   \        0x0                      DS8 28
+
+   \                                 In section .text, align 2, keep-with-next
+     57          void Motor_Init(void)//电机
+     58          {
+   \                     Motor_Init: (+1)
+   \        0x0   0xB51F             PUSH     {R0-R4,LR}
+     59            ftm_pwm_init_struct.FTM_Ftmx = FTM0;
+   \        0x2   0x....             LDR.N    R1,??DataTable2
+   \        0x4   0x....             LDR.N    R4,??DataTable2_1  ;; 0x40038000
+   \        0x6   0x600C             STR      R4,[R1, #+0]
+     60            ftm_pwm_init_struct.FTM_Mode = FTM_MODE_PWM;
+   \        0x8   0x2001             MOVS     R0,#+1
+   \        0xA   0x7108             STRB     R0,[R1, #+4]
+     61            ftm_pwm_init_struct.FTM_PwmFreq = 10000;
+   \        0xC   0xF242 0x7010      MOVW     R0,#+10000
+   \       0x10   0x6088             STR      R0,[R1, #+8]
+     62            LPLD_FTM_Init(ftm_pwm_init_struct);
+   \       0x12   0xB084             SUB      SP,SP,#+16
+   \       0x14   0x4668             MOV      R0,SP
+   \       0x16   0x221C             MOVS     R2,#+28
+   \       0x18   0x....'....        BL       __aeabi_memcpy4
+   \       0x1C   0xBC0F             POP      {R0-R3}
+   \       0x1E   0x....'....        BL       LPLD_FTM_Init
+     63          
+     64          //右上正
+     65            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     66                                FTM_Ch0,   //使能Ch2通道 
+     67                                0,
+     68                                PTC1, //使用Ch1通道的PTC3引脚
+     69                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x22   0x2028             MOVS     R0,#+40
+   \       0x24   0x9000             STR      R0,[SP, #+0]
+   \       0x26   0x233D             MOVS     R3,#+61
+   \       0x28   0x2200             MOVS     R2,#+0
+   \       0x2A   0x2100             MOVS     R1,#+0
+   \       0x2C   0x0020             MOVS     R0,R4
+   \       0x2E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     70          //右上反
+     71            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     72                                FTM_Ch1,   //使能Ch3通道 
+     73                                0,
+     74                                PTC2, //使用Ch1通道的PTC4引脚
+     75                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x32   0x2028             MOVS     R0,#+40
+   \       0x34   0x9000             STR      R0,[SP, #+0]
+   \       0x36   0x233E             MOVS     R3,#+62
+   \       0x38   0x2200             MOVS     R2,#+0
+   \       0x3A   0x2101             MOVS     R1,#+1
+   \       0x3C   0x0020             MOVS     R0,R4
+   \       0x3E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     76          //左上反
+     77            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     78                                FTM_Ch2,   //使能Ch3通道 
+     79                                0,
+     80                                PTC3, //使用Ch1通道的PTC4引脚
+     81                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x42   0x2028             MOVS     R0,#+40
+   \       0x44   0x9000             STR      R0,[SP, #+0]
+   \       0x46   0x233F             MOVS     R3,#+63
+   \       0x48   0x2200             MOVS     R2,#+0
+   \       0x4A   0x2102             MOVS     R1,#+2
+   \       0x4C   0x0020             MOVS     R0,R4
+   \       0x4E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     82          //左上正
+     83            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     84                                FTM_Ch3,   //使能Ch3通道 
+     85                                0,
+     86                                PTC4, //使用Ch1通道的PTC4引脚
+     87                                ALIGN_LEFT);        //脉宽左对齐  
+   \       0x52   0x2028             MOVS     R0,#+40
+   \       0x54   0x9000             STR      R0,[SP, #+0]
+   \       0x56   0x2340             MOVS     R3,#+64
+   \       0x58   0x2200             MOVS     R2,#+0
+   \       0x5A   0x2103             MOVS     R1,#+3
+   \       0x5C   0x0020             MOVS     R0,R4
+   \       0x5E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     88          //右下正
+     89            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     90                                FTM_Ch4,   //使能Ch2通道 
+     91                                0,
+     92                                PTD7, //使用Ch1通道的PTC3引脚
+     93                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x62   0x2028             MOVS     R0,#+40
+   \       0x64   0x9000             STR      R0,[SP, #+0]
+   \       0x66   0x2363             MOVS     R3,#+99
+   \       0x68   0x2200             MOVS     R2,#+0
+   \       0x6A   0x2104             MOVS     R1,#+4
+   \       0x6C   0x0020             MOVS     R0,R4
+   \       0x6E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     94          //右下反
+     95            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     96                                FTM_Ch5,   //使能Ch3通道 
+     97                                0,
+     98                                PTD6, //使用Ch1通道的PTC4引脚
+     99                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x72   0x2028             MOVS     R0,#+40
+   \       0x74   0x9000             STR      R0,[SP, #+0]
+   \       0x76   0x2362             MOVS     R3,#+98
+   \       0x78   0x2200             MOVS     R2,#+0
+   \       0x7A   0x2105             MOVS     R1,#+5
+   \       0x7C   0x0020             MOVS     R0,R4
+   \       0x7E   0x....'....        BL       LPLD_FTM_PWM_Enable
+    100          //左下反
+    101            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+    102                                FTM_Ch6,   //使能Ch3通道 
+    103                                0,
+    104                                PTD5, //使用Ch1通道的PTC4引脚
+    105                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x82   0x2028             MOVS     R0,#+40
+   \       0x84   0x9000             STR      R0,[SP, #+0]
+   \       0x86   0x2361             MOVS     R3,#+97
+   \       0x88   0x2200             MOVS     R2,#+0
+   \       0x8A   0x2106             MOVS     R1,#+6
+   \       0x8C   0x0020             MOVS     R0,R4
+   \       0x8E   0x....'....        BL       LPLD_FTM_PWM_Enable
+    106          //左下正
+    107            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+    108                                FTM_Ch7,   //使能Ch3通道 
+    109                                0,
+    110                                PTD4, //使用Ch1通道的PTC4引脚
+    111                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x92   0x2028             MOVS     R0,#+40
+   \       0x94   0x9000             STR      R0,[SP, #+0]
+   \       0x96   0x2360             MOVS     R3,#+96
+   \       0x98   0x2200             MOVS     R2,#+0
+   \       0x9A   0x2107             MOVS     R1,#+7
+   \       0x9C   0x0020             MOVS     R0,R4
+   \       0x9E   0x....'....        BL       LPLD_FTM_PWM_Enable
+    112            
+    113          }
+   \       0xA2   0xBD1F             POP      {R0-R4,PC}       ;; return
+    114          
+    115          //舵机控制 
+
+   \                                 In section .text, align 2, keep-with-next
+    116          void angle_update(void)
+    117          {
+   \                     angle_update: (+1)
+   \        0x0   0xB5F8             PUSH     {R3-R7,LR}
+    118            static int16 preerror = 0;
+    119            
+    120            img_error = get_img_error();
+   \        0x2   0x....             LDR.N    R4,??DataTable2_2
+   \        0x4   0x....'....        BL       get_img_error
+   \        0x8   0x8020             STRH     R0,[R4, #+0]
+    121            
+    122            angle = (int16)((img_error * steer_p) + (steer_d * (img_error - preerror)) + angleMid);
+   \        0xA   0x....             LDR.N    R5,??DataTable2_3
+   \        0xC   0x....             LDR.N    R6,??DataTable2_4
+   \        0xE   0xF9B4 0x0000      LDRSH    R0,[R4, #+0]
+   \       0x12   0x....'....        BL       __aeabi_i2f
+   \       0x16   0x....             LDR.N    R1,??DataTable2_5
+   \       0x18   0x6809             LDR      R1,[R1, #+0]
+   \       0x1A   0x....'....        BL       __aeabi_fmul
+   \       0x1E   0x0007             MOVS     R7,R0
+   \       0x20   0xF9B4 0x0000      LDRSH    R0,[R4, #+0]
+   \       0x24   0xF9B6 0x1000      LDRSH    R1,[R6, #+0]
+   \       0x28   0x1A40             SUBS     R0,R0,R1
+   \       0x2A   0x....'....        BL       __aeabi_i2f
+   \       0x2E   0x....             LDR.N    R1,??DataTable2_6
+   \       0x30   0x6809             LDR      R1,[R1, #+0]
+   \       0x32   0x....'....        BL       __aeabi_fmul
+   \       0x36   0x0039             MOVS     R1,R7
+   \       0x38   0x....'....        BL       __aeabi_fadd
+   \       0x3C   0x0007             MOVS     R7,R0
+   \       0x3E   0x....             LDR.N    R0,??DataTable2_7
+   \       0x40   0xF9B0 0x0000      LDRSH    R0,[R0, #+0]
+   \       0x44   0x....'....        BL       __aeabi_i2f
+   \       0x48   0x0039             MOVS     R1,R7
+   \       0x4A   0x....'....        BL       __aeabi_fadd
+   \       0x4E   0x....'....        BL       __aeabi_f2iz
+   \       0x52   0x8028             STRH     R0,[R5, #+0]
+    123            
+    124            if(angle >= angleMax) angle = angleMax;
+   \       0x54   0x....             LDR.N    R0,??DataTable2_8
+   \       0x56   0xF9B5 0x1000      LDRSH    R1,[R5, #+0]
+   \       0x5A   0xF9B0 0x2000      LDRSH    R2,[R0, #+0]
+   \       0x5E   0x4291             CMP      R1,R2
+   \       0x60   0xDB01             BLT.N    ??angle_update_0
+   \       0x62   0x8800             LDRH     R0,[R0, #+0]
+   \       0x64   0x8028             STRH     R0,[R5, #+0]
+    125            if(angle <= angleMin) angle = angleMin;
+   \                     ??angle_update_0: (+1)
+   \       0x66   0x....             LDR.N    R0,??DataTable2_9
+   \       0x68   0xF9B0 0x1000      LDRSH    R1,[R0, #+0]
+   \       0x6C   0xF9B5 0x2000      LDRSH    R2,[R5, #+0]
+   \       0x70   0x4291             CMP      R1,R2
+   \       0x72   0xDB01             BLT.N    ??angle_update_1
+   \       0x74   0x8800             LDRH     R0,[R0, #+0]
+   \       0x76   0x8028             STRH     R0,[R5, #+0]
+    126            
+    127            LPLD_FTM_PWM_ChangeDuty(FTM2,FTM_Ch0,angle);
+   \                     ??angle_update_1: (+1)
+   \       0x78   0xF9B5 0x2000      LDRSH    R2,[R5, #+0]
+   \       0x7C   0x2100             MOVS     R1,#+0
+   \       0x7E   0x....             LDR.N    R0,??DataTable2_10  ;; 0x400b8000
+   \       0x80   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    128            
+    129            preerror = img_error;//保留上一次误差值
+   \       0x84   0x8820             LDRH     R0,[R4, #+0]
+   \       0x86   0x8030             STRH     R0,[R6, #+0]
+    130          }
+   \       0x88   0xBDF1             POP      {R0,R4-R7,PC}    ;; return
+
+   \                                 In section .bss, align 2
+   \                     `angle_update::preerror`:
+   \        0x0                      DS8 2
+    131          
+
+   \                                 In section .text, align 2, keep-with-next
+    132          void speed_out(void)
+    133          {
+   \                     speed_out: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+    134            int16 outVal_Ch0 = 0,outVal_Ch3 = 0;
+   \        0x2   0x2000             MOVS     R0,#+0
+   \        0x4   0x2000             MOVS     R0,#+0
+    135            speed_update();
+   \        0x6   0x....'....        BL       speed_update
+    136            outVal_Ch3 = get_left_speed();
+   \        0xA   0x....'....        BL       get_left_speed
+   \        0xE   0x0004             MOVS     R4,R0
+    137            outVal_Ch0 = get_right_speed();
+   \       0x10   0x....'....        BL       get_right_speed
+    138            
+    139            if(Run_Init == isStop)
+   \       0x14   0x....             LDR.N    R1,??DataTable2_11
+   \       0x16   0x7809             LDRB     R1,[R1, #+0]
+   \       0x18   0x2900             CMP      R1,#+0
+   \       0x1A   0xD115             BNE.N    ??speed_out_0
+    140            {
+    141              LPLD_FTM_PWM_ChangeDuty(FTM0,FTM_Ch0,0);
+   \       0x1C   0x....             LDR.N    R4,??DataTable2_1  ;; 0x40038000
+   \       0x1E   0x2200             MOVS     R2,#+0
+   \       0x20   0x2100             MOVS     R1,#+0
+   \       0x22   0x0020             MOVS     R0,R4
+   \       0x24   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    142              LPLD_FTM_PWM_ChangeDuty(FTM0,FTM_Ch1,0);
+   \       0x28   0x2200             MOVS     R2,#+0
+   \       0x2A   0x2101             MOVS     R1,#+1
+   \       0x2C   0x0020             MOVS     R0,R4
+   \       0x2E   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    143              LPLD_FTM_PWM_ChangeDuty(FTM0,FTM_Ch3,0);
+   \       0x32   0x2200             MOVS     R2,#+0
+   \       0x34   0x2103             MOVS     R1,#+3
+   \       0x36   0x0020             MOVS     R0,R4
+   \       0x38   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    144              LPLD_FTM_PWM_ChangeDuty(FTM0,FTM_Ch2,0);
+   \       0x3C   0x2200             MOVS     R2,#+0
+   \       0x3E   0x2102             MOVS     R1,#+2
+   \       0x40   0x0020             MOVS     R0,R4
+   \       0x42   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+   \       0x46   0xE023             B.N      ??speed_out_1
+    145            }
+    146            else
+    147            {
+    148              if(outVal_Ch0 >= 0)
+   \                     ??speed_out_0: (+1)
+   \       0x48   0x0001             MOVS     R1,R0
+   \       0x4A   0xB209             SXTH     R1,R1            ;; SignExt  R1,R1,#+16,#+16
+   \       0x4C   0x2900             CMP      R1,#+0
+   \       0x4E   0xD406             BMI.N    ??speed_out_2
+    149              { LPLD_FTM_PWM_ChangeDuty(FTM0,FTM_Ch0,(uint32)outVal_Ch0); }
+   \       0x50   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \       0x52   0x0002             MOVS     R2,R0
+   \       0x54   0x2100             MOVS     R1,#+0
+   \       0x56   0x....             LDR.N    R0,??DataTable2_1  ;; 0x40038000
+   \       0x58   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+   \       0x5C   0xE006             B.N      ??speed_out_3
+    150              else
+    151              { LPLD_FTM_PWM_ChangeDuty(FTM0,FTM_Ch1,(uint32)(-outVal_Ch0)); }
+   \                     ??speed_out_2: (+1)
+   \       0x5E   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \       0x60   0x4240             RSBS     R0,R0,#+0
+   \       0x62   0x0002             MOVS     R2,R0
+   \       0x64   0x2101             MOVS     R1,#+1
+   \       0x66   0x....             LDR.N    R0,??DataTable2_1  ;; 0x40038000
+   \       0x68   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    152              if(outVal_Ch3 >= 0)
+   \                     ??speed_out_3: (+1)
+   \       0x6C   0x0020             MOVS     R0,R4
+   \       0x6E   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \       0x70   0x2800             CMP      R0,#+0
+   \       0x72   0xD406             BMI.N    ??speed_out_4
+    153              { LPLD_FTM_PWM_ChangeDuty(FTM0,FTM_Ch3,(uint32)outVal_Ch3); }
+   \       0x74   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \       0x76   0x0022             MOVS     R2,R4
+   \       0x78   0x2103             MOVS     R1,#+3
+   \       0x7A   0x....             LDR.N    R0,??DataTable2_1  ;; 0x40038000
+   \       0x7C   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+   \       0x80   0xE006             B.N      ??speed_out_1
+    154              else
+    155              { LPLD_FTM_PWM_ChangeDuty(FTM0,FTM_Ch2,(uint32)(-outVal_Ch3)); }
+   \                     ??speed_out_4: (+1)
+   \       0x82   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \       0x84   0x4264             RSBS     R4,R4,#+0
+   \       0x86   0x0022             MOVS     R2,R4
+   \       0x88   0x2102             MOVS     R1,#+2
+   \       0x8A   0x....             LDR.N    R0,??DataTable2_1  ;; 0x40038000
+   \       0x8C   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    156            }
+    157          }
+   \                     ??speed_out_1: (+1)
+   \       0x90   0xBD10             POP      {R4,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2:
+   \        0x0   0x....'....        DC32     ftm_pwm_init_struct
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_1:
+   \        0x0   0x4003'8000        DC32     0x40038000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_2:
+   \        0x0   0x....'....        DC32     img_error
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_3:
+   \        0x0   0x....'....        DC32     angle
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_4:
+   \        0x0   0x....'....        DC32     `angle_update::preerror`
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_5:
+   \        0x0   0x....'....        DC32     steer_p
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_6:
+   \        0x0   0x....'....        DC32     steer_d
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_7:
+   \        0x0   0x....'....        DC32     angleMid
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_8:
+   \        0x0   0x....'....        DC32     angleMax
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_9:
+   \        0x0   0x....'....        DC32     angleMin
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_10:
+   \        0x0   0x400B'8000        DC32     0x400b8000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_11:
+   \        0x0   0x....'....        DC32     isStop
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      40   Motor_Init
+        24   -> LPLD_FTM_Init
+        24   -> LPLD_FTM_PWM_Enable
+        40   -> __aeabi_memcpy4
+      24   angle_update
+        24   -> LPLD_FTM_PWM_ChangeDuty
+        24   -> __aeabi_f2iz
+        24   -> __aeabi_fadd
+        24   -> __aeabi_fmul
+        24   -> __aeabi_i2f
+        24   -> get_img_error
+       8   speed_out
+         8   -> LPLD_FTM_PWM_ChangeDuty
+         8   -> get_left_speed
+         8   -> get_right_speed
+         8   -> speed_update
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable2
+       4  ??DataTable2_1
+       4  ??DataTable2_10
+       4  ??DataTable2_11
+       4  ??DataTable2_2
+       4  ??DataTable2_3
+       4  ??DataTable2_4
+       4  ??DataTable2_5
+       4  ??DataTable2_6
+       4  ??DataTable2_7
+       4  ??DataTable2_8
+       4  ??DataTable2_9
+       1  CarModel
+     164  Motor_Init
+       2  angle
+       2  angleMax
+       2  angleMid
+       2  angleMin
+     138  angle_update
+      28  ftm_pwm_init_struct
+       2  img_error
+       2  preerror
+     146  speed_out
+       4  steer_d
+       4  steer_p
+
+ 
+  41 bytes in section .bss
+   8 bytes in section .data
+ 496 bytes in section .text
+ 
+ 496 bytes of CODE memory
+  49 bytes of DATA memory
+
+Errors: none
+Warnings: 6

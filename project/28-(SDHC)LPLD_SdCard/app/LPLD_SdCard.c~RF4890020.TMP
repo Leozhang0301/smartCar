@@ -1,0 +1,63 @@
+/*
+ *  
+ *  
+ *  @JayLin林杰 @厦门大学嘉庚学院 @博学队
+ */
+#include "common.h"
+#include "include.h"
+
+void System_Init(void)
+{
+	LCD_Init(); 
+	KeyBoard_Init();
+	//Encoder_Init();
+	//SteeringGear_Init();
+        //flash_init();
+       // Bluetooth_Init();
+       // ADC_Init();
+	Camera_Init();
+    //Param_Init();
+        //User_Flash_Read();
+	//pit0_init();
+    init_Motor();
+     //ic_isr();
+   // Motor_control();
+        encorder_init();
+        pit_init();
+}
+
+void DMA_buffer(uint8 flag)
+{
+  if(flag)
+  {
+    Unzip(fieldCnt,pixels);
+    DMA_flag=0;
+  }
+}
+
+void main(void)
+{
+  /*---------------------关中断---------------------*/
+  //DisableInterrupts;
+  /*------------------单片机初始化------------------*/
+  System_Init();
+  /*---------------------开中断---------------------*/
+ // EnableInterrupts; 
+
+  while(1)
+  {
+	  //LCD_Write_Int(0, 0, r1_reSpeed);
+          //LCD_Write_Int(0, 1, r2_reSpeed);
+          //LCD_Write_Int(0, 2, l1_reSpeed);
+          //LCD_Write_Int(0, 3, l2_reSpeed);
+    //LCD_Write_Int(0,1,30);
+    //get_img();
+    //DMA_buffer(DMA_flag);
+    //img_display();
+    //KeyScan();
+   LCD_Write_Int(0, 0, KeyValue);
+
+  } 
+}
+
+

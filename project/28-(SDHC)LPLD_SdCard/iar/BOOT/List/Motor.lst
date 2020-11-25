@@ -1,0 +1,685 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         23/Apr/2019  21:09:50
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\k60_144\smartcar\lib\common\Motor.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW469F.tmp
+#        (G:\AIcar\@@\k60_144\smartcar\lib\common\Motor.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -lB
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -o
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List\Motor.lst
+#    Object file  =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj\Motor.o
+#
+###############################################################################
+
+G:\AIcar\@@\k60_144\smartcar\lib\common\Motor.c
+      1          #include "include.h"
+      2          
+      3          
+      4          #define MAX_SPEED 9999
+      5          #define MAX_SPEED_L -5000
+      6          
+
+   \                                 In section .bss, align 8
+      7          Motor PID;
+   \                     PID:
+   \        0x0                      DS8 72
+
+   \                                 In section .bss, align 4
+      8          FTM_InitTypeDef ftm_init_struct3;
+   \                     ftm_init_struct3:
+   \        0x0                      DS8 28
+
+   \                                 In section .data, align 8
+      9          double left_P =250.0f;     //259
+   \                     left_P:
+   \        0x0   0x406F'4000'0      DC64 406F400000000000H
+   \              000'0000     
+
+   \                                 In section .data, align 8
+     10          double left_I = 45.0f;     //50
+   \                     left_I:
+   \        0x0   0x4046'8000'0      DC64 4046800000000000H
+   \              000'0000     
+
+   \                                 In section .data, align 8
+     11          double right_P = 250.0f;
+   \                     right_P:
+   \        0x0   0x406F'4000'0      DC64 406F400000000000H
+   \              000'0000     
+
+   \                                 In section .data, align 8
+     12          double right_I = 45.0f;
+   \                     right_I:
+   \        0x0   0x4046'8000'0      DC64 4046800000000000H
+   \              000'0000     
+     13          
+
+   \                                 In section .data, align 4
+     14          int SpeedHigh = 60;
+   \                     SpeedHigh:
+   \        0x0   0x0000'003C        DC32 60
+
+   \                                 In section .data, align 4
+     15          int SpeedLow = 35;
+   \                     SpeedLow:
+   \        0x0   0x0000'0023        DC32 35
+
+   \                                 In section .data, align 2
+     16          int16 EDS_MAX = 10;
+   \                     EDS_MAX:
+   \        0x0   0x000A             DC16 10
+     17          
+
+   \                                 In section .text, align 2, keep-with-next
+     18          void init_Motor()
+     19          {
+   \                     init_Motor: (+1)
+   \        0x0   0xB51F             PUSH     {R0-R4,LR}
+     20            ftm_init_struct3.FTM_Ftmx = FTM0;	//使能FTM0通道
+   \        0x2   0x....             LDR.N    R1,??DataTable2
+   \        0x4   0x....             LDR.N    R4,??DataTable2_1  ;; 0x40038000
+   \        0x6   0x600C             STR      R4,[R1, #+0]
+     21            ftm_init_struct3.FTM_Mode = FTM_MODE_PWM;	//使能PWM模式
+   \        0x8   0x2001             MOVS     R0,#+1
+   \        0xA   0x7108             STRB     R0,[R1, #+4]
+     22            ftm_init_struct3.FTM_PwmFreq = 15000;	//PWM频率10000Hz
+   \        0xC   0xF643 0x2098      MOVW     R0,#+15000
+   \       0x10   0x6088             STR      R0,[R1, #+8]
+     23            LPLD_FTM_Init(ftm_init_struct3);
+   \       0x12   0xB084             SUB      SP,SP,#+16
+   \       0x14   0x4668             MOV      R0,SP
+   \       0x16   0x221C             MOVS     R2,#+28
+   \       0x18   0x....'....        BL       __aeabi_memcpy4
+   \       0x1C   0xBC0F             POP      {R0-R3}
+   \       0x1E   0x....'....        BL       LPLD_FTM_Init
+     24            
+     25            
+     26          //右上正
+     27            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     28                                FTM_Ch0,   //使能Ch2通道 
+     29                                0,
+     30                                PTC1, //使用Ch1通道的PTC3引脚
+     31                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x22   0x2028             MOVS     R0,#+40
+   \       0x24   0x9000             STR      R0,[SP, #+0]
+   \       0x26   0x233D             MOVS     R3,#+61
+   \       0x28   0x2200             MOVS     R2,#+0
+   \       0x2A   0x2100             MOVS     R1,#+0
+   \       0x2C   0x0020             MOVS     R0,R4
+   \       0x2E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     32          //右上负
+     33            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     34                                FTM_Ch1,   //使能Ch3通道 
+     35                                0,
+     36                                PTC2, //使用Ch1通道的PTC4引脚
+     37                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x32   0x2028             MOVS     R0,#+40
+   \       0x34   0x9000             STR      R0,[SP, #+0]
+   \       0x36   0x233E             MOVS     R3,#+62
+   \       0x38   0x2200             MOVS     R2,#+0
+   \       0x3A   0x2101             MOVS     R1,#+1
+   \       0x3C   0x0020             MOVS     R0,R4
+   \       0x3E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     38          //左上负
+     39            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     40                                FTM_Ch2,   //使能Ch3通道 
+     41                                0,
+     42                                PTC3, //使用Ch1通道的PTC4引脚
+     43                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x42   0x2028             MOVS     R0,#+40
+   \       0x44   0x9000             STR      R0,[SP, #+0]
+   \       0x46   0x233F             MOVS     R3,#+63
+   \       0x48   0x2200             MOVS     R2,#+0
+   \       0x4A   0x2102             MOVS     R1,#+2
+   \       0x4C   0x0020             MOVS     R0,R4
+   \       0x4E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     44          //左上正
+     45            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     46                                FTM_Ch3,   //使能Ch3通道 
+     47                                0,
+     48                                PTC4, //使用Ch1通道的PTC4引脚
+     49                                ALIGN_LEFT);        //脉宽左对齐  
+   \       0x52   0x2028             MOVS     R0,#+40
+   \       0x54   0x9000             STR      R0,[SP, #+0]
+   \       0x56   0x2340             MOVS     R3,#+64
+   \       0x58   0x2200             MOVS     R2,#+0
+   \       0x5A   0x2103             MOVS     R1,#+3
+   \       0x5C   0x0020             MOVS     R0,R4
+   \       0x5E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     50          //右下正
+     51            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     52                                FTM_Ch7,   //使能Ch2通道 
+     53                                0,
+     54                                PTD7, //使用Ch1通道的PTC3引脚
+     55                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x62   0x2028             MOVS     R0,#+40
+   \       0x64   0x9000             STR      R0,[SP, #+0]
+   \       0x66   0x2363             MOVS     R3,#+99
+   \       0x68   0x2200             MOVS     R2,#+0
+   \       0x6A   0x2107             MOVS     R1,#+7
+   \       0x6C   0x0020             MOVS     R0,R4
+   \       0x6E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     56          //右下负
+     57            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     58                                FTM_Ch6,   //使能Ch3通道 
+     59                                0,
+     60                                PTD6, //使用Ch1通道的PTC4引脚
+     61                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x72   0x2028             MOVS     R0,#+40
+   \       0x74   0x9000             STR      R0,[SP, #+0]
+   \       0x76   0x2362             MOVS     R3,#+98
+   \       0x78   0x2200             MOVS     R2,#+0
+   \       0x7A   0x2106             MOVS     R1,#+6
+   \       0x7C   0x0020             MOVS     R0,R4
+   \       0x7E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     62          //左下正
+     63            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     64                                FTM_Ch5,   //使能Ch3通道 
+     65                                0,
+     66                                PTD5, //使用Ch1通道的PTC4引脚
+     67                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x82   0x2028             MOVS     R0,#+40
+   \       0x84   0x9000             STR      R0,[SP, #+0]
+   \       0x86   0x2361             MOVS     R3,#+97
+   \       0x88   0x2200             MOVS     R2,#+0
+   \       0x8A   0x2105             MOVS     R1,#+5
+   \       0x8C   0x0020             MOVS     R0,R4
+   \       0x8E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     68          //左下反
+     69            LPLD_FTM_PWM_Enable(FTM0,//使用FTM0
+     70                                FTM_Ch4,   //使能Ch3通道 
+     71                                0,
+     72                                PTD4, //使用Ch1通道的PTC4引脚
+     73                                ALIGN_LEFT);        //脉宽左对齐
+   \       0x92   0x2028             MOVS     R0,#+40
+   \       0x94   0x9000             STR      R0,[SP, #+0]
+   \       0x96   0x2360             MOVS     R3,#+96
+   \       0x98   0x2200             MOVS     R2,#+0
+   \       0x9A   0x2104             MOVS     R1,#+4
+   \       0x9C   0x0020             MOVS     R0,R4
+   \       0x9E   0x....'....        BL       LPLD_FTM_PWM_Enable
+     74          }
+   \       0xA2   0xBD1F             POP      {R0-R4,PC}       ;; return
+     75          
+
+   \                                 In section .text, align 2, keep-with-next
+     76          void init_PID()
+     77          {
+   \                     init_PID: (+1)
+   \        0x0   0xB4F0             PUSH     {R4-R7}
+     78            PID.left_P = left_P;    
+   \        0x2   0x....             LDR.N    R0,??DataTable2_2
+   \        0x4   0x....             LDR.N    R1,??DataTable2_3
+   \        0x6   0xE9D1 0x2300      LDRD     R2,R3,[R1, #+0]
+   \        0xA   0xE9C0 0x2300      STRD     R2,R3,[R0, #+0]
+     79            PID.left_I = left_I;
+   \        0xE   0x....             LDR.N    R2,??DataTable2_4
+   \       0x10   0xE9D2 0x4500      LDRD     R4,R5,[R2, #+0]
+   \       0x14   0xE9C0 0x4502      STRD     R4,R5,[R0, #+8]
+     80            PID.right_P = right_P;
+   \       0x18   0x....             LDR.N    R3,??DataTable2_5
+   \       0x1A   0xE9D3 0x4500      LDRD     R4,R5,[R3, #+0]
+   \       0x1E   0xE9C0 0x4504      STRD     R4,R5,[R0, #+16]
+     81            PID.right_I = right_I;
+   \       0x22   0x....             LDR.N    R4,??DataTable2_6
+   \       0x24   0xE9D4 0x6700      LDRD     R6,R7,[R4, #+0]
+   \       0x28   0xE9C0 0x6706      STRD     R6,R7,[R0, #+24]
+     82            PID.value_left = 0;   //实际
+   \       0x2C   0x2500             MOVS     R5,#+0
+   \       0x2E   0x6205             STR      R5,[R0, #+32]
+     83            PID.value_right = 0;
+   \       0x30   0x2500             MOVS     R5,#+0
+   \       0x32   0x6245             STR      R5,[R0, #+36]
+     84            PID.error_left = 0;   //误差
+   \       0x34   0x2500             MOVS     R5,#+0
+   \       0x36   0x6285             STR      R5,[R0, #+40]
+     85            PID.error_right = 0;
+   \       0x38   0x2500             MOVS     R5,#+0
+   \       0x3A   0x62C5             STR      R5,[R0, #+44]
+     86            PID.preerror_left = 0;   //上次误差
+   \       0x3C   0x2500             MOVS     R5,#+0
+   \       0x3E   0x6305             STR      R5,[R0, #+48]
+     87            PID.preerror_right = 0;
+   \       0x40   0x2500             MOVS     R5,#+0
+   \       0x42   0x6345             STR      R5,[R0, #+52]
+     88            PID.targetSpeed_L =  0;  //目标值_左
+   \       0x44   0x2500             MOVS     R5,#+0
+   \       0x46   0x6385             STR      R5,[R0, #+56]
+     89            PID.targetSpeed_R =  0;  //目标值_右
+   \       0x48   0x2500             MOVS     R5,#+0
+   \       0x4A   0x63C5             STR      R5,[R0, #+60]
+     90            PID.Speed_output_Left = 0;
+   \       0x4C   0x2500             MOVS     R5,#+0
+   \       0x4E   0x6405             STR      R5,[R0, #+64]
+     91            PID.Speed_output_Right = 0;
+   \       0x50   0x2500             MOVS     R5,#+0
+   \       0x52   0x6445             STR      R5,[R0, #+68]
+     92            PID.left_P = left_P;    
+   \       0x54   0xE9D1 0x6700      LDRD     R6,R7,[R1, #+0]
+   \       0x58   0xE9C0 0x6700      STRD     R6,R7,[R0, #+0]
+     93            PID.left_I = left_I;
+   \       0x5C   0xE9D2 0x6700      LDRD     R6,R7,[R2, #+0]
+   \       0x60   0xE9C0 0x6702      STRD     R6,R7,[R0, #+8]
+     94            PID.right_P = right_P;
+   \       0x64   0xE9D3 0x2300      LDRD     R2,R3,[R3, #+0]
+   \       0x68   0xE9C0 0x2304      STRD     R2,R3,[R0, #+16]
+     95            PID.right_I = right_I;
+   \       0x6C   0xE9D4 0x2300      LDRD     R2,R3,[R4, #+0]
+   \       0x70   0xE9C0 0x2306      STRD     R2,R3,[R0, #+24]
+     96            PID.value_left = 0;   //实际
+   \       0x74   0x2100             MOVS     R1,#+0
+   \       0x76   0x6201             STR      R1,[R0, #+32]
+     97            PID.value_right = 0;
+   \       0x78   0x2100             MOVS     R1,#+0
+   \       0x7A   0x6241             STR      R1,[R0, #+36]
+     98            PID.error_left = 0;   //误差
+   \       0x7C   0x2100             MOVS     R1,#+0
+   \       0x7E   0x6281             STR      R1,[R0, #+40]
+     99            PID.error_right = 0;
+   \       0x80   0x2100             MOVS     R1,#+0
+   \       0x82   0x62C1             STR      R1,[R0, #+44]
+    100            PID.preerror_left = 0;   //上次误差
+   \       0x84   0x2100             MOVS     R1,#+0
+   \       0x86   0x6301             STR      R1,[R0, #+48]
+    101            PID.preerror_right = 0;
+   \       0x88   0x2100             MOVS     R1,#+0
+   \       0x8A   0x6341             STR      R1,[R0, #+52]
+    102            PID.targetSpeed_L =  0;  //目标值_左
+   \       0x8C   0x2100             MOVS     R1,#+0
+   \       0x8E   0x6381             STR      R1,[R0, #+56]
+    103            PID.targetSpeed_R =  0;  //目标值_右
+   \       0x90   0x2100             MOVS     R1,#+0
+   \       0x92   0x63C1             STR      R1,[R0, #+60]
+    104            PID.Speed_output_Left = 0;
+   \       0x94   0x2100             MOVS     R1,#+0
+   \       0x96   0x6401             STR      R1,[R0, #+64]
+    105            PID.Speed_output_Right = 0;
+   \       0x98   0x2100             MOVS     R1,#+0
+   \       0x9A   0x6441             STR      R1,[R0, #+68]
+    106          }
+   \       0x9C   0xBCF0             POP      {R4-R7}
+   \       0x9E   0x4770             BX       LR               ;; return
+    107          
+    108          /*void wheel_EDS(int speed)
+    109          {
+    110            float p = 0.68f;
+    111            float Kv = 0.0f;
+    112            int16 eds_val = 0;
+    113            if(Steering_PWM >= midpwm+10)//左拐/
+    114            { 
+    115              Kv=1.02+ (Steering_PWM - (midpwm+10)) * ( p / 100); 
+    116              eds_val = (int)(speed * (1-Kv) / (-Kv-1));
+    117              if(eds_val >= EDS_MAX )
+    118              { eds_val = EDS_MAX;}
+    119              else if(eds_val <= -EDS_MAX)
+    120              { eds_val = -EDS_MAX; }
+    121              PID.targetSpeed_R = speed + eds_val;
+    122              PID.targetSpeed_L = speed - eds_val;
+    123            }
+    124            else if(Steering_PWM <= midpwm-10)//右拐/
+    125            {
+    126              Kv=1.02 + ((midpwm-10) - Steering_PWM) * ( p / 100);
+    127              eds_val = (int)(speed * (1-Kv) / (-Kv-1));
+    128              if(eds_val >= EDS_MAX)
+    129              { eds_val = EDS_MAX;}
+    130              else if(eds_val <= -EDS_MAX)
+    131              { eds_val = -EDS_MAX; }
+    132              PID.targetSpeed_R  = speed - eds_val;
+    133              PID.targetSpeed_L  = speed + eds_val;
+    134            }
+    135            else
+    136            {
+    137              PID.targetSpeed_R  = speed ;
+    138              PID.targetSpeed_L  = speed ;
+    139            }
+    140          }*/
+    141          
+
+   \                                 In section .text, align 2, keep-with-next
+    142          void Motor_control(void)
+    143          { 
+   \                     Motor_control: (+1)
+   \        0x0   0xE92D 0x4370      PUSH     {R4-R6,R8,R9,LR}
+    144            PID.value_left = 10;//left_getSpeed();
+   \        0x4   0x....             LDR.N    R6,??DataTable2_2
+   \        0x6   0x200A             MOVS     R0,#+10
+   \        0x8   0x6230             STR      R0,[R6, #+32]
+    145            PID.value_right = 10;//right_getSpeed();
+   \        0xA   0x200A             MOVS     R0,#+10
+   \        0xC   0x6270             STR      R0,[R6, #+36]
+    146            PID.error_left = PID.targetSpeed_L - PID.value_left;
+   \        0xE   0x6BB1             LDR      R1,[R6, #+56]
+   \       0x10   0x6A30             LDR      R0,[R6, #+32]
+   \       0x12   0x1A09             SUBS     R1,R1,R0
+   \       0x14   0x62B1             STR      R1,[R6, #+40]
+    147            PID.error_right = PID.targetSpeed_R - PID.value_right;
+   \       0x16   0x6BF1             LDR      R1,[R6, #+60]
+   \       0x18   0x6A70             LDR      R0,[R6, #+36]
+   \       0x1A   0x1A09             SUBS     R1,R1,R0
+   \       0x1C   0x62F1             STR      R1,[R6, #+44]
+    148            PID.Speed_output_Left += (PID.left_P * (PID.error_left - PID.preerror_left) +  PID.left_I  * PID.error_left);
+   \       0x1E   0x6C30             LDR      R0,[R6, #+64]
+   \       0x20   0x....'....        BL       __aeabi_i2d
+   \       0x24   0x4680             MOV      R8,R0
+   \       0x26   0x4689             MOV      R9,R1
+   \       0x28   0x6AB0             LDR      R0,[R6, #+40]
+   \       0x2A   0x6B31             LDR      R1,[R6, #+48]
+   \       0x2C   0x1A40             SUBS     R0,R0,R1
+   \       0x2E   0x....'....        BL       __aeabi_i2d
+   \       0x32   0xE9D6 0x2300      LDRD     R2,R3,[R6, #+0]
+   \       0x36   0x....'....        BL       __aeabi_dmul
+   \       0x3A   0x0004             MOVS     R4,R0
+   \       0x3C   0x000D             MOVS     R5,R1
+   \       0x3E   0x6AB0             LDR      R0,[R6, #+40]
+   \       0x40   0x....'....        BL       __aeabi_i2d
+   \       0x44   0xE9D6 0x2302      LDRD     R2,R3,[R6, #+8]
+   \       0x48   0x....'....        BL       __aeabi_dmul
+   \       0x4C   0x0022             MOVS     R2,R4
+   \       0x4E   0x002B             MOVS     R3,R5
+   \       0x50   0x....'....        BL       __aeabi_dadd
+   \       0x54   0x4642             MOV      R2,R8
+   \       0x56   0x464B             MOV      R3,R9
+   \       0x58   0x....'....        BL       __aeabi_dadd
+   \       0x5C   0x....'....        BL       __aeabi_d2iz
+   \       0x60   0x6430             STR      R0,[R6, #+64]
+    149            PID.Speed_output_Right += (PID.right_P * (PID.error_right - PID.preerror_right) +  PID.right_I  * PID.error_right);
+   \       0x62   0x6C70             LDR      R0,[R6, #+68]
+   \       0x64   0x....'....        BL       __aeabi_i2d
+   \       0x68   0x4680             MOV      R8,R0
+   \       0x6A   0x4689             MOV      R9,R1
+   \       0x6C   0x6AF0             LDR      R0,[R6, #+44]
+   \       0x6E   0x6B71             LDR      R1,[R6, #+52]
+   \       0x70   0x1A40             SUBS     R0,R0,R1
+   \       0x72   0x....'....        BL       __aeabi_i2d
+   \       0x76   0xE9D6 0x2304      LDRD     R2,R3,[R6, #+16]
+   \       0x7A   0x....'....        BL       __aeabi_dmul
+   \       0x7E   0x0004             MOVS     R4,R0
+   \       0x80   0x000D             MOVS     R5,R1
+   \       0x82   0x6AF0             LDR      R0,[R6, #+44]
+   \       0x84   0x....'....        BL       __aeabi_i2d
+   \       0x88   0xE9D6 0x2306      LDRD     R2,R3,[R6, #+24]
+   \       0x8C   0x....'....        BL       __aeabi_dmul
+   \       0x90   0x0022             MOVS     R2,R4
+   \       0x92   0x002B             MOVS     R3,R5
+   \       0x94   0x....'....        BL       __aeabi_dadd
+   \       0x98   0x4642             MOV      R2,R8
+   \       0x9A   0x464B             MOV      R3,R9
+   \       0x9C   0x....'....        BL       __aeabi_dadd
+   \       0xA0   0x....'....        BL       __aeabi_d2iz
+   \       0xA4   0x6470             STR      R0,[R6, #+68]
+    150            PID.preerror_left = PID.error_left;
+   \       0xA6   0x6AB0             LDR      R0,[R6, #+40]
+   \       0xA8   0x6330             STR      R0,[R6, #+48]
+    151            PID.preerror_right = PID.error_right;
+   \       0xAA   0x6AF0             LDR      R0,[R6, #+44]
+   \       0xAC   0x6370             STR      R0,[R6, #+52]
+    152           
+    153            
+    154            
+    155            
+    156            if(PID.Speed_output_Left >= 0) //左上正
+   \       0xAE   0x6C30             LDR      R0,[R6, #+64]
+   \       0xB0   0x2800             CMP      R0,#+0
+   \       0xB2   0xD42F             BMI.N    ??Motor_control_0
+    157            { 
+    158              if(PID.Speed_output_Left >= MAX_SPEED) 
+   \       0xB4   0xF242 0x700F      MOVW     R0,#+9999
+   \       0xB8   0x6C31             LDR      R1,[R6, #+64]
+   \       0xBA   0x4281             CMP      R1,R0
+   \       0xBC   0xDB00             BLT.N    ??Motor_control_1
+    159              {
+    160                PID.Speed_output_Left = MAX_SPEED;
+   \       0xBE   0x6430             STR      R0,[R6, #+64]
+    161              }
+    162              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch1, 0);   
+   \                     ??Motor_control_1: (+1)
+   \       0xC0   0x....             LDR.N    R4,??DataTable2_1  ;; 0x40038000
+   \       0xC2   0x2200             MOVS     R2,#+0
+   \       0xC4   0x2101             MOVS     R1,#+1
+   \       0xC6   0x0020             MOVS     R0,R4
+   \       0xC8   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    163              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch2, 0);
+   \       0xCC   0x2200             MOVS     R2,#+0
+   \       0xCE   0x2102             MOVS     R1,#+2
+   \       0xD0   0x0020             MOVS     R0,R4
+   \       0xD2   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    164              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch5, PID.Speed_output_Left);
+   \       0xD6   0x6C32             LDR      R2,[R6, #+64]
+   \       0xD8   0x2105             MOVS     R1,#+5
+   \       0xDA   0x0020             MOVS     R0,R4
+   \       0xDC   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    165              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch6, 0 );  
+   \       0xE0   0x2200             MOVS     R2,#+0
+   \       0xE2   0x2106             MOVS     R1,#+6
+   \       0xE4   0x0020             MOVS     R0,R4
+   \       0xE6   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    166              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch0, PID.Speed_output_Left );
+   \       0xEA   0x6C32             LDR      R2,[R6, #+64]
+   \       0xEC   0x2100             MOVS     R1,#+0
+   \       0xEE   0x0020             MOVS     R0,R4
+   \       0xF0   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    167              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch3, PID.Speed_output_Left);
+   \       0xF4   0x6C32             LDR      R2,[R6, #+64]
+   \       0xF6   0x2103             MOVS     R1,#+3
+   \       0xF8   0x0020             MOVS     R0,R4
+   \       0xFA   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    168              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch4, 0);
+   \       0xFE   0x2200             MOVS     R2,#+0
+   \      0x100   0x2104             MOVS     R1,#+4
+   \      0x102   0x0020             MOVS     R0,R4
+   \      0x104   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    169              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch7, PID.Speed_output_Left );
+   \      0x108   0x6C32             LDR      R2,[R6, #+64]
+   \      0x10A   0x2107             MOVS     R1,#+7
+   \      0x10C   0x0020             MOVS     R0,R4
+   \      0x10E   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+   \      0x112   0xE035             B.N      ??Motor_control_2
+    170           
+    171            }
+    172            else if(PID.Speed_output_Left < 0) //左上负
+   \                     ??Motor_control_0: (+1)
+   \      0x114   0x6C30             LDR      R0,[R6, #+64]
+   \      0x116   0x2800             CMP      R0,#+0
+   \      0x118   0xD532             BPL.N    ??Motor_control_2
+    173            { 
+    174              if(PID.Speed_output_Left <= -MAX_SPEED) 
+   \      0x11A   0x6C30             LDR      R0,[R6, #+64]
+   \      0x11C   0x....             LDR.N    R1,??DataTable2_7  ;; 0xffffd8f2
+   \      0x11E   0x4288             CMP      R0,R1
+   \      0x120   0xDA01             BGE.N    ??Motor_control_3
+    175              {
+    176                PID.Speed_output_Left = -MAX_SPEED;
+   \      0x122   0x....             LDR.N    R0,??DataTable2_8  ;; 0xffffd8f1
+   \      0x124   0x6430             STR      R0,[R6, #+64]
+    177              }
+    178              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch0, 0 );
+   \                     ??Motor_control_3: (+1)
+   \      0x126   0x....             LDR.N    R4,??DataTable2_1  ;; 0x40038000
+   \      0x128   0x2200             MOVS     R2,#+0
+   \      0x12A   0x2100             MOVS     R1,#+0
+   \      0x12C   0x0020             MOVS     R0,R4
+   \      0x12E   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    179              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch3, 0);
+   \      0x132   0x2200             MOVS     R2,#+0
+   \      0x134   0x2103             MOVS     R1,#+3
+   \      0x136   0x0020             MOVS     R0,R4
+   \      0x138   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    180              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch4, -PID.Speed_output_Left);  
+   \      0x13C   0x6C32             LDR      R2,[R6, #+64]
+   \      0x13E   0x4252             RSBS     R2,R2,#+0
+   \      0x140   0x2104             MOVS     R1,#+4
+   \      0x142   0x0020             MOVS     R0,R4
+   \      0x144   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    181              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch7, 0 );
+   \      0x148   0x2200             MOVS     R2,#+0
+   \      0x14A   0x2107             MOVS     R1,#+7
+   \      0x14C   0x0020             MOVS     R0,R4
+   \      0x14E   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    182              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch1, -PID.Speed_output_Left );  
+   \      0x152   0x6C32             LDR      R2,[R6, #+64]
+   \      0x154   0x4252             RSBS     R2,R2,#+0
+   \      0x156   0x2101             MOVS     R1,#+1
+   \      0x158   0x0020             MOVS     R0,R4
+   \      0x15A   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    183              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch2, -PID.Speed_output_Left);  
+   \      0x15E   0x6C32             LDR      R2,[R6, #+64]
+   \      0x160   0x4252             RSBS     R2,R2,#+0
+   \      0x162   0x2102             MOVS     R1,#+2
+   \      0x164   0x0020             MOVS     R0,R4
+   \      0x166   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    184              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch5, 0); 
+   \      0x16A   0x2200             MOVS     R2,#+0
+   \      0x16C   0x2105             MOVS     R1,#+5
+   \      0x16E   0x0020             MOVS     R0,R4
+   \      0x170   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    185              LPLD_FTM_PWM_ChangeDuty(FTM0, FTM_Ch6, -PID.Speed_output_Left );    
+   \      0x174   0x6C32             LDR      R2,[R6, #+64]
+   \      0x176   0x4252             RSBS     R2,R2,#+0
+   \      0x178   0x2106             MOVS     R1,#+6
+   \      0x17A   0x0020             MOVS     R0,R4
+   \      0x17C   0x....'....        BL       LPLD_FTM_PWM_ChangeDuty
+    186            }
+    187            
+    188            
+    189          }
+   \                     ??Motor_control_2: (+1)
+   \      0x180   0xE8BD 0x8370      POP      {R4-R6,R8,R9,PC}  ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2:
+   \        0x0   0x....'....        DC32     ftm_init_struct3
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_1:
+   \        0x0   0x4003'8000        DC32     0x40038000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_2:
+   \        0x0   0x....'....        DC32     PID
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_3:
+   \        0x0   0x....'....        DC32     left_P
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_4:
+   \        0x0   0x....'....        DC32     left_I
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_5:
+   \        0x0   0x....'....        DC32     right_P
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_6:
+   \        0x0   0x....'....        DC32     right_I
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_7:
+   \        0x0   0xFFFF'D8F2        DC32     0xffffd8f2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable2_8:
+   \        0x0   0xFFFF'D8F1        DC32     0xffffd8f1
+    190          
+    191            
+    192          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      24   Motor_control
+        24   -> LPLD_FTM_PWM_ChangeDuty
+        24   -> __aeabi_d2iz
+        24   -> __aeabi_dadd
+        24   -> __aeabi_dmul
+        24   -> __aeabi_i2d
+      40   init_Motor
+        24   -> LPLD_FTM_Init
+        24   -> LPLD_FTM_PWM_Enable
+        40   -> __aeabi_memcpy4
+      16   init_PID
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable2
+       4  ??DataTable2_1
+       4  ??DataTable2_2
+       4  ??DataTable2_3
+       4  ??DataTable2_4
+       4  ??DataTable2_5
+       4  ??DataTable2_6
+       4  ??DataTable2_7
+       4  ??DataTable2_8
+       2  EDS_MAX
+     388  Motor_control
+      72  PID
+       4  SpeedHigh
+       4  SpeedLow
+      28  ftm_init_struct3
+     164  init_Motor
+     160  init_PID
+       8  left_I
+       8  left_P
+       8  right_I
+       8  right_P
+
+ 
+ 100 bytes in section .bss
+  42 bytes in section .data
+ 748 bytes in section .text
+ 
+ 748 bytes of CODE memory
+ 142 bytes of DATA memory
+
+Errors: none
+Warnings: 3

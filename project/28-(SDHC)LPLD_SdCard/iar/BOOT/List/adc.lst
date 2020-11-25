@@ -1,0 +1,778 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         23/Apr/2019  21:09:41
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\k60_144\smartcar\lib\Jay\adc.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW178A.tmp
+#        (G:\AIcar\@@\k60_144\smartcar\lib\Jay\adc.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -lB
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -o
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List\adc.lst
+#    Object file  =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj\adc.o
+#
+###############################################################################
+
+G:\AIcar\@@\k60_144\smartcar\lib\Jay\adc.c
+      1          /*
+      2           *  
+      3           *  
+      4           *  @JayLin林杰 @厦门大学嘉庚学院 @博学队
+      5           */
+      6          #include "common.h"
+      7          #include "include.h"
+      8          
+      9          
+     10          
+     11          #define MAX_IND 4095
+     12          
+     13          
+     14          
+
+   \                                 In section .data, align 2
+     15          int16 MAX_IND_LEFT = 4095;
+   \                     MAX_IND_LEFT:
+   \        0x0   0x0FFF             DC16 4095
+
+   \                                 In section .data, align 2
+     16          int16 MAX_IND_RIGHT = 4095;
+   \                     MAX_IND_RIGHT:
+   \        0x0   0x0FFF             DC16 4095
+
+   \                                 In section .data, align 2
+     17          int16 MAX_IND_MID = 4095;
+   \                     MAX_IND_MID:
+   \        0x0   0x0FFF             DC16 4095
+
+   \                                 In section .data, align 2
+     18          int16 MIN_IND = 20;
+   \                     MIN_IND:
+   \        0x0   0x0014             DC16 20
+     19          
+
+   \                                 In section .bss, align 2
+     20          int16 setMaxIndLeft = 0;
+   \                     setMaxIndLeft:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     21          int16 setMaxIndRight = 0;
+   \                     setMaxIndRight:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     22          int16 setMaxIndMid = 0;
+   \                     setMaxIndMid:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 1
+     23          uint8 IndModel = 0;// 0代表限定值AD归一，1代表采集最大值归一
+   \                     IndModel:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 1
+     24          uint8 isGetInd = 0;
+   \                     isGetInd:
+   \        0x0                      DS8 1
+     25          
+     26          
+     27          
+     28          
+     29          
+
+   \                                 In section .bss, align 2
+     30          int16 ind1_left_val = 0;
+   \                     ind1_left_val:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     31          int16 ind1_right_val = 0;
+   \                     ind1_right_val:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     32          int16 ind_center_val = 0;
+   \                     ind_center_val:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     33          int16 ind_sum_val = 0;
+   \                     ind_sum_val:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     34          int16 ind_error = 0;
+   \                     ind_error:
+   \        0x0                      DS8 2
+     35          
+     36            
+     37            
+     38          
+
+   \                                 In section .bss, align 4
+     39          ADC_InitTypeDef adc2;//左一
+   \                     adc2:
+   \        0x0                      DS8 20
+
+   \                                 In section .bss, align 4
+     40          ADC_InitTypeDef adc3;//中
+   \                     adc3:
+   \        0x0                      DS8 20
+
+   \                                 In section .bss, align 4
+     41          ADC_InitTypeDef adc4;//右一
+   \                     adc4:
+   \        0x0                      DS8 20
+     42          
+     43          
+     44          
+     45          
+
+   \                                 In section .text, align 2, keep-with-next
+     46          void ADC_Init(void)
+     47          {
+   \                     ADC_Init: (+1)
+   \        0x0   0xB51C             PUSH     {R2-R4,LR}
+     48            adc2.ADC_Adcx=ADC0;
+   \        0x2   0x....             LDR.N    R1,??DataTable3
+   \        0x4   0x....             LDR.N    R4,??DataTable3_1  ;; 0x4003b000
+   \        0x6   0x600C             STR      R4,[R1, #+0]
+     49            adc2.ADC_DiffMode=ADC_SE;
+   \        0x8   0x2000             MOVS     R0,#+0
+   \        0xA   0x7108             STRB     R0,[R1, #+4]
+     50            adc2.ADC_BitMode=SE_12BIT;
+   \        0xC   0x2001             MOVS     R0,#+1
+   \        0xE   0x7148             STRB     R0,[R1, #+5]
+     51            LPLD_ADC_Init(adc2);
+   \       0x10   0xB084             SUB      SP,SP,#+16
+   \       0x12   0x4668             MOV      R0,SP
+   \       0x14   0x2214             MOVS     R2,#+20
+   \       0x16   0x....'....        BL       __aeabi_memcpy4
+   \       0x1A   0xBC0F             POP      {R0-R3}
+   \       0x1C   0x....'....        BL       LPLD_ADC_Init
+     52            LPLD_ADC_Chn_Enable(ADC0,AD14);
+   \       0x20   0x210E             MOVS     R1,#+14
+   \       0x22   0x0020             MOVS     R0,R4
+   \       0x24   0x....'....        BL       LPLD_ADC_Chn_Enable
+     53            
+     54            adc3.ADC_Adcx=ADC1;
+   \       0x28   0x....             LDR.N    R1,??DataTable3_2
+   \       0x2A   0x....             LDR.N    R4,??DataTable3_3  ;; 0x400bb000
+   \       0x2C   0x600C             STR      R4,[R1, #+0]
+     55            adc3.ADC_DiffMode=ADC_SE;
+   \       0x2E   0x2000             MOVS     R0,#+0
+   \       0x30   0x7108             STRB     R0,[R1, #+4]
+     56            adc3.ADC_BitMode=SE_12BIT;
+   \       0x32   0x2001             MOVS     R0,#+1
+   \       0x34   0x7148             STRB     R0,[R1, #+5]
+     57            LPLD_ADC_Init(adc3);
+   \       0x36   0xB084             SUB      SP,SP,#+16
+   \       0x38   0x4668             MOV      R0,SP
+   \       0x3A   0x2214             MOVS     R2,#+20
+   \       0x3C   0x....'....        BL       __aeabi_memcpy4
+   \       0x40   0xBC0F             POP      {R0-R3}
+   \       0x42   0x....'....        BL       LPLD_ADC_Init
+     58            LPLD_ADC_Chn_Enable(ADC1,AD14);
+   \       0x46   0x210E             MOVS     R1,#+14
+   \       0x48   0x0020             MOVS     R0,R4
+   \       0x4A   0x....'....        BL       LPLD_ADC_Chn_Enable
+     59            
+     60            adc4.ADC_Adcx=ADC1;
+   \       0x4E   0x....             LDR.N    R1,??DataTable3_4
+   \       0x50   0x600C             STR      R4,[R1, #+0]
+     61            adc4.ADC_DiffMode=ADC_SE;
+   \       0x52   0x2000             MOVS     R0,#+0
+   \       0x54   0x7108             STRB     R0,[R1, #+4]
+     62            adc4.ADC_BitMode=SE_12BIT;
+   \       0x56   0x2001             MOVS     R0,#+1
+   \       0x58   0x7148             STRB     R0,[R1, #+5]
+     63            LPLD_ADC_Init(adc4);
+   \       0x5A   0xB084             SUB      SP,SP,#+16
+   \       0x5C   0x4668             MOV      R0,SP
+   \       0x5E   0x2214             MOVS     R2,#+20
+   \       0x60   0x....'....        BL       __aeabi_memcpy4
+   \       0x64   0xBC0F             POP      {R0-R3}
+   \       0x66   0x....'....        BL       LPLD_ADC_Init
+     64            LPLD_ADC_Chn_Enable(ADC1,AD15);
+   \       0x6A   0x210F             MOVS     R1,#+15
+   \       0x6C   0x0020             MOVS     R0,R4
+   \       0x6E   0x....'....        BL       LPLD_ADC_Chn_Enable
+     65          }
+   \       0x72   0xBD13             POP      {R0,R1,R4,PC}    ;; return
+     66          
+     67          
+
+   \                                 In section .text, align 2, keep-with-next
+     68          void get_ind_range(void)
+     69          {
+     70            if(1 == isGetInd)
+   \                     get_ind_range: (+1)
+   \        0x0   0x....             LDR.N    R0,??DataTable3_5
+   \        0x2   0x7800             LDRB     R0,[R0, #+0]
+   \        0x4   0x2801             CMP      R0,#+1
+   \        0x6   0xD11D             BNE.N    ??get_ind_range_0
+     71            {
+     72              if(setMaxIndLeft < ind1_left_val)
+   \        0x8   0x....             LDR.N    R0,??DataTable3_6
+   \        0xA   0x....             LDR.N    R1,??DataTable3_7
+   \        0xC   0xF9B1 0x2000      LDRSH    R2,[R1, #+0]
+   \       0x10   0xF9B0 0x3000      LDRSH    R3,[R0, #+0]
+   \       0x14   0x429A             CMP      R2,R3
+   \       0x16   0xDA01             BGE.N    ??get_ind_range_1
+     73              {
+     74                setMaxIndLeft = ind1_left_val;
+   \       0x18   0x8800             LDRH     R0,[R0, #+0]
+   \       0x1A   0x8008             STRH     R0,[R1, #+0]
+     75              }
+     76              if(setMaxIndRight < ind1_right_val)
+   \                     ??get_ind_range_1: (+1)
+   \       0x1C   0x....             LDR.N    R0,??DataTable3_8
+   \       0x1E   0x....             LDR.N    R1,??DataTable3_9
+   \       0x20   0xF9B1 0x2000      LDRSH    R2,[R1, #+0]
+   \       0x24   0xF9B0 0x3000      LDRSH    R3,[R0, #+0]
+   \       0x28   0x429A             CMP      R2,R3
+   \       0x2A   0xDA01             BGE.N    ??get_ind_range_2
+     77              {
+     78                setMaxIndRight = ind1_right_val;
+   \       0x2C   0x8800             LDRH     R0,[R0, #+0]
+   \       0x2E   0x8008             STRH     R0,[R1, #+0]
+     79              }
+     80              if(setMaxIndMid < ind_center_val)
+   \                     ??get_ind_range_2: (+1)
+   \       0x30   0x....             LDR.N    R0,??DataTable3_10
+   \       0x32   0x....             LDR.N    R1,??DataTable3_11
+   \       0x34   0xF9B1 0x2000      LDRSH    R2,[R1, #+0]
+   \       0x38   0xF9B0 0x3000      LDRSH    R3,[R0, #+0]
+   \       0x3C   0x429A             CMP      R2,R3
+   \       0x3E   0xDA01             BGE.N    ??get_ind_range_0
+     81              {
+     82                setMaxIndMid = ind_center_val;
+   \       0x40   0x8800             LDRH     R0,[R0, #+0]
+   \       0x42   0x8008             STRH     R0,[R1, #+0]
+     83              }
+     84            }
+     85          }
+   \                     ??get_ind_range_0: (+1)
+   \       0x44   0x4770             BX       LR               ;; return
+     86          
+     87          
+
+   \                                 In section .text, align 2, keep-with-next
+     88          void get_adc_val(void)
+     89          {
+   \                     get_adc_val: (+1)
+   \        0x0   0xE92D 0x43F8      PUSH     {R3-R9,LR}
+     90            //读值
+     91            ind1_left_val = LPLD_ADC_Get(ADC0,AD14);
+   \        0x4   0x....             LDR.N    R4,??DataTable3_6
+   \        0x6   0x210E             MOVS     R1,#+14
+   \        0x8   0x....             LDR.N    R0,??DataTable3_1  ;; 0x4003b000
+   \        0xA   0x....'....        BL       LPLD_ADC_Get
+   \        0xE   0x8020             STRH     R0,[R4, #+0]
+     92            ind1_right_val = LPLD_ADC_Get(ADC1,AD15);
+   \       0x10   0x....             LDR.N    R5,??DataTable3_8
+   \       0x12   0x....             LDR.N    R7,??DataTable3_3  ;; 0x400bb000
+   \       0x14   0x210F             MOVS     R1,#+15
+   \       0x16   0x0038             MOVS     R0,R7
+   \       0x18   0x....'....        BL       LPLD_ADC_Get
+   \       0x1C   0x8028             STRH     R0,[R5, #+0]
+     93            ind_center_val = LPLD_ADC_Get(ADC1,AD14);
+   \       0x1E   0x....             LDR.N    R6,??DataTable3_10
+   \       0x20   0x210E             MOVS     R1,#+14
+   \       0x22   0x0038             MOVS     R0,R7
+   \       0x24   0x....'....        BL       LPLD_ADC_Get
+   \       0x28   0x8030             STRH     R0,[R6, #+0]
+     94          
+     95            
+     96            if(ind1_left_val <= MIN_IND)
+   \       0x2A   0x....             LDR.N    R7,??DataTable3_12
+   \       0x2C   0xF9B7 0x0000      LDRSH    R0,[R7, #+0]
+   \       0x30   0xF9B4 0x1000      LDRSH    R1,[R4, #+0]
+   \       0x34   0x4288             CMP      R0,R1
+   \       0x36   0xDB01             BLT.N    ??get_adc_val_0
+     97            { ind1_left_val = MIN_IND; }
+   \       0x38   0x8838             LDRH     R0,[R7, #+0]
+   \       0x3A   0x8020             STRH     R0,[R4, #+0]
+     98            if(ind1_right_val <= MIN_IND)
+   \                     ??get_adc_val_0: (+1)
+   \       0x3C   0xF9B7 0x0000      LDRSH    R0,[R7, #+0]
+   \       0x40   0xF9B5 0x1000      LDRSH    R1,[R5, #+0]
+   \       0x44   0x4288             CMP      R0,R1
+   \       0x46   0xDB01             BLT.N    ??get_adc_val_1
+     99            { ind1_right_val = MIN_IND; }
+   \       0x48   0x8838             LDRH     R0,[R7, #+0]
+   \       0x4A   0x8028             STRH     R0,[R5, #+0]
+    100            if(ind_center_val <= MIN_IND)
+   \                     ??get_adc_val_1: (+1)
+   \       0x4C   0xF9B7 0x0000      LDRSH    R0,[R7, #+0]
+   \       0x50   0xF9B6 0x1000      LDRSH    R1,[R6, #+0]
+   \       0x54   0x4288             CMP      R0,R1
+   \       0x56   0xDB01             BLT.N    ??get_adc_val_2
+    101            { ind_center_val = MIN_IND; }
+   \       0x58   0x8838             LDRH     R0,[R7, #+0]
+   \       0x5A   0x8030             STRH     R0,[R6, #+0]
+    102            if(0 == IndModel)
+   \                     ??get_adc_val_2: (+1)
+   \       0x5C   0x....             LDR.N    R0,??DataTable3_13
+   \       0x5E   0x7800             LDRB     R0,[R0, #+0]
+   \       0x60   0x2800             CMP      R0,#+0
+   \       0x62   0xD117             BNE.N    ??get_adc_val_3
+    103            {
+    104              MAX_IND_LEFT = MAX_IND;
+   \       0x64   0xF640 0x70FF      MOVW     R0,#+4095
+   \       0x68   0x....             LDR.N    R1,??DataTable3_14
+   \       0x6A   0x8008             STRH     R0,[R1, #+0]
+    105              MAX_IND_RIGHT = MAX_IND;
+   \       0x6C   0x....             LDR.N    R1,??DataTable3_15
+   \       0x6E   0x8008             STRH     R0,[R1, #+0]
+    106              MAX_IND_MID = MAX_IND;
+   \       0x70   0x....             LDR.N    R1,??DataTable3_16
+   \       0x72   0x8008             STRH     R0,[R1, #+0]
+    107              
+    108              //限幅
+    109              
+    110              if(ind1_left_val >= MAX_IND)
+   \       0x74   0xF9B4 0x1000      LDRSH    R1,[R4, #+0]
+   \       0x78   0x4281             CMP      R1,R0
+   \       0x7A   0xDB00             BLT.N    ??get_adc_val_4
+    111              { ind1_left_val = MAX_IND; }
+   \       0x7C   0x8020             STRH     R0,[R4, #+0]
+    112              
+    113              
+    114              if(ind1_right_val >= MAX_IND)
+   \                     ??get_adc_val_4: (+1)
+   \       0x7E   0xF9B5 0x1000      LDRSH    R1,[R5, #+0]
+   \       0x82   0x4281             CMP      R1,R0
+   \       0x84   0xDB00             BLT.N    ??get_adc_val_5
+    115              { ind1_right_val = MAX_IND; }
+   \       0x86   0x8028             STRH     R0,[R5, #+0]
+    116              
+    117              
+    118              if(ind_center_val >= MAX_IND)
+   \                     ??get_adc_val_5: (+1)
+   \       0x88   0xF9B6 0x1000      LDRSH    R1,[R6, #+0]
+   \       0x8C   0x4281             CMP      R1,R0
+   \       0x8E   0xDB0D             BLT.N    ??get_adc_val_6
+    119              { ind_center_val = MAX_IND;}
+   \       0x90   0x8030             STRH     R0,[R6, #+0]
+   \       0x92   0xE00B             B.N      ??get_adc_val_6
+    120            }
+    121            else
+    122            {
+    123              MAX_IND_LEFT = setMaxIndLeft;
+   \                     ??get_adc_val_3: (+1)
+   \       0x94   0x....             LDR.N    R0,??DataTable3_7
+   \       0x96   0x8800             LDRH     R0,[R0, #+0]
+   \       0x98   0x....             LDR.N    R1,??DataTable3_14
+   \       0x9A   0x8008             STRH     R0,[R1, #+0]
+    124              MAX_IND_RIGHT = setMaxIndRight;
+   \       0x9C   0x....             LDR.N    R0,??DataTable3_9
+   \       0x9E   0x8800             LDRH     R0,[R0, #+0]
+   \       0xA0   0x....             LDR.N    R1,??DataTable3_15
+   \       0xA2   0x8008             STRH     R0,[R1, #+0]
+    125              MAX_IND_MID = setMaxIndMid;
+   \       0xA4   0x....             LDR.N    R0,??DataTable3_11
+   \       0xA6   0x8800             LDRH     R0,[R0, #+0]
+   \       0xA8   0x....             LDR.N    R1,??DataTable3_16
+   \       0xAA   0x8008             STRH     R0,[R1, #+0]
+    126            }
+    127            
+    128            if(0 == isGetInd)
+   \                     ??get_adc_val_6: (+1)
+   \       0xAC   0x....             LDR.N    R0,??DataTable3_5
+   \       0xAE   0x7800             LDRB     R0,[R0, #+0]
+   \       0xB0   0x2800             CMP      R0,#+0
+   \       0xB2   0xD157             BNE.N    ??get_adc_val_7
+    129            {
+    130              //归一
+    131              ind1_left_val = (int16)((ind1_left_val - MIN_IND) * 100.0f / (MAX_IND_LEFT - MIN_IND));
+   \       0xB4   0x....'....        LDR.W    R8,??DataTable3_17  ;; 0x42c80000
+   \       0xB8   0xF9B4 0x0000      LDRSH    R0,[R4, #+0]
+   \       0xBC   0xF9B7 0x1000      LDRSH    R1,[R7, #+0]
+   \       0xC0   0x1A40             SUBS     R0,R0,R1
+   \       0xC2   0x....'....        BL       __aeabi_i2f
+   \       0xC6   0x0001             MOVS     R1,R0
+   \       0xC8   0x4640             MOV      R0,R8
+   \       0xCA   0x....'....        BL       __aeabi_fmul
+   \       0xCE   0x4681             MOV      R9,R0
+   \       0xD0   0x....             LDR.N    R0,??DataTable3_14
+   \       0xD2   0xF9B0 0x0000      LDRSH    R0,[R0, #+0]
+   \       0xD6   0xF9B7 0x1000      LDRSH    R1,[R7, #+0]
+   \       0xDA   0x1A40             SUBS     R0,R0,R1
+   \       0xDC   0x....'....        BL       __aeabi_i2f
+   \       0xE0   0x0001             MOVS     R1,R0
+   \       0xE2   0x4648             MOV      R0,R9
+   \       0xE4   0x....'....        BL       __aeabi_fdiv
+   \       0xE8   0x....'....        BL       __aeabi_f2iz
+   \       0xEC   0x8020             STRH     R0,[R4, #+0]
+    132              ind1_right_val = (int16)((ind1_right_val - MIN_IND) * 100.0f / (MAX_IND_RIGHT - MIN_IND));
+   \       0xEE   0xF9B5 0x0000      LDRSH    R0,[R5, #+0]
+   \       0xF2   0xF9B7 0x1000      LDRSH    R1,[R7, #+0]
+   \       0xF6   0x1A40             SUBS     R0,R0,R1
+   \       0xF8   0x....'....        BL       __aeabi_i2f
+   \       0xFC   0x0001             MOVS     R1,R0
+   \       0xFE   0x4640             MOV      R0,R8
+   \      0x100   0x....'....        BL       __aeabi_fmul
+   \      0x104   0x4681             MOV      R9,R0
+   \      0x106   0x....             LDR.N    R0,??DataTable3_15
+   \      0x108   0xF9B0 0x0000      LDRSH    R0,[R0, #+0]
+   \      0x10C   0xF9B7 0x1000      LDRSH    R1,[R7, #+0]
+   \      0x110   0x1A40             SUBS     R0,R0,R1
+   \      0x112   0x....'....        BL       __aeabi_i2f
+   \      0x116   0x0001             MOVS     R1,R0
+   \      0x118   0x4648             MOV      R0,R9
+   \      0x11A   0x....'....        BL       __aeabi_fdiv
+   \      0x11E   0x....'....        BL       __aeabi_f2iz
+   \      0x122   0x8028             STRH     R0,[R5, #+0]
+    133              ind_center_val = (int16)((ind_center_val - MIN_IND) * 100.0f / (MAX_IND_MID - MIN_IND));
+   \      0x124   0xF9B6 0x0000      LDRSH    R0,[R6, #+0]
+   \      0x128   0xF9B7 0x1000      LDRSH    R1,[R7, #+0]
+   \      0x12C   0x1A40             SUBS     R0,R0,R1
+   \      0x12E   0x....'....        BL       __aeabi_i2f
+   \      0x132   0x0001             MOVS     R1,R0
+   \      0x134   0x4640             MOV      R0,R8
+   \      0x136   0x....'....        BL       __aeabi_fmul
+   \      0x13A   0x4680             MOV      R8,R0
+   \      0x13C   0x....             LDR.N    R0,??DataTable3_16
+   \      0x13E   0xF9B0 0x0000      LDRSH    R0,[R0, #+0]
+   \      0x142   0xF9B7 0x1000      LDRSH    R1,[R7, #+0]
+   \      0x146   0x1A40             SUBS     R0,R0,R1
+   \      0x148   0x....'....        BL       __aeabi_i2f
+   \      0x14C   0x0001             MOVS     R1,R0
+   \      0x14E   0x4640             MOV      R0,R8
+   \      0x150   0x....'....        BL       __aeabi_fdiv
+   \      0x154   0x....'....        BL       __aeabi_f2iz
+   \      0x158   0x8030             STRH     R0,[R6, #+0]
+    134              ind_sum_val = ind1_left_val + ind1_right_val;
+   \      0x15A   0x8821             LDRH     R1,[R4, #+0]
+   \      0x15C   0x8828             LDRH     R0,[R5, #+0]
+   \      0x15E   0x1841             ADDS     R1,R0,R1
+   \      0x160   0x....             LDR.N    R0,??DataTable3_18
+   \      0x162   0x8001             STRH     R1,[R0, #+0]
+    135            }
+    136            
+    137            
+    138          }
+   \                     ??get_adc_val_7: (+1)
+   \      0x164   0xE8BD 0x83F1      POP      {R0,R4-R9,PC}    ;; return
+    139          
+
+   \                                 In section .text, align 2, keep-with-next
+    140          void get_ind_error(void)
+    141          { 
+   \                     get_ind_error: (+1)
+   \        0x0   0xB570             PUSH     {R4-R6,LR}
+    142            float dividend = 0;//被除数
+   \        0x2   0x2000             MOVS     R0,#+0
+    143            float divisor = 0;//除数
+   \        0x4   0x2000             MOVS     R0,#+0
+    144            float quotient = 0;//商
+   \        0x6   0x2000             MOVS     R0,#+0
+    145            
+    146            
+    147            dividend = ind1_left_val - ind1_right_val;
+   \        0x8   0x....             LDR.N    R5,??DataTable3_8
+   \        0xA   0x....             LDR.N    R6,??DataTable3_6
+   \        0xC   0xF9B6 0x0000      LDRSH    R0,[R6, #+0]
+   \       0x10   0xF9B5 0x1000      LDRSH    R1,[R5, #+0]
+   \       0x14   0x1A40             SUBS     R0,R0,R1
+   \       0x16   0x....'....        BL       __aeabi_i2f
+   \       0x1A   0x0004             MOVS     R4,R0
+    148            divisor = ind1_left_val + ind1_right_val;
+   \       0x1C   0xF9B6 0x0000      LDRSH    R0,[R6, #+0]
+   \       0x20   0xF9B5 0x1000      LDRSH    R1,[R5, #+0]
+   \       0x24   0xFA01 0xF080      SXTAH    R0,R1,R0
+   \       0x28   0x....'....        BL       __aeabi_i2f
+   \       0x2C   0x0005             MOVS     R5,R0
+    149            
+    150            if(0 == divisor)
+   \       0x2E   0x0028             MOVS     R0,R5
+   \       0x30   0x2100             MOVS     R1,#+0
+   \       0x32   0x....'....        BL       __aeabi_cfcmpeq
+   \       0x36   0xD02C             BEQ.N    ??get_ind_error_0
+    151            {
+    152              return;
+    153            }
+    154            quotient = (dividend * 1.0f) / divisor;
+   \                     ??get_ind_error_1: (+1)
+   \       0x38   0xF05F 0x507E      MOVS     R0,#+1065353216
+   \       0x3C   0x0021             MOVS     R1,R4
+   \       0x3E   0x....'....        BL       __aeabi_fmul
+   \       0x42   0x0029             MOVS     R1,R5
+   \       0x44   0x....'....        BL       __aeabi_fdiv
+    155            quotient *= IMG_COL_CENTER;
+   \       0x48   0x....             LDR.N    R4,??DataTable3_19  ;; 0x429e0000
+   \       0x4A   0x0021             MOVS     R1,R4
+   \       0x4C   0x....'....        BL       __aeabi_fmul
+    156            
+    157            if(quotient >= IMG_COL_CENTER)
+   \       0x50   0x0021             MOVS     R1,R4
+   \       0x52   0x....'....        BL       __aeabi_cfrcmple
+   \       0x56   0xD801             BHI.N    ??get_ind_error_2
+    158            { quotient = IMG_COL_CENTER;}
+   \       0x58   0x0020             MOVS     R0,R4
+   \       0x5A   0xE004             B.N      ??get_ind_error_3
+    159            else if(quotient <= -IMG_COL_CENTER)
+   \                     ??get_ind_error_2: (+1)
+   \       0x5C   0x....             LDR.N    R1,??DataTable3_20  ;; 0xc29dffff
+   \       0x5E   0x....'....        BL       __aeabi_cfcmple
+   \       0x62   0xD200             BCS.N    ??get_ind_error_3
+    160            { quotient = -IMG_COL_CENTER;}
+   \       0x64   0x....             LDR.N    R0,??DataTable3_21  ;; 0xc29e0000
+    161            
+    162            ind_error = IMG_COL_CENTER - (int16)(quotient * 0.7f);
+   \                     ??get_ind_error_3: (+1)
+   \       0x66   0x....             LDR.N    R4,??DataTable3_22
+   \       0x68   0x....             LDR.N    R1,??DataTable3_23  ;; 0x3f333333
+   \       0x6A   0x....'....        BL       __aeabi_fmul
+   \       0x6E   0x....'....        BL       __aeabi_f2iz
+   \       0x72   0xF1D0 0x004F      RSBS     R0,R0,#+79
+   \       0x76   0x8020             STRH     R0,[R4, #+0]
+    163            
+    164            if(ind_error >= IMG_RIGHT)
+   \       0x78   0xF9B4 0x0000      LDRSH    R0,[R4, #+0]
+   \       0x7C   0x289E             CMP      R0,#+158
+   \       0x7E   0xDB02             BLT.N    ??get_ind_error_4
+    165            { ind_error = IMG_RIGHT;}
+   \       0x80   0x209E             MOVS     R0,#+158
+   \       0x82   0x8020             STRH     R0,[R4, #+0]
+   \       0x84   0xE005             B.N      ??get_ind_error_5
+    166            else if(ind_error <= IMG_LEFT)
+   \                     ??get_ind_error_4: (+1)
+   \       0x86   0xF9B4 0x0000      LDRSH    R0,[R4, #+0]
+   \       0x8A   0x2802             CMP      R0,#+2
+   \       0x8C   0xDA01             BGE.N    ??get_ind_error_5
+    167            { ind_error = IMG_LEFT;}
+   \       0x8E   0x2001             MOVS     R0,#+1
+   \       0x90   0x8020             STRH     R0,[R4, #+0]
+    168          }
+   \                     ??get_ind_error_5: (+1)
+   \                     ??get_ind_error_0: (+1)
+   \       0x92   0xBD70             POP      {R4-R6,PC}       ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3:
+   \        0x0   0x....'....        DC32     adc2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_1:
+   \        0x0   0x4003'B000        DC32     0x4003b000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_2:
+   \        0x0   0x....'....        DC32     adc3
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_3:
+   \        0x0   0x400B'B000        DC32     0x400bb000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_4:
+   \        0x0   0x....'....        DC32     adc4
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_5:
+   \        0x0   0x....'....        DC32     isGetInd
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_6:
+   \        0x0   0x....'....        DC32     ind1_left_val
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_7:
+   \        0x0   0x....'....        DC32     setMaxIndLeft
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_8:
+   \        0x0   0x....'....        DC32     ind1_right_val
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_9:
+   \        0x0   0x....'....        DC32     setMaxIndRight
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_10:
+   \        0x0   0x....'....        DC32     ind_center_val
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_11:
+   \        0x0   0x....'....        DC32     setMaxIndMid
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_12:
+   \        0x0   0x....'....        DC32     MIN_IND
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_13:
+   \        0x0   0x....'....        DC32     IndModel
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_14:
+   \        0x0   0x....'....        DC32     MAX_IND_LEFT
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_15:
+   \        0x0   0x....'....        DC32     MAX_IND_RIGHT
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_16:
+   \        0x0   0x....'....        DC32     MAX_IND_MID
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_17:
+   \        0x0   0x42C8'0000        DC32     0x42c80000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_18:
+   \        0x0   0x....'....        DC32     ind_sum_val
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_19:
+   \        0x0   0x429E'0000        DC32     0x429e0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_20:
+   \        0x0   0xC29D'FFFF        DC32     0xc29dffff
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_21:
+   \        0x0   0xC29E'0000        DC32     0xc29e0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_22:
+   \        0x0   0x....'....        DC32     ind_error
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_23:
+   \        0x0   0x3F33'3333        DC32     0x3f333333
+    169          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      32   ADC_Init
+        16   -> LPLD_ADC_Chn_Enable
+        16   -> LPLD_ADC_Init
+        32   -> __aeabi_memcpy4
+      32   get_adc_val
+        32   -> LPLD_ADC_Get
+        32   -> __aeabi_f2iz
+        32   -> __aeabi_fdiv
+        32   -> __aeabi_fmul
+        32   -> __aeabi_i2f
+      16   get_ind_error
+        16   -> __aeabi_f2iz
+        16   -> __aeabi_fdiv
+        16   -> __aeabi_fmul
+        16   -> __aeabi_i2f
+        16 __aeabi_cfcmpeq
+        16 __aeabi_cfcmple
+        16 __aeabi_cfrcmple
+       0   get_ind_range
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable3
+       4  ??DataTable3_1
+       4  ??DataTable3_10
+       4  ??DataTable3_11
+       4  ??DataTable3_12
+       4  ??DataTable3_13
+       4  ??DataTable3_14
+       4  ??DataTable3_15
+       4  ??DataTable3_16
+       4  ??DataTable3_17
+       4  ??DataTable3_18
+       4  ??DataTable3_19
+       4  ??DataTable3_2
+       4  ??DataTable3_20
+       4  ??DataTable3_21
+       4  ??DataTable3_22
+       4  ??DataTable3_23
+       4  ??DataTable3_3
+       4  ??DataTable3_4
+       4  ??DataTable3_5
+       4  ??DataTable3_6
+       4  ??DataTable3_7
+       4  ??DataTable3_8
+       4  ??DataTable3_9
+     116  ADC_Init
+       1  IndModel
+       2  MAX_IND_LEFT
+       2  MAX_IND_MID
+       2  MAX_IND_RIGHT
+       2  MIN_IND
+      20  adc2
+      20  adc3
+      20  adc4
+     360  get_adc_val
+     148  get_ind_error
+      70  get_ind_range
+       2  ind1_left_val
+       2  ind1_right_val
+       2  ind_center_val
+       2  ind_error
+       2  ind_sum_val
+       1  isGetInd
+       2  setMaxIndLeft
+       2  setMaxIndMid
+       2  setMaxIndRight
+
+ 
+  78 bytes in section .bss
+   8 bytes in section .data
+ 790 bytes in section .text
+ 
+ 790 bytes of CODE memory
+  86 bytes of DATA memory
+
+Errors: none
+Warnings: 3

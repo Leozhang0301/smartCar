@@ -1,0 +1,268 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         08/Jul/2019  00:40:54
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\xiugai\lib\common\Car_control.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW5A91.tmp
+#        (G:\AIcar\@@\xiugai\lib\common\Car_control.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -lB
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -o "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\" -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -On -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List\Car_control.lst
+#    Object file  =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj\Car_control.o
+#
+###############################################################################
+
+G:\AIcar\@@\xiugai\lib\common\Car_control.c
+      1          #include "Car_Control.h"
+      2          //#include "SEEKFREE_MT9V032.h"
+      3          
+
+   \                                 In section .bss, align 4
+      4          float Distance;
+   \                     Distance:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 1
+      5          u8 force_left =0;
+   \                     force_left:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 1
+      6          u8 force_right = 0;
+   \                     force_right:
+   \        0x0                      DS8 1
+
+   \                                 In section .bss, align 2
+      7          s16 Barrier_X=0;
+   \                     Barrier_X:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+      8          s16 Barrier_Y=0;
+   \                     Barrier_Y:
+   \        0x0                      DS8 2
+
+   \                                 In section .data, align 2
+      9          s16 zbpiancha=20;//已調好
+   \                     zbpiancha:
+   \        0x0   0x0014             DC16 20
+
+   \                                 In section .data, align 2
+     10          s16 niupiancha=40;//已調好
+   \                     niupiancha:
+   \        0x0   0x0028             DC16 40
+
+   \                                 In section .bss, align 4
+     11          int congcongcong = 0;
+   \                     congcongcong:
+   \        0x0                      DS8 4
+     12          //static u16 beacon_maybe_blocked =0;
+
+   \                                 In section .text, align 4, keep-with-next
+     13          void Car_Control()
+     14          {
+   \                     Car_Control: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+     15            delay_flag = 0;
+   \        0x2   0x2000             MOVS     R0,#+0
+   \        0x4   0x4926             LDR.N    R1,??Car_Control_0
+   \        0x6   0x7008             STRB     R0,[R1, #+0]
+     16            Barrier_flag = 0;
+   \        0x8   0x2000             MOVS     R0,#+0
+   \        0xA   0x4926             LDR.N    R1,??Car_Control_0+0x4
+   \        0xC   0x7008             STRB     R0,[R1, #+0]
+     17            force_left =0;
+   \        0xE   0x2000             MOVS     R0,#+0
+   \       0x10   0x4925             LDR.N    R1,??Car_Control_0+0x8
+   \       0x12   0x7008             STRB     R0,[R1, #+0]
+     18          if(light_flag)
+   \       0x14   0x4825             LDR.N    R0,??Car_Control_0+0xC
+   \       0x16   0x6800             LDR      R0,[R0, #+0]
+   \       0x18   0x2800             CMP      R0,#+0
+   \       0x1A   0xD027             BEQ.N    ??Car_Control_1
+     19          {
+     20          
+     21                if(light_y <40)
+   \       0x1C   0x4824             LDR.N    R0,??Car_Control_0+0x10
+   \       0x1E   0x6801             LDR      R1,[R0, #+0]
+   \       0x20   0x2928             CMP      R1,#+40
+   \       0x22   0xDA11             BGE.N    ??Car_Control_2
+     22                {
+     23                     set_speed_l = 0;
+   \       0x24   0x2100             MOVS     R1,#+0
+   \       0x26   0x4A23             LDR.N    R2,??Car_Control_0+0x14
+   \       0x28   0x7011             STRB     R1,[R2, #+0]
+     24                    set_speed_s = basic_speed;
+   \       0x2A   0x4923             LDR.N    R1,??Car_Control_0+0x18
+   \       0x2C   0x7809             LDRB     R1,[R1, #+0]
+   \       0x2E   0x4A23             LDR.N    R2,??Car_Control_0+0x1C
+   \       0x30   0x8011             STRH     R1,[R2, #+0]
+     25                    excursion_x = light_x;   
+   \       0x32   0x4923             LDR.N    R1,??Car_Control_0+0x20
+   \       0x34   0x6809             LDR      R1,[R1, #+0]
+   \       0x36   0x4A23             LDR.N    R2,??Car_Control_0+0x24
+   \       0x38   0x8011             STRH     R1,[R2, #+0]
+     26                    excursion_y = light_y+zbpiancha;
+   \       0x3A   0x6801             LDR      R1,[R0, #+0]
+   \       0x3C   0x4822             LDR.N    R0,??Car_Control_0+0x28
+   \       0x3E   0x8800             LDRH     R0,[R0, #+0]
+   \       0x40   0x1841             ADDS     R1,R0,R1
+   \       0x42   0x4822             LDR.N    R0,??Car_Control_0+0x2C
+   \       0x44   0x8001             STRH     R1,[R0, #+0]
+   \       0x46   0xE01D             B.N      ??Car_Control_3
+     27                }
+     28                else
+     29                {
+     30                    set_speed_l = 0;
+   \                     ??Car_Control_2: (+1)
+   \       0x48   0x2100             MOVS     R1,#+0
+   \       0x4A   0x4A1A             LDR.N    R2,??Car_Control_0+0x14
+   \       0x4C   0x7011             STRB     R1,[R2, #+0]
+     31                    
+     32                    set_speed_s = basic_speed;
+   \       0x4E   0x491A             LDR.N    R1,??Car_Control_0+0x18
+   \       0x50   0x7809             LDRB     R1,[R1, #+0]
+   \       0x52   0x4A1A             LDR.N    R2,??Car_Control_0+0x1C
+   \       0x54   0x8011             STRH     R1,[R2, #+0]
+     33                    excursion_x = light_x;   
+   \       0x56   0x491A             LDR.N    R1,??Car_Control_0+0x20
+   \       0x58   0x6809             LDR      R1,[R1, #+0]
+   \       0x5A   0x4A1A             LDR.N    R2,??Car_Control_0+0x24
+   \       0x5C   0x8011             STRH     R1,[R2, #+0]
+     34                    excursion_y = light_y+niupiancha;
+   \       0x5E   0x6801             LDR      R1,[R0, #+0]
+   \       0x60   0x481B             LDR.N    R0,??Car_Control_0+0x30
+   \       0x62   0x8800             LDRH     R0,[R0, #+0]
+   \       0x64   0x1841             ADDS     R1,R0,R1
+   \       0x66   0x4819             LDR.N    R0,??Car_Control_0+0x2C
+   \       0x68   0x8001             STRH     R1,[R0, #+0]
+   \       0x6A   0xE00B             B.N      ??Car_Control_3
+     35                }
+     36          
+     37          }
+     38           
+     39            else
+     40            {
+     41                   set_speed_l=0;
+   \                     ??Car_Control_1: (+1)
+   \       0x6C   0x2000             MOVS     R0,#+0
+   \       0x6E   0x4911             LDR.N    R1,??Car_Control_0+0x14
+   \       0x70   0x7008             STRB     R0,[R1, #+0]
+     42                   excursion_x = 0;   
+   \       0x72   0x2000             MOVS     R0,#+0
+   \       0x74   0x4913             LDR.N    R1,??Car_Control_0+0x24
+   \       0x76   0x8008             STRH     R0,[R1, #+0]
+     43                   excursion_y = 0;
+   \       0x78   0x2000             MOVS     R0,#+0
+   \       0x7A   0x4914             LDR.N    R1,??Car_Control_0+0x2C
+   \       0x7C   0x8008             STRH     R0,[R1, #+0]
+     44                   set_speed_s = 20;
+   \       0x7E   0x2014             MOVS     R0,#+20
+   \       0x80   0x490E             LDR.N    R1,??Car_Control_0+0x1C
+   \       0x82   0x8008             STRH     R0,[R1, #+0]
+     45             }
+     46            Speed_Conversion(set_speed_l,set_speed_s,excursion_x,excursion_y);
+   \                     ??Car_Control_3: (+1)
+   \       0x84   0x4811             LDR.N    R0,??Car_Control_0+0x2C
+   \       0x86   0xF9B0 0x3000      LDRSH    R3,[R0, #+0]
+   \       0x8A   0x480E             LDR.N    R0,??Car_Control_0+0x24
+   \       0x8C   0xF9B0 0x2000      LDRSH    R2,[R0, #+0]
+   \       0x90   0x480A             LDR.N    R0,??Car_Control_0+0x1C
+   \       0x92   0xF9B0 0x1000      LDRSH    R1,[R0, #+0]
+   \       0x96   0x4807             LDR.N    R0,??Car_Control_0+0x14
+   \       0x98   0x7800             LDRB     R0,[R0, #+0]
+   \       0x9A   0x....'....        BL       Speed_Conversion
+     47          
+     48          }
+   \       0x9E   0xBD01             POP      {R0,PC}          ;; return
+   \                     ??Car_Control_0:
+   \       0xA0   0x....'....        DC32     delay_flag
+   \       0xA4   0x....'....        DC32     Barrier_flag
+   \       0xA8   0x....'....        DC32     force_left
+   \       0xAC   0x....'....        DC32     light_flag
+   \       0xB0   0x....'....        DC32     light_y
+   \       0xB4   0x....'....        DC32     set_speed_l
+   \       0xB8   0x....'....        DC32     basic_speed
+   \       0xBC   0x....'....        DC32     set_speed_s
+   \       0xC0   0x....'....        DC32     light_x
+   \       0xC4   0x....'....        DC32     excursion_x
+   \       0xC8   0x....'....        DC32     zbpiancha
+   \       0xCC   0x....'....        DC32     excursion_y
+   \       0xD0   0x....'....        DC32     niupiancha
+     49          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   Car_Control
+         8   -> Speed_Conversion
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       2  Barrier_X
+       2  Barrier_Y
+     212  Car_Control
+       4  Distance
+       4  congcongcong
+       1  force_left
+       1  force_right
+       2  niupiancha
+       2  zbpiancha
+
+ 
+  14 bytes in section .bss
+   4 bytes in section .data
+ 212 bytes in section .text
+ 
+ 212 bytes of CODE memory
+  18 bytes of DATA memory
+
+Errors: none
+Warnings: 1

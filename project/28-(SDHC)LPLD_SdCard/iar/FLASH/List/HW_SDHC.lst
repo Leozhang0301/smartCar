@@ -1,0 +1,3416 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         02/Jul/2019  17:59:18
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\xiugai\lib\LPLD\HW\HW_SDHC.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW5858.tmp
+#        (G:\AIcar\@@\xiugai\lib\LPLD\HW\HW_SDHC.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -lB
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -o "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\" -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -On -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List\HW_SDHC.lst
+#    Object file  =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj\HW_SDHC.o
+#
+###############################################################################
+
+G:\AIcar\@@\xiugai\lib\LPLD\HW\HW_SDHC.c
+      1          /**
+      2           * @file HW_SDHC.c
+      3           * @version 3.01[By LPLD]
+      4           * @date 2013-10-21
+      5           * @brief SDHC底层模块相关函数
+      6           *
+      7           * 更改建议:不建议修改
+      8           *
+      9           * 版权所有:北京拉普兰德电子技术有限公司
+     10           * http://www.lpld.cn
+     11           * mail:support@lpld.cn
+     12           *
+     13           * @par
+     14           * 本代码由拉普兰德[LPLD]开发并维护，并向所有使用者开放源代码。
+     15           * 开发者可以随意修使用或改源代码。但本段及以上注释应予以保留。
+     16           * 不得更改或删除原版权所有者姓名，二次开发者可以加注二次版权所有者。
+     17           * 但应在遵守此协议的基础上，开放源代码、不得出售代码本身。
+     18           * 拉普兰德不负责由于使用本代码所带来的任何事故、法律责任或相关不良影响。
+     19           * 拉普兰德无义务解释、说明本代码的具体原理、功能、实现方法。
+     20           * 除非拉普兰德[LPLD]授权，开发者不得将本代码用于商业产品。 
+     21           *
+     22           * 版权说明:
+     23           *  SDHC模块驱动程序摘取自飞思卡尔MQX底层驱动，部分功能由拉普兰德修改。
+     24           *  HW_SDHC.h及HW_SDHC.c内的代码版权归飞思卡尔公司享有。
+     25           * 
+     26           * 3.01-2013-10-21 修复低容量SD卡无法初始化BUG
+     27           */
+     28          #include "common.h"
+     29          #include "HW_SDHC.h"
+     30          
+     31          //SD卡信息全局变量
+
+   \                                 In section .bss, align 4
+     32          SDCARD_STRUCT_PTR sdcard_ptr;
+   \                     sdcard_ptr:
+   \        0x0                      DS8 4
+     33          
+     34          /*
+     35           * LPLD_SDHC_InitGPIO
+     36           * 初始化SDHC模块相关的GPIO引脚,并使能SDHC寄存器时钟
+     37           * 
+     38           * 参数:
+     39           *    init--PCR寄存器掩码
+     40           *
+     41           * 输出:
+     42           *    无
+     43           */
+
+   \                                 In section .text, align 2, keep-with-next
+     44          static void LPLD_SDHC_InitGPIO(uint32 init)
+     45          {  
+     46            PORTE->PCR[0] = init & (PORT_PCR_MUX(4) | PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_DSE_MASK);    /* SDHC.D1  */
+   \                     LPLD_SDHC_InitGPIO: (+1)
+   \        0x0   0xF240 0x4143      MOVW     R1,#+1091
+   \        0x4   0xEA11 0x0200      ANDS     R2,R1,R0
+   \        0x8   0x....'....        LDR.W    R3,??DataTable8  ;; 0x4004d000
+   \        0xC   0x601A             STR      R2,[R3, #+0]
+     47            PORTE->PCR[1] = init & (PORT_PCR_MUX(4) | PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_DSE_MASK);    /* SDHC.D0  */
+   \        0xE   0xEA11 0x0200      ANDS     R2,R1,R0
+   \       0x12   0x....'....        LDR.W    R3,??DataTable8_1  ;; 0x4004d004
+   \       0x16   0x601A             STR      R2,[R3, #+0]
+     48            PORTE->PCR[2] = init & (PORT_PCR_MUX(4) | PORT_PCR_DSE_MASK);                                          /* SDHC.CLK */
+   \       0x18   0xF410 0x6288      ANDS     R2,R0,#0x440
+   \       0x1C   0x....'....        LDR.W    R3,??DataTable8_2  ;; 0x4004d008
+   \       0x20   0x601A             STR      R2,[R3, #+0]
+     49            PORTE->PCR[3] = init & (PORT_PCR_MUX(4) | PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_DSE_MASK);    /* SDHC.CMD */
+   \       0x22   0xEA11 0x0200      ANDS     R2,R1,R0
+   \       0x26   0x....'....        LDR.W    R3,??DataTable8_3  ;; 0x4004d00c
+   \       0x2A   0x601A             STR      R2,[R3, #+0]
+     50            PORTE->PCR[4] = init & (PORT_PCR_MUX(4) | PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_DSE_MASK);    /* SDHC.D3  */
+   \       0x2C   0xEA11 0x0200      ANDS     R2,R1,R0
+   \       0x30   0x....'....        LDR.W    R3,??DataTable8_4  ;; 0x4004d010
+   \       0x34   0x601A             STR      R2,[R3, #+0]
+     51            PORTE->PCR[5] = init & (PORT_PCR_MUX(4) | PORT_PCR_PS_MASK | PORT_PCR_PE_MASK | PORT_PCR_DSE_MASK);    /* SDHC.D2  */
+   \       0x36   0x4001             ANDS     R1,R1,R0
+   \       0x38   0x....'....        LDR.W    R2,??DataTable8_5  ;; 0x4004d014
+   \       0x3C   0x6011             STR      R1,[R2, #+0]
+     52            
+     53            SIM->SCGC3 |= SIM_SCGC3_SDHC_MASK; 
+   \       0x3E   0x....'....        LDR.W    R1,??DataTable8_6  ;; 0x40048030
+   \       0x42   0x680A             LDR      R2,[R1, #+0]
+   \       0x44   0xF452 0x3200      ORRS     R2,R2,#0x20000
+   \       0x48   0x600A             STR      R2,[R1, #+0]
+     54          }
+   \       0x4A   0x4770             BX       LR               ;; return
+     55          
+     56          
+     57          /*
+     58           * LPLD_SDHC_SetBaudrate
+     59           * 设置SDHC波特率
+     60           * 
+     61           * 参数:
+     62           *    clock--模块输入时钟，即g_core_clock*1000，单位Hz
+     63           *    baud--SDHC期望时钟频率，单位Hz
+     64           *
+     65           * 输出:
+     66           *    无
+     67           */
+
+   \                                 In section .text, align 2, keep-with-next
+     68          static void LPLD_SDHC_SetBaudrate(uint32 clock, uint32 baud)
+     69          {
+   \                     LPLD_SDHC_SetBaudrate: (+1)
+   \        0x0   0xE92D 0x43F0      PUSH     {R4-R9,LR}
+     70            uint32 pres, div, min, minpres = 0x80, mindiv = 0x0F;
+   \        0x4   0x2380             MOVS     R3,#+128
+   \        0x6   0x240F             MOVS     R4,#+15
+     71            int32  val;
+     72            
+     73            //找到相近的分频因子
+     74            min = (uint32)-1;
+   \        0x8   0xF05F 0x35FF      MOVS     R5,#-1
+     75            for (pres = 2; pres <= 256; pres <<= 1)
+   \        0xC   0x2602             MOVS     R6,#+2
+   \                     ??LPLD_SDHC_SetBaudrate_0: (+1)
+   \        0xE   0xF240 0x1C01      MOVW     R12,#+257
+   \       0x12   0x4566             CMP      R6,R12
+   \       0x14   0xD216             BCS.N    ??LPLD_SDHC_SetBaudrate_1
+     76            {
+     77              for (div = 1; div <= 16; div++)
+   \       0x16   0xF05F 0x0C01      MOVS     R12,#+1
+   \       0x1A   0x4667             MOV      R7,R12
+   \                     ??LPLD_SDHC_SetBaudrate_2: (+1)
+   \       0x1C   0x2F11             CMP      R7,#+17
+   \       0x1E   0xD20F             BCS.N    ??LPLD_SDHC_SetBaudrate_3
+     78              {
+     79                val = pres * div * baud - clock;
+   \       0x20   0xFB07 0xFC06      MUL      R12,R7,R6
+   \       0x24   0xFB01 0xFC0C      MUL      R12,R1,R12
+   \       0x28   0xEBBC 0x0C00      SUBS     R12,R12,R0
+   \       0x2C   0x4662             MOV      R2,R12
+     80                if (val >= 0)
+   \       0x2E   0x2A00             CMP      R2,#+0
+   \       0x30   0xD404             BMI.N    ??LPLD_SDHC_SetBaudrate_4
+     81                {
+     82                  if (min > val)
+   \       0x32   0x42AA             CMP      R2,R5
+   \       0x34   0xD202             BCS.N    ??LPLD_SDHC_SetBaudrate_4
+     83                  {
+     84                    min = val;
+   \       0x36   0x0015             MOVS     R5,R2
+     85                    minpres = pres;
+   \       0x38   0x0033             MOVS     R3,R6
+     86                    mindiv = div;
+   \       0x3A   0x003C             MOVS     R4,R7
+     87                  }
+     88                }
+     89              }
+   \                     ??LPLD_SDHC_SetBaudrate_4: (+1)
+   \       0x3C   0x1C7F             ADDS     R7,R7,#+1
+   \       0x3E   0xE7ED             B.N      ??LPLD_SDHC_SetBaudrate_2
+     90            }
+   \                     ??LPLD_SDHC_SetBaudrate_3: (+1)
+   \       0x40   0x0076             LSLS     R6,R6,#+1
+   \       0x42   0xE7E4             B.N      ??LPLD_SDHC_SetBaudrate_0
+     91            
+     92            //禁止SDHC模块时钟
+     93            SDHC->SYSCTL &= (~ SDHC_SYSCTL_SDCLKEN_MASK);
+   \                     ??LPLD_SDHC_SetBaudrate_1: (+1)
+   \       0x44   0x....'....        LDR.W    R12,??DataTable8_7  ;; 0x400b102c
+   \       0x48   0xF8DC 0xE000      LDR      LR,[R12, #+0]
+   \       0x4C   0xF03E 0x0E08      BICS     LR,LR,#0x8
+   \       0x50   0xF8CC 0xE000      STR      LR,[R12, #+0]
+     94            
+     95            //修改分频因子
+     96            div = SDHC->SYSCTL & (~ (SDHC_SYSCTL_DTOCV_MASK | SDHC_SYSCTL_SDCLKFS_MASK | SDHC_SYSCTL_DVS_MASK));
+   \       0x54   0xF8DC 0xE000      LDR      LR,[R12, #+0]
+   \       0x58   0xF36F 0x1E13      BFC      LR,#+4,#+16
+     97            SDHC->SYSCTL = div | (SDHC_SYSCTL_DTOCV(0x0E) | SDHC_SYSCTL_SDCLKFS(minpres >> 1) | SDHC_SYSCTL_DVS(mindiv - 1));
+   \       0x5C   0xEA5F 0x18C3      LSLS     R8,R3,#+7
+   \       0x60   0xF418 0x487F      ANDS     R8,R8,#0xFF00
+   \       0x64   0xEA58 0x080E      ORRS     R8,R8,LR
+   \       0x68   0xF1B4 0x0901      SUBS     R9,R4,#+1
+   \       0x6C   0xEA5F 0x1909      LSLS     R9,R9,#+4
+   \       0x70   0xF019 0x09F0      ANDS     R9,R9,#0xF0
+   \       0x74   0xEA59 0x0808      ORRS     R8,R9,R8
+   \       0x78   0xF458 0x2860      ORRS     R8,R8,#0xE0000
+   \       0x7C   0xF8CC 0x8000      STR      R8,[R12, #+0]
+     98            
+     99            //等在时钟稳定
+    100            while (0 == (SDHC->PRSSTAT & SDHC_PRSSTAT_SDSTB_MASK))
+   \                     ??LPLD_SDHC_SetBaudrate_5: (+1)
+   \       0x80   0x....'....        LDR.W    R7,??DataTable8_8  ;; 0x400b1024
+   \       0x84   0x683F             LDR      R7,[R7, #+0]
+   \       0x86   0x073F             LSLS     R7,R7,#+28
+   \       0x88   0xD5FA             BPL.N    ??LPLD_SDHC_SetBaudrate_5
+    101            {};
+    102            
+    103            //使能SDHC模块时钟
+    104            SDHC->SYSCTL |= SDHC_SYSCTL_SDCLKEN_MASK;
+   \       0x8A   0xF8DC 0x7000      LDR      R7,[R12, #+0]
+   \       0x8E   0xF057 0x0708      ORRS     R7,R7,#0x8
+   \       0x92   0xF8CC 0x7000      STR      R7,[R12, #+0]
+    105            SDHC->IRQSTAT |= SDHC_IRQSTAT_DTOE_MASK;
+   \       0x96   0x....'....        LDR.W    R7,??DataTable9  ;; 0x400b1030
+   \       0x9A   0xF8D7 0xC000      LDR      R12,[R7, #+0]
+   \       0x9E   0xF45C 0x1C80      ORRS     R12,R12,#0x100000
+   \       0xA2   0xF8C7 0xC000      STR      R12,[R7, #+0]
+    106          }
+   \       0xA6   0xE8BD 0x83F0      POP      {R4-R9,PC}       ;; return
+    107          
+    108          /*
+    109           * LPLD_SDHC_IsRunning
+    110           * 获取SDHC模块运行状态
+    111           * 
+    112           * 参数:
+    113           *    无
+    114           *
+    115           * 输出:
+    116           *    TRUE--正在运行
+    117           *    FALSE--停止运行
+    118           */
+
+   \                                 In section .text, align 2, keep-with-next
+    119          static boolean LPLD_SDHC_IsRunning(void)
+    120          {
+    121            return (0 != (SDHC->PRSSTAT & (SDHC_PRSSTAT_RTA_MASK | SDHC_PRSSTAT_WTA_MASK | SDHC_PRSSTAT_DLA_MASK | SDHC_PRSSTAT_CDIHB_MASK | SDHC_PRSSTAT_CIHB_MASK)));
+   \                     LPLD_SDHC_IsRunning: (+1)
+   \        0x0   0x....'....        LDR.W    R0,??DataTable8_8  ;; 0x400b1024
+   \        0x4   0x6800             LDR      R0,[R0, #+0]
+   \        0x6   0xF240 0x3107      MOVW     R1,#+775
+   \        0xA   0x4208             TST      R0,R1
+   \        0xC   0xD001             BEQ.N    ??LPLD_SDHC_IsRunning_0
+   \        0xE   0x2001             MOVS     R0,#+1
+   \       0x10   0xE000             B.N      ??LPLD_SDHC_IsRunning_1
+   \                     ??LPLD_SDHC_IsRunning_0: (+1)
+   \       0x12   0x2000             MOVS     R0,#+0
+   \                     ??LPLD_SDHC_IsRunning_1: (+1)
+   \       0x14   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x16   0x4770             BX       LR               ;; return
+    122          }
+    123          
+    124          /*
+    125           * LPLD_SDHC_WaitStatus
+    126           * 等待指定状态标志位置位
+    127           * 
+    128           * 参数:
+    129           *    mask--状态标志位掩码
+    130           *
+    131           * 输出:
+    132           *    状态标志
+    133           */
+
+   \                                 In section .text, align 2, keep-with-next
+    134          static uint32 LPLD_SDHC_WaitStatus(uint32 mask)
+    135          {
+   \                     LPLD_SDHC_WaitStatus: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+    136            uint32 result;
+    137            do
+    138            {
+    139              result = SDHC->IRQSTAT & mask;
+   \                     ??LPLD_SDHC_WaitStatus_0: (+1)
+   \        0x2   0x....'....        LDR.W    R2,??DataTable9  ;; 0x400b1030
+   \        0x6   0x6812             LDR      R2,[R2, #+0]
+   \        0x8   0x400A             ANDS     R2,R1,R2
+   \        0xA   0x0010             MOVS     R0,R2
+    140            }
+    141            while (0 == result);
+   \        0xC   0x2800             CMP      R0,#+0
+   \        0xE   0xD0F8             BEQ.N    ??LPLD_SDHC_WaitStatus_0
+    142            return result;
+   \       0x10   0x4770             BX       LR               ;; return
+    143          }
+    144          
+    145          /*
+    146           * LPLD_SDHC_Init
+    147           * SDHC模块初始化函数
+    148           * 
+    149           * 参数:
+    150           *    coreClk--系統主频，单位Hz
+    151           *    baud--SDHC期望时钟频率，单位Hz
+    152           *
+    153           * 输出:
+    154           *    SDHCSTA_OK--状态正常
+    155           *    SDHCSTA_NOINIT--驱动未初始化
+    156           *    SDHCSTA_NODISK--为插入卡
+    157           *    SDHCSTA_PROTECT--卡写保护
+    158           */
+
+   \                                 In section .text, align 2, keep-with-next
+    159          static SDHCRES LPLD_SDHC_Init(uint32 coreClk, uint32 baud)
+    160          {
+   \                     LPLD_SDHC_Init: (+1)
+   \        0x0   0xE92D 0x43F8      PUSH     {R3-R9,LR}
+   \        0x4   0x0004             MOVS     R4,R0
+   \        0x6   0x000D             MOVS     R5,R1
+    161            
+    162            sdcard_ptr->CARD = ESDHC_CARD_NONE;
+   \        0x8   0x....'....        LDR.W    R6,??DataTable9_1
+   \        0xC   0x2000             MOVS     R0,#+0
+   \        0xE   0x6831             LDR      R1,[R6, #+0]
+   \       0x10   0x6108             STR      R0,[R1, #+16]
+    163            
+    164            //禁用GPIO的SDHC复用功能
+    165            LPLD_SDHC_InitGPIO (0);
+   \       0x12   0x2000             MOVS     R0,#+0
+   \       0x14   0x....'....        BL       LPLD_SDHC_InitGPIO
+    166            
+    167            //复位SDHC模块
+    168            SDHC->SYSCTL = SDHC_SYSCTL_RSTA_MASK | SDHC_SYSCTL_SDCLKFS(0x80);
+   \       0x18   0x....'....        LDR.W    R7,??DataTable8_7  ;; 0x400b102c
+   \       0x1C   0x....'....        LDR.W    R0,??DataTable8_9  ;; 0x1008000
+   \       0x20   0x6038             STR      R0,[R7, #+0]
+    169            while (SDHC->SYSCTL & SDHC_SYSCTL_RSTA_MASK)
+   \                     ??LPLD_SDHC_Init_0: (+1)
+   \       0x22   0x6838             LDR      R0,[R7, #+0]
+   \       0x24   0x01C0             LSLS     R0,R0,#+7
+   \       0x26   0xD4FC             BMI.N    ??LPLD_SDHC_Init_0
+    170            { };
+    171            
+    172            //初始化寄存器值
+    173            SDHC->VENDOR = 0;
+   \       0x28   0x2000             MOVS     R0,#+0
+   \       0x2A   0x....'....        LDR.W    R1,??DataTable8_10  ;; 0x400b10c0
+   \       0x2E   0x6008             STR      R0,[R1, #+0]
+    174            SDHC->BLKATTR = SDHC_BLKATTR_BLKCNT(1) | SDHC_BLKATTR_BLKSIZE(512);
+   \       0x30   0xF45F 0x3081      MOVS     R0,#+66048
+   \       0x34   0x....'....        LDR.W    R1,??DataTable8_11  ;; 0x400b1004
+   \       0x38   0x6008             STR      R0,[R1, #+0]
+    175            SDHC->PROCTL = SDHC_PROCTL_EMODE(ESDHC_PROCTL_EMODE_LITTLE) | SDHC_PROCTL_D3CD_MASK;
+   \       0x3A   0x2028             MOVS     R0,#+40
+   \       0x3C   0x....'....        LDR.W    R1,??DataTable9_2  ;; 0x400b1028
+   \       0x40   0x6008             STR      R0,[R1, #+0]
+    176            SDHC->WML = SDHC_WML_RDWML(2) | SDHC_WML_WRWML(1);
+   \       0x42   0x....'....        LDR.W    R0,??DataTable8_12  ;; 0x10002
+   \       0x46   0x....'....        LDR.W    R1,??DataTable8_13  ;; 0x400b1044
+   \       0x4A   0x6008             STR      R0,[R1, #+0]
+    177            
+    178            //设置SDHC初始化时钟，最好不要超过400kHz
+    179            LPLD_SDHC_SetBaudrate (coreClk, baud);
+   \       0x4C   0x0029             MOVS     R1,R5
+   \       0x4E   0x0020             MOVS     R0,R4
+   \       0x50   0x....'....        BL       LPLD_SDHC_SetBaudrate
+    180            
+    181            //等待
+    182            while (SDHC->PRSSTAT & (SDHC_PRSSTAT_CIHB_MASK | SDHC_PRSSTAT_CDIHB_MASK))
+   \                     ??LPLD_SDHC_Init_1: (+1)
+   \       0x54   0x....'....        LDR.W    R8,??DataTable8_8  ;; 0x400b1024
+   \       0x58   0xF8D8 0x0000      LDR      R0,[R8, #+0]
+   \       0x5C   0xF010 0x0F03      TST      R0,#0x3
+   \       0x60   0xD1F8             BNE.N    ??LPLD_SDHC_Init_1
+    183            { };
+    184            
+    185            //使能GPIO的SDHC复用
+    186            LPLD_SDHC_InitGPIO (0xFFFF);
+   \       0x62   0xF64F 0x79FF      MOVW     R9,#+65535
+   \       0x66   0x4648             MOV      R0,R9
+   \       0x68   0x....'....        BL       LPLD_SDHC_InitGPIO
+    187            
+    188            //使能各种请求
+    189            SDHC->IRQSTAT = 0xFFFF;
+   \       0x6C   0x....'....        LDR.W    R0,??DataTable9  ;; 0x400b1030
+   \       0x70   0xF8C0 0x9000      STR      R9,[R0, #+0]
+    190            SDHC->IRQSTATEN = SDHC_IRQSTATEN_DEBESEN_MASK | SDHC_IRQSTATEN_DCESEN_MASK | SDHC_IRQSTATEN_DTOESEN_MASK
+    191              | SDHC_IRQSTATEN_CIESEN_MASK | SDHC_IRQSTATEN_CEBESEN_MASK | SDHC_IRQSTATEN_CCESEN_MASK | SDHC_IRQSTATEN_CTOESEN_MASK
+    192                | SDHC_IRQSTATEN_BRRSEN_MASK | SDHC_IRQSTATEN_BWRSEN_MASK | SDHC_IRQSTATEN_CRMSEN_MASK
+    193                  | SDHC_IRQSTATEN_TCSEN_MASK | SDHC_IRQSTATEN_CCSEN_MASK;
+   \       0x74   0x....'....        LDR.W    R1,??DataTable9_3  ;; 0x7f00b3
+   \       0x78   0x....'....        LDR.W    R2,??DataTable10  ;; 0x400b1034
+   \       0x7C   0x6011             STR      R1,[R2, #+0]
+    194            
+    195            //等待80个初始时钟
+    196            SDHC->SYSCTL |= SDHC_SYSCTL_INITA_MASK;
+   \       0x7E   0x6839             LDR      R1,[R7, #+0]
+   \       0x80   0xF051 0x6100      ORRS     R1,R1,#0x8000000
+   \       0x84   0x6039             STR      R1,[R7, #+0]
+    197            while (SDHC->SYSCTL & SDHC_SYSCTL_INITA_MASK)
+   \                     ??LPLD_SDHC_Init_2: (+1)
+   \       0x86   0x6839             LDR      R1,[R7, #+0]
+   \       0x88   0x0109             LSLS     R1,R1,#+4
+   \       0x8A   0xD4FC             BMI.N    ??LPLD_SDHC_Init_2
+    198            { };
+    199            
+    200            //检查卡是否插入
+    201            if (SDHC->PRSSTAT & SDHC_PRSSTAT_CINS_MASK)
+   \       0x8C   0xF8D8 0x1000      LDR      R1,[R8, #+0]
+   \       0x90   0x03C9             LSLS     R1,R1,#+15
+   \       0x92   0xD503             BPL.N    ??LPLD_SDHC_Init_3
+    202            {
+    203              sdcard_ptr->CARD = ESDHC_CARD_UNKNOWN;
+   \       0x94   0x2101             MOVS     R1,#+1
+   \       0x96   0x6832             LDR      R2,[R6, #+0]
+   \       0x98   0x6111             STR      R1,[R2, #+16]
+   \       0x9A   0xE002             B.N      ??LPLD_SDHC_Init_4
+    204            }
+    205            else
+    206            {
+    207              sdcard_ptr->STATUS = SDHCSTA_NODISK;
+   \                     ??LPLD_SDHC_Init_3: (+1)
+   \       0x9C   0x2102             MOVS     R1,#+2
+   \       0x9E   0x6832             LDR      R2,[R6, #+0]
+   \       0xA0   0x6151             STR      R1,[R2, #+20]
+    208            }
+    209            SDHC->IRQSTAT |= SDHC_IRQSTAT_CRM_MASK;
+   \                     ??LPLD_SDHC_Init_4: (+1)
+   \       0xA2   0x6801             LDR      R1,[R0, #+0]
+   \       0xA4   0xF051 0x0180      ORRS     R1,R1,#0x80
+   \       0xA8   0x6001             STR      R1,[R0, #+0]
+    210            
+    211            return SDHCRES_OK;
+   \       0xAA   0x2000             MOVS     R0,#+0
+   \       0xAC   0xE8BD 0x83F2      POP      {R1,R4-R9,PC}    ;; return
+    212          }
+    213          
+    214          /*
+    215           * LPLD_SDHC_SendCommand
+    216           * 向SD卡发送指定CMD命令
+    217           * 
+    218           * 参数:
+    219           *    command--SDHC命令信息结构体
+    220           *
+    221           * 输出:
+    222           *    SDHCRES--磁盘功能返回值
+    223           */
+
+   \                                 In section .text, align 2, keep-with-next
+    224          static SDHCRES LPLD_SDHC_SendCommand(ESDHC_COMMAND_STRUCT_PTR command)
+    225          {
+   \                     LPLD_SDHC_SendCommand: (+1)
+   \        0x0   0xB5F8             PUSH     {R3-R7,LR}
+   \        0x2   0x0004             MOVS     R4,R0
+    226            uint32 xfertyp;
+    227            uint32 blkattr;
+    228            
+    229            //检查命令
+    230            xfertyp = command->COMMAND;
+   \        0x4   0x6825             LDR      R5,[R4, #+0]
+    231            
+    232            if (ESDHC_XFERTYP_CMDTYP_RESUME == ((xfertyp & SDHC_XFERTYP_CMDTYP_MASK) >> SDHC_XFERTYP_CMDTYP_SHIFT))
+   \        0x6   0xF3C5 0x5081      UBFX     R0,R5,#+22,#+2
+   \        0xA   0x2802             CMP      R0,#+2
+   \        0xC   0xD101             BNE.N    ??LPLD_SDHC_SendCommand_0
+    233            {
+    234              //恢复类型命令必须设置DPSEL位
+    235              xfertyp |= SDHC_XFERTYP_DPSEL_MASK;
+   \        0xE   0xF455 0x1500      ORRS     R5,R5,#0x200000
+    236            }
+    237            
+    238            if ((0 != command->BLOCKS) && (0 != command->BLOCKSIZE))
+   \                     ??LPLD_SDHC_SendCommand_0: (+1)
+   \       0x12   0x68A0             LDR      R0,[R4, #+8]
+   \       0x14   0x2800             CMP      R0,#+0
+   \       0x16   0xD01E             BEQ.N    ??LPLD_SDHC_SendCommand_1
+   \       0x18   0x68E0             LDR      R0,[R4, #+12]
+   \       0x1A   0x2800             CMP      R0,#+0
+   \       0x1C   0xD01B             BEQ.N    ??LPLD_SDHC_SendCommand_1
+    239            {
+    240              xfertyp |= SDHC_XFERTYP_DPSEL_MASK;
+   \       0x1E   0xF455 0x1500      ORRS     R5,R5,#0x200000
+    241              if (command->BLOCKS != 1)
+   \       0x22   0x68A0             LDR      R0,[R4, #+8]
+   \       0x24   0x2801             CMP      R0,#+1
+   \       0x26   0xD001             BEQ.N    ??LPLD_SDHC_SendCommand_2
+    242              {
+    243                //多块传输
+    244                xfertyp |= SDHC_XFERTYP_MSBSEL_MASK;
+   \       0x28   0xF055 0x0520      ORRS     R5,R5,#0x20
+    245              }
+    246              if ((uint32)-1 == command->BLOCKS)
+   \                     ??LPLD_SDHC_SendCommand_2: (+1)
+   \       0x2C   0x68A0             LDR      R0,[R4, #+8]
+   \       0x2E   0xF110 0x0F01      CMN      R0,#+1
+   \       0x32   0xD107             BNE.N    ??LPLD_SDHC_SendCommand_3
+    247              {
+    248                //大量传输
+    249                blkattr = SDHC_BLKATTR_BLKSIZE(command->BLOCKSIZE) | SDHC_BLKATTR_BLKCNT(0xFFFF);
+   \       0x34   0x68E6             LDR      R6,[R4, #+12]
+   \       0x36   0x04F6             LSLS     R6,R6,#+19       ;; ZeroExtS R6,R6,#+19,#+19
+   \       0x38   0x0CF6             LSRS     R6,R6,#+19
+   \       0x3A   0xF046 0x467F      ORR      R6,R6,#0xFF000000
+   \       0x3E   0xF456 0x067F      ORRS     R6,R6,#0xFF0000
+   \       0x42   0xE009             B.N      ??LPLD_SDHC_SendCommand_4
+    250              }
+    251              else
+    252              {
+    253                blkattr = SDHC_BLKATTR_BLKSIZE(command->BLOCKSIZE) | SDHC_BLKATTR_BLKCNT(command->BLOCKS);
+   \                     ??LPLD_SDHC_SendCommand_3: (+1)
+   \       0x44   0x68E6             LDR      R6,[R4, #+12]
+   \       0x46   0x04F6             LSLS     R6,R6,#+19       ;; ZeroExtS R6,R6,#+19,#+19
+   \       0x48   0x0CF6             LSRS     R6,R6,#+19
+   \       0x4A   0x68A0             LDR      R0,[R4, #+8]
+   \       0x4C   0xEA56 0x4600      ORRS     R6,R6,R0, LSL #+16
+    254                xfertyp |= SDHC_XFERTYP_BCEN_MASK;
+   \       0x50   0xF055 0x0502      ORRS     R5,R5,#0x2
+   \       0x54   0xE000             B.N      ??LPLD_SDHC_SendCommand_4
+    255              }
+    256            }
+    257            else
+    258            {
+    259              blkattr = 0;
+   \                     ??LPLD_SDHC_SendCommand_1: (+1)
+   \       0x56   0x2600             MOVS     R6,#+0
+    260            }
+    261            
+    262            //卡移除状态清除
+    263            SDHC->IRQSTAT |= SDHC_IRQSTAT_CRM_MASK;
+   \                     ??LPLD_SDHC_SendCommand_4: (+1)
+   \       0x58   0x....'....        LDR.W    R7,??DataTable9  ;; 0x400b1030
+   \       0x5C   0x6838             LDR      R0,[R7, #+0]
+   \       0x5E   0xF050 0x0080      ORRS     R0,R0,#0x80
+   \       0x62   0x6038             STR      R0,[R7, #+0]
+    264            
+    265            //等待CMD线空闲
+    266            while (SDHC->PRSSTAT & SDHC_PRSSTAT_CIHB_MASK)
+   \                     ??LPLD_SDHC_SendCommand_5: (+1)
+   \       0x64   0x....'....        LDR.W    R0,??DataTable8_8  ;; 0x400b1024
+   \       0x68   0x6800             LDR      R0,[R0, #+0]
+   \       0x6A   0x07C0             LSLS     R0,R0,#+31
+   \       0x6C   0xD4FA             BMI.N    ??LPLD_SDHC_SendCommand_5
+    267            { };
+    268            
+    269            //初始化命令
+    270            SDHC->CMDARG = command->ARGUMENT;
+   \       0x6E   0x6860             LDR      R0,[R4, #+4]
+   \       0x70   0x....'....        LDR.W    R1,??DataTable10_1  ;; 0x400b1008
+   \       0x74   0x6008             STR      R0,[R1, #+0]
+    271            SDHC->BLKATTR = blkattr;
+   \       0x76   0x....'....        LDR.W    R0,??DataTable8_11  ;; 0x400b1004
+   \       0x7A   0x6006             STR      R6,[R0, #+0]
+    272            SDHC->DSADDR = 0;
+   \       0x7C   0x2000             MOVS     R0,#+0
+   \       0x7E   0x....'....        LDR.W    R1,??DataTable10_2  ;; 0x400b1000
+   \       0x82   0x6008             STR      R0,[R1, #+0]
+    273            
+    274            //发送命令
+    275            SDHC->XFERTYP = xfertyp;
+   \       0x84   0x....'....        LDR.W    R0,??DataTable10_3  ;; 0x400b100c
+   \       0x88   0x6005             STR      R5,[R0, #+0]
+    276            
+    277            //等待响应
+    278            if (LPLD_SDHC_WaitStatus (SDHC_IRQSTAT_CIE_MASK | SDHC_IRQSTAT_CEBE_MASK | SDHC_IRQSTAT_CCE_MASK | SDHC_IRQSTAT_CC_MASK) != SDHC_IRQSTAT_CC_MASK)
+   \       0x8A   0x....'....        LDR.W    R0,??DataTable10_4  ;; 0xe0001
+   \       0x8E   0x....'....        BL       LPLD_SDHC_WaitStatus
+   \       0x92   0x2801             CMP      R0,#+1
+   \       0x94   0xD007             BEQ.N    ??LPLD_SDHC_SendCommand_6
+    279            {
+    280              SDHC->IRQSTAT |= SDHC_IRQSTAT_CTOE_MASK | SDHC_IRQSTAT_CIE_MASK | SDHC_IRQSTAT_CEBE_MASK | SDHC_IRQSTAT_CCE_MASK | SDHC_IRQSTAT_CC_MASK;
+   \       0x96   0x6838             LDR      R0,[R7, #+0]
+   \       0x98   0xF440 0x2070      ORR      R0,R0,#0xF0000
+   \       0x9C   0xF050 0x0001      ORRS     R0,R0,#0x1
+   \       0xA0   0x6038             STR      R0,[R7, #+0]
+    281              return SDHCRES_ERROR;
+   \       0xA2   0x2001             MOVS     R0,#+1
+   \       0xA4   0xE033             B.N      ??LPLD_SDHC_SendCommand_7
+    282            }
+    283            
+    284            //检查卡是否移除
+    285            if (SDHC->IRQSTAT & SDHC_IRQSTAT_CRM_MASK)
+   \                     ??LPLD_SDHC_SendCommand_6: (+1)
+   \       0xA6   0x6838             LDR      R0,[R7, #+0]
+   \       0xA8   0x0600             LSLS     R0,R0,#+24
+   \       0xAA   0xD50A             BPL.N    ??LPLD_SDHC_SendCommand_8
+    286            {
+    287              SDHC->IRQSTAT |= SDHC_IRQSTAT_CTOE_MASK | SDHC_IRQSTAT_CC_MASK;
+   \       0xAC   0x6838             LDR      R0,[R7, #+0]
+   \       0xAE   0xF050 0x1001      ORRS     R0,R0,#0x10001
+   \       0xB2   0x6038             STR      R0,[R7, #+0]
+    288              sdcard_ptr->STATUS = SDHCSTA_NODISK;
+   \       0xB4   0x2002             MOVS     R0,#+2
+   \       0xB6   0x....'....        LDR.W    R1,??DataTable9_1
+   \       0xBA   0x6809             LDR      R1,[R1, #+0]
+   \       0xBC   0x6148             STR      R0,[R1, #+20]
+    289              return SDHCRES_NOTRDY;
+   \       0xBE   0x2003             MOVS     R0,#+3
+   \       0xC0   0xE025             B.N      ??LPLD_SDHC_SendCommand_7
+    290            }
+    291            
+    292            //获取响应
+    293            if (SDHC->IRQSTAT & SDHC_IRQSTAT_CTOE_MASK)
+   \                     ??LPLD_SDHC_SendCommand_8: (+1)
+   \       0xC2   0x6838             LDR      R0,[R7, #+0]
+   \       0xC4   0x03C0             LSLS     R0,R0,#+15
+   \       0xC6   0xD505             BPL.N    ??LPLD_SDHC_SendCommand_9
+    294            {
+    295              SDHC->IRQSTAT |= SDHC_IRQSTAT_CTOE_MASK | SDHC_IRQSTAT_CC_MASK;
+   \       0xC8   0x6838             LDR      R0,[R7, #+0]
+   \       0xCA   0xF050 0x1001      ORRS     R0,R0,#0x10001
+   \       0xCE   0x6038             STR      R0,[R7, #+0]
+    296              return SDHCRES_NONRSPNS;
+   \       0xD0   0x2005             MOVS     R0,#+5
+   \       0xD2   0xE01C             B.N      ??LPLD_SDHC_SendCommand_7
+    297            }
+    298            if ((xfertyp & SDHC_XFERTYP_RSPTYP_MASK) != SDHC_XFERTYP_RSPTYP(ESDHC_XFERTYP_RSPTYP_NO))
+   \                     ??LPLD_SDHC_SendCommand_9: (+1)
+   \       0xD4   0xF415 0x3F40      TST      R5,#0x30000
+   \       0xD8   0xD014             BEQ.N    ??LPLD_SDHC_SendCommand_10
+    299            {
+    300              command->RESPONSE[0] = SDHC->CMDRSP[0];
+   \       0xDA   0x....'....        LDR.W    R0,??DataTable10_5  ;; 0x400b1010
+   \       0xDE   0x6800             LDR      R0,[R0, #+0]
+   \       0xE0   0x6120             STR      R0,[R4, #+16]
+    301              if ((xfertyp & SDHC_XFERTYP_RSPTYP_MASK) == SDHC_XFERTYP_RSPTYP(ESDHC_XFERTYP_RSPTYP_136))
+   \       0xE2   0xF415 0x3040      ANDS     R0,R5,#0x30000
+   \       0xE6   0xF5B0 0x3F80      CMP      R0,#+65536
+   \       0xEA   0xD10B             BNE.N    ??LPLD_SDHC_SendCommand_10
+    302              {
+    303                command->RESPONSE[1] = SDHC->CMDRSP[1];
+   \       0xEC   0x....'....        LDR.W    R0,??DataTable10_6  ;; 0x400b1014
+   \       0xF0   0x6800             LDR      R0,[R0, #+0]
+   \       0xF2   0x6160             STR      R0,[R4, #+20]
+    304                command->RESPONSE[2] = SDHC->CMDRSP[2];
+   \       0xF4   0x....'....        LDR.W    R0,??DataTable10_7  ;; 0x400b1018
+   \       0xF8   0x6800             LDR      R0,[R0, #+0]
+   \       0xFA   0x61A0             STR      R0,[R4, #+24]
+    305                command->RESPONSE[3] = SDHC->CMDRSP[3];
+   \       0xFC   0x....'....        LDR.W    R0,??DataTable10_8  ;; 0x400b101c
+   \      0x100   0x6800             LDR      R0,[R0, #+0]
+   \      0x102   0x61E0             STR      R0,[R4, #+28]
+    306              }
+    307            }
+    308            SDHC->IRQSTAT |= SDHC_IRQSTAT_CC_MASK;
+   \                     ??LPLD_SDHC_SendCommand_10: (+1)
+   \      0x104   0x6838             LDR      R0,[R7, #+0]
+   \      0x106   0xF050 0x0001      ORRS     R0,R0,#0x1
+   \      0x10A   0x6038             STR      R0,[R7, #+0]
+    309            
+    310            return SDHCRES_OK;
+   \      0x10C   0x2000             MOVS     R0,#+0
+   \                     ??LPLD_SDHC_SendCommand_7: (+1)
+   \      0x10E   0xBDF2             POP      {R1,R4-R7,PC}    ;; return
+    311          }
+    312          
+    313          
+    314          /*
+    315           * LPLD_SDHC_IOC
+    316           * SDHC模块其他控制服务函数
+    317           * 
+    318           * 参数:
+    319           *    cmd--SDHC模块控制命令
+    320           *    *param_ptr--控制参数
+    321           *
+    322           * 输出:
+    323           *    SDHCRES--磁盘功能返回值
+    324           */
+
+   \                                 In section .text, align 2, keep-with-next
+    325          SDHCRES LPLD_SDHC_IOC(uint32 cmd, void *param_ptr)
+    326          {
+   \                     LPLD_SDHC_IOC: (+1)
+   \        0x0   0xE92D 0x4FF3      PUSH     {R0,R1,R4-R11,LR}
+   \        0x4   0xB08B             SUB      SP,SP,#+44
+    327            
+    328            ESDHC_COMMAND_STRUCT    command;
+    329            boolean                 mem, io, mmc, ceata, mp, hc;
+    330            int32                  val;
+    331            SDHCRES                 result = SDHCRES_OK;
+   \        0x6   0x2700             MOVS     R7,#+0
+    332            uint32 *             param32_ptr = param_ptr;
+   \        0x8   0x9C0C             LDR      R4,[SP, #+48]
+    333            
+    334            switch (cmd)
+   \        0xA   0x980B             LDR      R0,[SP, #+44]
+   \        0xC   0x2801             CMP      R0,#+1
+   \        0xE   0xD015             BEQ.N    ??LPLD_SDHC_IOC_0
+   \       0x10   0x2802             CMP      R0,#+2
+   \       0x12   0xF000 0x81EC      BEQ.W    ??LPLD_SDHC_IOC_1
+   \       0x16   0x2803             CMP      R0,#+3
+   \       0x18   0xF000 0x827E      BEQ.W    ??LPLD_SDHC_IOC_2
+   \       0x1C   0x2804             CMP      R0,#+4
+   \       0x1E   0xF000 0x81EB      BEQ.W    ??LPLD_SDHC_IOC_3
+   \       0x22   0x2805             CMP      R0,#+5
+   \       0x24   0xF000 0x8203      BEQ.W    ??LPLD_SDHC_IOC_4
+   \       0x28   0x2806             CMP      R0,#+6
+   \       0x2A   0xF000 0x8223      BEQ.W    ??LPLD_SDHC_IOC_5
+   \       0x2E   0x2807             CMP      R0,#+7
+   \       0x30   0xF000 0x823D      BEQ.W    ??LPLD_SDHC_IOC_6
+   \       0x34   0x2893             CMP      R0,#+147
+   \       0x36   0xF000 0x82A6      BEQ.W    ??LPLD_SDHC_IOC_7
+   \       0x3A   0xE2B8             B.N      ??LPLD_SDHC_IOC_8
+    335            {
+    336            case IO_IOCTL_ESDHC_INIT:  
+    337              //初始化SDHC模块
+    338              result = LPLD_SDHC_Init (g_core_clock*1000, 400000);
+   \                     ??LPLD_SDHC_IOC_0: (+1)
+   \       0x3C   0xF44F 0x787A      MOV      R8,#+1000
+   \       0x40   0x....'....        LDR.W    R9,??DataTable10_9
+   \       0x44   0x....'....        LDR.W    R1,??DataTable10_10  ;; 0x61a80
+   \       0x48   0xF8D9 0x0000      LDR      R0,[R9, #+0]
+   \       0x4C   0xFB08 0xF000      MUL      R0,R8,R0
+   \       0x50   0x....'....        BL       LPLD_SDHC_Init
+   \       0x54   0x0007             MOVS     R7,R0
+    339              if (SDHCRES_OK != result)
+   \       0x56   0x0038             MOVS     R0,R7
+   \       0x58   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x5A   0x2800             CMP      R0,#+0
+   \       0x5C   0xF040 0x82A9      BNE.W    ??LPLD_SDHC_IOC_9
+    340              {
+    341                break;
+    342              }
+    343              
+    344              mem = FALSE;
+   \                     ??LPLD_SDHC_IOC_10: (+1)
+   \       0x60   0x2000             MOVS     R0,#+0
+   \       0x62   0xF88D 0x0001      STRB     R0,[SP, #+1]
+    345              io = FALSE;
+   \       0x66   0x2000             MOVS     R0,#+0
+   \       0x68   0xF88D 0x0000      STRB     R0,[SP, #+0]
+    346              mmc = FALSE;
+   \       0x6C   0x2000             MOVS     R0,#+0
+   \       0x6E   0xF88D 0x0003      STRB     R0,[SP, #+3]
+    347              ceata = FALSE;
+   \       0x72   0x2000             MOVS     R0,#+0
+   \       0x74   0xF88D 0x0004      STRB     R0,[SP, #+4]
+    348              hc = FALSE;
+   \       0x78   0x2000             MOVS     R0,#+0
+   \       0x7A   0x0006             MOVS     R6,R0
+    349              mp = FALSE;
+   \       0x7C   0x2000             MOVS     R0,#+0
+   \       0x7E   0xF88D 0x0002      STRB     R0,[SP, #+2]
+    350              
+    351              //CMD0 - 空闲命令，复位卡
+    352              command.COMMAND = ESDHC_CMD0;
+   \       0x82   0x2000             MOVS     R0,#+0
+   \       0x84   0x9002             STR      R0,[SP, #+8]
+    353              command.ARGUMENT = 0;
+   \       0x86   0x2000             MOVS     R0,#+0
+   \       0x88   0x9003             STR      R0,[SP, #+12]
+    354              command.BLOCKS = 0;
+   \       0x8A   0x2000             MOVS     R0,#+0
+   \       0x8C   0x9004             STR      R0,[SP, #+16]
+    355              result = LPLD_SDHC_SendCommand (&command);
+   \       0x8E   0xA802             ADD      R0,SP,#+8
+   \       0x90   0x....'....        BL       LPLD_SDHC_SendCommand
+   \       0x94   0x0007             MOVS     R7,R0
+    356              if (result!=SDHCRES_OK)
+   \       0x96   0x0038             MOVS     R0,R7
+   \       0x98   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x9A   0x2800             CMP      R0,#+0
+   \       0x9C   0xD005             BEQ.N    ??LPLD_SDHC_IOC_11
+    357              {
+    358                sdcard_ptr->STATUS = SDHCSTA_NOINIT;
+   \       0x9E   0x2001             MOVS     R0,#+1
+   \       0xA0   0x....'....        LDR.W    R1,??DataTable9_1
+   \       0xA4   0x6809             LDR      R1,[R1, #+0]
+   \       0xA6   0x6148             STR      R0,[R1, #+20]
+    359                break;
+   \       0xA8   0xE283             B.N      ??LPLD_SDHC_IOC_9
+    360              }
+    361              
+    362              //CMD8 - 发送接口状态，检查是否支持高容量
+    363              command.COMMAND = ESDHC_CMD8;
+   \                     ??LPLD_SDHC_IOC_11: (+1)
+   \       0xAA   0x....'....        LDR.W    R0,??DataTable10_11  ;; 0x81a0000
+   \       0xAE   0x9002             STR      R0,[SP, #+8]
+    364              command.ARGUMENT = 0x000001AA;
+   \       0xB0   0xF44F 0x70D5      MOV      R0,#+426
+   \       0xB4   0x9003             STR      R0,[SP, #+12]
+    365              command.BLOCKS = 0;
+   \       0xB6   0x2000             MOVS     R0,#+0
+   \       0xB8   0x9004             STR      R0,[SP, #+16]
+    366              result = LPLD_SDHC_SendCommand (&command);
+   \       0xBA   0xA802             ADD      R0,SP,#+8
+   \       0xBC   0x....'....        BL       LPLD_SDHC_SendCommand
+   \       0xC0   0x0007             MOVS     R7,R0
+    367              if (result==SDHCRES_ERROR)
+   \       0xC2   0x0038             MOVS     R0,R7
+   \       0xC4   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0xC6   0x2801             CMP      R0,#+1
+   \       0xC8   0xD105             BNE.N    ??LPLD_SDHC_IOC_12
+    368              {
+    369                sdcard_ptr->STATUS = SDHCSTA_NOINIT;
+   \       0xCA   0x2001             MOVS     R0,#+1
+   \       0xCC   0x....'....        LDR.W    R1,??DataTable9_1
+   \       0xD0   0x6809             LDR      R1,[R1, #+0]
+   \       0xD2   0x6148             STR      R0,[R1, #+20]
+    370                break;
+   \       0xD4   0xE26D             B.N      ??LPLD_SDHC_IOC_9
+    371              }
+    372              if (result == SDHCRES_OK)
+   \                     ??LPLD_SDHC_IOC_12: (+1)
+   \       0xD6   0x0038             MOVS     R0,R7
+   \       0xD8   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0xDA   0x2800             CMP      R0,#+0
+   \       0xDC   0xD10D             BNE.N    ??LPLD_SDHC_IOC_13
+    373              {
+    374                if (command.RESPONSE[0] != command.ARGUMENT)
+   \       0xDE   0x9806             LDR      R0,[SP, #+24]
+   \       0xE0   0x9903             LDR      R1,[SP, #+12]
+   \       0xE2   0x4288             CMP      R0,R1
+   \       0xE4   0xD007             BEQ.N    ??LPLD_SDHC_IOC_14
+    375                {
+    376                  sdcard_ptr->STATUS = SDHCSTA_NOINIT;
+   \       0xE6   0x2001             MOVS     R0,#+1
+   \       0xE8   0x....'....        LDR.W    R1,??DataTable9_1
+   \       0xEC   0x6809             LDR      R1,[R1, #+0]
+   \       0xEE   0x6148             STR      R0,[R1, #+20]
+    377                  result = SDHCRES_ERROR;
+   \       0xF0   0x2001             MOVS     R0,#+1
+   \       0xF2   0x0007             MOVS     R7,R0
+    378                  break;
+   \       0xF4   0xE25D             B.N      ??LPLD_SDHC_IOC_9
+    379                }
+    380                hc = TRUE;
+   \                     ??LPLD_SDHC_IOC_14: (+1)
+   \       0xF6   0x2001             MOVS     R0,#+1
+   \       0xF8   0x0006             MOVS     R6,R0
+    381              }
+    382              
+    383              //CMD5 - 发送操作状态，测试IO
+    384              command.COMMAND = ESDHC_CMD5;
+   \                     ??LPLD_SDHC_IOC_13: (+1)
+   \       0xFA   0x....'....        LDR.W    R10,??DataTable11  ;; 0x5020000
+   \       0xFE   0xF8CD 0xA008      STR      R10,[SP, #+8]
+    385              command.ARGUMENT = 0;
+   \      0x102   0x2000             MOVS     R0,#+0
+   \      0x104   0x9003             STR      R0,[SP, #+12]
+    386              command.BLOCKS = 0;      
+   \      0x106   0x2000             MOVS     R0,#+0
+   \      0x108   0x9004             STR      R0,[SP, #+16]
+    387              result = LPLD_SDHC_SendCommand (&command);
+   \      0x10A   0xA802             ADD      R0,SP,#+8
+   \      0x10C   0x....'....        BL       LPLD_SDHC_SendCommand
+   \      0x110   0x0007             MOVS     R7,R0
+    388              if (result==SDHCRES_ERROR)
+   \      0x112   0x0038             MOVS     R0,R7
+   \      0x114   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x116   0x2801             CMP      R0,#+1
+   \      0x118   0xD105             BNE.N    ??LPLD_SDHC_IOC_15
+    389              {
+    390                sdcard_ptr->STATUS = SDHCSTA_NOINIT;
+   \      0x11A   0x2001             MOVS     R0,#+1
+   \      0x11C   0x....'....        LDR.W    R1,??DataTable9_1
+   \      0x120   0x6809             LDR      R1,[R1, #+0]
+   \      0x122   0x6148             STR      R0,[R1, #+20]
+    391                break;
+   \      0x124   0xE245             B.N      ??LPLD_SDHC_IOC_9
+    392              }
+    393              if (result == SDHCRES_OK)
+   \                     ??LPLD_SDHC_IOC_15: (+1)
+   \      0x126   0x0038             MOVS     R0,R7
+   \      0x128   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x12A   0x2800             CMP      R0,#+0
+   \      0x12C   0xD130             BNE.N    ??LPLD_SDHC_IOC_16
+    394              {
+    395                if (((command.RESPONSE[0] >> 28) & 0x07) && (command.RESPONSE[0] & 0x300000))
+   \      0x12E   0x9806             LDR      R0,[SP, #+24]
+   \      0x130   0xF3C0 0x7002      UBFX     R0,R0,#+28,#+3
+   \      0x134   0x2800             CMP      R0,#+0
+   \      0x136   0xD02E             BEQ.N    ??LPLD_SDHC_IOC_17
+   \      0x138   0x9806             LDR      R0,[SP, #+24]
+   \      0x13A   0xF410 0x1F40      TST      R0,#0x300000
+   \      0x13E   0xD02A             BEQ.N    ??LPLD_SDHC_IOC_17
+    396                {
+    397                  command.COMMAND = ESDHC_CMD5;
+   \      0x140   0xF8CD 0xA008      STR      R10,[SP, #+8]
+    398                  command.ARGUMENT = 0x300000;
+   \      0x144   0xF45F 0x1040      MOVS     R0,#+3145728
+   \      0x148   0x9003             STR      R0,[SP, #+12]
+    399                  command.BLOCKS = 0;
+   \      0x14A   0x2000             MOVS     R0,#+0
+   \      0x14C   0x9004             STR      R0,[SP, #+16]
+    400                  val = 0;
+   \      0x14E   0x2000             MOVS     R0,#+0
+   \      0x150   0x0005             MOVS     R5,R0
+    401                  do
+    402                  {
+    403                    val++;
+   \                     ??LPLD_SDHC_IOC_18: (+1)
+   \      0x152   0x1C6D             ADDS     R5,R5,#+1
+    404                    if (result = LPLD_SDHC_SendCommand (&command))
+   \      0x154   0xA802             ADD      R0,SP,#+8
+   \      0x156   0x....'....        BL       LPLD_SDHC_SendCommand
+   \      0x15A   0x0007             MOVS     R7,R0
+   \      0x15C   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x15E   0x2800             CMP      R0,#+0
+   \      0x160   0xD104             BNE.N    ??LPLD_SDHC_IOC_19
+    405                    {
+    406                      break;
+    407                    }
+    408                  } while ((0 == (command.RESPONSE[0] & 0x80000000)) && (val < ESDHC_ALARM_FREQUENCY));
+   \                     ??LPLD_SDHC_IOC_20: (+1)
+   \      0x162   0x9806             LDR      R0,[SP, #+24]
+   \      0x164   0x2800             CMP      R0,#+0
+   \      0x166   0xD401             BMI.N    ??LPLD_SDHC_IOC_19
+   \      0x168   0x2D64             CMP      R5,#+100
+   \      0x16A   0xDBF2             BLT.N    ??LPLD_SDHC_IOC_18
+    409                  if (SDHCRES_OK != result)
+   \                     ??LPLD_SDHC_IOC_19: (+1)
+   \      0x16C   0x0038             MOVS     R0,R7
+   \      0x16E   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x170   0x2800             CMP      R0,#+0
+   \      0x172   0xF040 0x821E      BNE.W    ??LPLD_SDHC_IOC_9
+    410                  {
+    411                    break;
+    412                  }
+    413                  if (command.RESPONSE[0] & 0x80000000)
+   \                     ??LPLD_SDHC_IOC_21: (+1)
+   \      0x176   0x9806             LDR      R0,[SP, #+24]
+   \      0x178   0x2800             CMP      R0,#+0
+   \      0x17A   0xD502             BPL.N    ??LPLD_SDHC_IOC_22
+    414                  {
+    415                    io = TRUE;
+   \      0x17C   0x2001             MOVS     R0,#+1
+   \      0x17E   0xF88D 0x0000      STRB     R0,[SP, #+0]
+    416                  }
+    417                  if (command.RESPONSE[0] & 0x08000000)
+   \                     ??LPLD_SDHC_IOC_22: (+1)
+   \      0x182   0x9806             LDR      R0,[SP, #+24]
+   \      0x184   0x0100             LSLS     R0,R0,#+4
+   \      0x186   0xD506             BPL.N    ??LPLD_SDHC_IOC_17
+    418                  {
+    419                    mp = TRUE;
+   \      0x188   0x2001             MOVS     R0,#+1
+   \      0x18A   0xF88D 0x0002      STRB     R0,[SP, #+2]
+   \      0x18E   0xE002             B.N      ??LPLD_SDHC_IOC_17
+    420                  }
+    421                }
+    422              }
+    423              else
+    424              {
+    425                mp = TRUE;
+   \                     ??LPLD_SDHC_IOC_16: (+1)
+   \      0x190   0x2001             MOVS     R0,#+1
+   \      0x192   0xF88D 0x0002      STRB     R0,[SP, #+2]
+    426              }
+    427              
+    428              if (mp)
+   \                     ??LPLD_SDHC_IOC_17: (+1)
+   \      0x196   0xF89D 0x0002      LDRB     R0,[SP, #+2]
+   \      0x19A   0x2800             CMP      R0,#+0
+   \      0x19C   0xF000 0x80CE      BEQ.W    ??LPLD_SDHC_IOC_23
+    429              {
+    430                //CMD55 - 特殊应用命令，检查MMC卡
+    431                command.COMMAND = ESDHC_CMD55;
+   \      0x1A0   0x....'....        LDR.W    R10,??DataTable11_1  ;; 0x371a0000
+   \      0x1A4   0xF8CD 0xA008      STR      R10,[SP, #+8]
+    432                command.ARGUMENT = 0;
+   \      0x1A8   0x2000             MOVS     R0,#+0
+   \      0x1AA   0x9003             STR      R0,[SP, #+12]
+    433                command.BLOCKS = 0;
+   \      0x1AC   0x2000             MOVS     R0,#+0
+   \      0x1AE   0x9004             STR      R0,[SP, #+16]
+    434                if ((result = LPLD_SDHC_SendCommand (&command))==SDHCRES_ERROR)
+   \      0x1B0   0xA802             ADD      R0,SP,#+8
+   \      0x1B2   0x....'....        BL       LPLD_SDHC_SendCommand
+   \      0x1B6   0x0007             MOVS     R7,R0
+   \      0x1B8   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x1BA   0x2801             CMP      R0,#+1
+   \      0x1BC   0xF000 0x81F9      BEQ.W    ??LPLD_SDHC_IOC_9
+    435                {
+    436                  break;
+    437                }
+    438                if (result == SDHCRES_NONRSPNS)
+   \                     ??LPLD_SDHC_IOC_24: (+1)
+   \      0x1C0   0x0038             MOVS     R0,R7
+   \      0x1C2   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x1C4   0x2805             CMP      R0,#+5
+   \      0x1C6   0xD15D             BNE.N    ??LPLD_SDHC_IOC_25
+    439                {
+    440                  //如果为MMC 或 CE-ATA 卡
+    441                  io = FALSE;
+   \      0x1C8   0x2000             MOVS     R0,#+0
+   \      0x1CA   0xF88D 0x0000      STRB     R0,[SP, #+0]
+    442                  mem = FALSE;
+   \      0x1CE   0x2000             MOVS     R0,#+0
+   \      0x1D0   0xF88D 0x0001      STRB     R0,[SP, #+1]
+    443                  hc = FALSE;
+   \      0x1D4   0x2000             MOVS     R0,#+0
+   \      0x1D6   0x0006             MOVS     R6,R0
+    444                  
+    445                  //CMD1 - 发送测试命令，检查高容量支持
+    446                  command.COMMAND = ESDHC_CMD1;
+   \      0x1D8   0xF05F 0x7080      MOVS     R0,#+16777216
+   \      0x1DC   0x9002             STR      R0,[SP, #+8]
+    447                  command.ARGUMENT = 0x40300000;
+   \      0x1DE   0x....'....        LDR.W    R0,??DataTable11_2  ;; 0x40300000
+   \      0x1E2   0x9003             STR      R0,[SP, #+12]
+    448                  command.BLOCKS = 0;
+   \      0x1E4   0x2000             MOVS     R0,#+0
+   \      0x1E6   0x9004             STR      R0,[SP, #+16]
+    449                  if (result = LPLD_SDHC_SendCommand (&command))
+   \      0x1E8   0xA802             ADD      R0,SP,#+8
+   \      0x1EA   0x....'....        BL       LPLD_SDHC_SendCommand
+   \      0x1EE   0x0007             MOVS     R7,R0
+   \      0x1F0   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x1F2   0x2800             CMP      R0,#+0
+   \      0x1F4   0xF040 0x81DD      BNE.W    ??LPLD_SDHC_IOC_9
+    450                  {
+    451                    break;
+    452                  }
+    453                  if (0x20000000 == (command.RESPONSE[0] & 0x60000000))
+   \                     ??LPLD_SDHC_IOC_26: (+1)
+   \      0x1F8   0x9806             LDR      R0,[SP, #+24]
+   \      0x1FA   0xF010 0x40C0      ANDS     R0,R0,#0x60000000
+   \      0x1FE   0xF1B0 0x5F00      CMP      R0,#+536870912
+   \      0x202   0xD101             BNE.N    ??LPLD_SDHC_IOC_27
+    454                  {
+    455                    hc = TRUE;
+   \      0x204   0x2001             MOVS     R0,#+1
+   \      0x206   0x0006             MOVS     R6,R0
+    456                  }
+    457                  mmc = TRUE;
+   \                     ??LPLD_SDHC_IOC_27: (+1)
+   \      0x208   0x2001             MOVS     R0,#+1
+   \      0x20A   0xF88D 0x0003      STRB     R0,[SP, #+3]
+    458                  
+    459                  //CMD39 - 快速IO，检查CE-ATA的CE签名 */
+    460                  command.COMMAND = ESDHC_CMD39;
+   \      0x20E   0x....'....        LDR.W    R10,??DataTable11_3  ;; 0x27020000
+   \      0x212   0xF8CD 0xA008      STR      R10,[SP, #+8]
+    461                  command.ARGUMENT = 0x0C00;
+   \      0x216   0xF44F 0x6040      MOV      R0,#+3072
+   \      0x21A   0x9003             STR      R0,[SP, #+12]
+    462                  command.BLOCKS = 0;
+   \      0x21C   0x2000             MOVS     R0,#+0
+   \      0x21E   0x9004             STR      R0,[SP, #+16]
+    463                  if (result = LPLD_SDHC_SendCommand (&command))
+   \      0x220   0xA802             ADD      R0,SP,#+8
+   \      0x222   0x....'....        BL       LPLD_SDHC_SendCommand
+   \      0x226   0x0007             MOVS     R7,R0
+   \      0x228   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x22A   0x2800             CMP      R0,#+0
+   \      0x22C   0xF040 0x81C1      BNE.W    ??LPLD_SDHC_IOC_9
+    464                  {
+    465                    break;
+    466                  }
+    467                  if (0xCE == (command.RESPONSE[0] >> 8) & 0xFF)
+   \                     ??LPLD_SDHC_IOC_28: (+1)
+   \      0x230   0x9806             LDR      R0,[SP, #+24]
+   \      0x232   0x0A00             LSRS     R0,R0,#+8
+   \      0x234   0x28CE             CMP      R0,#+206
+   \      0x236   0xD101             BNE.N    ??LPLD_SDHC_IOC_29
+   \      0x238   0x2001             MOVS     R0,#+1
+   \      0x23A   0xE000             B.N      ??LPLD_SDHC_IOC_30
+   \                     ??LPLD_SDHC_IOC_29: (+1)
+   \      0x23C   0x2000             MOVS     R0,#+0
+   \                     ??LPLD_SDHC_IOC_30: (+1)
+   \      0x23E   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x240   0x2800             CMP      R0,#+0
+   \      0x242   0xD07B             BEQ.N    ??LPLD_SDHC_IOC_23
+    468                  {
+    469                    //CMD39 - 快速IO，检查CE-ATA的AA签名 */
+    470                    command.COMMAND = ESDHC_CMD39;
+   \      0x244   0xF8CD 0xA008      STR      R10,[SP, #+8]
+    471                    command.ARGUMENT = 0x0D00;
+   \      0x248   0xF44F 0x6050      MOV      R0,#+3328
+   \      0x24C   0x9003             STR      R0,[SP, #+12]
+    472                    command.BLOCKS = 0;
+   \      0x24E   0x2000             MOVS     R0,#+0
+   \      0x250   0x9004             STR      R0,[SP, #+16]
+    473                    if (result = LPLD_SDHC_SendCommand (&command))
+   \      0x252   0xA802             ADD      R0,SP,#+8
+   \      0x254   0x....'....        BL       LPLD_SDHC_SendCommand
+   \      0x258   0x0007             MOVS     R7,R0
+   \      0x25A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x25C   0x2800             CMP      R0,#+0
+   \      0x25E   0xF040 0x81A8      BNE.W    ??LPLD_SDHC_IOC_9
+    474                    {
+    475                      break;
+    476                    }
+    477                    if (0xAA == (command.RESPONSE[0] >> 8) & 0xFF)
+   \                     ??LPLD_SDHC_IOC_31: (+1)
+   \      0x262   0x9806             LDR      R0,[SP, #+24]
+   \      0x264   0x0A00             LSRS     R0,R0,#+8
+   \      0x266   0x28AA             CMP      R0,#+170
+   \      0x268   0xD101             BNE.N    ??LPLD_SDHC_IOC_32
+   \      0x26A   0x2001             MOVS     R0,#+1
+   \      0x26C   0xE000             B.N      ??LPLD_SDHC_IOC_33
+   \                     ??LPLD_SDHC_IOC_32: (+1)
+   \      0x26E   0x2000             MOVS     R0,#+0
+   \                     ??LPLD_SDHC_IOC_33: (+1)
+   \      0x270   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x272   0x2800             CMP      R0,#+0
+   \      0x274   0xD062             BEQ.N    ??LPLD_SDHC_IOC_23
+    478                    {
+    479                      mmc = FALSE;
+   \      0x276   0x2000             MOVS     R0,#+0
+   \      0x278   0xF88D 0x0003      STRB     R0,[SP, #+3]
+    480                      ceata = TRUE;
+   \      0x27C   0x2001             MOVS     R0,#+1
+   \      0x27E   0xF88D 0x0004      STRB     R0,[SP, #+4]
+   \      0x282   0xE05B             B.N      ??LPLD_SDHC_IOC_23
+    481                    }
+    482                  }
+    483                }
+    484                else
+    485                {
+    486                  //如果为SD卡
+    487                  //ACMD41 - 发送操作状态
+    488                  command.COMMAND = ESDHC_ACMD41;
+   \                     ??LPLD_SDHC_IOC_25: (+1)
+   \      0x284   0x....'....        LDR.W    R11,??DataTable11_4  ;; 0x29020000
+   \      0x288   0xF8CD 0xB008      STR      R11,[SP, #+8]
+    489                  command.ARGUMENT = 0;
+   \      0x28C   0x2000             MOVS     R0,#+0
+   \      0x28E   0x9003             STR      R0,[SP, #+12]
+    490                  command.BLOCKS = 0;
+   \      0x290   0x2000             MOVS     R0,#+0
+   \      0x292   0x9004             STR      R0,[SP, #+16]
+    491                  if (result = LPLD_SDHC_SendCommand (&command))
+   \      0x294   0xA802             ADD      R0,SP,#+8
+   \      0x296   0x....'....        BL       LPLD_SDHC_SendCommand
+   \      0x29A   0x0007             MOVS     R7,R0
+   \      0x29C   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x29E   0x2800             CMP      R0,#+0
+   \      0x2A0   0xD005             BEQ.N    ??LPLD_SDHC_IOC_34
+    492                  {
+    493                    sdcard_ptr->STATUS = SDHCSTA_NOINIT;
+   \      0x2A2   0x2001             MOVS     R0,#+1
+   \      0x2A4   0x....'....        LDR.W    R1,??DataTable9_1
+   \      0x2A8   0x6809             LDR      R1,[R1, #+0]
+   \      0x2AA   0x6148             STR      R0,[R1, #+20]
+    494                    break;
+   \      0x2AC   0xE181             B.N      ??LPLD_SDHC_IOC_9
+    495                  }
+    496                  if (command.RESPONSE[0] & 0x300000)
+   \                     ??LPLD_SDHC_IOC_34: (+1)
+   \      0x2AE   0x9806             LDR      R0,[SP, #+24]
+   \      0x2B0   0xF410 0x1F40      TST      R0,#0x300000
+   \      0x2B4   0xD042             BEQ.N    ??LPLD_SDHC_IOC_23
+    497                  {
+    498                    val = 0;
+   \      0x2B6   0x2000             MOVS     R0,#+0
+   \      0x2B8   0x0005             MOVS     R5,R0
+    499                    do
+    500                    {
+    501                      val++;
+   \                     ??LPLD_SDHC_IOC_35: (+1)
+   \      0x2BA   0x1C6D             ADDS     R5,R5,#+1
+    502                      
+    503                      //CMD55 + ACMD41 - 发送OCR
+    504                      command.COMMAND = ESDHC_CMD55;
+   \      0x2BC   0xF8CD 0xA008      STR      R10,[SP, #+8]
+    505                      command.ARGUMENT = 0;
+   \      0x2C0   0x2000             MOVS     R0,#+0
+   \      0x2C2   0x9003             STR      R0,[SP, #+12]
+    506                      command.BLOCKS = 0;
+   \      0x2C4   0x2000             MOVS     R0,#+0
+   \      0x2C6   0x9004             STR      R0,[SP, #+16]
+    507                      if (result = LPLD_SDHC_SendCommand (&command))
+   \      0x2C8   0xA802             ADD      R0,SP,#+8
+   \      0x2CA   0x....'....        BL       LPLD_SDHC_SendCommand
+   \      0x2CE   0x0007             MOVS     R7,R0
+   \      0x2D0   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x2D2   0x2800             CMP      R0,#+0
+   \      0x2D4   0xD11A             BNE.N    ??LPLD_SDHC_IOC_36
+    508                      {
+    509                        break;
+    510                      }
+    511                      
+    512                      command.COMMAND = ESDHC_ACMD41;
+   \                     ??LPLD_SDHC_IOC_37: (+1)
+   \      0x2D6   0xF8CD 0xB008      STR      R11,[SP, #+8]
+    513                      if (hc)
+   \      0x2DA   0x0030             MOVS     R0,R6
+   \      0x2DC   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x2DE   0x2800             CMP      R0,#+0
+   \      0x2E0   0xD003             BEQ.N    ??LPLD_SDHC_IOC_38
+    514                      {
+    515                        command.ARGUMENT = 0x40300000;
+   \      0x2E2   0x....'....        LDR.W    R0,??DataTable11_2  ;; 0x40300000
+   \      0x2E6   0x9003             STR      R0,[SP, #+12]
+   \      0x2E8   0xE002             B.N      ??LPLD_SDHC_IOC_39
+    516                      }
+    517                      else
+    518                      {
+    519                        command.ARGUMENT = 0x00300000;
+   \                     ??LPLD_SDHC_IOC_38: (+1)
+   \      0x2EA   0xF45F 0x1040      MOVS     R0,#+3145728
+   \      0x2EE   0x9003             STR      R0,[SP, #+12]
+    520                      }
+    521                      command.BLOCKS = 0;
+   \                     ??LPLD_SDHC_IOC_39: (+1)
+   \      0x2F0   0x2000             MOVS     R0,#+0
+   \      0x2F2   0x9004             STR      R0,[SP, #+16]
+    522                      if (result = LPLD_SDHC_SendCommand (&command))
+   \      0x2F4   0xA802             ADD      R0,SP,#+8
+   \      0x2F6   0x....'....        BL       LPLD_SDHC_SendCommand
+   \      0x2FA   0x0007             MOVS     R7,R0
+   \      0x2FC   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x2FE   0x2800             CMP      R0,#+0
+   \      0x300   0xD104             BNE.N    ??LPLD_SDHC_IOC_36
+    523                      {
+    524                        break;
+    525                      }
+    526                    } while ((0 == (command.RESPONSE[0] & 0x80000000)) && (val < ESDHC_ALARM_FREQUENCY));
+   \                     ??LPLD_SDHC_IOC_40: (+1)
+   \      0x302   0x9806             LDR      R0,[SP, #+24]
+   \      0x304   0x2800             CMP      R0,#+0
+   \      0x306   0xD401             BMI.N    ??LPLD_SDHC_IOC_36
+   \      0x308   0x2D64             CMP      R5,#+100
+   \      0x30A   0xDBD6             BLT.N    ??LPLD_SDHC_IOC_35
+    527                    if (SDHCRES_OK != result)
+   \                     ??LPLD_SDHC_IOC_36: (+1)
+   \      0x30C   0x0038             MOVS     R0,R7
+   \      0x30E   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x310   0x2800             CMP      R0,#+0
+   \      0x312   0xF040 0x814E      BNE.W    ??LPLD_SDHC_IOC_9
+    528                    {
+    529                      break;
+    530                    }
+    531                    if (val >= ESDHC_ALARM_FREQUENCY)
+   \                     ??LPLD_SDHC_IOC_41: (+1)
+   \      0x316   0x2D64             CMP      R5,#+100
+   \      0x318   0xDB02             BLT.N    ??LPLD_SDHC_IOC_42
+    532                    {
+    533                      hc = FALSE;
+   \      0x31A   0x2000             MOVS     R0,#+0
+   \      0x31C   0x0006             MOVS     R6,R0
+   \      0x31E   0xE00D             B.N      ??LPLD_SDHC_IOC_23
+    534                    }
+    535                    else
+    536                    {
+    537                      mem = TRUE;
+   \                     ??LPLD_SDHC_IOC_42: (+1)
+   \      0x320   0x2001             MOVS     R0,#+1
+   \      0x322   0xF88D 0x0001      STRB     R0,[SP, #+1]
+    538                      if (hc)
+   \      0x326   0x0030             MOVS     R0,R6
+   \      0x328   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x32A   0x2800             CMP      R0,#+0
+   \      0x32C   0xD006             BEQ.N    ??LPLD_SDHC_IOC_23
+    539                      {
+    540                        hc = FALSE;
+   \      0x32E   0x2000             MOVS     R0,#+0
+   \      0x330   0x0006             MOVS     R6,R0
+    541                        if (command.RESPONSE[0] & 0x40000000)
+   \      0x332   0x9806             LDR      R0,[SP, #+24]
+   \      0x334   0x0040             LSLS     R0,R0,#+1
+   \      0x336   0xD501             BPL.N    ??LPLD_SDHC_IOC_23
+    542                        {
+    543                          hc = TRUE;
+   \      0x338   0x2001             MOVS     R0,#+1
+   \      0x33A   0x0006             MOVS     R6,R0
+    544                        }
+    545                      }
+    546                    }
+    547                  }
+    548                }
+    549              }
+    550              if (mmc)
+   \                     ??LPLD_SDHC_IOC_23: (+1)
+   \      0x33C   0xF89D 0x0003      LDRB     R0,[SP, #+3]
+   \      0x340   0x2800             CMP      R0,#+0
+   \      0x342   0xD004             BEQ.N    ??LPLD_SDHC_IOC_43
+    551              {
+    552                sdcard_ptr->CARD = ESDHC_CARD_MMC;
+   \      0x344   0x2007             MOVS     R0,#+7
+   \      0x346   0x....'....        LDR.W    R1,??DataTable9_1
+   \      0x34A   0x6809             LDR      R1,[R1, #+0]
+   \      0x34C   0x6108             STR      R0,[R1, #+16]
+    553              }
+    554              if (ceata)
+   \                     ??LPLD_SDHC_IOC_43: (+1)
+   \      0x34E   0xF89D 0x0004      LDRB     R0,[SP, #+4]
+   \      0x352   0x2800             CMP      R0,#+0
+   \      0x354   0xD004             BEQ.N    ??LPLD_SDHC_IOC_44
+    555              {
+    556                sdcard_ptr->CARD = ESDHC_CARD_CEATA;
+   \      0x356   0x2008             MOVS     R0,#+8
+   \      0x358   0x....'....        LDR.W    R1,??DataTable9_1
+   \      0x35C   0x6809             LDR      R1,[R1, #+0]
+   \      0x35E   0x6108             STR      R0,[R1, #+16]
+    557              }
+    558              if (io)
+   \                     ??LPLD_SDHC_IOC_44: (+1)
+   \      0x360   0xF89D 0x0000      LDRB     R0,[SP, #+0]
+   \      0x364   0x2800             CMP      R0,#+0
+   \      0x366   0xD004             BEQ.N    ??LPLD_SDHC_IOC_45
+    559              {
+    560                sdcard_ptr->CARD = ESDHC_CARD_SDIO;
+   \      0x368   0x2004             MOVS     R0,#+4
+   \      0x36A   0x....'....        LDR.W    R1,??DataTable9_1
+   \      0x36E   0x6809             LDR      R1,[R1, #+0]
+   \      0x370   0x6108             STR      R0,[R1, #+16]
+    561              }
+    562              if (mem)
+   \                     ??LPLD_SDHC_IOC_45: (+1)
+   \      0x372   0xF89D 0x0001      LDRB     R0,[SP, #+1]
+   \      0x376   0x2800             CMP      R0,#+0
+   \      0x378   0xD00B             BEQ.N    ??LPLD_SDHC_IOC_46
+    563              {
+    564                sdcard_ptr->CARD = ESDHC_CARD_SD;
+   \      0x37A   0x....'....        LDR.W    R1,??DataTable9_1
+   \      0x37E   0x2002             MOVS     R0,#+2
+   \      0x380   0x680A             LDR      R2,[R1, #+0]
+   \      0x382   0x6110             STR      R0,[R2, #+16]
+    565                if (hc)
+   \      0x384   0x0030             MOVS     R0,R6
+   \      0x386   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x388   0x2800             CMP      R0,#+0
+   \      0x38A   0xD002             BEQ.N    ??LPLD_SDHC_IOC_46
+    566                {
+    567                  sdcard_ptr->CARD = ESDHC_CARD_SDHC;
+   \      0x38C   0x2003             MOVS     R0,#+3
+   \      0x38E   0x6809             LDR      R1,[R1, #+0]
+   \      0x390   0x6108             STR      R0,[R1, #+16]
+    568                }
+    569              }
+    570              if (io && mem)
+   \                     ??LPLD_SDHC_IOC_46: (+1)
+   \      0x392   0xF89D 0x0000      LDRB     R0,[SP, #+0]
+   \      0x396   0x2800             CMP      R0,#+0
+   \      0x398   0xD00F             BEQ.N    ??LPLD_SDHC_IOC_47
+   \      0x39A   0xF89D 0x0001      LDRB     R0,[SP, #+1]
+   \      0x39E   0x2800             CMP      R0,#+0
+   \      0x3A0   0xD00B             BEQ.N    ??LPLD_SDHC_IOC_47
+    571              {
+    572                sdcard_ptr->CARD = ESDHC_CARD_SDCOMBO;
+   \      0x3A2   0x....'....        LDR.W    R1,??DataTable9_1
+   \      0x3A6   0x2005             MOVS     R0,#+5
+   \      0x3A8   0x680A             LDR      R2,[R1, #+0]
+   \      0x3AA   0x6110             STR      R0,[R2, #+16]
+    573                if (hc)
+   \      0x3AC   0x0030             MOVS     R0,R6
+   \      0x3AE   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x3B0   0x2800             CMP      R0,#+0
+   \      0x3B2   0xD002             BEQ.N    ??LPLD_SDHC_IOC_47
+    574                {
+    575                  sdcard_ptr->CARD = ESDHC_CARD_SDHCCOMBO;
+   \      0x3B4   0x2006             MOVS     R0,#+6
+   \      0x3B6   0x6809             LDR      R1,[R1, #+0]
+   \      0x3B8   0x6108             STR      R0,[R1, #+16]
+    576                }
+    577              }
+    578              
+    579              //禁用GPIO的SDHC复用
+    580              LPLD_SDHC_InitGPIO (0);
+   \                     ??LPLD_SDHC_IOC_47: (+1)
+   \      0x3BA   0x2000             MOVS     R0,#+0
+   \      0x3BC   0x....'....        BL       LPLD_SDHC_InitGPIO
+    581              
+    582              //设置SDHC工作状态下的默认波特率
+    583              LPLD_SDHC_SetBaudrate (g_core_clock*1000, 25000000);
+   \      0x3C0   0x....'....        LDR.W    R1,??DataTable11_5  ;; 0x17d7840
+   \      0x3C4   0xF8D9 0x0000      LDR      R0,[R9, #+0]
+   \      0x3C8   0xFB08 0xF800      MUL      R8,R8,R0
+   \      0x3CC   0x4640             MOV      R0,R8
+   \      0x3CE   0x....'....        BL       LPLD_SDHC_SetBaudrate
+    584              
+    585              //使能GPIO的SDHC复用
+    586              LPLD_SDHC_InitGPIO (0xFFFF);
+   \      0x3D2   0xF64F 0x70FF      MOVW     R0,#+65535
+   \      0x3D6   0x....'....        BL       LPLD_SDHC_InitGPIO
+    587              
+    588              if(result == SDHCRES_OK)
+   \      0x3DA   0x0038             MOVS     R0,R7
+   \      0x3DC   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x3DE   0x2800             CMP      R0,#+0
+   \      0x3E0   0xD104             BNE.N    ??LPLD_SDHC_IOC_48
+    589              {
+    590                sdcard_ptr->STATUS = SDHCSTA_OK;
+   \      0x3E2   0x2000             MOVS     R0,#+0
+   \      0x3E4   0x....'....        LDR.W    R1,??DataTable9_1
+   \      0x3E8   0x6809             LDR      R1,[R1, #+0]
+   \      0x3EA   0x6148             STR      R0,[R1, #+20]
+    591              }
+    592              break;
+   \                     ??LPLD_SDHC_IOC_48: (+1)
+   \      0x3EC   0xE0E1             B.N      ??LPLD_SDHC_IOC_9
+    593            case IO_IOCTL_ESDHC_SEND_COMMAND:
+    594              result = LPLD_SDHC_SendCommand ((ESDHC_COMMAND_STRUCT_PTR)param32_ptr);
+   \                     ??LPLD_SDHC_IOC_1: (+1)
+   \      0x3EE   0x0020             MOVS     R0,R4
+   \      0x3F0   0x....'....        BL       LPLD_SDHC_SendCommand
+   \      0x3F4   0x0007             MOVS     R7,R0
+    595              break;
+   \      0x3F6   0xE0DC             B.N      ??LPLD_SDHC_IOC_9
+    596            case IO_IOCTL_ESDHC_GET_BAUDRATE:
+    597              if (NULL == param32_ptr)
+   \                     ??LPLD_SDHC_IOC_3: (+1)
+   \      0x3F8   0x2C00             CMP      R4,#+0
+   \      0x3FA   0xD102             BNE.N    ??LPLD_SDHC_IOC_49
+    598              {
+    599                result = SDHCRES_ERROR;
+   \      0x3FC   0x2001             MOVS     R0,#+1
+   \      0x3FE   0x0007             MOVS     R7,R0
+   \      0x400   0xE014             B.N      ??LPLD_SDHC_IOC_50
+    600              }
+    601              else
+    602              {
+    603                //获取波特率
+    604                val = ((SDHC->SYSCTL & SDHC_SYSCTL_SDCLKFS_MASK) >> SDHC_SYSCTL_SDCLKFS_SHIFT) << 1;
+   \                     ??LPLD_SDHC_IOC_49: (+1)
+   \      0x402   0x....'....        LDR.W    R1,??DataTable8_7  ;; 0x400b102c
+   \      0x406   0x6808             LDR      R0,[R1, #+0]
+   \      0x408   0x09C0             LSRS     R0,R0,#+7
+   \      0x40A   0xF410 0x70FF      ANDS     R0,R0,#0x1FE
+    605                val *= ((SDHC->SYSCTL & SDHC_SYSCTL_DVS_MASK) >> SDHC_SYSCTL_DVS_SHIFT) + 1;
+   \      0x40E   0x6809             LDR      R1,[R1, #+0]
+   \      0x410   0xF3C1 0x1103      UBFX     R1,R1,#+4,#+4
+   \      0x414   0x1C49             ADDS     R1,R1,#+1
+   \      0x416   0x4348             MULS     R0,R1,R0
+   \      0x418   0x0005             MOVS     R5,R0
+    606                *param32_ptr = (uint32)((g_core_clock*1000 / val));
+   \      0x41A   0x....'....        LDR.W    R0,??DataTable10_9
+   \      0x41E   0x6801             LDR      R1,[R0, #+0]
+   \      0x420   0xF44F 0x707A      MOV      R0,#+1000
+   \      0x424   0x4341             MULS     R1,R0,R1
+   \      0x426   0xFBB1 0xF0F5      UDIV     R0,R1,R5
+   \      0x42A   0x6020             STR      R0,[R4, #+0]
+    607              }
+    608              break;
+   \                     ??LPLD_SDHC_IOC_50: (+1)
+   \      0x42C   0xE0C1             B.N      ??LPLD_SDHC_IOC_9
+    609            case IO_IOCTL_ESDHC_SET_BAUDRATE:
+    610              if (NULL == param32_ptr)
+   \                     ??LPLD_SDHC_IOC_4: (+1)
+   \      0x42E   0x2C00             CMP      R4,#+0
+   \      0x430   0xD102             BNE.N    ??LPLD_SDHC_IOC_51
+    611              {
+    612                result = SDHCRES_ERROR;
+   \      0x432   0x2001             MOVS     R0,#+1
+   \      0x434   0x0007             MOVS     R7,R0
+   \      0x436   0xE01C             B.N      ??LPLD_SDHC_IOC_52
+    613              }
+    614              else if (0 == (*param32_ptr))
+   \                     ??LPLD_SDHC_IOC_51: (+1)
+   \      0x438   0x6820             LDR      R0,[R4, #+0]
+   \      0x43A   0x2800             CMP      R0,#+0
+   \      0x43C   0xD102             BNE.N    ??LPLD_SDHC_IOC_53
+    615              {
+    616                result = SDHCRES_ERROR;
+   \      0x43E   0x2001             MOVS     R0,#+1
+   \      0x440   0x0007             MOVS     R7,R0
+   \      0x442   0xE016             B.N      ??LPLD_SDHC_IOC_52
+    617              }
+    618              else
+    619              {
+    620                if (! LPLD_SDHC_IsRunning ())
+   \                     ??LPLD_SDHC_IOC_53: (+1)
+   \      0x444   0x....'....        BL       LPLD_SDHC_IsRunning
+   \      0x448   0x2800             CMP      R0,#+0
+   \      0x44A   0xD110             BNE.N    ??LPLD_SDHC_IOC_54
+    621                {
+    622                  //禁用GPIO的SDHC复用
+    623                  LPLD_SDHC_InitGPIO (0);
+   \      0x44C   0x2000             MOVS     R0,#+0
+   \      0x44E   0x....'....        BL       LPLD_SDHC_InitGPIO
+    624                  
+    625                  //设置波特率
+    626                  LPLD_SDHC_SetBaudrate (g_core_clock*1000, *param32_ptr);
+   \      0x452   0x6821             LDR      R1,[R4, #+0]
+   \      0x454   0x....'....        LDR.W    R0,??DataTable10_9
+   \      0x458   0x6800             LDR      R0,[R0, #+0]
+   \      0x45A   0xF44F 0x727A      MOV      R2,#+1000
+   \      0x45E   0x4350             MULS     R0,R2,R0
+   \      0x460   0x....'....        BL       LPLD_SDHC_SetBaudrate
+    627                  
+    628                  //使能GPIO的SDHC复用
+    629                  LPLD_SDHC_InitGPIO (0xFFFF);
+   \      0x464   0xF64F 0x70FF      MOVW     R0,#+65535
+   \      0x468   0x....'....        BL       LPLD_SDHC_InitGPIO
+   \      0x46C   0xE001             B.N      ??LPLD_SDHC_IOC_52
+    630                }
+    631                else
+    632                {
+    633                  result = SDHCRES_ERROR;
+   \                     ??LPLD_SDHC_IOC_54: (+1)
+   \      0x46E   0x2001             MOVS     R0,#+1
+   \      0x470   0x0007             MOVS     R7,R0
+    634                }
+    635              }
+    636              break;
+   \                     ??LPLD_SDHC_IOC_52: (+1)
+   \      0x472   0xE09E             B.N      ??LPLD_SDHC_IOC_9
+    637            case IO_IOCTL_ESDHC_GET_BUS_WIDTH:
+    638              if (NULL == param32_ptr)
+   \                     ??LPLD_SDHC_IOC_5: (+1)
+   \      0x474   0x2C00             CMP      R4,#+0
+   \      0x476   0xD102             BNE.N    ??LPLD_SDHC_IOC_55
+    639              {
+    640                result = SDHCRES_ERROR;
+   \      0x478   0x2001             MOVS     R0,#+1
+   \      0x47A   0x0007             MOVS     R7,R0
+   \      0x47C   0xE016             B.N      ??LPLD_SDHC_IOC_56
+    641              }
+    642              else
+    643              {
+    644                //获得SDHC总线宽度
+    645                val = (SDHC->PROCTL & SDHC_PROCTL_DTW_MASK) >> SDHC_PROCTL_DTW_SHIFT;
+   \                     ??LPLD_SDHC_IOC_55: (+1)
+   \      0x47E   0x....'....        LDR.W    R0,??DataTable9_2  ;; 0x400b1028
+   \      0x482   0x6800             LDR      R0,[R0, #+0]
+   \      0x484   0xF3C0 0x0041      UBFX     R0,R0,#+1,#+2
+   \      0x488   0x0005             MOVS     R5,R0
+    646                if (ESDHC_PROCTL_DTW_1BIT == val)
+   \      0x48A   0x2D00             CMP      R5,#+0
+   \      0x48C   0xD102             BNE.N    ??LPLD_SDHC_IOC_57
+    647                {
+    648                  *param32_ptr = ESDHC_BUS_WIDTH_1BIT;
+   \      0x48E   0x2000             MOVS     R0,#+0
+   \      0x490   0x6020             STR      R0,[R4, #+0]
+   \      0x492   0xE00B             B.N      ??LPLD_SDHC_IOC_56
+    649                }
+    650                else if (ESDHC_PROCTL_DTW_4BIT == val)
+   \                     ??LPLD_SDHC_IOC_57: (+1)
+   \      0x494   0x2D01             CMP      R5,#+1
+   \      0x496   0xD102             BNE.N    ??LPLD_SDHC_IOC_58
+    651                {
+    652                  *param32_ptr = ESDHC_BUS_WIDTH_4BIT;
+   \      0x498   0x2001             MOVS     R0,#+1
+   \      0x49A   0x6020             STR      R0,[R4, #+0]
+   \      0x49C   0xE006             B.N      ??LPLD_SDHC_IOC_56
+    653                }
+    654                else if (ESDHC_PROCTL_DTW_8BIT == val)
+   \                     ??LPLD_SDHC_IOC_58: (+1)
+   \      0x49E   0x2D10             CMP      R5,#+16
+   \      0x4A0   0xD102             BNE.N    ??LPLD_SDHC_IOC_59
+    655                {
+    656                  *param32_ptr = ESDHC_BUS_WIDTH_8BIT;
+   \      0x4A2   0x2002             MOVS     R0,#+2
+   \      0x4A4   0x6020             STR      R0,[R4, #+0]
+   \      0x4A6   0xE001             B.N      ??LPLD_SDHC_IOC_56
+    657                }
+    658                else
+    659                {
+    660                  result = SDHCRES_ERROR;
+   \                     ??LPLD_SDHC_IOC_59: (+1)
+   \      0x4A8   0x2001             MOVS     R0,#+1
+   \      0x4AA   0x0007             MOVS     R7,R0
+    661                }
+    662              }
+    663              break;
+   \                     ??LPLD_SDHC_IOC_56: (+1)
+   \      0x4AC   0xE081             B.N      ??LPLD_SDHC_IOC_9
+    664            case IO_IOCTL_ESDHC_SET_BUS_WIDTH:
+    665              if (NULL == param32_ptr)
+   \                     ??LPLD_SDHC_IOC_6: (+1)
+   \      0x4AE   0x2C00             CMP      R4,#+0
+   \      0x4B0   0xD102             BNE.N    ??LPLD_SDHC_IOC_60
+    666              {
+    667                result = SDHCRES_ERROR;
+   \      0x4B2   0x2001             MOVS     R0,#+1
+   \      0x4B4   0x0007             MOVS     R7,R0
+   \      0x4B6   0xE02E             B.N      ??LPLD_SDHC_IOC_61
+    668              }
+    669              else
+    670              {
+    671                //设置SDHC总线宽度
+    672                if (! LPLD_SDHC_IsRunning ())
+   \                     ??LPLD_SDHC_IOC_60: (+1)
+   \      0x4B8   0x....'....        BL       LPLD_SDHC_IsRunning
+   \      0x4BC   0x2800             CMP      R0,#+0
+   \      0x4BE   0xD128             BNE.N    ??LPLD_SDHC_IOC_62
+    673                {
+    674                  if (ESDHC_BUS_WIDTH_1BIT == *param32_ptr)
+   \      0x4C0   0x6820             LDR      R0,[R4, #+0]
+   \      0x4C2   0x2800             CMP      R0,#+0
+   \      0x4C4   0xD108             BNE.N    ??LPLD_SDHC_IOC_63
+    675                  {
+    676                    SDHC->PROCTL &= (~ SDHC_PROCTL_DTW_MASK);
+   \      0x4C6   0x....'....        LDR.W    R0,??DataTable9_2  ;; 0x400b1028
+   \      0x4CA   0x6801             LDR      R1,[R0, #+0]
+   \      0x4CC   0xF031 0x0106      BICS     R1,R1,#0x6
+   \      0x4D0   0x6001             STR      R1,[R0, #+0]
+    677                    SDHC->PROCTL |= SDHC_PROCTL_DTW(ESDHC_PROCTL_DTW_1BIT);
+   \      0x4D2   0x6801             LDR      R1,[R0, #+0]
+   \      0x4D4   0x6001             STR      R1,[R0, #+0]
+   \      0x4D6   0xE01E             B.N      ??LPLD_SDHC_IOC_61
+    678                  }
+    679                  else if (ESDHC_BUS_WIDTH_4BIT == *param32_ptr)
+   \                     ??LPLD_SDHC_IOC_63: (+1)
+   \      0x4D8   0x6820             LDR      R0,[R4, #+0]
+   \      0x4DA   0x2801             CMP      R0,#+1
+   \      0x4DC   0xD10A             BNE.N    ??LPLD_SDHC_IOC_64
+    680                  {
+    681                    SDHC->PROCTL &= (~ SDHC_PROCTL_DTW_MASK);
+   \      0x4DE   0x....'....        LDR.W    R0,??DataTable9_2  ;; 0x400b1028
+   \      0x4E2   0x6801             LDR      R1,[R0, #+0]
+   \      0x4E4   0xF031 0x0106      BICS     R1,R1,#0x6
+   \      0x4E8   0x6001             STR      R1,[R0, #+0]
+    682                    SDHC->PROCTL |= SDHC_PROCTL_DTW(ESDHC_PROCTL_DTW_4BIT);
+   \      0x4EA   0x6801             LDR      R1,[R0, #+0]
+   \      0x4EC   0xF051 0x0102      ORRS     R1,R1,#0x2
+   \      0x4F0   0x6001             STR      R1,[R0, #+0]
+   \      0x4F2   0xE010             B.N      ??LPLD_SDHC_IOC_61
+    683                  }
+    684                  else if (ESDHC_BUS_WIDTH_8BIT == *param32_ptr)
+   \                     ??LPLD_SDHC_IOC_64: (+1)
+   \      0x4F4   0x6820             LDR      R0,[R4, #+0]
+   \      0x4F6   0x2802             CMP      R0,#+2
+   \      0x4F8   0xD108             BNE.N    ??LPLD_SDHC_IOC_65
+    685                  {
+    686                    SDHC->PROCTL &= (~ SDHC_PROCTL_DTW_MASK);
+   \      0x4FA   0x....'....        LDR.W    R0,??DataTable9_2  ;; 0x400b1028
+   \      0x4FE   0x6801             LDR      R1,[R0, #+0]
+   \      0x500   0xF031 0x0106      BICS     R1,R1,#0x6
+   \      0x504   0x6001             STR      R1,[R0, #+0]
+    687                    SDHC->PROCTL |= SDHC_PROCTL_DTW(ESDHC_PROCTL_DTW_8BIT);
+   \      0x506   0x6801             LDR      R1,[R0, #+0]
+   \      0x508   0x6001             STR      R1,[R0, #+0]
+   \      0x50A   0xE004             B.N      ??LPLD_SDHC_IOC_61
+    688                  }
+    689                  else
+    690                  {
+    691                    result = SDHCRES_ERROR;
+   \                     ??LPLD_SDHC_IOC_65: (+1)
+   \      0x50C   0x2001             MOVS     R0,#+1
+   \      0x50E   0x0007             MOVS     R7,R0
+   \      0x510   0xE001             B.N      ??LPLD_SDHC_IOC_61
+    692                  }
+    693                }
+    694                else
+    695                {
+    696                  result = SDHCRES_ERROR;
+   \                     ??LPLD_SDHC_IOC_62: (+1)
+   \      0x512   0x2001             MOVS     R0,#+1
+   \      0x514   0x0007             MOVS     R7,R0
+    697                }
+    698              }
+    699              break;
+   \                     ??LPLD_SDHC_IOC_61: (+1)
+   \      0x516   0xE04C             B.N      ??LPLD_SDHC_IOC_9
+    700            case IO_IOCTL_ESDHC_GET_CARD:
+    701              if (NULL == param32_ptr)
+   \                     ??LPLD_SDHC_IOC_2: (+1)
+   \      0x518   0x2C00             CMP      R4,#+0
+   \      0x51A   0xD102             BNE.N    ??LPLD_SDHC_IOC_66
+    702              {
+    703                result = SDHCRES_ERROR;
+   \      0x51C   0x2001             MOVS     R0,#+1
+   \      0x51E   0x0007             MOVS     R7,R0
+   \      0x520   0xE030             B.N      ??LPLD_SDHC_IOC_67
+    704              }
+    705              else
+    706              {
+    707                //等待80个时钟
+    708                SDHC->SYSCTL |= SDHC_SYSCTL_INITA_MASK;
+   \                     ??LPLD_SDHC_IOC_66: (+1)
+   \      0x522   0x....             LDR.N    R0,??DataTable8_7  ;; 0x400b102c
+   \      0x524   0x6801             LDR      R1,[R0, #+0]
+   \      0x526   0xF051 0x6100      ORRS     R1,R1,#0x8000000
+   \      0x52A   0x6001             STR      R1,[R0, #+0]
+    709                while (SDHC->SYSCTL & SDHC_SYSCTL_INITA_MASK)
+   \                     ??LPLD_SDHC_IOC_68: (+1)
+   \      0x52C   0x6801             LDR      R1,[R0, #+0]
+   \      0x52E   0x0109             LSLS     R1,R1,#+4
+   \      0x530   0xD4FC             BMI.N    ??LPLD_SDHC_IOC_68
+    710                { };
+    711                
+    712                //更新并返回卡实际状态
+    713                if (SDHC->IRQSTAT & SDHC_IRQSTAT_CRM_MASK)
+   \      0x532   0x....'....        LDR.W    R0,??DataTable9  ;; 0x400b1030
+   \      0x536   0x6801             LDR      R1,[R0, #+0]
+   \      0x538   0x0609             LSLS     R1,R1,#+24
+   \      0x53A   0xD50B             BPL.N    ??LPLD_SDHC_IOC_69
+    714                {
+    715                  SDHC->IRQSTAT |= SDHC_IRQSTAT_CRM_MASK;
+   \      0x53C   0x6801             LDR      R1,[R0, #+0]
+   \      0x53E   0xF051 0x0180      ORRS     R1,R1,#0x80
+   \      0x542   0x6001             STR      R1,[R0, #+0]
+    716                  sdcard_ptr->CARD = ESDHC_CARD_NONE;
+   \      0x544   0x....'....        LDR.W    R0,??DataTable9_1
+   \      0x548   0x2100             MOVS     R1,#+0
+   \      0x54A   0x6802             LDR      R2,[R0, #+0]
+   \      0x54C   0x6111             STR      R1,[R2, #+16]
+    717                  sdcard_ptr->STATUS = SDHCSTA_NODISK;
+   \      0x54E   0x2102             MOVS     R1,#+2
+   \      0x550   0x6800             LDR      R0,[R0, #+0]
+   \      0x552   0x6141             STR      R1,[R0, #+20]
+    718                }
+    719                if (SDHC->PRSSTAT & SDHC_PRSSTAT_CINS_MASK)
+   \                     ??LPLD_SDHC_IOC_69: (+1)
+   \      0x554   0x....             LDR.N    R0,??DataTable8_8  ;; 0x400b1024
+   \      0x556   0x6800             LDR      R0,[R0, #+0]
+   \      0x558   0x03C0             LSLS     R0,R0,#+15
+   \      0x55A   0xD509             BPL.N    ??LPLD_SDHC_IOC_70
+    720                {
+    721                  if (ESDHC_CARD_NONE == sdcard_ptr->CARD)
+   \      0x55C   0x....'....        LDR.W    R1,??DataTable9_1
+   \      0x560   0x6808             LDR      R0,[R1, #+0]
+   \      0x562   0x6900             LDR      R0,[R0, #+16]
+   \      0x564   0x2800             CMP      R0,#+0
+   \      0x566   0xD108             BNE.N    ??LPLD_SDHC_IOC_71
+    722                  {
+    723                    sdcard_ptr->CARD = ESDHC_CARD_UNKNOWN;
+   \      0x568   0x2001             MOVS     R0,#+1
+   \      0x56A   0x6809             LDR      R1,[R1, #+0]
+   \      0x56C   0x6108             STR      R0,[R1, #+16]
+   \      0x56E   0xE004             B.N      ??LPLD_SDHC_IOC_71
+    724                  }
+    725                }
+    726                else
+    727                {
+    728                  sdcard_ptr->CARD = ESDHC_CARD_NONE;
+   \                     ??LPLD_SDHC_IOC_70: (+1)
+   \      0x570   0x2000             MOVS     R0,#+0
+   \      0x572   0x....'....        LDR.W    R1,??DataTable9_1
+   \      0x576   0x6809             LDR      R1,[R1, #+0]
+   \      0x578   0x6108             STR      R0,[R1, #+16]
+    729                }
+    730                *param32_ptr = sdcard_ptr->CARD;
+   \                     ??LPLD_SDHC_IOC_71: (+1)
+   \      0x57A   0x....'....        LDR.W    R0,??DataTable9_1
+   \      0x57E   0x6800             LDR      R0,[R0, #+0]
+   \      0x580   0x6900             LDR      R0,[R0, #+16]
+   \      0x582   0x6020             STR      R0,[R4, #+0]
+    731              }
+    732              break;
+   \                     ??LPLD_SDHC_IOC_67: (+1)
+   \      0x584   0xE015             B.N      ??LPLD_SDHC_IOC_9
+    733              
+    734            case IO_IOCTL_FLUSH_OUTPUT:
+    735              //等待传输完成
+    736              LPLD_SDHC_WaitStatus (SDHC_IRQSTAT_TC_MASK);
+   \                     ??LPLD_SDHC_IOC_7: (+1)
+   \      0x586   0x2002             MOVS     R0,#+2
+   \      0x588   0x....'....        BL       LPLD_SDHC_WaitStatus
+    737              if (SDHC->IRQSTAT & (SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK))
+   \      0x58C   0x....'....        LDR.W    R0,??DataTable9  ;; 0x400b1030
+   \      0x590   0x6801             LDR      R1,[R0, #+0]
+   \      0x592   0xF411 0x0FE0      TST      R1,#0x700000
+   \      0x596   0xD005             BEQ.N    ??LPLD_SDHC_IOC_72
+    738              {
+    739                SDHC->IRQSTAT |= SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK;
+   \      0x598   0x6801             LDR      R1,[R0, #+0]
+   \      0x59A   0xF451 0x01E0      ORRS     R1,R1,#0x700000
+   \      0x59E   0x6001             STR      R1,[R0, #+0]
+    740                result = SDHCRES_ERROR;
+   \      0x5A0   0x2101             MOVS     R1,#+1
+   \      0x5A2   0x000F             MOVS     R7,R1
+    741              }
+    742              SDHC->IRQSTAT |= SDHC_IRQSTAT_TC_MASK | SDHC_IRQSTAT_BRR_MASK | SDHC_IRQSTAT_BWR_MASK;
+   \                     ??LPLD_SDHC_IOC_72: (+1)
+   \      0x5A4   0x6801             LDR      R1,[R0, #+0]
+   \      0x5A6   0xF051 0x0132      ORRS     R1,R1,#0x32
+   \      0x5AA   0x6001             STR      R1,[R0, #+0]
+    743              break;
+   \      0x5AC   0xE001             B.N      ??LPLD_SDHC_IOC_9
+    744            default:
+    745              result = SDHCRES_ERROR;
+   \                     ??LPLD_SDHC_IOC_8: (+1)
+   \      0x5AE   0x2001             MOVS     R0,#+1
+   \      0x5B0   0x0007             MOVS     R7,R0
+    746              break;
+    747            }
+    748            
+    749            
+    750            return result;
+   \                     ??LPLD_SDHC_IOC_9: (+1)
+   \      0x5B2   0x0038             MOVS     R0,R7
+   \      0x5B4   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x5B6   0xB00D             ADD      SP,SP,#+52
+   \      0x5B8   0xE8BD 0x8FF0      POP      {R4-R11,PC}      ;; return
+    751          }
+    752          
+    753          /*
+    754           * LPLD_SDHC_Read
+    755           * SDHC读操作
+    756           * 
+    757           * 参数:
+    758           *    *data_ptr--存储数据地址指针
+    759           *    n--待读的数据长度
+    760           *
+    761           * 输出:
+    762           *    SDHCRES--磁盘功能返回值
+    763           */
+
+   \                                 In section .text, align 2, keep-with-next
+    764          static SDHCSTATUS LPLD_SDHC_Read(uint8 *data_ptr, int32 n)
+    765          {
+   \                     LPLD_SDHC_Read: (+1)
+   \        0x0   0xB430             PUSH     {R4,R5}
+   \        0x2   0x0004             MOVS     R4,R0
+   \        0x4   0x000A             MOVS     R2,R1
+    766            uint32 buffer;
+    767            int32 remains;
+    768            
+    769            remains = n;
+   \        0x6   0x0011             MOVS     R1,R2
+    770            if (((uint32)data_ptr & 0x03) == 0)
+   \        0x8   0xF014 0x0003      ANDS     R0,R4,#0x3
+   \        0xC   0x2800             CMP      R0,#+0
+   \        0xE   0xD11D             BNE.N    ??LPLD_SDHC_Read_0
+    771            {    
+    772              //数据位字对齐，可以以最快的速度直接从寄存器拷贝
+    773              while (remains >= 4)
+   \                     ??LPLD_SDHC_Read_1: (+1)
+   \       0x10   0x2904             CMP      R1,#+4
+   \       0x12   0xDB46             BLT.N    ??LPLD_SDHC_Read_2
+    774              {
+    775                if (SDHC->IRQSTAT & (SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK))
+   \       0x14   0x....'....        LDR.W    R0,??DataTable9  ;; 0x400b1030
+   \       0x18   0x6805             LDR      R5,[R0, #+0]
+   \       0x1A   0xF415 0x0FE0      TST      R5,#0x700000
+   \       0x1E   0xD007             BEQ.N    ??LPLD_SDHC_Read_3
+    776                {
+    777                  SDHC->IRQSTAT |= SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK | SDHC_IRQSTAT_BRR_MASK;
+   \       0x20   0x6805             LDR      R5,[R0, #+0]
+   \       0x22   0xF445 0x05E0      ORR      R5,R5,#0x700000
+   \       0x26   0xF055 0x0520      ORRS     R5,R5,#0x20
+   \       0x2A   0x6005             STR      R5,[R0, #+0]
+    778                  return SDHCRES_ERROR;
+   \       0x2C   0x2001             MOVS     R0,#+1
+   \       0x2E   0xE06A             B.N      ??LPLD_SDHC_Read_4
+    779                }
+    780                
+    781                //等待，直到收到的数据达到水印长度或传输完成
+    782                while ((0 == (SDHC->PRSSTAT & SDHC_PRSSTAT_BREN_MASK)) && (SDHC->PRSSTAT & SDHC_PRSSTAT_DLA_MASK))
+   \                     ??LPLD_SDHC_Read_3: (+1)
+   \       0x30   0x....             LDR.N    R0,??DataTable8_8  ;; 0x400b1024
+   \       0x32   0x6805             LDR      R5,[R0, #+0]
+   \       0x34   0x052D             LSLS     R5,R5,#+20
+   \       0x36   0xD402             BMI.N    ??LPLD_SDHC_Read_5
+   \       0x38   0x6800             LDR      R0,[R0, #+0]
+   \       0x3A   0x0740             LSLS     R0,R0,#+29
+   \       0x3C   0xD4F8             BMI.N    ??LPLD_SDHC_Read_3
+    783                { };
+    784                
+    785                *((uint32 *)data_ptr) = SDHC->DATPORT;
+   \                     ??LPLD_SDHC_Read_5: (+1)
+   \       0x3E   0x....'....        LDR.W    R0,??DataTable11_6  ;; 0x400b1020
+   \       0x42   0x6800             LDR      R0,[R0, #+0]
+   \       0x44   0x6020             STR      R0,[R4, #+0]
+    786                data_ptr += 4;
+   \       0x46   0x1D24             ADDS     R4,R4,#+4
+    787                remains -= 4;
+   \       0x48   0x1F09             SUBS     R1,R1,#+4
+   \       0x4A   0xE7E1             B.N      ??LPLD_SDHC_Read_1
+    788              }
+    789            }
+    790            else
+    791            {
+    792              //非对齐数据，读到临时区域并以字节复制
+    793              while (remains >= 4)
+   \                     ??LPLD_SDHC_Read_0: (+1)
+   \       0x4C   0x2904             CMP      R1,#+4
+   \       0x4E   0xDB28             BLT.N    ??LPLD_SDHC_Read_2
+    794              {
+    795                if (SDHC->IRQSTAT & (SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK))
+   \       0x50   0x....'....        LDR.W    R0,??DataTable9  ;; 0x400b1030
+   \       0x54   0x6805             LDR      R5,[R0, #+0]
+   \       0x56   0xF415 0x0FE0      TST      R5,#0x700000
+   \       0x5A   0xD007             BEQ.N    ??LPLD_SDHC_Read_6
+    796                {
+    797                  SDHC->IRQSTAT |= SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK | SDHC_IRQSTAT_BRR_MASK;
+   \       0x5C   0x6805             LDR      R5,[R0, #+0]
+   \       0x5E   0xF445 0x05E0      ORR      R5,R5,#0x700000
+   \       0x62   0xF055 0x0520      ORRS     R5,R5,#0x20
+   \       0x66   0x6005             STR      R5,[R0, #+0]
+    798                  return SDHCRES_ERROR;
+   \       0x68   0x2001             MOVS     R0,#+1
+   \       0x6A   0xE04C             B.N      ??LPLD_SDHC_Read_4
+    799                }
+    800                
+    801                //等待，直到收到的数据达到水印长度或传输完成
+    802                while ((0 == (SDHC->PRSSTAT & SDHC_PRSSTAT_BREN_MASK)) && (SDHC->PRSSTAT & SDHC_PRSSTAT_DLA_MASK))
+   \                     ??LPLD_SDHC_Read_6: (+1)
+   \       0x6C   0x....             LDR.N    R0,??DataTable8_8  ;; 0x400b1024
+   \       0x6E   0x6805             LDR      R5,[R0, #+0]
+   \       0x70   0x052D             LSLS     R5,R5,#+20
+   \       0x72   0xD402             BMI.N    ??LPLD_SDHC_Read_7
+   \       0x74   0x6800             LDR      R0,[R0, #+0]
+   \       0x76   0x0740             LSLS     R0,R0,#+29
+   \       0x78   0xD4F8             BMI.N    ??LPLD_SDHC_Read_6
+    803                { };
+    804                
+    805                buffer = SDHC->DATPORT;
+   \                     ??LPLD_SDHC_Read_7: (+1)
+   \       0x7A   0x....'....        LDR.W    R0,??DataTable11_6  ;; 0x400b1020
+   \       0x7E   0x6800             LDR      R0,[R0, #+0]
+   \       0x80   0x0003             MOVS     R3,R0
+    806                
+    807                *data_ptr++ = buffer & 0xFF;
+   \       0x82   0x7023             STRB     R3,[R4, #+0]
+   \       0x84   0x1C60             ADDS     R0,R4,#+1
+    808                *data_ptr++ = (buffer >> 8) & 0xFF;
+   \       0x86   0x001C             MOVS     R4,R3
+   \       0x88   0x0A24             LSRS     R4,R4,#+8
+   \       0x8A   0x7004             STRB     R4,[R0, #+0]
+   \       0x8C   0x1C40             ADDS     R0,R0,#+1
+    809                *data_ptr++ = (buffer >> 16) & 0xFF;
+   \       0x8E   0x001C             MOVS     R4,R3
+   \       0x90   0x0C24             LSRS     R4,R4,#+16
+   \       0x92   0x7004             STRB     R4,[R0, #+0]
+   \       0x94   0x1C40             ADDS     R0,R0,#+1
+    810                *data_ptr++ = (buffer >> 24) & 0xFF;
+   \       0x96   0x001C             MOVS     R4,R3
+   \       0x98   0x0E24             LSRS     R4,R4,#+24
+   \       0x9A   0x7004             STRB     R4,[R0, #+0]
+   \       0x9C   0x1C44             ADDS     R4,R0,#+1
+    811                
+    812                remains -= 4;
+   \       0x9E   0x1F09             SUBS     R1,R1,#+4
+   \       0xA0   0xE7D4             B.N      ??LPLD_SDHC_Read_0
+    813              }      
+    814            }
+    815            
+    816            if (remains)
+   \                     ??LPLD_SDHC_Read_2: (+1)
+   \       0xA2   0x2900             CMP      R1,#+0
+   \       0xA4   0xD01F             BEQ.N    ??LPLD_SDHC_Read_8
+    817            {
+    818              //剩下的少于单字长度数据
+    819              if (SDHC->IRQSTAT & (SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK))
+   \       0xA6   0x....'....        LDR.W    R0,??DataTable9  ;; 0x400b1030
+   \       0xAA   0x6805             LDR      R5,[R0, #+0]
+   \       0xAC   0xF415 0x0FE0      TST      R5,#0x700000
+   \       0xB0   0xD007             BEQ.N    ??LPLD_SDHC_Read_9
+    820              {
+    821                SDHC->IRQSTAT |= SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK | SDHC_IRQSTAT_BRR_MASK;
+   \       0xB2   0x6805             LDR      R5,[R0, #+0]
+   \       0xB4   0xF445 0x05E0      ORR      R5,R5,#0x700000
+   \       0xB8   0xF055 0x0520      ORRS     R5,R5,#0x20
+   \       0xBC   0x6005             STR      R5,[R0, #+0]
+    822                return SDHCRES_ERROR;
+   \       0xBE   0x2001             MOVS     R0,#+1
+   \       0xC0   0xE021             B.N      ??LPLD_SDHC_Read_4
+    823              }
+    824              
+    825              //等待，直到收到的数据达到水印长度或传输完成
+    826              while ((0 == (SDHC->PRSSTAT & SDHC_PRSSTAT_BREN_MASK)) && (SDHC->PRSSTAT & SDHC_PRSSTAT_DLA_MASK))
+   \                     ??LPLD_SDHC_Read_9: (+1)
+   \       0xC2   0x....             LDR.N    R0,??DataTable8_8  ;; 0x400b1024
+   \       0xC4   0x6805             LDR      R5,[R0, #+0]
+   \       0xC6   0x052D             LSLS     R5,R5,#+20
+   \       0xC8   0xD402             BMI.N    ??LPLD_SDHC_Read_10
+   \       0xCA   0x6800             LDR      R0,[R0, #+0]
+   \       0xCC   0x0740             LSLS     R0,R0,#+29
+   \       0xCE   0xD4F8             BMI.N    ??LPLD_SDHC_Read_9
+    827              { };
+    828              
+    829              buffer = SDHC->DATPORT;
+   \                     ??LPLD_SDHC_Read_10: (+1)
+   \       0xD0   0x....'....        LDR.W    R0,??DataTable11_6  ;; 0x400b1020
+   \       0xD4   0x6800             LDR      R0,[R0, #+0]
+   \       0xD6   0x0003             MOVS     R3,R0
+    830              while (remains)
+   \                     ??LPLD_SDHC_Read_11: (+1)
+   \       0xD8   0x2900             CMP      R1,#+0
+   \       0xDA   0xD004             BEQ.N    ??LPLD_SDHC_Read_8
+    831              {
+    832                
+    833                *data_ptr++ = buffer & 0xFF;
+   \       0xDC   0x7023             STRB     R3,[R4, #+0]
+   \       0xDE   0x1C64             ADDS     R4,R4,#+1
+    834                buffer >>= 8;
+   \       0xE0   0x0A1B             LSRS     R3,R3,#+8
+    835                
+    836                remains--;
+   \       0xE2   0x1E49             SUBS     R1,R1,#+1
+   \       0xE4   0xE7F8             B.N      ??LPLD_SDHC_Read_11
+    837              }
+    838            }
+    839            
+    840            if (SDHC->IRQSTAT & (SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK))
+   \                     ??LPLD_SDHC_Read_8: (+1)
+   \       0xE6   0x....'....        LDR.W    R0,??DataTable9  ;; 0x400b1030
+   \       0xEA   0x6805             LDR      R5,[R0, #+0]
+   \       0xEC   0xF415 0x0FE0      TST      R5,#0x700000
+   \       0xF0   0xD007             BEQ.N    ??LPLD_SDHC_Read_12
+    841            {
+    842              SDHC->IRQSTAT |= SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK | SDHC_IRQSTAT_BRR_MASK;
+   \       0xF2   0x6805             LDR      R5,[R0, #+0]
+   \       0xF4   0xF445 0x05E0      ORR      R5,R5,#0x700000
+   \       0xF8   0xF055 0x0520      ORRS     R5,R5,#0x20
+   \       0xFC   0x6005             STR      R5,[R0, #+0]
+    843              return SDHCRES_ERROR;
+   \       0xFE   0x2001             MOVS     R0,#+1
+   \      0x100   0xE001             B.N      ??LPLD_SDHC_Read_4
+    844            }
+    845            
+    846            return (n - remains);
+   \                     ??LPLD_SDHC_Read_12: (+1)
+   \      0x102   0x1A52             SUBS     R2,R2,R1
+   \      0x104   0x0010             MOVS     R0,R2
+   \                     ??LPLD_SDHC_Read_4: (+1)
+   \      0x106   0xBC30             POP      {R4,R5}
+   \      0x108   0x4770             BX       LR               ;; return
+    847          }
+    848          
+    849          /*
+    850           * LPLD_SDHC_Write
+    851           * SDHC写操作
+    852           * 
+    853           * 参数:
+    854           *    *data_ptr--存储数据地址指针
+    855           *    n--待写的数据长度
+    856           *
+    857           * 输出:
+    858           *    SDHCRES--磁盘功能返回值
+    859           */
+
+   \                                 In section .text, align 2, keep-with-next
+    860          static SDHCSTATUS LPLD_SDHC_Write(uint8 *data_ptr, int32 n)
+    861          {
+   \                     LPLD_SDHC_Write: (+1)
+   \        0x0   0xB4F0             PUSH     {R4-R7}
+   \        0x2   0x0003             MOVS     R3,R0
+   \        0x4   0x000A             MOVS     R2,R1
+    862            uint8 *udata_ptr;
+    863            uint32 buffer;
+    864            int32 remains;
+    865            
+    866            //复制数据指针
+    867            udata_ptr = (uint8 *)data_ptr;
+   \        0x6   0x001D             MOVS     R5,R3
+    868            
+    869            remains = n;
+   \        0x8   0x0011             MOVS     R1,R2
+    870            if (((uint32)udata_ptr & 0x03) == 0)
+   \        0xA   0xF015 0x0003      ANDS     R0,R5,#0x3
+   \        0xE   0x2800             CMP      R0,#+0
+   \       0x10   0xD11A             BNE.N    ??LPLD_SDHC_Write_0
+    871            {
+    872              //数据位字对齐，可以以最快的速度直接拷贝到寄存器
+    873              while (remains >= 4)
+   \                     ??LPLD_SDHC_Write_1: (+1)
+   \       0x12   0x2904             CMP      R1,#+4
+   \       0x14   0xDB42             BLT.N    ??LPLD_SDHC_Write_2
+    874              {
+    875                if (SDHC->IRQSTAT & (SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK))
+   \       0x16   0x....'....        LDR.W    R0,??DataTable9  ;; 0x400b1030
+   \       0x1A   0x6806             LDR      R6,[R0, #+0]
+   \       0x1C   0xF416 0x0FE0      TST      R6,#0x700000
+   \       0x20   0xD007             BEQ.N    ??LPLD_SDHC_Write_3
+    876                {
+    877                  SDHC->IRQSTAT |= SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK | SDHC_IRQSTAT_BWR_MASK;
+   \       0x22   0x6806             LDR      R6,[R0, #+0]
+   \       0x24   0xF446 0x06E0      ORR      R6,R6,#0x700000
+   \       0x28   0xF056 0x0610      ORRS     R6,R6,#0x10
+   \       0x2C   0x6006             STR      R6,[R0, #+0]
+    878                  return SDHCRES_ERROR;
+   \       0x2E   0x2001             MOVS     R0,#+1
+   \       0x30   0xE063             B.N      ??LPLD_SDHC_Write_4
+    879                }
+    880                
+    881                //等待，直到水印空间可用 
+    882                while (0 == (SDHC->PRSSTAT & SDHC_PRSSTAT_BWEN_MASK))
+   \                     ??LPLD_SDHC_Write_3: (+1)
+   \       0x32   0x....             LDR.N    R0,??DataTable8_8  ;; 0x400b1024
+   \       0x34   0x6800             LDR      R0,[R0, #+0]
+   \       0x36   0x0540             LSLS     R0,R0,#+21
+   \       0x38   0xD5FB             BPL.N    ??LPLD_SDHC_Write_3
+    883                { };
+    884                
+    885                SDHC->DATPORT = *((uint32 *)udata_ptr);
+   \       0x3A   0x6828             LDR      R0,[R5, #+0]
+   \       0x3C   0x....'....        LDR.W    R6,??DataTable11_6  ;; 0x400b1020
+   \       0x40   0x6030             STR      R0,[R6, #+0]
+    886                udata_ptr += 4;
+   \       0x42   0x1D2D             ADDS     R5,R5,#+4
+    887                remains -= 4;
+   \       0x44   0x1F09             SUBS     R1,R1,#+4
+   \       0x46   0xE7E4             B.N      ??LPLD_SDHC_Write_1
+    888              }
+    889            }
+    890            else
+    891            {
+    892              //非对齐数据，写到临时区域并以字节复制
+    893              while (remains >= 4)
+   \                     ??LPLD_SDHC_Write_0: (+1)
+   \       0x48   0x2904             CMP      R1,#+4
+   \       0x4A   0xDB27             BLT.N    ??LPLD_SDHC_Write_2
+    894              {
+    895                if (SDHC->IRQSTAT & (SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK))
+   \       0x4C   0x....             LDR.N    R0,??DataTable9  ;; 0x400b1030
+   \       0x4E   0x6806             LDR      R6,[R0, #+0]
+   \       0x50   0xF416 0x0FE0      TST      R6,#0x700000
+   \       0x54   0xD007             BEQ.N    ??LPLD_SDHC_Write_5
+    896                {
+    897                  SDHC->IRQSTAT |= SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK | SDHC_IRQSTAT_BWR_MASK;
+   \       0x56   0x6806             LDR      R6,[R0, #+0]
+   \       0x58   0xF446 0x06E0      ORR      R6,R6,#0x700000
+   \       0x5C   0xF056 0x0610      ORRS     R6,R6,#0x10
+   \       0x60   0x6006             STR      R6,[R0, #+0]
+    898                  return SDHCRES_ERROR;
+   \       0x62   0x2001             MOVS     R0,#+1
+   \       0x64   0xE049             B.N      ??LPLD_SDHC_Write_4
+    899                }
+    900                
+    901                //等待，直到水印空间可用 
+    902                while (0 == (SDHC->PRSSTAT & SDHC_PRSSTAT_BWEN_MASK))
+   \                     ??LPLD_SDHC_Write_5: (+1)
+   \       0x66   0x....             LDR.N    R0,??DataTable8_8  ;; 0x400b1024
+   \       0x68   0x6806             LDR      R6,[R0, #+0]
+   \       0x6A   0x0576             LSLS     R6,R6,#+21
+   \       0x6C   0xD5FB             BPL.N    ??LPLD_SDHC_Write_5
+    903                { };
+    904                
+    905                buffer  = (*udata_ptr++);
+   \       0x6E   0x782E             LDRB     R6,[R5, #+0]
+   \       0x70   0x1C6D             ADDS     R5,R5,#+1
+    906                buffer |= (*udata_ptr++) << 8;
+   \       0x72   0x782F             LDRB     R7,[R5, #+0]
+   \       0x74   0xEA56 0x2607      ORRS     R6,R6,R7, LSL #+8
+   \       0x78   0x1C6D             ADDS     R5,R5,#+1
+    907                buffer |= (*udata_ptr++) << 16;
+   \       0x7A   0x782F             LDRB     R7,[R5, #+0]
+   \       0x7C   0xEA56 0x4607      ORRS     R6,R6,R7, LSL #+16
+   \       0x80   0x1C6D             ADDS     R5,R5,#+1
+    908                buffer |= (*udata_ptr++) << 24;
+   \       0x82   0x782F             LDRB     R7,[R5, #+0]
+   \       0x84   0xEA56 0x6607      ORRS     R6,R6,R7, LSL #+24
+   \       0x88   0x0034             MOVS     R4,R6
+   \       0x8A   0x1C6D             ADDS     R5,R5,#+1
+    909                
+    910                //等待，直到水印空间可用 
+    911                while (0 == (SDHC->PRSSTAT & SDHC_PRSSTAT_BWEN_MASK))
+   \                     ??LPLD_SDHC_Write_6: (+1)
+   \       0x8C   0x6806             LDR      R6,[R0, #+0]
+   \       0x8E   0x0576             LSLS     R6,R6,#+21
+   \       0x90   0xD5FC             BPL.N    ??LPLD_SDHC_Write_6
+    912                { };
+    913                
+    914                SDHC->DATPORT = buffer;
+   \       0x92   0x....'....        LDR.W    R0,??DataTable11_6  ;; 0x400b1020
+   \       0x96   0x6004             STR      R4,[R0, #+0]
+    915                remains -= 4;
+   \       0x98   0x1F09             SUBS     R1,R1,#+4
+   \       0x9A   0xE7D5             B.N      ??LPLD_SDHC_Write_0
+    916              }      
+    917            }
+    918            
+    919            if (remains)
+   \                     ??LPLD_SDHC_Write_2: (+1)
+   \       0x9C   0x2900             CMP      R1,#+0
+   \       0x9E   0xD01D             BEQ.N    ??LPLD_SDHC_Write_7
+    920            {
+    921              //剩余少于单字长度的数据
+    922              if (SDHC->IRQSTAT & (SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK))
+   \       0xA0   0x....             LDR.N    R0,??DataTable9  ;; 0x400b1030
+   \       0xA2   0x6806             LDR      R6,[R0, #+0]
+   \       0xA4   0xF416 0x0FE0      TST      R6,#0x700000
+   \       0xA8   0xD007             BEQ.N    ??LPLD_SDHC_Write_8
+    923              {
+    924                SDHC->IRQSTAT |= SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK | SDHC_IRQSTAT_BWR_MASK;
+   \       0xAA   0x6806             LDR      R6,[R0, #+0]
+   \       0xAC   0xF446 0x06E0      ORR      R6,R6,#0x700000
+   \       0xB0   0xF056 0x0610      ORRS     R6,R6,#0x10
+   \       0xB4   0x6006             STR      R6,[R0, #+0]
+    925                return SDHCRES_ERROR;
+   \       0xB6   0x2001             MOVS     R0,#+1
+   \       0xB8   0xE01F             B.N      ??LPLD_SDHC_Write_4
+    926              }
+    927              
+    928              buffer = 0xFFFFFFFF;
+   \                     ??LPLD_SDHC_Write_8: (+1)
+   \       0xBA   0xF05F 0x30FF      MOVS     R0,#-1
+   \       0xBE   0x0004             MOVS     R4,R0
+    929              while (remains)
+   \                     ??LPLD_SDHC_Write_9: (+1)
+   \       0xC0   0x2900             CMP      R1,#+0
+   \       0xC2   0xD004             BEQ.N    ??LPLD_SDHC_Write_10
+    930              {
+    931                buffer <<= 8;
+   \       0xC4   0x0224             LSLS     R4,R4,#+8
+    932                buffer |= udata_ptr[remains];
+   \       0xC6   0x5C68             LDRB     R0,[R5, R1]
+   \       0xC8   0x4304             ORRS     R4,R0,R4
+    933                remains--;
+   \       0xCA   0x1E49             SUBS     R1,R1,#+1
+   \       0xCC   0xE7F8             B.N      ??LPLD_SDHC_Write_9
+    934              }
+    935              
+    936              //等待，直到水印空间可用 
+    937              while (0 == (SDHC->PRSSTAT & SDHC_PRSSTAT_BWEN_MASK))
+   \                     ??LPLD_SDHC_Write_10: (+1)
+   \       0xCE   0x....             LDR.N    R0,??DataTable8_8  ;; 0x400b1024
+   \       0xD0   0x6800             LDR      R0,[R0, #+0]
+   \       0xD2   0x0540             LSLS     R0,R0,#+21
+   \       0xD4   0xD5FB             BPL.N    ??LPLD_SDHC_Write_10
+    938              { };
+    939              
+    940              SDHC->DATPORT = buffer;        
+   \       0xD6   0x....'....        LDR.W    R0,??DataTable11_6  ;; 0x400b1020
+   \       0xDA   0x6004             STR      R4,[R0, #+0]
+    941            }
+    942            
+    943            if (SDHC->IRQSTAT & (SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK))
+   \                     ??LPLD_SDHC_Write_7: (+1)
+   \       0xDC   0x....             LDR.N    R0,??DataTable9  ;; 0x400b1030
+   \       0xDE   0x6806             LDR      R6,[R0, #+0]
+   \       0xE0   0xF416 0x0FE0      TST      R6,#0x700000
+   \       0xE4   0xD007             BEQ.N    ??LPLD_SDHC_Write_11
+    944            {
+    945              SDHC->IRQSTAT |= SDHC_IRQSTAT_DEBE_MASK | SDHC_IRQSTAT_DCE_MASK | SDHC_IRQSTAT_DTOE_MASK | SDHC_IRQSTAT_BWR_MASK;
+   \       0xE6   0x6806             LDR      R6,[R0, #+0]
+   \       0xE8   0xF446 0x06E0      ORR      R6,R6,#0x700000
+   \       0xEC   0xF056 0x0610      ORRS     R6,R6,#0x10
+   \       0xF0   0x6006             STR      R6,[R0, #+0]
+    946              return SDHCRES_ERROR;
+   \       0xF2   0x2001             MOVS     R0,#+1
+   \       0xF4   0xE001             B.N      ??LPLD_SDHC_Write_4
+    947            }
+    948            
+    949            return (n - remains);
+   \                     ??LPLD_SDHC_Write_11: (+1)
+   \       0xF6   0x1A52             SUBS     R2,R2,R1
+   \       0xF8   0x0010             MOVS     R0,R2
+   \                     ??LPLD_SDHC_Write_4: (+1)
+   \       0xFA   0xBCF0             POP      {R4-R7}
+   \       0xFC   0x4770             BX       LR               ;; return
+    950          }
+    951          
+    952          /*
+    953           * LPLD_SDHC_InitCard
+    954           * 初始化SDHC模块及SD卡，设置正常工作波特率为40MHz
+    955           * 
+    956           * 参数:
+    957           *    无
+    958           *
+    959           * 输出:
+    960           *    SDHCSTA_OK--状态正常
+    961           *    SDHCSTA_NOINIT--驱动未初始化
+    962           *    SDHCSTA_NODISK--为插入卡
+    963           *    SDHCSTA_PROTECT--卡写保护
+    964           */
+
+   \                                 In section .text, align 2, keep-with-next
+    965          SDHCSTATUS LPLD_SDHC_InitCard(void)
+    966          {
+   \                     LPLD_SDHC_InitCard: (+1)
+   \        0x0   0xE92D 0x47F8      PUSH     {R3-R10,LR}
+   \        0x4   0xB089             SUB      SP,SP,#+36
+    967            uint32 param, c_size, c_size_mult, read_bl_len, time_out = 0;
+   \        0x6   0xF05F 0x0800      MOVS     R8,#+0
+    968            ESDHC_COMMAND_STRUCT command;
+    969            SDHCSTATUS result;
+    970            
+    971            //分配SD卡信息结构体的数据空间并初始化
+    972            sdcard_ptr = (SDCARD_STRUCT_PTR)malloc(sizeof(SDCARD_STRUCT));
+   \        0xA   0x....'....        LDR.W    R9,??DataTable9_1
+   \        0xE   0x2018             MOVS     R0,#+24
+   \       0x10   0x....'....        BL       malloc
+   \       0x14   0xF8C9 0x0000      STR      R0,[R9, #+0]
+    973            sdcard_ptr->CARD = ESDHC_CARD_NONE;
+   \       0x18   0x2000             MOVS     R0,#+0
+   \       0x1A   0xF8D9 0x1000      LDR      R1,[R9, #+0]
+   \       0x1E   0x6108             STR      R0,[R1, #+16]
+    974            sdcard_ptr->TIMEOUT = 0;
+   \       0x20   0x2000             MOVS     R0,#+0
+   \       0x22   0xF8D9 0x1000      LDR      R1,[R9, #+0]
+   \       0x26   0x6008             STR      R0,[R1, #+0]
+    975            sdcard_ptr->NUM_BLOCKS = 0;
+   \       0x28   0x2000             MOVS     R0,#+0
+   \       0x2A   0xF8D9 0x1000      LDR      R1,[R9, #+0]
+   \       0x2E   0x6048             STR      R0,[R1, #+4]
+    976            sdcard_ptr->ADDRESS = 0;
+   \       0x30   0x2000             MOVS     R0,#+0
+   \       0x32   0xF8D9 0x1000      LDR      R1,[R9, #+0]
+   \       0x36   0x60C8             STR      R0,[R1, #+12]
+    977            sdcard_ptr->HC = FALSE;
+   \       0x38   0x2000             MOVS     R0,#+0
+   \       0x3A   0xF8D9 0x1000      LDR      R1,[R9, #+0]
+   \       0x3E   0x7208             STRB     R0,[R1, #+8]
+    978            sdcard_ptr->VERSION2 = FALSE;
+   \       0x40   0x2000             MOVS     R0,#+0
+   \       0x42   0xF8D9 0x1000      LDR      R1,[R9, #+0]
+   \       0x46   0x7248             STRB     R0,[R1, #+9]
+    979            sdcard_ptr->STATUS = SDHCSTA_OK;
+   \       0x48   0x2000             MOVS     R0,#+0
+   \       0x4A   0xF8D9 0x1000      LDR      R1,[R9, #+0]
+   \       0x4E   0x6148             STR      R0,[R1, #+20]
+    980             
+    981            while(time_out < 1000)
+   \                     ??LPLD_SDHC_InitCard_0: (+1)
+   \       0x50   0xF5B8 0x7F7A      CMP      R8,#+1000
+   \       0x54   0xD22D             BCS.N    ??LPLD_SDHC_InitCard_1
+    982            {
+    983              
+    984              //初始化SDHC模块并检测卡
+    985              if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_INIT, NULL)))
+   \       0x56   0x2100             MOVS     R1,#+0
+   \       0x58   0x2001             MOVS     R0,#+1
+   \       0x5A   0x....'....        BL       LPLD_SDHC_IOC
+   \       0x5E   0x0004             MOVS     R4,R0
+   \       0x60   0x2C00             CMP      R4,#+0
+   \       0x62   0xD1F5             BNE.N    ??LPLD_SDHC_InitCard_0
+    986              {
+    987                continue;
+    988              }
+    989              
+    990              //SDHC检查
+    991              param = 0;
+   \                     ??LPLD_SDHC_InitCard_2: (+1)
+   \       0x64   0x2000             MOVS     R0,#+0
+   \       0x66   0x9000             STR      R0,[SP, #+0]
+    992              if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_GET_CARD, &param)))
+   \       0x68   0x4669             MOV      R1,SP
+   \       0x6A   0x2003             MOVS     R0,#+3
+   \       0x6C   0x....'....        BL       LPLD_SDHC_IOC
+   \       0x70   0x0004             MOVS     R4,R0
+   \       0x72   0x2C00             CMP      R4,#+0
+   \       0x74   0xD1EC             BNE.N    ??LPLD_SDHC_InitCard_0
+    993              {
+    994                continue;
+    995              }
+    996              if ((ESDHC_CARD_SD == param) || (ESDHC_CARD_SDHC == param) || (ESDHC_CARD_SDCOMBO == param) || (ESDHC_CARD_SDHCCOMBO == param))
+   \                     ??LPLD_SDHC_InitCard_3: (+1)
+   \       0x76   0x9800             LDR      R0,[SP, #+0]
+   \       0x78   0x2802             CMP      R0,#+2
+   \       0x7A   0xD008             BEQ.N    ??LPLD_SDHC_InitCard_4
+   \       0x7C   0x9800             LDR      R0,[SP, #+0]
+   \       0x7E   0x2803             CMP      R0,#+3
+   \       0x80   0xD005             BEQ.N    ??LPLD_SDHC_InitCard_4
+   \       0x82   0x9800             LDR      R0,[SP, #+0]
+   \       0x84   0x2805             CMP      R0,#+5
+   \       0x86   0xD002             BEQ.N    ??LPLD_SDHC_InitCard_4
+   \       0x88   0x9800             LDR      R0,[SP, #+0]
+   \       0x8A   0x2806             CMP      R0,#+6
+   \       0x8C   0xD110             BNE.N    ??LPLD_SDHC_InitCard_5
+    997              {
+    998                if ((ESDHC_CARD_SDHC == param) || (ESDHC_CARD_SDHCCOMBO == param))
+   \                     ??LPLD_SDHC_InitCard_4: (+1)
+   \       0x8E   0x9800             LDR      R0,[SP, #+0]
+   \       0x90   0x2803             CMP      R0,#+3
+   \       0x92   0xD002             BEQ.N    ??LPLD_SDHC_InitCard_6
+   \       0x94   0x9800             LDR      R0,[SP, #+0]
+   \       0x96   0x2806             CMP      R0,#+6
+   \       0x98   0xD104             BNE.N    ??LPLD_SDHC_InitCard_7
+    999                {
+   1000                  sdcard_ptr->HC = TRUE;
+   \                     ??LPLD_SDHC_InitCard_6: (+1)
+   \       0x9A   0x2001             MOVS     R0,#+1
+   \       0x9C   0xF8D9 0x1000      LDR      R1,[R9, #+0]
+   \       0xA0   0x7208             STRB     R0,[R1, #+8]
+   1001                  break;
+   \       0xA2   0xE006             B.N      ??LPLD_SDHC_InitCard_1
+   1002                }
+   1003                else if(ESDHC_CARD_SD == param)
+   \                     ??LPLD_SDHC_InitCard_7: (+1)
+   \       0xA4   0x9800             LDR      R0,[SP, #+0]
+   \       0xA6   0x2802             CMP      R0,#+2
+   \       0xA8   0xD003             BEQ.N    ??LPLD_SDHC_InitCard_1
+   1004                {
+   1005                  break;
+   1006                }
+   1007              }
+   1008              else
+   1009              {
+   1010                continue;
+   1011              }
+   1012              time_out++;
+   \                     ??LPLD_SDHC_InitCard_8: (+1)
+   \       0xAA   0xF118 0x0801      ADDS     R8,R8,#+1
+   \       0xAE   0xE7CF             B.N      ??LPLD_SDHC_InitCard_0
+   \                     ??LPLD_SDHC_InitCard_5: (+1)
+   \       0xB0   0xE7CE             B.N      ??LPLD_SDHC_InitCard_0
+   1013            }
+   1014            
+   1015            if(time_out >= 1000)
+   \                     ??LPLD_SDHC_InitCard_1: (+1)
+   \       0xB2   0xF5B8 0x7F7A      CMP      R8,#+1000
+   \       0xB6   0xD301             BCC.N    ??LPLD_SDHC_InitCard_9
+   1016              return SDHCRES_NOTRDY;
+   \       0xB8   0x2003             MOVS     R0,#+3
+   \       0xBA   0xE0C2             B.N      ??LPLD_SDHC_InitCard_10
+   1017            
+   1018            //卡识别
+   1019            command.COMMAND = ESDHC_CMD2;
+   \                     ??LPLD_SDHC_InitCard_9: (+1)
+   \       0xBC   0x....'....        LDR.W    R0,??DataTable11_7  ;; 0x2090000
+   \       0xC0   0x9001             STR      R0,[SP, #+4]
+   1020            command.ARGUMENT = 0;
+   \       0xC2   0x2000             MOVS     R0,#+0
+   \       0xC4   0x9002             STR      R0,[SP, #+8]
+   1021            command.BLOCKS = 0;
+   \       0xC6   0x2000             MOVS     R0,#+0
+   \       0xC8   0x9003             STR      R0,[SP, #+12]
+   1022            if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \       0xCA   0xA901             ADD      R1,SP,#+4
+   \       0xCC   0x2002             MOVS     R0,#+2
+   \       0xCE   0x....'....        BL       LPLD_SDHC_IOC
+   \       0xD2   0x0005             MOVS     R5,R0
+   \       0xD4   0x2D00             CMP      R5,#+0
+   \       0xD6   0xD001             BEQ.N    ??LPLD_SDHC_InitCard_11
+   1023            {
+   1024              return result;
+   \       0xD8   0x0028             MOVS     R0,R5
+   \       0xDA   0xE0B2             B.N      ??LPLD_SDHC_InitCard_10
+   1025            }
+   1026            
+   1027            //获取卡地址
+   1028            command.COMMAND = ESDHC_CMD3;
+   \                     ??LPLD_SDHC_InitCard_11: (+1)
+   \       0xDC   0x....'....        LDR.W    R0,??DataTable11_8  ;; 0x31a0000
+   \       0xE0   0x9001             STR      R0,[SP, #+4]
+   1029            command.ARGUMENT = 0;
+   \       0xE2   0x2000             MOVS     R0,#+0
+   \       0xE4   0x9002             STR      R0,[SP, #+8]
+   1030            command.BLOCKS = 0;
+   \       0xE6   0x2000             MOVS     R0,#+0
+   \       0xE8   0x9003             STR      R0,[SP, #+12]
+   1031            if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \       0xEA   0xA901             ADD      R1,SP,#+4
+   \       0xEC   0x2002             MOVS     R0,#+2
+   \       0xEE   0x....'....        BL       LPLD_SDHC_IOC
+   \       0xF2   0x0004             MOVS     R4,R0
+   \       0xF4   0x2C00             CMP      R4,#+0
+   \       0xF6   0xD001             BEQ.N    ??LPLD_SDHC_InitCard_12
+   1032            {
+   1033              return result;
+   \       0xF8   0x0020             MOVS     R0,R4
+   \       0xFA   0xE0A2             B.N      ??LPLD_SDHC_InitCard_10
+   1034            }
+   1035            sdcard_ptr->ADDRESS = command.RESPONSE[0] & 0xFFFF0000;
+   \                     ??LPLD_SDHC_InitCard_12: (+1)
+   \       0xFC   0x9805             LDR      R0,[SP, #+20]
+   \       0xFE   0x0C00             LSRS     R0,R0,#+16
+   \      0x100   0x0400             LSLS     R0,R0,#+16
+   \      0x102   0xF8D9 0x1000      LDR      R1,[R9, #+0]
+   \      0x106   0x60C8             STR      R0,[R1, #+12]
+   1036            
+   1037            //获取卡参数
+   1038            command.COMMAND = ESDHC_CMD9;
+   \      0x108   0x....'....        LDR.W    R0,??DataTable11_9  ;; 0x9090000
+   \      0x10C   0x9001             STR      R0,[SP, #+4]
+   1039            command.ARGUMENT = sdcard_ptr->ADDRESS;
+   \      0x10E   0xF8D9 0x0000      LDR      R0,[R9, #+0]
+   \      0x112   0x68C0             LDR      R0,[R0, #+12]
+   \      0x114   0x9002             STR      R0,[SP, #+8]
+   1040            command.BLOCKS = 0;
+   \      0x116   0x2000             MOVS     R0,#+0
+   \      0x118   0x9003             STR      R0,[SP, #+12]
+   1041            if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \      0x11A   0xA901             ADD      R1,SP,#+4
+   \      0x11C   0x2002             MOVS     R0,#+2
+   \      0x11E   0x....'....        BL       LPLD_SDHC_IOC
+   \      0x122   0x0005             MOVS     R5,R0
+   \      0x124   0x2D00             CMP      R5,#+0
+   \      0x126   0xD001             BEQ.N    ??LPLD_SDHC_InitCard_13
+   1042            {
+   1043              return result;
+   \      0x128   0x0028             MOVS     R0,R5
+   \      0x12A   0xE08A             B.N      ??LPLD_SDHC_InitCard_10
+   1044            }
+   1045            if (0 == (command.RESPONSE[3] & 0x00C00000))
+   \                     ??LPLD_SDHC_InitCard_13: (+1)
+   \      0x12C   0x9808             LDR      R0,[SP, #+32]
+   \      0x12E   0xF410 0x0F40      TST      R0,#0xC00000
+   \      0x132   0xD121             BNE.N    ??LPLD_SDHC_InitCard_14
+   1046            {
+   1047              read_bl_len = (command.RESPONSE[2] >> 8) & 0x0F;
+   \      0x134   0x9807             LDR      R0,[SP, #+28]
+   \      0x136   0xF3C0 0x2003      UBFX     R0,R0,#+8,#+4
+   \      0x13A   0x0007             MOVS     R7,R0
+   1048              c_size = command.RESPONSE[2] & 0x03;
+   \      0x13C   0xF89D 0x001C      LDRB     R0,[SP, #+28]
+   \      0x140   0xF010 0x0003      ANDS     R0,R0,#0x3
+   1049              c_size = (c_size << 10) | (command.RESPONSE[1] >> 22);
+   \      0x144   0xF8DD 0xA018      LDR      R10,[SP, #+24]
+   \      0x148   0xEA5F 0x5A9A      LSRS     R10,R10,#+22
+   \      0x14C   0xEA5A 0x2A80      ORRS     R10,R10,R0, LSL #+10
+   1050              c_size_mult = (command.RESPONSE[1] >> 7) & 0x07;
+   \      0x150   0x9806             LDR      R0,[SP, #+24]
+   \      0x152   0xF3C0 0x10C2      UBFX     R0,R0,#+7,#+3
+   \      0x156   0x0006             MOVS     R6,R0
+   1051              sdcard_ptr->NUM_BLOCKS = (c_size + 1) * (1 << (c_size_mult + 2)) * (1 << (read_bl_len - 9));
+   \      0x158   0x2101             MOVS     R1,#+1
+   \      0x15A   0xF11A 0x0201      ADDS     R2,R10,#+1
+   \      0x15E   0x1CB0             ADDS     R0,R6,#+2
+   \      0x160   0xFA11 0xF000      LSLS     R0,R1,R0
+   \      0x164   0x4342             MULS     R2,R0,R2
+   \      0x166   0x0038             MOVS     R0,R7
+   \      0x168   0x3809             SUBS     R0,R0,#+9
+   \      0x16A   0x4081             LSLS     R1,R1,R0
+   \      0x16C   0xFB01 0xF102      MUL      R1,R1,R2
+   \      0x170   0xF8D9 0x0000      LDR      R0,[R9, #+0]
+   \      0x174   0x6041             STR      R1,[R0, #+4]
+   \      0x176   0xE00C             B.N      ??LPLD_SDHC_InitCard_15
+   1052            }
+   1053            else
+   1054            {
+   1055              sdcard_ptr->VERSION2 = TRUE;
+   \                     ??LPLD_SDHC_InitCard_14: (+1)
+   \      0x178   0x2001             MOVS     R0,#+1
+   \      0x17A   0xF8D9 0x1000      LDR      R1,[R9, #+0]
+   \      0x17E   0x7248             STRB     R0,[R1, #+9]
+   1056              c_size = (command.RESPONSE[1] >> 8) & 0x003FFFFF;
+   \      0x180   0x9806             LDR      R0,[SP, #+24]
+   \      0x182   0xF3C0 0x2A15      UBFX     R10,R0,#+8,#+22
+   1057              sdcard_ptr->NUM_BLOCKS = (c_size + 1) << 10;
+   \      0x186   0xF11A 0x0001      ADDS     R0,R10,#+1
+   \      0x18A   0x0280             LSLS     R0,R0,#+10
+   \      0x18C   0xF8D9 0x1000      LDR      R1,[R9, #+0]
+   \      0x190   0x6048             STR      R0,[R1, #+4]
+   1058            }
+   1059            
+   1060            //设置正常工作波特率为40MHz
+   1061            //param = 40000000;    
+   1062            param = 25000000;      
+   \                     ??LPLD_SDHC_InitCard_15: (+1)
+   \      0x192   0x....             LDR.N    R0,??DataTable11_5  ;; 0x17d7840
+   \      0x194   0x9000             STR      R0,[SP, #+0]
+   1063            if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SET_BAUDRATE, &param)))
+   \      0x196   0x4669             MOV      R1,SP
+   \      0x198   0x2005             MOVS     R0,#+5
+   \      0x19A   0x....'....        BL       LPLD_SDHC_IOC
+   \      0x19E   0x0004             MOVS     R4,R0
+   \      0x1A0   0x2C00             CMP      R4,#+0
+   \      0x1A2   0xD001             BEQ.N    ??LPLD_SDHC_InitCard_16
+   1064            {
+   1065              return result;
+   \      0x1A4   0x0020             MOVS     R0,R4
+   \      0x1A6   0xE04C             B.N      ??LPLD_SDHC_InitCard_10
+   1066            }
+   1067            
+   1068            //选择卡
+   1069            command.COMMAND = ESDHC_CMD7;
+   \                     ??LPLD_SDHC_InitCard_16: (+1)
+   \      0x1A8   0x....             LDR.N    R0,??DataTable11_10  ;; 0x71b0000
+   \      0x1AA   0x9001             STR      R0,[SP, #+4]
+   1070            command.ARGUMENT = sdcard_ptr->ADDRESS;
+   \      0x1AC   0xF8D9 0x0000      LDR      R0,[R9, #+0]
+   \      0x1B0   0x68C0             LDR      R0,[R0, #+12]
+   \      0x1B2   0x9002             STR      R0,[SP, #+8]
+   1071            command.BLOCKS = 0;
+   \      0x1B4   0x2000             MOVS     R0,#+0
+   \      0x1B6   0x9003             STR      R0,[SP, #+12]
+   1072            if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \      0x1B8   0xA901             ADD      R1,SP,#+4
+   \      0x1BA   0x2002             MOVS     R0,#+2
+   \      0x1BC   0x....'....        BL       LPLD_SDHC_IOC
+   \      0x1C0   0x0005             MOVS     R5,R0
+   \      0x1C2   0x2D00             CMP      R5,#+0
+   \      0x1C4   0xD001             BEQ.N    ??LPLD_SDHC_InitCard_17
+   1073            {
+   1074              return result;
+   \      0x1C6   0x0028             MOVS     R0,R5
+   \      0x1C8   0xE03B             B.N      ??LPLD_SDHC_InitCard_10
+   1075            }
+   1076            
+   1077            //设置块大小为512字节
+   1078            command.COMMAND = ESDHC_CMD16;
+   \                     ??LPLD_SDHC_InitCard_17: (+1)
+   \      0x1CA   0x....             LDR.N    R0,??DataTable11_11  ;; 0x101a0000
+   \      0x1CC   0x9001             STR      R0,[SP, #+4]
+   1079            command.ARGUMENT = IO_SDCARD_BLOCK_SIZE;
+   \      0x1CE   0xF44F 0x7000      MOV      R0,#+512
+   \      0x1D2   0x9002             STR      R0,[SP, #+8]
+   1080            command.BLOCKS = 0;
+   \      0x1D4   0x2000             MOVS     R0,#+0
+   \      0x1D6   0x9003             STR      R0,[SP, #+12]
+   1081            if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \      0x1D8   0xA901             ADD      R1,SP,#+4
+   \      0x1DA   0x2002             MOVS     R0,#+2
+   \      0x1DC   0x....'....        BL       LPLD_SDHC_IOC
+   \      0x1E0   0x0004             MOVS     R4,R0
+   \      0x1E2   0x2C00             CMP      R4,#+0
+   \      0x1E4   0xD001             BEQ.N    ??LPLD_SDHC_InitCard_18
+   1082            {
+   1083              return result;
+   \      0x1E6   0x0020             MOVS     R0,R4
+   \      0x1E8   0xE02B             B.N      ??LPLD_SDHC_InitCard_10
+   1084            }
+   1085            
+   1086            if (ESDHC_BUS_WIDTH_4BIT == ESDHC_BUS_WIDTH_4BIT)
+   1087            {
+   1088              //特殊应用命令
+   1089              command.COMMAND = ESDHC_CMD55;
+   \                     ??LPLD_SDHC_InitCard_18: (+1)
+   \      0x1EA   0x....             LDR.N    R0,??DataTable11_1  ;; 0x371a0000
+   \      0x1EC   0x9001             STR      R0,[SP, #+4]
+   1090              command.ARGUMENT = sdcard_ptr->ADDRESS;
+   \      0x1EE   0xF8D9 0x0000      LDR      R0,[R9, #+0]
+   \      0x1F2   0x68C0             LDR      R0,[R0, #+12]
+   \      0x1F4   0x9002             STR      R0,[SP, #+8]
+   1091              command.BLOCKS = 0;
+   \      0x1F6   0x2000             MOVS     R0,#+0
+   \      0x1F8   0x9003             STR      R0,[SP, #+12]
+   1092              if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \      0x1FA   0xA901             ADD      R1,SP,#+4
+   \      0x1FC   0x2002             MOVS     R0,#+2
+   \      0x1FE   0x....'....        BL       LPLD_SDHC_IOC
+   \      0x202   0x0005             MOVS     R5,R0
+   \      0x204   0x2D00             CMP      R5,#+0
+   \      0x206   0xD001             BEQ.N    ??LPLD_SDHC_InitCard_19
+   1093              {
+   1094                return result;
+   \      0x208   0x0028             MOVS     R0,R5
+   \      0x20A   0xE01A             B.N      ??LPLD_SDHC_InitCard_10
+   1095              }
+   1096              
+   1097              //设置总线宽度为4bit
+   1098              command.COMMAND = ESDHC_ACMD6;
+   \                     ??LPLD_SDHC_InitCard_19: (+1)
+   \      0x20C   0x....             LDR.N    R0,??DataTable11_12  ;; 0x61a0000
+   \      0x20E   0x9001             STR      R0,[SP, #+4]
+   1099              command.ARGUMENT = 2;
+   \      0x210   0x2002             MOVS     R0,#+2
+   \      0x212   0x9002             STR      R0,[SP, #+8]
+   1100              command.BLOCKS = 0;
+   \      0x214   0x2000             MOVS     R0,#+0
+   \      0x216   0x9003             STR      R0,[SP, #+12]
+   1101              if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \      0x218   0xA901             ADD      R1,SP,#+4
+   \      0x21A   0x2002             MOVS     R0,#+2
+   \      0x21C   0x....'....        BL       LPLD_SDHC_IOC
+   \      0x220   0x0004             MOVS     R4,R0
+   \      0x222   0x2C00             CMP      R4,#+0
+   \      0x224   0xD001             BEQ.N    ??LPLD_SDHC_InitCard_20
+   1102              {
+   1103                return result;
+   \      0x226   0x0020             MOVS     R0,R4
+   \      0x228   0xE00B             B.N      ??LPLD_SDHC_InitCard_10
+   1104              }
+   1105              
+   1106              param = ESDHC_BUS_WIDTH_4BIT;
+   \                     ??LPLD_SDHC_InitCard_20: (+1)
+   \      0x22A   0x2001             MOVS     R0,#+1
+   \      0x22C   0x9000             STR      R0,[SP, #+0]
+   1107              if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SET_BUS_WIDTH, &param)))
+   \      0x22E   0x4669             MOV      R1,SP
+   \      0x230   0x2007             MOVS     R0,#+7
+   \      0x232   0x....'....        BL       LPLD_SDHC_IOC
+   \      0x236   0x0001             MOVS     R1,R0
+   \      0x238   0x2900             CMP      R1,#+0
+   \      0x23A   0xD001             BEQ.N    ??LPLD_SDHC_InitCard_21
+   1108              {
+   1109                return result;
+   \      0x23C   0x0008             MOVS     R0,R1
+   \      0x23E   0xE000             B.N      ??LPLD_SDHC_InitCard_10
+   1110              }
+   1111            }
+   1112            
+   1113            return SDHCRES_OK;
+   \                     ??LPLD_SDHC_InitCard_21: (+1)
+   \      0x240   0x2000             MOVS     R0,#+0
+   \                     ??LPLD_SDHC_InitCard_10: (+1)
+   \      0x242   0xB00A             ADD      SP,SP,#+40
+   \      0x244   0xE8BD 0x87F0      POP      {R4-R10,PC}      ;; return
+   1114          }
+   1115          
+   1116          
+   1117          /*
+   1118           * LPLD_SDHC_ReadBlocks
+   1119           * 读指定扇区指定长度的块
+   1120           * 
+   1121           * 参数:
+   1122           *    buff--存储读出数据的地址指针
+   1123           *    sector--开始的扇区号
+   1124           *    count--读出的扇区数（块数）
+   1125           *
+   1126           * 输出:
+   1127           *    SDHCRES--磁盘功能返回值
+   1128           */
+
+   \                                 In section .text, align 2, keep-with-next
+   1129          SDHCRES LPLD_SDHC_ReadBlocks(uint8 *buff, uint32 sector, uint32 count)
+   1130          {
+   \                     LPLD_SDHC_ReadBlocks: (+1)
+   \        0x0   0xE92D 0x41F0      PUSH     {R4-R8,LR}
+   \        0x4   0xB088             SUB      SP,SP,#+32
+   \        0x6   0x0005             MOVS     R5,R0
+   \        0x8   0x000F             MOVS     R7,R1
+   \        0xA   0x0016             MOVS     R6,R2
+   1131            ESDHC_COMMAND_STRUCT command;
+   1132            int cnt;
+   1133            int32 result;
+   1134            
+   1135            //SD卡数据地址调节
+   1136            if (! sdcard_ptr->HC)
+   \        0xC   0x....             LDR.N    R0,??DataTable11_13
+   \        0xE   0x6800             LDR      R0,[R0, #+0]
+   \       0x10   0x7A00             LDRB     R0,[R0, #+8]
+   \       0x12   0x2800             CMP      R0,#+0
+   \       0x14   0xD100             BNE.N    ??LPLD_SDHC_ReadBlocks_0
+   1137            {
+   1138              sector <<= IO_SDCARD_BLOCK_SIZE_POWER;
+   \       0x16   0x027F             LSLS     R7,R7,#+9
+   1139            }
+   1140            
+   1141            //设置读块命令
+   1142            if (count > 1)
+   \                     ??LPLD_SDHC_ReadBlocks_0: (+1)
+   \       0x18   0x2E02             CMP      R6,#+2
+   \       0x1A   0xD302             BCC.N    ??LPLD_SDHC_ReadBlocks_1
+   1143            {
+   1144              command.COMMAND = ESDHC_CMD18;
+   \       0x1C   0x....             LDR.N    R0,??DataTable11_14  ;; 0x121a0034
+   \       0x1E   0x9000             STR      R0,[SP, #+0]
+   \       0x20   0xE001             B.N      ??LPLD_SDHC_ReadBlocks_2
+   1145            }   
+   1146            else
+   1147            {
+   1148              command.COMMAND = ESDHC_CMD17;
+   \                     ??LPLD_SDHC_ReadBlocks_1: (+1)
+   \       0x22   0x....             LDR.N    R0,??DataTable11_15  ;; 0x111a0010
+   \       0x24   0x9000             STR      R0,[SP, #+0]
+   1149            }
+   1150            
+   1151            command.ARGUMENT = sector;
+   \                     ??LPLD_SDHC_ReadBlocks_2: (+1)
+   \       0x26   0x9701             STR      R7,[SP, #+4]
+   1152            command.BLOCKS = count;
+   \       0x28   0x9602             STR      R6,[SP, #+8]
+   1153            command.BLOCKSIZE = IO_SDCARD_BLOCK_SIZE;
+   \       0x2A   0xF44F 0x7000      MOV      R0,#+512
+   \       0x2E   0x9003             STR      R0,[SP, #+12]
+   1154            if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \       0x30   0x4669             MOV      R1,SP
+   \       0x32   0x2002             MOVS     R0,#+2
+   \       0x34   0x....'....        BL       LPLD_SDHC_IOC
+   \       0x38   0x0004             MOVS     R4,R0
+   \       0x3A   0x2C00             CMP      R4,#+0
+   \       0x3C   0xD002             BEQ.N    ??LPLD_SDHC_ReadBlocks_3
+   1155            {
+   1156              return (SDHCRES)result;
+   \       0x3E   0x0020             MOVS     R0,R4
+   \       0x40   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x42   0xE01D             B.N      ??LPLD_SDHC_ReadBlocks_4
+   1157            }
+   1158            
+   1159            //读取数据
+   1160            for (cnt = 0; cnt < count; cnt++)
+   \                     ??LPLD_SDHC_ReadBlocks_3: (+1)
+   \       0x44   0xF05F 0x0800      MOVS     R8,#+0
+   \                     ??LPLD_SDHC_ReadBlocks_5: (+1)
+   \       0x48   0x45B0             CMP      R8,R6
+   \       0x4A   0xD210             BCS.N    ??LPLD_SDHC_ReadBlocks_6
+   1161            {
+   1162              if (IO_SDCARD_BLOCK_SIZE != (result=LPLD_SDHC_Read(buff,IO_SDCARD_BLOCK_SIZE)))
+   \       0x4C   0xF44F 0x7100      MOV      R1,#+512
+   \       0x50   0x0028             MOVS     R0,R5
+   \       0x52   0x....'....        BL       LPLD_SDHC_Read
+   \       0x56   0x0004             MOVS     R4,R0
+   \       0x58   0xF5B0 0x7F00      CMP      R0,#+512
+   \       0x5C   0xD002             BEQ.N    ??LPLD_SDHC_ReadBlocks_7
+   1163              {
+   1164                return (SDHCRES)result;
+   \       0x5E   0x0020             MOVS     R0,R4
+   \       0x60   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x62   0xE00D             B.N      ??LPLD_SDHC_ReadBlocks_4
+   1165              }
+   1166              buff += IO_SDCARD_BLOCK_SIZE;
+   \                     ??LPLD_SDHC_ReadBlocks_7: (+1)
+   \       0x64   0xF515 0x7500      ADDS     R5,R5,#+512
+   1167            }
+   \       0x68   0xF118 0x0801      ADDS     R8,R8,#+1
+   \       0x6C   0xE7EC             B.N      ??LPLD_SDHC_ReadBlocks_5
+   1168            
+   1169            //等待传输结束
+   1170            if (SDHCRES_OK !=(result=LPLD_SDHC_IOC (IO_IOCTL_FLUSH_OUTPUT, NULL)))
+   \                     ??LPLD_SDHC_ReadBlocks_6: (+1)
+   \       0x6E   0x2100             MOVS     R1,#+0
+   \       0x70   0x2093             MOVS     R0,#+147
+   \       0x72   0x....'....        BL       LPLD_SDHC_IOC
+   \       0x76   0x2800             CMP      R0,#+0
+   \       0x78   0xD001             BEQ.N    ??LPLD_SDHC_ReadBlocks_8
+   1171            {
+   1172              return (SDHCRES)result;
+   \       0x7A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x7C   0xE000             B.N      ??LPLD_SDHC_ReadBlocks_4
+   1173            }
+   1174            
+   1175            return (SDHCRES)result;
+   \                     ??LPLD_SDHC_ReadBlocks_8: (+1)
+   \       0x7E   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \                     ??LPLD_SDHC_ReadBlocks_4: (+1)
+   \       0x80   0xB008             ADD      SP,SP,#+32
+   \       0x82   0xE8BD 0x81F0      POP      {R4-R8,PC}       ;; return
+   1176          }
+   1177          
+   1178          
+   1179          /*
+   1180           * LPLD_SDHC_WriteBlocks
+   1181           * 在指定扇区写入指定长度块数数据
+   1182           * 
+   1183           * 参数:
+   1184           *    buff--存储待写入数据的地址指针
+   1185           *    sector--开始的扇区号
+   1186           *    count--写入的扇区数（块数）
+   1187           *
+   1188           * 输出:
+   1189           *    SDHCRES--磁盘功能返回值
+   1190           */
+
+   \                                 In section .text, align 2, keep-with-next
+   1191          SDHCRES LPLD_SDHC_WriteBlocks(uint8* buff, uint32 sector, uint32 count)
+   1192          {
+   \                     LPLD_SDHC_WriteBlocks: (+1)
+   \        0x0   0xE92D 0x47F8      PUSH     {R3-R10,LR}
+   \        0x4   0xB089             SUB      SP,SP,#+36
+   \        0x6   0x0006             MOVS     R6,R0
+   \        0x8   0x4688             MOV      R8,R1
+   \        0xA   0x0017             MOVS     R7,R2
+   1193              ESDHC_COMMAND_STRUCT command;
+   1194              uint8               tmp[4];
+   1195              int32             cnt;
+   1196                int32 result;
+   1197              
+   1198           
+   1199              //SD卡数据地址调节
+   1200              if (! sdcard_ptr->HC)
+   \        0xC   0x....'....        LDR.W    R10,??DataTable11_13
+   \       0x10   0xF8DA 0x0000      LDR      R0,[R10, #+0]
+   \       0x14   0x7A00             LDRB     R0,[R0, #+8]
+   \       0x16   0x2800             CMP      R0,#+0
+   \       0x18   0xD101             BNE.N    ??LPLD_SDHC_WriteBlocks_0
+   1201              {
+   1202                  sector <<= IO_SDCARD_BLOCK_SIZE_POWER;
+   \       0x1A   0xEA5F 0x2848      LSLS     R8,R8,#+9
+   1203              }
+   1204          
+   1205              //设置写块命令
+   1206              if (count > 1)
+   \                     ??LPLD_SDHC_WriteBlocks_0: (+1)
+   \       0x1E   0x2F02             CMP      R7,#+2
+   \       0x20   0xD302             BCC.N    ??LPLD_SDHC_WriteBlocks_1
+   1207              {
+   1208                  command.COMMAND = ESDHC_CMD25;
+   \       0x22   0x....             LDR.N    R0,??DataTable11_16  ;; 0x191a0024
+   \       0x24   0x9001             STR      R0,[SP, #+4]
+   \       0x26   0xE001             B.N      ??LPLD_SDHC_WriteBlocks_2
+   1209              }
+   1210              else
+   1211              {
+   1212                  command.COMMAND = ESDHC_CMD24;
+   \                     ??LPLD_SDHC_WriteBlocks_1: (+1)
+   \       0x28   0x....             LDR.N    R0,??DataTable11_17  ;; 0x181a0000
+   \       0x2A   0x9001             STR      R0,[SP, #+4]
+   1213              }
+   1214          
+   1215              command.ARGUMENT = sector;
+   \                     ??LPLD_SDHC_WriteBlocks_2: (+1)
+   \       0x2C   0xF8CD 0x8008      STR      R8,[SP, #+8]
+   1216              command.BLOCKS = count;
+   \       0x30   0x9703             STR      R7,[SP, #+12]
+   1217              command.BLOCKSIZE = IO_SDCARD_BLOCK_SIZE;
+   \       0x32   0xF44F 0x7000      MOV      R0,#+512
+   \       0x36   0x9004             STR      R0,[SP, #+16]
+   1218              if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \       0x38   0xA901             ADD      R1,SP,#+4
+   \       0x3A   0x2002             MOVS     R0,#+2
+   \       0x3C   0x....'....        BL       LPLD_SDHC_IOC
+   \       0x40   0x0005             MOVS     R5,R0
+   \       0x42   0x2D00             CMP      R5,#+0
+   \       0x44   0xD002             BEQ.N    ??LPLD_SDHC_WriteBlocks_3
+   1219              {
+   1220                  return (SDHCRES)result;
+   \       0x46   0x0028             MOVS     R0,R5
+   \       0x48   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x4A   0xE08D             B.N      ??LPLD_SDHC_WriteBlocks_4
+   1221              }
+   1222              
+   1223              //写数据
+   1224              for (cnt = 0; cnt < count; cnt++)
+   \                     ??LPLD_SDHC_WriteBlocks_3: (+1)
+   \       0x4C   0xF05F 0x0900      MOVS     R9,#+0
+   \                     ??LPLD_SDHC_WriteBlocks_5: (+1)
+   \       0x50   0x45B9             CMP      R9,R7
+   \       0x52   0xD210             BCS.N    ??LPLD_SDHC_WriteBlocks_6
+   1225              {
+   1226                  if (IO_SDCARD_BLOCK_SIZE != (result=LPLD_SDHC_Write (buff, IO_SDCARD_BLOCK_SIZE)))
+   \       0x54   0xF44F 0x7100      MOV      R1,#+512
+   \       0x58   0x0030             MOVS     R0,R6
+   \       0x5A   0x....'....        BL       LPLD_SDHC_Write
+   \       0x5E   0x0005             MOVS     R5,R0
+   \       0x60   0xF5B0 0x7F00      CMP      R0,#+512
+   \       0x64   0xD002             BEQ.N    ??LPLD_SDHC_WriteBlocks_7
+   1227                  {
+   1228                      return (SDHCRES)result;
+   \       0x66   0x0028             MOVS     R0,R5
+   \       0x68   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x6A   0xE07D             B.N      ??LPLD_SDHC_WriteBlocks_4
+   1229                  }
+   1230                  buff += IO_SDCARD_BLOCK_SIZE;
+   \                     ??LPLD_SDHC_WriteBlocks_7: (+1)
+   \       0x6C   0xF516 0x7600      ADDS     R6,R6,#+512
+   1231              }
+   \       0x70   0xF119 0x0901      ADDS     R9,R9,#+1
+   \       0x74   0xE7EC             B.N      ??LPLD_SDHC_WriteBlocks_5
+   1232          
+   1233              //等待传输结束
+   1234              if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_FLUSH_OUTPUT, NULL)))
+   \                     ??LPLD_SDHC_WriteBlocks_6: (+1)
+   \       0x76   0x2100             MOVS     R1,#+0
+   \       0x78   0x2093             MOVS     R0,#+147
+   \       0x7A   0x....'....        BL       LPLD_SDHC_IOC
+   \       0x7E   0x0004             MOVS     R4,R0
+   \       0x80   0x2C00             CMP      R4,#+0
+   \       0x82   0xD002             BEQ.N    ??LPLD_SDHC_WriteBlocks_8
+   1235              {
+   1236                  return (SDHCRES)result;
+   \       0x84   0x0020             MOVS     R0,R4
+   \       0x86   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x88   0xE06E             B.N      ??LPLD_SDHC_WriteBlocks_4
+   1237              }
+   1238          
+   1239              //等待卡准备好/传输状态
+   1240              do
+   1241              {
+   1242                  command.COMMAND = ESDHC_CMD13;
+   \                     ??LPLD_SDHC_WriteBlocks_8: (+1)
+   \       0x8A   0x....             LDR.N    R0,??DataTable11_18  ;; 0xd1a0000
+   \       0x8C   0x9001             STR      R0,[SP, #+4]
+   1243                  command.ARGUMENT = sdcard_ptr->ADDRESS;
+   \       0x8E   0xF8DA 0x0000      LDR      R0,[R10, #+0]
+   \       0x92   0x68C0             LDR      R0,[R0, #+12]
+   \       0x94   0x9002             STR      R0,[SP, #+8]
+   1244                  command.BLOCKS = 0;
+   \       0x96   0x2000             MOVS     R0,#+0
+   \       0x98   0x9003             STR      R0,[SP, #+12]
+   1245                  if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \       0x9A   0xA901             ADD      R1,SP,#+4
+   \       0x9C   0x2002             MOVS     R0,#+2
+   \       0x9E   0x....'....        BL       LPLD_SDHC_IOC
+   \       0xA2   0x0004             MOVS     R4,R0
+   \       0xA4   0x2C00             CMP      R4,#+0
+   \       0xA6   0xD002             BEQ.N    ??LPLD_SDHC_WriteBlocks_9
+   1246                  {
+   1247                      return (SDHCRES)result;
+   \       0xA8   0x0020             MOVS     R0,R4
+   \       0xAA   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0xAC   0xE05C             B.N      ??LPLD_SDHC_WriteBlocks_4
+   1248                  }
+   1249          
+   1250                  //卡状态错误检查
+   1251                  if (command.RESPONSE[0] & 0xFFD98008)
+   \                     ??LPLD_SDHC_WriteBlocks_9: (+1)
+   \       0xAE   0x9805             LDR      R0,[SP, #+20]
+   \       0xB0   0x....             LDR.N    R1,??DataTable11_19  ;; 0xffd98008
+   \       0xB2   0x4208             TST      R0,R1
+   \       0xB4   0xD002             BEQ.N    ??LPLD_SDHC_WriteBlocks_10
+   1252                  {
+   1253                      count = 0; /* necessary to get real number of written blocks */
+   \       0xB6   0x2000             MOVS     R0,#+0
+   \       0xB8   0x0007             MOVS     R7,R0
+   1254                      break;
+   \       0xBA   0xE005             B.N      ??LPLD_SDHC_WriteBlocks_11
+   1255                  }
+   1256          
+   1257              } while (0x000000900 != (command.RESPONSE[0] & 0x00001F00));
+   \                     ??LPLD_SDHC_WriteBlocks_10: (+1)
+   \       0xBC   0x9805             LDR      R0,[SP, #+20]
+   \       0xBE   0xF410 0x50F8      ANDS     R0,R0,#0x1F00
+   \       0xC2   0xF5B0 0x6F10      CMP      R0,#+2304
+   \       0xC6   0xD1E0             BNE.N    ??LPLD_SDHC_WriteBlocks_8
+   1258          
+   1259              if (cnt != count)
+   \                     ??LPLD_SDHC_WriteBlocks_11: (+1)
+   \       0xC8   0x45B9             CMP      R9,R7
+   \       0xCA   0xD04C             BEQ.N    ??LPLD_SDHC_WriteBlocks_12
+   1260              {
+   1261                  //特殊应用命令
+   1262                  command.COMMAND = ESDHC_CMD55;
+   \       0xCC   0x....             LDR.N    R0,??DataTable11_1  ;; 0x371a0000
+   \       0xCE   0x9001             STR      R0,[SP, #+4]
+   1263                  command.ARGUMENT = sdcard_ptr->ADDRESS;
+   \       0xD0   0xF8DA 0x0000      LDR      R0,[R10, #+0]
+   \       0xD4   0x68C0             LDR      R0,[R0, #+12]
+   \       0xD6   0x9002             STR      R0,[SP, #+8]
+   1264                  command.BLOCKS = 0;
+   \       0xD8   0x2000             MOVS     R0,#+0
+   \       0xDA   0x9003             STR      R0,[SP, #+12]
+   1265                  if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \       0xDC   0xA901             ADD      R1,SP,#+4
+   \       0xDE   0x2002             MOVS     R0,#+2
+   \       0xE0   0x....'....        BL       LPLD_SDHC_IOC
+   \       0xE4   0x0005             MOVS     R5,R0
+   \       0xE6   0x2D00             CMP      R5,#+0
+   \       0xE8   0xD002             BEQ.N    ??LPLD_SDHC_WriteBlocks_13
+   1266                  {
+   1267                      return (SDHCRES)result;
+   \       0xEA   0x0028             MOVS     R0,R5
+   \       0xEC   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0xEE   0xE03B             B.N      ??LPLD_SDHC_WriteBlocks_4
+   1268                  }
+   1269                          
+   1270                  //使用ACMD22命令获得写入的块数量
+   1271                  command.COMMAND = ESDHC_ACMD22;
+   \                     ??LPLD_SDHC_WriteBlocks_13: (+1)
+   \       0xF0   0x....             LDR.N    R0,??DataTable11_20  ;; 0x161a0010
+   \       0xF2   0x9001             STR      R0,[SP, #+4]
+   1272                  command.ARGUMENT = 0;
+   \       0xF4   0x2000             MOVS     R0,#+0
+   \       0xF6   0x9002             STR      R0,[SP, #+8]
+   1273                  command.BLOCKS = 1;
+   \       0xF8   0x2001             MOVS     R0,#+1
+   \       0xFA   0x9003             STR      R0,[SP, #+12]
+   1274                  command.BLOCKSIZE = 4;
+   \       0xFC   0x2004             MOVS     R0,#+4
+   \       0xFE   0x9004             STR      R0,[SP, #+16]
+   1275                  if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_ESDHC_SEND_COMMAND, &command)))
+   \      0x100   0xA901             ADD      R1,SP,#+4
+   \      0x102   0x2002             MOVS     R0,#+2
+   \      0x104   0x....'....        BL       LPLD_SDHC_IOC
+   \      0x108   0x0004             MOVS     R4,R0
+   \      0x10A   0x2C00             CMP      R4,#+0
+   \      0x10C   0xD002             BEQ.N    ??LPLD_SDHC_WriteBlocks_14
+   1276                  {
+   1277                      return (SDHCRES)result;
+   \      0x10E   0x0020             MOVS     R0,R4
+   \      0x110   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x112   0xE029             B.N      ??LPLD_SDHC_WriteBlocks_4
+   1278                  }
+   1279                  
+   1280                  if (4 != (result=LPLD_SDHC_Read (tmp, 4)))
+   \                     ??LPLD_SDHC_WriteBlocks_14: (+1)
+   \      0x114   0x2104             MOVS     R1,#+4
+   \      0x116   0x4668             MOV      R0,SP
+   \      0x118   0x....'....        BL       LPLD_SDHC_Read
+   \      0x11C   0x0005             MOVS     R5,R0
+   \      0x11E   0x2804             CMP      R0,#+4
+   \      0x120   0xD002             BEQ.N    ??LPLD_SDHC_WriteBlocks_15
+   1281                  {
+   1282                      return (SDHCRES)result;
+   \      0x122   0x0028             MOVS     R0,R5
+   \      0x124   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x126   0xE01F             B.N      ??LPLD_SDHC_WriteBlocks_4
+   1283                      
+   1284                  }
+   1285          
+   1286                  if (SDHCRES_OK != (result=LPLD_SDHC_IOC (IO_IOCTL_FLUSH_OUTPUT, NULL)))
+   \                     ??LPLD_SDHC_WriteBlocks_15: (+1)
+   \      0x128   0x2100             MOVS     R1,#+0
+   \      0x12A   0x2093             MOVS     R0,#+147
+   \      0x12C   0x....'....        BL       LPLD_SDHC_IOC
+   \      0x130   0x0004             MOVS     R4,R0
+   \      0x132   0x2C00             CMP      R4,#+0
+   \      0x134   0xD002             BEQ.N    ??LPLD_SDHC_WriteBlocks_16
+   1287                  {
+   1288                      return (SDHCRES)result;
+   \      0x136   0x0020             MOVS     R0,R4
+   \      0x138   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \      0x13A   0xE015             B.N      ??LPLD_SDHC_WriteBlocks_4
+   1289                  }
+   1290          
+   1291                  count = (tmp[0] << 24) | (tmp[1] << 16) | (tmp[2] << 8) | tmp[3];
+   \                     ??LPLD_SDHC_WriteBlocks_16: (+1)
+   \      0x13C   0x4668             MOV      R0,SP
+   \      0x13E   0xF89D 0x1000      LDRB     R1,[SP, #+0]
+   \      0x142   0x7842             LDRB     R2,[R0, #+1]
+   \      0x144   0x0412             LSLS     R2,R2,#+16
+   \      0x146   0xEA52 0x6201      ORRS     R2,R2,R1, LSL #+24
+   \      0x14A   0x7880             LDRB     R0,[R0, #+2]
+   \      0x14C   0xEA52 0x2200      ORRS     R2,R2,R0, LSL #+8
+   \      0x150   0xF89D 0x0003      LDRB     R0,[SP, #+3]
+   \      0x154   0x4302             ORRS     R2,R0,R2
+   \      0x156   0x0017             MOVS     R7,R2
+   1292                  if ((cnt < 0) || (cnt > count))
+   \      0x158   0xF1B9 0x0F00      CMP      R9,#+0
+   \      0x15C   0xD401             BMI.N    ??LPLD_SDHC_WriteBlocks_17
+   \      0x15E   0x454F             CMP      R7,R9
+   \      0x160   0xD201             BCS.N    ??LPLD_SDHC_WriteBlocks_12
+   1293                      return SDHCRES_ERROR;
+   \                     ??LPLD_SDHC_WriteBlocks_17: (+1)
+   \      0x162   0x2001             MOVS     R0,#+1
+   \      0x164   0xE000             B.N      ??LPLD_SDHC_WriteBlocks_4
+   1294              }
+   1295              
+   1296              return SDHCRES_OK;
+   \                     ??LPLD_SDHC_WriteBlocks_12: (+1)
+   \      0x166   0x2000             MOVS     R0,#+0
+   \                     ??LPLD_SDHC_WriteBlocks_4: (+1)
+   \      0x168   0xB00A             ADD      SP,SP,#+40
+   \      0x16A   0xE8BD 0x87F0      POP      {R4-R10,PC}      ;; return
+   1297          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8:
+   \        0x0   0x4004'D000        DC32     0x4004d000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_1:
+   \        0x0   0x4004'D004        DC32     0x4004d004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_2:
+   \        0x0   0x4004'D008        DC32     0x4004d008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_3:
+   \        0x0   0x4004'D00C        DC32     0x4004d00c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_4:
+   \        0x0   0x4004'D010        DC32     0x4004d010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_5:
+   \        0x0   0x4004'D014        DC32     0x4004d014
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_6:
+   \        0x0   0x4004'8030        DC32     0x40048030
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_7:
+   \        0x0   0x400B'102C        DC32     0x400b102c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_8:
+   \        0x0   0x400B'1024        DC32     0x400b1024
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_9:
+   \        0x0   0x0100'8000        DC32     0x1008000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_10:
+   \        0x0   0x400B'10C0        DC32     0x400b10c0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_11:
+   \        0x0   0x400B'1004        DC32     0x400b1004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_12:
+   \        0x0   0x0001'0002        DC32     0x10002
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable8_13:
+   \        0x0   0x400B'1044        DC32     0x400b1044
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9:
+   \        0x0   0x400B'1030        DC32     0x400b1030
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_1:
+   \        0x0   0x....'....        DC32     sdcard_ptr
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_2:
+   \        0x0   0x400B'1028        DC32     0x400b1028
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable9_3:
+   \        0x0   0x007F'00B3        DC32     0x7f00b3
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10:
+   \        0x0   0x400B'1034        DC32     0x400b1034
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_1:
+   \        0x0   0x400B'1008        DC32     0x400b1008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_2:
+   \        0x0   0x400B'1000        DC32     0x400b1000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_3:
+   \        0x0   0x400B'100C        DC32     0x400b100c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_4:
+   \        0x0   0x000E'0001        DC32     0xe0001
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_5:
+   \        0x0   0x400B'1010        DC32     0x400b1010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_6:
+   \        0x0   0x400B'1014        DC32     0x400b1014
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_7:
+   \        0x0   0x400B'1018        DC32     0x400b1018
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_8:
+   \        0x0   0x400B'101C        DC32     0x400b101c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_9:
+   \        0x0   0x....'....        DC32     g_core_clock
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_10:
+   \        0x0   0x0006'1A80        DC32     0x61a80
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable10_11:
+   \        0x0   0x081A'0000        DC32     0x81a0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11:
+   \        0x0   0x0502'0000        DC32     0x5020000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_1:
+   \        0x0   0x371A'0000        DC32     0x371a0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_2:
+   \        0x0   0x4030'0000        DC32     0x40300000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_3:
+   \        0x0   0x2702'0000        DC32     0x27020000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_4:
+   \        0x0   0x2902'0000        DC32     0x29020000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_5:
+   \        0x0   0x017D'7840        DC32     0x17d7840
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_6:
+   \        0x0   0x400B'1020        DC32     0x400b1020
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_7:
+   \        0x0   0x0209'0000        DC32     0x2090000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_8:
+   \        0x0   0x031A'0000        DC32     0x31a0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_9:
+   \        0x0   0x0909'0000        DC32     0x9090000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_10:
+   \        0x0   0x071B'0000        DC32     0x71b0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_11:
+   \        0x0   0x101A'0000        DC32     0x101a0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_12:
+   \        0x0   0x061A'0000        DC32     0x61a0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_13:
+   \        0x0   0x....'....        DC32     sdcard_ptr
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_14:
+   \        0x0   0x121A'0034        DC32     0x121a0034
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_15:
+   \        0x0   0x111A'0010        DC32     0x111a0010
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_16:
+   \        0x0   0x191A'0024        DC32     0x191a0024
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_17:
+   \        0x0   0x181A'0000        DC32     0x181a0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_18:
+   \        0x0   0x0D1A'0000        DC32     0xd1a0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_19:
+   \        0x0   0xFFD9'8008        DC32     0xffd98008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable11_20:
+   \        0x0   0x161A'0010        DC32     0x161a0010
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      88   LPLD_SDHC_IOC
+        88   -> LPLD_SDHC_Init
+        88   -> LPLD_SDHC_InitGPIO
+        88   -> LPLD_SDHC_IsRunning
+        88   -> LPLD_SDHC_SendCommand
+        88   -> LPLD_SDHC_SetBaudrate
+        88   -> LPLD_SDHC_WaitStatus
+      32   LPLD_SDHC_Init
+        32   -> LPLD_SDHC_InitGPIO
+        32   -> LPLD_SDHC_SetBaudrate
+      72   LPLD_SDHC_InitCard
+        72   -> LPLD_SDHC_IOC
+        72   -> malloc
+       0   LPLD_SDHC_InitGPIO
+       0   LPLD_SDHC_IsRunning
+       8   LPLD_SDHC_Read
+      56   LPLD_SDHC_ReadBlocks
+        56   -> LPLD_SDHC_IOC
+        56   -> LPLD_SDHC_Read
+      24   LPLD_SDHC_SendCommand
+        24   -> LPLD_SDHC_WaitStatus
+      28   LPLD_SDHC_SetBaudrate
+       0   LPLD_SDHC_WaitStatus
+      16   LPLD_SDHC_Write
+      72   LPLD_SDHC_WriteBlocks
+        72   -> LPLD_SDHC_IOC
+        72   -> LPLD_SDHC_Read
+        72   -> LPLD_SDHC_Write
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable10
+       4  ??DataTable10_1
+       4  ??DataTable10_10
+       4  ??DataTable10_11
+       4  ??DataTable10_2
+       4  ??DataTable10_3
+       4  ??DataTable10_4
+       4  ??DataTable10_5
+       4  ??DataTable10_6
+       4  ??DataTable10_7
+       4  ??DataTable10_8
+       4  ??DataTable10_9
+       4  ??DataTable11
+       4  ??DataTable11_1
+       4  ??DataTable11_10
+       4  ??DataTable11_11
+       4  ??DataTable11_12
+       4  ??DataTable11_13
+       4  ??DataTable11_14
+       4  ??DataTable11_15
+       4  ??DataTable11_16
+       4  ??DataTable11_17
+       4  ??DataTable11_18
+       4  ??DataTable11_19
+       4  ??DataTable11_2
+       4  ??DataTable11_20
+       4  ??DataTable11_3
+       4  ??DataTable11_4
+       4  ??DataTable11_5
+       4  ??DataTable11_6
+       4  ??DataTable11_7
+       4  ??DataTable11_8
+       4  ??DataTable11_9
+       4  ??DataTable8
+       4  ??DataTable8_1
+       4  ??DataTable8_10
+       4  ??DataTable8_11
+       4  ??DataTable8_12
+       4  ??DataTable8_13
+       4  ??DataTable8_2
+       4  ??DataTable8_3
+       4  ??DataTable8_4
+       4  ??DataTable8_5
+       4  ??DataTable8_6
+       4  ??DataTable8_7
+       4  ??DataTable8_8
+       4  ??DataTable8_9
+       4  ??DataTable9
+       4  ??DataTable9_1
+       4  ??DataTable9_2
+       4  ??DataTable9_3
+    1468  LPLD_SDHC_IOC
+     176  LPLD_SDHC_Init
+     584  LPLD_SDHC_InitCard
+      76  LPLD_SDHC_InitGPIO
+      24  LPLD_SDHC_IsRunning
+     266  LPLD_SDHC_Read
+     134  LPLD_SDHC_ReadBlocks
+     272  LPLD_SDHC_SendCommand
+     170  LPLD_SDHC_SetBaudrate
+      18  LPLD_SDHC_WaitStatus
+     254  LPLD_SDHC_Write
+     366  LPLD_SDHC_WriteBlocks
+       4  sdcard_ptr
+
+ 
+     4 bytes in section .bss
+ 4 012 bytes in section .text
+ 
+ 4 012 bytes of CODE memory
+     4 bytes of DATA memory
+
+Errors: none
+Warnings: 1

@@ -1,0 +1,345 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         08/Jul/2019  00:40:59
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\xiugai\lib\common\McNamm_wheel_control.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW6CFC.tmp
+#        (G:\AIcar\@@\xiugai\lib\common\McNamm_wheel_control.c -D LPLD_K60
+#        -lCN
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -lB
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -o "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\" -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -On -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List\McNamm_wheel_control.lst
+#    Object file  =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj\McNamm_wheel_control.o
+#
+###############################################################################
+
+G:\AIcar\@@\xiugai\lib\common\McNamm_wheel_control.c
+      1          #include "McNamm_wheel_control.h"
+      2          #include "math.h"
+      3          #include "include.h"
+      4          
+
+   \                                 In section .data, align 4
+      5          int carspeed = 200;
+   \                     carspeed:
+   \        0x0   0x0000'00C8        DC32 200
+
+   \                                 In section .data, align 4
+      6          int XValue=160;  //150
+   \                     XValue:
+   \        0x0   0x0000'00A0        DC32 160
+
+   \                                 In section .bss, align 4
+      7          int YValue=0;  //
+   \                     YValue:
+   \        0x0                      DS8 4
+
+   \                                 In section .data, align 4
+      8          int ZValue=80;   //80
+   \                     ZValue:
+   \        0x0   0x0000'0050        DC32 80
+
+   \                                 In section .bss, align 4
+      9          int RValue=0;   //
+   \                     RValue:
+   \        0x0                      DS8 4
+
+   \                                 In section .data, align 4
+     10          float shuliang = 1.5f;//200-1.5   
+   \                     shuliang:
+   \        0x0   0x3FC0'0000        DC32 3FC00000H
+     11          //#define a_PARAMETER          (0.09f)               
+     12          //#define b_PARAMETER          (0.09f) 
+     13          
+
+   \                                 In section .text, align 2, keep-with-next
+     14          void McNamm_wheel_control(s16 Vx,s16 Vy,s16 Vz,s16 Vr)
+     15          {
+   \                     McNamm_wheel_control: (+1)
+   \        0x0   0xB430             PUSH     {R4,R5}
+     16              Left_front_goalspeed   = (int)(Vx-Vy-Vz);  //*(a_PARAMETER+b_PARAMETER)
+   \        0x2   0x0005             MOVS     R5,R0
+   \        0x4   0xB22D             SXTH     R5,R5            ;; SignExt  R5,R5,#+16,#+16
+   \        0x6   0x000C             MOVS     R4,R1
+   \        0x8   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \        0xA   0x1B2D             SUBS     R5,R5,R4
+   \        0xC   0x0014             MOVS     R4,R2
+   \        0xE   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \       0x10   0x1B2D             SUBS     R5,R5,R4
+   \       0x12   0x....             LDR.N    R4,??DataTable1
+   \       0x14   0x6025             STR      R5,[R4, #+0]
+     17              Left_rear_goalspeed    = (int)(Vx+Vy-Vz);  //zuohou*(a_PARAMETER+b_PARAMETER)
+   \       0x16   0x000C             MOVS     R4,R1
+   \       0x18   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \       0x1A   0xFA04 0xF580      SXTAH    R5,R4,R0
+   \       0x1E   0x0014             MOVS     R4,R2
+   \       0x20   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \       0x22   0x1B2D             SUBS     R5,R5,R4
+   \       0x24   0x....             LDR.N    R4,??DataTable1_1
+   \       0x26   0x6025             STR      R5,[R4, #+0]
+     18              Right_front_goalspeed  = (int)(Vx+Vy+Vz);//*(a_PARAMETER+b_PARAMETER)
+   \       0x28   0x000C             MOVS     R4,R1
+   \       0x2A   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \       0x2C   0xFA04 0xF480      SXTAH    R4,R4,R0
+   \       0x30   0xFA04 0xF482      SXTAH    R4,R4,R2
+   \       0x34   0x....             LDR.N    R5,??DataTable1_2
+   \       0x36   0x602C             STR      R4,[R5, #+0]
+     19              Right_rear_goalspeed   = (int)(Vx-Vy+Vz);//*(a_PARAMETER+b_PARAMETER)
+   \       0x38   0x0005             MOVS     R5,R0
+   \       0x3A   0xB22D             SXTH     R5,R5            ;; SignExt  R5,R5,#+16,#+16
+   \       0x3C   0x000C             MOVS     R4,R1
+   \       0x3E   0xB224             SXTH     R4,R4            ;; SignExt  R4,R4,#+16,#+16
+   \       0x40   0x1B2D             SUBS     R5,R5,R4
+   \       0x42   0xFA05 0xF482      SXTAH    R4,R5,R2
+   \       0x46   0x....             LDR.N    R5,??DataTable1_3
+   \       0x48   0x602C             STR      R4,[R5, #+0]
+     20          }
+   \       0x4A   0xBC30             POP      {R4,R5}
+   \       0x4C   0x4770             BX       LR               ;; return
+     21          
+     22          //void Speed_Conversion2() //²âÊÔÓÃ
+     23          //{
+     24          //  float coefficient = 0;
+     25          //  float vx=0,vy=0,vz = 0;
+     26          //  coefficient = (float)(basic_speed*basic_speed)/(coordinate_X*coordinate_X+coordinate_Y*coordinate_Y);
+     27          //  coefficient = (float)sqrt(coefficient);
+     28          //	
+     29          //  vx = coefficient*coordinate_X;
+     30          //  vy = coefficient*coordinate_Y;
+     31          //  vz = 1;
+     32          //  McNamm_wheel_control(vx,vy,vz);
+     33          //}
+     34          
+
+   \                                 In section .text, align 2, keep-with-next
+     35          void Speed_Conversion(u8 setspeedl,s16 setspeeds,s16 x,s16 y)//zhi,0,x,y
+     36          {
+   \                     Speed_Conversion: (+1)
+   \        0x0   0xE92D 0x4FF7      PUSH     {R0-R2,R4-R11,LR}
+   \        0x4   0x0004             MOVS     R4,R0
+   \        0x6   0x000D             MOVS     R5,R1
+   \        0x8   0x001E             MOVS     R6,R3
+     37              // biZhang();
+     38             s16 speedl,speeds,vx,vy,vz,vr;
+     39             speedl = (int)setspeedl;
+   \        0xA   0x0027             MOVS     R7,R4
+   \        0xC   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+     40             speeds = (int)setspeeds;
+   \        0xE   0xF8AD 0x5000      STRH     R5,[SP, #+0]
+     41             if(light_flag)
+   \       0x12   0x....             LDR.N    R0,??DataTable1_4
+   \       0x14   0x6800             LDR      R0,[R0, #+0]
+   \       0x16   0x2800             CMP      R0,#+0
+   \       0x18   0xD017             BEQ.N    ??Speed_Conversion_0
+     42             {
+     43               
+     44          //         if(bizhang_flag1 == 1||bizhang_flag1==3)
+     45          //       {
+     46          //         vx = carspeed;
+     47          //         vy =  (100+carspeed);
+     48          //         vz = 0;
+     49          //         vr = 0;
+     50          //       }
+     51          //        else if(bizhang_flag1 == 2)
+     52          //       {
+     53          //         vx = carspeed;
+     54          //         vy =  -(100+carspeed);
+     55          //         vz =0;
+     56          //         vr = 0;
+     57          //       }
+     58          //       else
+     59          //       {
+     60                   vx = carspeed;
+   \       0x1A   0x....             LDR.N    R0,??DataTable1_5
+   \       0x1C   0xF8D0 0x8000      LDR      R8,[R0, #+0]
+     61                   vy = 0;//shuliang*lun_Pid(y,speeds);  //0Õýor¸º
+   \       0x20   0xF05F 0x0900      MOVS     R9,#+0
+     62                   vz = shuliang*lun_Pid(speeds,y);
+   \       0x24   0x0031             MOVS     R1,R6
+   \       0x26   0xB209             SXTH     R1,R1            ;; SignExt  R1,R1,#+16,#+16
+   \       0x28   0xF9BD 0x0000      LDRSH    R0,[SP, #+0]
+   \       0x2C   0x....'....        BL       lun_Pid
+   \       0x30   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \       0x32   0x....'....        BL       __aeabi_i2f
+   \       0x36   0x....             LDR.N    R1,??DataTable1_6
+   \       0x38   0x6809             LDR      R1,[R1, #+0]
+   \       0x3A   0x....'....        BL       __aeabi_fmul
+   \       0x3E   0x....'....        BL       __aeabi_f2iz
+   \       0x42   0x4682             MOV      R10,R0
+     63                   vr = 0;
+   \       0x44   0xF05F 0x0B00      MOVS     R11,#+0
+   \       0x48   0xE00B             B.N      ??Speed_Conversion_1
+     64                 //}
+     65          //     P3=3000;
+     66          //     P4=3000;
+     67             }
+     68             else 
+     69             {
+     70               vx = XValue;    //80 -20 -40 -20
+   \                     ??Speed_Conversion_0: (+1)
+   \       0x4A   0x....             LDR.N    R0,??DataTable1_7
+   \       0x4C   0xF8D0 0x8000      LDR      R8,[R0, #+0]
+     71               vy = YValue;    
+   \       0x50   0x....             LDR.N    R0,??DataTable1_8
+   \       0x52   0xF8D0 0x9000      LDR      R9,[R0, #+0]
+     72               vz = ZValue;
+   \       0x56   0x....             LDR.N    R0,??DataTable1_9
+   \       0x58   0xF8D0 0xA000      LDR      R10,[R0, #+0]
+     73               vr = RValue;
+   \       0x5C   0x....             LDR.N    R0,??DataTable1_10
+   \       0x5E   0xF8D0 0xB000      LDR      R11,[R0, #+0]
+     74          //     P3=60;
+     75          //     P4=140;
+     76             }
+     77          
+     78          
+     79            McNamm_wheel_control(vx,vy,vz,vr);
+   \                     ??Speed_Conversion_1: (+1)
+   \       0x62   0x465B             MOV      R3,R11
+   \       0x64   0xB21B             SXTH     R3,R3            ;; SignExt  R3,R3,#+16,#+16
+   \       0x66   0x4652             MOV      R2,R10
+   \       0x68   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \       0x6A   0x4649             MOV      R1,R9
+   \       0x6C   0xB209             SXTH     R1,R1            ;; SignExt  R1,R1,#+16,#+16
+   \       0x6E   0x4640             MOV      R0,R8
+   \       0x70   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \       0x72   0x....'....        BL       McNamm_wheel_control
+     80          }
+   \       0x76   0xE8BD 0x8FF7      POP      {R0-R2,R4-R11,PC}  ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \        0x0   0x....'....        DC32     Left_front_goalspeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \        0x0   0x....'....        DC32     Left_rear_goalspeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \        0x0   0x....'....        DC32     Right_front_goalspeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \        0x0   0x....'....        DC32     Right_rear_goalspeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_4:
+   \        0x0   0x....'....        DC32     light_flag
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_5:
+   \        0x0   0x....'....        DC32     carspeed
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_6:
+   \        0x0   0x....'....        DC32     shuliang
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_7:
+   \        0x0   0x....'....        DC32     XValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_8:
+   \        0x0   0x....'....        DC32     YValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_9:
+   \        0x0   0x....'....        DC32     ZValue
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_10:
+   \        0x0   0x....'....        DC32     RValue
+     81          
+     82          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   McNamm_wheel_control
+      48   Speed_Conversion
+        48   -> McNamm_wheel_control
+        48   -> __aeabi_f2iz
+        48   -> __aeabi_fmul
+        48   -> __aeabi_i2f
+        48   -> lun_Pid
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_10
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       4  ??DataTable1_5
+       4  ??DataTable1_6
+       4  ??DataTable1_7
+       4  ??DataTable1_8
+       4  ??DataTable1_9
+      78  McNamm_wheel_control
+       4  RValue
+     122  Speed_Conversion
+       4  XValue
+       4  YValue
+       4  ZValue
+       4  carspeed
+       4  shuliang
+
+ 
+   8 bytes in section .bss
+  16 bytes in section .data
+ 244 bytes in section .text
+ 
+ 244 bytes of CODE memory
+  24 bytes of DATA memory
+
+Errors: none
+Warnings: 3

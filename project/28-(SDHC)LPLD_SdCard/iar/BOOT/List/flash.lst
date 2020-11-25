@@ -1,0 +1,837 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         23/Apr/2019  21:09:43
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\k60_144\smartcar\lib\Jay\flash.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW2B0A.tmp
+#        (G:\AIcar\@@\k60_144\smartcar\lib\Jay\flash.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -lB
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List"
+#        -o
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\List\flash.lst
+#    Object file  =  
+#        G:\AIcar\@@\k60_144\smartcar\project\28-(SDHC)LPLD_SdCard\iar\BOOT\Obj\flash.o
+#
+###############################################################################
+
+G:\AIcar\@@\k60_144\smartcar\lib\Jay\flash.c
+      1          /*
+      2           *  
+      3           *  
+      4           *  @JayLin林杰 @厦门大学嘉庚学院 @博学队
+      5           */
+      6          #include  "common.h"
+      7          #include "include.h"
+      8          
+      9          //Flash命令宏定义，内部使用
+     10          #define   RD1BLK    0x00   // 读整块Flash
+     11          #define   RD1SEC    0x01   // 读整个扇区
+     12          #define   PGMCHK    0x02   // 写入检查
+     13          #define   RDRSRC    0x03   // 读目标数据
+     14          #define   PGM4      0x06   // 写入长字
+     15          #define   ERSBLK    0x08   // 擦除整块Flash
+     16          #define   ERSSCR    0x09   // 擦除Flash扇区
+     17          #define   PGMSEC    0x0B   // 写入扇区
+     18          #define   RD1ALL    0x40   // 读所有的块
+     19          #define   RDONCE    0x41   // 只读一次
+     20          #define   PGMONCE   0x43   // 只写一次
+     21          #define   ERSALL    0x44   // 擦除所有块
+     22          #define   VFYKEY    0x45   // 验证后门访问钥匙
+     23          #define   PGMPART   0x80   // 写入分区
+     24          #define   SETRAM    0x81   // 设定FlexRAM功能
+     25          
+     26          
+     27          //=================内部函数实现=============================================
+     28          
+     29          //==========================================================================
+     30          //函数名称：flash_cmd_launch
+     31          //函数返回：0-成功 1-失败
+     32          //参数说明：无
+     33          //功能概要：启动Flash命令
+     34          //==========================================================================
+
+   \                                 In section .textrw, align 2, keep-with-next
+     35          __RAMFUN static uint32 flash_cmd_launch(void)
+     36          {
+     37              
+     38              FTFL->FSTAT = 	(0
+     39          				  	|	FTFL_FSTAT_CCIF_MASK 		// 启动命令
+     40          					|	FTFL_FSTAT_ACCERR_MASK 		// 清除访问错误标志位
+     41          					| 	FTFL_FSTAT_FPVIOL_MASK		// 非法访问标志位
+     42          					);	
+   \                     flash_cmd_launch: (+1)
+   \        0x0   0x....             LDR.N    R0,??DataTable4  ;; 0x40020000
+   \        0x2   0x21B0             MOVS     R1,#+176
+   \        0x4   0x7001             STRB     R1,[R0, #+0]
+     43              									
+     44              while(!(FTFL->FSTAT & FTFL_FSTAT_CCIF_MASK));	// 等待命令完成
+   \                     ??flash_cmd_launch_0: (+1)
+   \        0x6   0x7801             LDRB     R1,[R0, #+0]
+   \        0x8   0x0609             LSLS     R1,R1,#+24
+   \        0xA   0xD5FC             BPL.N    ??flash_cmd_launch_0
+     45          
+     46              // 检查错误标志
+     47              if( FTFL->FSTAT & (FTFL_FSTAT_ACCERR_MASK | FTFL_FSTAT_FPVIOL_MASK | FTFL_FSTAT_MGSTAT0_MASK))
+   \        0xC   0x7800             LDRB     R0,[R0, #+0]
+   \        0xE   0xF010 0x0F31      TST      R0,#0x31
+   \       0x12   0xD001             BEQ.N    ??flash_cmd_launch_1
+     48                  return 1 ; 				//执行命令出错
+   \       0x14   0x2001             MOVS     R0,#+1
+   \       0x16   0xE000             B.N      ??flash_cmd_launch_2
+     49            
+     50              return 0; 					//执行命令成功
+   \                     ??flash_cmd_launch_1: (+1)
+   \       0x18   0x2000             MOVS     R0,#+0
+   \                     ??flash_cmd_launch_2: (+1)
+   \       0x1A   0x4770             BX       LR               ;; return
+     51          }
+     52          
+     53          //===========================================================================
+     54          
+     55          //=================外部接口函数==============================================
+     56          //==========================================================================
+     57          //函数名称：flash_init
+     58          //函数返回：无
+     59          //参数说明：无
+     60          //功能概要：初始化flash模块
+     61          //==========================================================================
+
+   \                                 In section .textrw, align 2, keep-with-next
+     62          __RAMFUN void flash_init(void)
+     63          {
+     64          	// 清除Flash预读取缓冲区
+     65              FMC->PFB0CR |= FMC_PFB0CR_S_B_INV_MASK;
+   \                     flash_init: (+1)
+   \        0x0   0x....             LDR.N    R0,??DataTable4_1  ;; 0x4001f004
+   \        0x2   0x6801             LDR      R1,[R0, #+0]
+   \        0x4   0xF451 0x2100      ORRS     R1,R1,#0x80000
+   \        0x8   0x6001             STR      R1,[R0, #+0]
+     66              FMC->PFB1CR |= FMC_PFB0CR_S_B_INV_MASK;
+   \        0xA   0x....             LDR.N    R0,??DataTable4_2  ;; 0x4001f008
+   \        0xC   0x6801             LDR      R1,[R0, #+0]
+   \        0xE   0xF451 0x2100      ORRS     R1,R1,#0x80000
+   \       0x12   0x6001             STR      R1,[R0, #+0]
+     67              
+     68              while(!(FTFL->FSTAT & FTFL_FSTAT_CCIF_MASK));	// 等待命令完成
+   \                     ??flash_init_0: (+1)
+   \       0x14   0x....             LDR.N    R0,??DataTable4  ;; 0x40020000
+   \       0x16   0x7801             LDRB     R1,[R0, #+0]
+   \       0x18   0x0609             LSLS     R1,R1,#+24
+   \       0x1A   0xD5FB             BPL.N    ??flash_init_0
+     69              
+     70          	FTFL->FSTAT = 	(0
+     71          					|	FTFL_FSTAT_ACCERR_MASK 		// 清除访问错误标志位
+     72          					| 	FTFL_FSTAT_FPVIOL_MASK		// 非法访问标志位
+     73          					);	
+   \       0x1C   0x2130             MOVS     R1,#+48
+   \       0x1E   0x7001             STRB     R1,[R0, #+0]
+     74          }
+   \       0x20   0x4770             BX       LR               ;; return
+     75          
+     76          //==========================================================================
+     77          //函数名称：flash_erase_sector
+     78          //函数返回：函数执行执行状态：0=正常；非0=异常。
+     79          //参数说明：sectorNo：扇区号（K60N512实际使用0~255）
+     80          //功能概要：擦除指定flash扇区
+     81          //==========================================================================
+
+   \                                 In section .textrw, align 2, keep-with-next
+     82          __RAMFUN uint8 flash_erase_sector(uint16 sectorNo)
+     83          {
+   \                     flash_erase_sector: (+1)
+   \        0x0   0xE92D 0x41FC      PUSH     {R2-R8,LR}
+   \        0x4   0x0004             MOVS     R4,R0
+     84              Dtype	addr;	
+     85          	addr.DW = (uint32)(sectorNo<<11);	//每个扇区2KB，所以扇区地址=扇区号*2K ，这里用 <<11 表示 *2*1024 
+   \        0x6   0x0020             MOVS     R0,R4
+   \        0x8   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \        0xA   0x02C0             LSLS     R0,R0,#+11
+   \        0xC   0x9000             STR      R0,[SP, #+0]
+     86              
+     87              //dest.word    = (uint32)(sectorNo<<11);	//每个扇区2KB，所以扇区地址=扇区号*2K ，这里用 <<11 表示 *2*1024 
+     88          
+     89              // 设置擦除命令
+     90              FTFL->FCCOB0  = ERSSCR; // 擦除扇区命令
+   \        0xE   0x....             LDR.N    R5,??DataTable4_3  ;; 0x40020007
+   \       0x10   0x2009             MOVS     R0,#+9
+   \       0x12   0x7028             STRB     R0,[R5, #+0]
+     91              
+     92              // 设置目标地址
+     93              FTFL->FCCOB1 = addr.B[2];
+   \       0x14   0x....             LDR.N    R6,??DataTable4_4  ;; 0x40020006
+   \       0x16   0xF89D 0x0002      LDRB     R0,[SP, #+2]
+   \       0x1A   0x7030             STRB     R0,[R6, #+0]
+     94              FTFL->FCCOB2 = addr.B[1];
+   \       0x1C   0x....             LDR.N    R7,??DataTable4_5  ;; 0x40020005
+   \       0x1E   0xF89D 0x0001      LDRB     R0,[SP, #+1]
+   \       0x22   0x7038             STRB     R0,[R7, #+0]
+     95              FTFL->FCCOB3 = addr.B[0];
+   \       0x24   0x....'....        LDR.W    R8,??DataTable4_6  ;; 0x40020004
+   \       0x28   0xF89D 0x0000      LDRB     R0,[SP, #+0]
+   \       0x2C   0xF888 0x0000      STRB     R0,[R8, #+0]
+     96              
+     97              // 执行命令序列
+     98              if(1 == flash_cmd_launch())    //若执行命令出现错误
+   \       0x30   0x....'....        BL       flash_cmd_launch
+   \       0x34   0x2801             CMP      R0,#+1
+   \       0x36   0xD101             BNE.N    ??flash_erase_sector_0
+     99                  return 1;     //擦除命令错误
+   \       0x38   0x2001             MOVS     R0,#+1
+   \       0x3A   0xE01C             B.N      ??flash_erase_sector_1
+    100             
+    101              // 若擦除sector0时，则解锁设备
+    102              if(sectorNo ==0)
+   \                     ??flash_erase_sector_0: (+1)
+   \       0x3C   0xB2A4             UXTH     R4,R4            ;; ZeroExt  R4,R4,#+16,#+16
+   \       0x3E   0x2C00             CMP      R4,#+0
+   \       0x40   0xD118             BNE.N    ??flash_erase_sector_2
+    103              {
+    104                  // 写入4字节
+    105                  FTFL->FCCOB0 = PGM4; 
+   \       0x42   0x2006             MOVS     R0,#+6
+   \       0x44   0x7028             STRB     R0,[R5, #+0]
+    106                  // 设置目标地址
+    107                  FTFL->FCCOB1 = 0x00;
+   \       0x46   0x2000             MOVS     R0,#+0
+   \       0x48   0x7030             STRB     R0,[R6, #+0]
+    108                  FTFL->FCCOB2 = 0x04;
+   \       0x4A   0x2004             MOVS     R0,#+4
+   \       0x4C   0x7038             STRB     R0,[R7, #+0]
+    109                  FTFL->FCCOB3 = 0x0C;
+   \       0x4E   0x200C             MOVS     R0,#+12
+   \       0x50   0xF888 0x0000      STRB     R0,[R8, #+0]
+    110                  // 数据
+    111                  FTFL->FCCOB4 = 0xFF;
+   \       0x54   0x20FF             MOVS     R0,#+255
+   \       0x56   0x....             LDR.N    R1,??DataTable4_7  ;; 0x4002000b
+   \       0x58   0x7008             STRB     R0,[R1, #+0]
+    112                  FTFL->FCCOB5 = 0xFF;
+   \       0x5A   0x....             LDR.N    R1,??DataTable4_8  ;; 0x4002000a
+   \       0x5C   0x7008             STRB     R0,[R1, #+0]
+    113                  FTFL->FCCOB6 = 0xFF;
+   \       0x5E   0x....             LDR.N    R1,??DataTable4_9  ;; 0x40020009
+   \       0x60   0x7008             STRB     R0,[R1, #+0]
+    114                  FTFL->FCCOB7 = 0xFE;
+   \       0x62   0x20FE             MOVS     R0,#+254
+   \       0x64   0x....             LDR.N    R1,??DataTable4_10  ;; 0x40020008
+   \       0x66   0x7008             STRB     R0,[R1, #+0]
+    115                  // 执行命令序列
+    116                  if(1 == flash_cmd_launch())  //若执行命令出现错误
+   \       0x68   0x....'....        BL       flash_cmd_launch
+   \       0x6C   0x2801             CMP      R0,#+1
+   \       0x6E   0xD101             BNE.N    ??flash_erase_sector_2
+    117                      return 2;   //解锁命令错误
+   \       0x70   0x2002             MOVS     R0,#+2
+   \       0x72   0xE000             B.N      ??flash_erase_sector_1
+    118              }  
+    119              
+    120              return 0;  //成功返回
+   \                     ??flash_erase_sector_2: (+1)
+   \       0x74   0x2000             MOVS     R0,#+0
+   \                     ??flash_erase_sector_1: (+1)
+   \       0x76   0xE8BD 0x81F6      POP      {R1,R2,R4-R8,PC}  ;; return
+    121          }
+    122          
+    123          //==========================================================================
+    124          //函数名称：flash_write
+    125          //函数返回：函数执行状态：0=正常；非0=异常。
+    126          //参数说明：sectorNo：目标扇区号 （K60N512实际使用0~255）
+    127          //         offset:写入扇区内部偏移地址（0~2043）
+    128          //         cnt：写入字节数目（0~2043）
+    129          //         buf：源数据缓冲区首地址
+    130          //功能概要：flash写入操作
+    131          //==========================================================================
+
+   \                                 In section .textrw, align 2, keep-with-next
+    132          __RAMFUN uint8 flash_write(uint16 sectorNo,uint16 offset,uint32 data)
+    133          {
+   \                     flash_write: (+1)
+   \        0x0   0xB57C             PUSH     {R2-R6,LR}
+   \        0x2   0x0005             MOVS     R5,R0
+   \        0x4   0x000E             MOVS     R6,R1
+   \        0x6   0x0014             MOVS     R4,R2
+    134          	Dtype	addr;	
+    135              Dtype	Data;
+    136          	
+    137          	ASSERT(offset%4 == 0);			//偏移量必须为4的倍数
+   \        0x8   0x0030             MOVS     R0,R6
+   \        0xA   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \        0xC   0x2104             MOVS     R1,#+4
+   \        0xE   0xFB90 0xF2F1      SDIV     R2,R0,R1
+   \       0x12   0xFB01 0x0012      MLS      R0,R1,R2,R0
+   \       0x16   0x2800             CMP      R0,#+0
+   \       0x18   0xD003             BEQ.N    ??flash_write_0
+   \       0x1A   0x2189             MOVS     R1,#+137
+   \       0x1C   0x....             LDR.N    R0,??DataTable4_11
+   \       0x1E   0x....'....        BL       assert_failed
+    138          									//此处提示警告，但是安全的……
+    139          	ASSERT(offset <= 0x800);		//扇区大小为2K，即偏移量必须不大于 0x800
+   \                     ??flash_write_0: (+1)
+   \       0x22   0x0030             MOVS     R0,R6
+   \       0x24   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \       0x26   0xF640 0x0101      MOVW     R1,#+2049
+   \       0x2A   0x4288             CMP      R0,R1
+   \       0x2C   0xDB03             BLT.N    ??flash_write_1
+   \       0x2E   0x218B             MOVS     R1,#+139
+   \       0x30   0x....             LDR.N    R0,??DataTable4_11
+   \       0x32   0x....'....        BL       assert_failed
+    140          									//此处提示警告，但是安全的……
+    141          	
+    142              addr.DW = (uint32)((sectorNo<<11) + offset);		//计算地址
+   \                     ??flash_write_1: (+1)
+   \       0x36   0xB2AD             UXTH     R5,R5            ;; ZeroExt  R5,R5,#+16,#+16
+   \       0x38   0x02ED             LSLS     R5,R5,#+11
+   \       0x3A   0xFA15 0xF086      UXTAH    R0,R5,R6
+   \       0x3E   0x9001             STR      R0,[SP, #+4]
+    143          	Data.DW	= data;	
+   \       0x40   0x9400             STR      R4,[SP, #+0]
+    144          	    
+    145                  FTFL->FCCOB0 = PGM4;				// 设置写入命令
+   \       0x42   0x2006             MOVS     R0,#+6
+   \       0x44   0x....             LDR.N    R1,??DataTable4_3  ;; 0x40020007
+   \       0x46   0x7008             STRB     R0,[R1, #+0]
+    146          
+    147          	FTFL->FCCOB1 = addr.B[2];		// 设置目标地址
+   \       0x48   0xF89D 0x0006      LDRB     R0,[SP, #+6]
+   \       0x4C   0x....             LDR.N    R1,??DataTable4_4  ;; 0x40020006
+   \       0x4E   0x7008             STRB     R0,[R1, #+0]
+    148          	FTFL->FCCOB2 = addr.B[1];
+   \       0x50   0xF89D 0x0005      LDRB     R0,[SP, #+5]
+   \       0x54   0x....             LDR.N    R1,??DataTable4_5  ;; 0x40020005
+   \       0x56   0x7008             STRB     R0,[R1, #+0]
+    149          	FTFL->FCCOB3 = addr.B[0];
+   \       0x58   0xF89D 0x0004      LDRB     R0,[SP, #+4]
+   \       0x5C   0x....             LDR.N    R1,??DataTable4_6  ;; 0x40020004
+   \       0x5E   0x7008             STRB     R0,[R1, #+0]
+    150          
+    151          
+    152          	FTFL->FCCOB4 = Data.B[3];        // 设置写入数据
+   \       0x60   0xF89D 0x0003      LDRB     R0,[SP, #+3]
+   \       0x64   0x....             LDR.N    R1,??DataTable4_7  ;; 0x4002000b
+   \       0x66   0x7008             STRB     R0,[R1, #+0]
+    153          	FTFL->FCCOB5 = Data.B[2];
+   \       0x68   0xF89D 0x0002      LDRB     R0,[SP, #+2]
+   \       0x6C   0x....             LDR.N    R1,??DataTable4_8  ;; 0x4002000a
+   \       0x6E   0x7008             STRB     R0,[R1, #+0]
+    154          	FTFL->FCCOB6 = Data.B[1];
+   \       0x70   0xF89D 0x0001      LDRB     R0,[SP, #+1]
+   \       0x74   0x....             LDR.N    R1,??DataTable4_9  ;; 0x40020009
+   \       0x76   0x7008             STRB     R0,[R1, #+0]
+    155          	FTFL->FCCOB7 = Data.B[0];
+   \       0x78   0xF89D 0x0000      LDRB     R0,[SP, #+0]
+   \       0x7C   0x....             LDR.N    R1,??DataTable4_10  ;; 0x40020008
+   \       0x7E   0x7008             STRB     R0,[R1, #+0]
+    156          	
+    157          	if(1 == flash_cmd_launch()) 	return 2;  //写入命令错误
+   \       0x80   0x....'....        BL       flash_cmd_launch
+   \       0x84   0x2801             CMP      R0,#+1
+   \       0x86   0xD101             BNE.N    ??flash_write_2
+   \       0x88   0x2002             MOVS     R0,#+2
+   \       0x8A   0xE000             B.N      ??flash_write_3
+    158          
+    159              return 0;  //成功执行
+   \                     ??flash_write_2: (+1)
+   \       0x8C   0x2000             MOVS     R0,#+0
+   \                     ??flash_write_3: (+1)
+   \       0x8E   0xBD76             POP      {R1,R2,R4-R6,PC}  ;; return
+    160          }
+    161          
+    162          
+    163          //==========================================================================
+    164          //函数名称：flash_write
+    165          //函数返回：函数执行状态：0=正常；非0=异常。
+    166          //参数说明：sectorNo：目标扇区号 （K60N512实际使用0~255）
+    167          //         offset:写入扇区内部偏移地址（0~2043）
+    168          //         cnt：写入字节数目（0~2043）
+    169          //         buf：源数据缓冲区首地址
+    170          //功能概要：flash写入操作
+    171          //==========================================================================
+
+   \                                 In section .textrw, align 2, keep-with-next
+    172          __RAMFUN uint8 flash_write_buf(uint16 sectorNo,uint16 offset,uint16 cnt,uint8 buf[])
+    173          {
+   \                     flash_write_buf: (+1)
+   \        0x0   0xB5F8             PUSH     {R3-R7,LR}
+   \        0x2   0x0006             MOVS     R6,R0
+   \        0x4   0x000F             MOVS     R7,R1
+   \        0x6   0x0014             MOVS     R4,R2
+   \        0x8   0x001D             MOVS     R5,R3
+    174              uint32 size;
+    175           
+    176          	Dtype	addr;	
+    177              
+    178          	ASSERT(offset%4 == 0);			//偏移量必须为4的倍数
+   \        0xA   0x0038             MOVS     R0,R7
+   \        0xC   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \        0xE   0x2104             MOVS     R1,#+4
+   \       0x10   0xFB90 0xF2F1      SDIV     R2,R0,R1
+   \       0x14   0xFB01 0x0012      MLS      R0,R1,R2,R0
+   \       0x18   0x2800             CMP      R0,#+0
+   \       0x1A   0xD003             BEQ.N    ??flash_write_buf_0
+   \       0x1C   0x21B2             MOVS     R1,#+178
+   \       0x1E   0x....             LDR.N    R0,??DataTable4_11
+   \       0x20   0x....'....        BL       assert_failed
+    179          									//此处提示警告，但是安全的……
+    180          	ASSERT(offset <= 0x800);		//扇区大小为2K，即偏移量必须不大于 0x800
+   \                     ??flash_write_buf_0: (+1)
+   \       0x24   0x0038             MOVS     R0,R7
+   \       0x26   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \       0x28   0xF640 0x0101      MOVW     R1,#+2049
+   \       0x2C   0x4288             CMP      R0,R1
+   \       0x2E   0xDB03             BLT.N    ??flash_write_buf_1
+   \       0x30   0x21B4             MOVS     R1,#+180
+   \       0x32   0x....             LDR.N    R0,??DataTable4_11
+   \       0x34   0x....'....        BL       assert_failed
+    181          									//此处提示警告，但是安全的……
+    182          	
+    183              addr.DW = (uint32)((sectorNo<<11) + offset);		//计算地址
+   \                     ??flash_write_buf_1: (+1)
+   \       0x38   0xB2B6             UXTH     R6,R6            ;; ZeroExt  R6,R6,#+16,#+16
+   \       0x3A   0x02F6             LSLS     R6,R6,#+11
+   \       0x3C   0xFA16 0xF087      UXTAH    R0,R6,R7
+   \       0x40   0x9000             STR      R0,[SP, #+0]
+    184          	
+    185              // 设置写入命令
+    186              FTFL->FCCOB0 = PGM4;
+   \       0x42   0x2006             MOVS     R0,#+6
+   \       0x44   0x....             LDR.N    R1,??DataTable4_3  ;; 0x40020007
+   \       0x46   0x7008             STRB     R0,[R1, #+0]
+    187          
+    188              for(size=0; size<cnt; size+=4, addr.DW+=4, buf+=4)
+   \       0x48   0x2600             MOVS     R6,#+0
+   \       0x4A   0xE004             B.N      ??flash_write_buf_2
+   \                     ??flash_write_buf_3: (+1)
+   \       0x4C   0x1D36             ADDS     R6,R6,#+4
+   \       0x4E   0x9800             LDR      R0,[SP, #+0]
+   \       0x50   0x1D00             ADDS     R0,R0,#+4
+   \       0x52   0x9000             STR      R0,[SP, #+0]
+   \       0x54   0x1D2D             ADDS     R5,R5,#+4
+   \                     ??flash_write_buf_2: (+1)
+   \       0x56   0x0020             MOVS     R0,R4
+   \       0x58   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \       0x5A   0x4286             CMP      R6,R0
+   \       0x5C   0xD21D             BCS.N    ??flash_write_buf_4
+    189              {
+    190                  
+    191                  FTFL->FCCOB1 = addr.B[2];						// 设置目标地址
+   \       0x5E   0xF89D 0x0002      LDRB     R0,[SP, #+2]
+   \       0x62   0x....             LDR.N    R1,??DataTable4_4  ;; 0x40020006
+   \       0x64   0x7008             STRB     R0,[R1, #+0]
+    192                  FTFL->FCCOB2 = addr.B[1];
+   \       0x66   0xF89D 0x0001      LDRB     R0,[SP, #+1]
+   \       0x6A   0x....             LDR.N    R1,??DataTable4_5  ;; 0x40020005
+   \       0x6C   0x7008             STRB     R0,[R1, #+0]
+    193                  FTFL->FCCOB3 = addr.B[0];
+   \       0x6E   0xF89D 0x0000      LDRB     R0,[SP, #+0]
+   \       0x72   0x....             LDR.N    R1,??DataTable4_6  ;; 0x40020004
+   \       0x74   0x7008             STRB     R0,[R1, #+0]
+    194           
+    195                  FTFL->FCCOB4 = buf[3];							// 拷贝数据
+   \       0x76   0x78E8             LDRB     R0,[R5, #+3]
+   \       0x78   0x....             LDR.N    R1,??DataTable4_7  ;; 0x4002000b
+   \       0x7A   0x7008             STRB     R0,[R1, #+0]
+    196                  FTFL->FCCOB5 = buf[2];
+   \       0x7C   0x78A8             LDRB     R0,[R5, #+2]
+   \       0x7E   0x....             LDR.N    R1,??DataTable4_8  ;; 0x4002000a
+   \       0x80   0x7008             STRB     R0,[R1, #+0]
+    197                  FTFL->FCCOB6  = buf[1];
+   \       0x82   0x7868             LDRB     R0,[R5, #+1]
+   \       0x84   0x....             LDR.N    R1,??DataTable4_9  ;; 0x40020009
+   \       0x86   0x7008             STRB     R0,[R1, #+0]
+    198                  FTFL->FCCOB7 = buf[0];
+   \       0x88   0x7828             LDRB     R0,[R5, #+0]
+   \       0x8A   0x....             LDR.N    R1,??DataTable4_10  ;; 0x40020008
+   \       0x8C   0x7008             STRB     R0,[R1, #+0]
+    199                  
+    200                  if(1 == flash_cmd_launch()) 
+   \       0x8E   0x....'....        BL       flash_cmd_launch
+   \       0x92   0x2801             CMP      R0,#+1
+   \       0x94   0xD1DA             BNE.N    ??flash_write_buf_3
+    201                      return 2;  									//写入命令错误
+   \       0x96   0x2002             MOVS     R0,#+2
+   \       0x98   0xE000             B.N      ??flash_write_buf_5
+    202              }
+    203              
+    204              return 0;  //成功执行
+   \                     ??flash_write_buf_4: (+1)
+   \       0x9A   0x2000             MOVS     R0,#+0
+   \                     ??flash_write_buf_5: (+1)
+   \       0x9C   0xBDF2             POP      {R1,R4-R7,PC}    ;; return
+    205          }
+    206          
+    207          
+    208          
+    209          
+    210          //==========================================================================
+    211          
+
+   \                                 In section .text, align 2, keep-with-next
+    212          void Delayms(uint16 ms)
+    213          {                         
+   \                     Delayms: (+1)
+   \        0x0   0xE007             B.N      ??Delayms_0
+    214            uint16 a;
+    215            while(ms)
+    216            {
+    217              a=1335;
+   \                     ??Delayms_1: (+1)
+   \        0x2   0xF240 0x5237      MOVW     R2,#+1335
+    218              while(a--);
+   \                     ??Delayms_2: (+1)
+   \        0x6   0x0011             MOVS     R1,R2
+   \        0x8   0x1E4A             SUBS     R2,R1,#+1
+   \        0xA   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \        0xC   0x2900             CMP      R1,#+0
+   \        0xE   0xD1FA             BNE.N    ??Delayms_2
+    219              ms--;
+   \       0x10   0x1E40             SUBS     R0,R0,#+1
+    220            }
+   \                     ??Delayms_0: (+1)
+   \       0x12   0x0001             MOVS     R1,R0
+   \       0x14   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \       0x16   0x2900             CMP      R1,#+0
+   \       0x18   0xD1F3             BNE.N    ??Delayms_1
+    221            return;
+   \       0x1A   0x4770             BX       LR               ;; return
+    222          }
+    223          
+
+   \                                 In section .text, align 2, keep-with-next
+    224          void DFlash_Write_Float(uint16 Block_Now,uint32 Order,float Write_Float)   
+    225          {
+   \                     DFlash_Write_Float: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    226          
+    227            union
+    228            {
+    229              float Temp_Data;
+    230              uint32 Data_Part;
+    231            }_Float_;
+    232            
+    233            _Float_.Temp_Data=Write_Float;
+    234            flash_write(Block_Now,Order,_Float_.Data_Part);
+   \        0x2   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \        0x4   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \        0x6   0x....'....        BL       flash_write
+    235          
+    236            
+    237          }
+   \        0xA   0xBD01             POP      {R0,PC}          ;; return
+    238          
+    239          /*-----------------*DFLASH读取浮点数*-----------------*/
+    240          
+
+   \                                 In section .text, align 2, keep-with-next
+    241          float DFlash_Read_Float(uint16 Block_Now,uint32 Order)
+    242          {
+    243            union
+    244            {
+    245              float Temp_Data;
+    246              uint32 Data_Part;
+    247            }_Float_;
+    248            
+    249            _Float_.Data_Part=flash_read(Block_Now,Order,uint32);
+   \                     DFlash_Read_Float: (+1)
+   \        0x0   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \        0x2   0xEB11 0x21C0      ADDS     R1,R1,R0, LSL #+11
+   \        0x6   0x6808             LDR      R0,[R1, #+0]
+    250          
+    251            return(_Float_.Temp_Data);
+   \        0x8   0x4770             BX       LR               ;; return
+    252          }
+    253              
+    254          /*---------------------*DFLASH写整数*---------------------*/ 
+    255              
+    256          
+
+   \                                 In section .text, align 2, keep-with-next
+    257          void DFlash_Write_Int(uint16 Block_Now,uint16 Order,int16 Write_Int)   
+    258          {
+   \                     DFlash_Write_Int: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    259            flash_write(Block_Now,Order*4,Write_Int);
+   \        0x2   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \        0x4   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \        0x6   0x0089             LSLS     R1,R1,#+2
+   \        0x8   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \        0xA   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \        0xC   0x....'....        BL       flash_write
+    260          }
+   \       0x10   0xBD01             POP      {R0,PC}          ;; return
+    261          /*---------------------*DFLASH读整数*---------------------*/ 
+    262          
+
+   \                                 In section .text, align 2, keep-with-next
+    263          int16 DFlash_Read_Int(uint16 Block_Now,uint16 Order)
+    264          {
+    265            return flash_read(Block_Now,Order*4,uint32);
+   \                     DFlash_Read_Int: (+1)
+   \        0x0   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \        0x2   0x02C0             LSLS     R0,R0,#+11
+   \        0x4   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \        0x6   0xEB10 0x0081      ADDS     R0,R0,R1, LSL #+2
+   \        0xA   0x6800             LDR      R0,[R0, #+0]
+   \        0xC   0xB200             SXTH     R0,R0            ;; SignExt  R0,R0,#+16,#+16
+   \        0xE   0x4770             BX       LR               ;; return
+    266          }
+    267          
+
+   \                                 In section .text, align 2, keep-with-next
+    268          void User_Flash_Write(void)//写flash
+    269          {
+   \                     User_Flash_Write: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    270            flash_erase_sector(UserSectorBegin);
+   \        0x2   0x20C8             MOVS     R0,#+200
+   \        0x4   0x....'....        BL       flash_erase_sector
+    271            Delayms(500);
+   \        0x8   0xF44F 0x70FA      MOV      R0,#+500
+   \        0xC   0x....'....        BL       Delayms
+    272            flash_erase_sector(UserSectorEnd);
+   \       0x10   0x20C9             MOVS     R0,#+201
+   \       0x12   0x....'....        BL       flash_erase_sector
+    273            Delayms(500);
+   \       0x16   0xF44F 0x70FA      MOV      R0,#+500
+   \       0x1A   0x....'....        BL       Delayms
+    274          
+    275          //  DFlash_Write_Int(UserSectorBegin,0, setMaxIndLeft);
+    276          //  DFlash_Write_Int(UserSectorBegin,16,setMaxIndRight);
+    277          //  DFlash_Write_Int(UserSectorBegin,32,setMaxIndMid);
+    278          //  IndModel = 1;
+    279          //  DFlash_Write_Int(UserSectorBegin,48,(int16)IndModel);
+    280          }
+   \       0x1E   0xBD01             POP      {R0,PC}          ;; return
+    281          
+    282          
+    283          
+
+   \                                 In section .text, align 2, keep-with-next
+    284          void User_Flash_Read(void)//读flash
+    285          {
+   \                     User_Flash_Read: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    286            Delayms(500);
+   \        0x2   0xF44F 0x70FA      MOV      R0,#+500
+   \        0x6   0x....'....        BL       Delayms
+    287          //  setMaxIndLeft             = DFlash_Read_Int(UserSectorBegin,0);    
+    288          //  setMaxIndRight            = DFlash_Read_Int(UserSectorBegin,16);
+    289          //  setMaxIndMid              = DFlash_Read_Int(UserSectorBegin,32);
+    290          //  IndModel                  = (uint8)DFlash_Read_Int(UserSectorBegin,48);
+    291          //  ImgThreshold              = DFlash_Read_Int(UserSectorBegin2,0);
+    292          }
+   \        0xA   0xBD01             POP      {R0,PC}          ;; return
+    293          
+    294          
+
+   \                                 In section .text, align 2, keep-with-next
+    295          void User_Flash_WriteClear(void)
+    296          {
+    297          //  setMaxIndLeft = 0;
+    298          //  setMaxIndRight = 0;
+    299          //  setMaxIndMid = 0;
+    300          //  IndModel = 0;
+    301          //  
+    302          //  flash_erase_sector(UserSectorBegin);
+    303          //  Delayms(500);
+    304          //  flash_erase_sector(UserSectorEnd);
+    305          //  Delayms(500);
+    306          //
+    307          //  DFlash_Write_Int(UserSectorBegin,0, setMaxIndLeft);
+    308          //  DFlash_Write_Int(UserSectorBegin,16,setMaxIndRight);
+    309          //  DFlash_Write_Int(UserSectorBegin,32,setMaxIndMid);
+    310          //  DFlash_Write_Int(UserSectorBegin,48,(int16)IndModel);
+    311          }
+   \                     User_Flash_WriteClear: (+1)
+   \        0x0   0x4770             BX       LR               ;; return
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4:
+   \        0x0   0x4002'0000        DC32     0x40020000
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4_1:
+   \        0x0   0x4001'F004        DC32     0x4001f004
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4_2:
+   \        0x0   0x4001'F008        DC32     0x4001f008
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4_3:
+   \        0x0   0x4002'0007        DC32     0x40020007
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4_4:
+   \        0x0   0x4002'0006        DC32     0x40020006
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4_5:
+   \        0x0   0x4002'0005        DC32     0x40020005
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4_6:
+   \        0x0   0x4002'0004        DC32     0x40020004
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4_7:
+   \        0x0   0x4002'000B        DC32     0x4002000b
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4_8:
+   \        0x0   0x4002'000A        DC32     0x4002000a
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4_9:
+   \        0x0   0x4002'0009        DC32     0x40020009
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4_10:
+   \        0x0   0x4002'0008        DC32     0x40020008
+
+   \                                 In section .textrw, align 4, keep-with-next
+   \                     ??DataTable4_11:
+   \        0x0   0x....'....        DC32     ?_0
+
+   \                                 In section .rodata, align 4
+   \                     ?_0:
+   \        0x0   0x47 0x3A          DC8 "G:\\AIcar\\\344\277\241\346\240\207\\k60_144\\smartcar\\lib\\Jay\\flash.c"
+   \              0x5C 0x41    
+   \              0x49 0x63    
+   \              0x61 0x72    
+   \              0x5C 0xE4    
+   \              0xBF 0xA1    
+   \              0xE6 0xA0    
+   \              0x87 0x5C    
+   \              0x6B 0x36    
+   \              0x30 0x5F    
+   \              0x31 0x34    
+   \              0x34 0x5C    
+   \              0x73 0x6D    
+   \              0x61 0x72    
+   \              0x74 0x63    
+   \              0x61 0x72    
+   \              0x5C 0x6C    
+   \              0x69 0x62    
+   \              0x5C 0x4A    
+   \              0x61 0x79    
+   \              0x5C 0x66    
+   \              0x6C 0x61    
+   \              0x73 0x68    
+   \              0x2E 0x63    
+   \              0x00         
+   \       0x31   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   DFlash_Read_Float
+       0   DFlash_Read_Int
+       8   DFlash_Write_Float
+         8   -> flash_write
+       8   DFlash_Write_Int
+         8   -> flash_write
+       0   Delayms
+       8   User_Flash_Read
+         8   -> Delayms
+       8   User_Flash_Write
+         8   -> Delayms
+         8   -> flash_erase_sector
+       0   User_Flash_WriteClear
+       0   flash_cmd_launch
+      32   flash_erase_sector
+        32   -> flash_cmd_launch
+       0   flash_init
+      24   flash_write
+        24   -> assert_failed
+        24   -> flash_cmd_launch
+      24   flash_write_buf
+        24   -> assert_failed
+        24   -> flash_cmd_launch
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable4
+       4  ??DataTable4_1
+       4  ??DataTable4_10
+       4  ??DataTable4_11
+       4  ??DataTable4_2
+       4  ??DataTable4_3
+       4  ??DataTable4_4
+       4  ??DataTable4_5
+       4  ??DataTable4_6
+       4  ??DataTable4_7
+       4  ??DataTable4_8
+       4  ??DataTable4_9
+      52  ?_0
+      10  DFlash_Read_Float
+      16  DFlash_Read_Int
+      12  DFlash_Write_Float
+      18  DFlash_Write_Int
+      28  Delayms
+      12  User_Flash_Read
+      32  User_Flash_Write
+       2  User_Flash_WriteClear
+      28  flash_cmd_launch
+     122  flash_erase_sector
+      34  flash_init
+     144  flash_write
+     158  flash_write_buf
+
+ 
+  52 bytes in section .rodata
+ 130 bytes in section .text
+ 534 bytes in section .textrw
+ 
+ 664 bytes of CODE  memory
+  52 bytes of CONST memory
+
+Errors: none
+Warnings: 11

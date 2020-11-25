@@ -1,0 +1,15 @@
+"D:\应用\605110 IAR for ARM 8.30\arm\bin\armproc.dll" 
+
+"D:\应用\605110 IAR for ARM 8.30\arm\bin\armjlink2.dll" 
+
+"C:\Users\que\Desktop\AAA_xinbiao\xiugai\project\28-(SDHC)LPLD_SdCard\iar\RAM\Exe\LPLD_SdCard_K60.out" 
+
+--plugin="D:\应用\605110 IAR for ARM 8.30\arm\bin\armbat.dll" 
+
+--device_macro="D:\应用\605110 IAR for ARM 8.30\arm\config\debugger\NXP\Kxx.dmac" 
+
+--device_macro="D:\应用\605110 IAR for ARM 8.30\arm\config\debugger\NXP\Kxx_Trace.dmac" 
+
+
+
+

@@ -1,0 +1,847 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         18/May/2019  16:18:21
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_TSI.c
+#    Command line =  
+#        -f C:\Users\TEMPLA~1.000\AppData\Local\Temp\EW91F6.tmp
+#        (C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_TSI.c -D
+#        LPLD_K60 -lCN
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -lB
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List"
+#        -o
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config "D:\@@\605110 IAR for
+#        ARM 8.30\arm\inc\c\DLib_Config_Normal.h" -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Me\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\app\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -Ol -I "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\Core\Include\" -I
+#        "D:\@@\605110 IAR for ARM 8.30\arm\CMSIS\DSP\Include\" -D
+#        ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\List\HW_TSI.lst
+#    Object file  =  
+#        C:\Users\que\Desktop\AAA_xinbiao\smartcar\project\28-(SDHC)LPLD_SdCard\iar\RAM\Obj\HW_TSI.o
+#
+###############################################################################
+
+C:\Users\que\Desktop\AAA_xinbiao\smartcar\lib\LPLD\HW\HW_TSI.c
+      1          /**
+      2           * @file HW_TSI.c
+      3           * @version 3.0[By LPLD]
+      4           * @date 2013-06-18
+      5           * @brief TSI底层模块相关函数
+      6           *
+      7           * 更改建议:不建议修改
+      8           *
+      9           * 版权所有:北京拉普兰德电子技术有限公司
+     10           * http://www.lpld.cn
+     11           * mail:support@lpld.cn
+     12           *
+     13           * @par
+     14           * 本代码由拉普兰德[LPLD]开发并维护，并向所有使用者开放源代码。
+     15           * 开发者可以随意修使用或改源代码。但本段及以上注释应予以保留。
+     16           * 不得更改或删除原版权所有者姓名，二次开发者可以加注二次版权所有者。
+     17           * 但应在遵守此协议的基础上，开放源代码、不得出售代码本身。
+     18           * 拉普兰德不负责由于使用本代码所带来的任何事故、法律责任或相关不良影响。
+     19           * 拉普兰德无义务解释、说明本代码的具体原理、功能、实现方法。
+     20           * 除非拉普兰德[LPLD]授权，开发者不得将本代码用于商业产品。
+     21           */
+     22          
+     23          #include "common.h"
+
+   \                                 In section .text, align 2, keep-with-next
+   \   static __interwork __softfp void __NVIC_DisableIRQ(IRQn_Type)
+   \                     __NVIC_DisableIRQ: (+1)
+   \        0x0   0x0001             MOVS     R1,R0
+   \        0x2   0xB249             SXTB     R1,R1            ;; SignExt  R1,R1,#+24,#+24
+   \        0x4   0x2900             CMP      R1,#+0
+   \        0x6   0xD40C             BMI.N    ??__NVIC_DisableIRQ_0
+   \        0x8   0x2201             MOVS     R2,#+1
+   \        0xA   0xF010 0x011F      ANDS     R1,R0,#0x1F
+   \        0xE   0x408A             LSLS     R2,R2,R1
+   \       0x10   0x....             LDR.N    R1,??DataTable4  ;; 0xe000e180
+   \       0x12   0xB240             SXTB     R0,R0            ;; SignExt  R0,R0,#+24,#+24
+   \       0x14   0x0940             LSRS     R0,R0,#+5
+   \       0x16   0xF841 0x2020      STR      R2,[R1, R0, LSL #+2]
+   \       0x1A   0xF3BF 0x8F4F      DSB      SY
+   \       0x1E   0xF3BF 0x8F6F      ISB      SY
+   \                     ??__NVIC_DisableIRQ_0: (+1)
+   \       0x22   0x4770             BX       LR               ;; return
+     24          #include "HW_TSI.h"
+     25          
+     26          
+     27          //用户自定义中断服务函数数组
+
+   \                                 In section .bss, align 4
+     28          TSI_ISR_CALLBACK TSI_ISR[2];
+   \                     TSI_ISR:
+   \        0x0                      DS8 8
+     29          
+     30          //通道基准值
+
+   \                                 In section .bss, align 4
+     31          uint16 TSI_ChxBaseVal[16];
+   \                     TSI_ChxBaseVal:
+   \        0x0                      DS8 32
+     32          
+
+   \                                 In section .data, align 4
+     33          const uint16* TSI_CNTR[16]={(uint16*)&TSI0->CNTR1, (uint16*)(&TSI0->CNTR1)+1,
+   \                     TSI_CNTR:
+   \        0x0   0x4004'5100        DC32 40045100H, 40045102H, 40045104H, 40045106H, 40045108H, 4004510AH
+   \              0x4004'5102  
+   \              0x4004'5104  
+   \              0x4004'5106  
+   \              0x4004'5108  
+   \              0x4004'510A  
+   \       0x18   0x4004'510C        DC32 4004510CH, 4004510EH, 40045110H, 40045112H, 40045114H, 40045116H
+   \              0x4004'510E  
+   \              0x4004'5110  
+   \              0x4004'5112  
+   \              0x4004'5114  
+   \              0x4004'5116  
+   \       0x30   0x4004'5118        DC32 40045118H, 4004511AH, 4004511CH, 4004511EH
+   \              0x4004'511A  
+   \              0x4004'511C  
+   \              0x4004'511E  
+     34                                      (uint16*)&TSI0->CNTR3, (uint16*)(&TSI0->CNTR3)+1,
+     35                                      (uint16*)&TSI0->CNTR5, (uint16*)(&TSI0->CNTR5)+1,
+     36                                      (uint16*)&TSI0->CNTR7, (uint16*)(&TSI0->CNTR7)+1,
+     37                                      (uint16*)&TSI0->CNTR9, (uint16*)(&TSI0->CNTR9)+1,
+     38                                      (uint16*)&TSI0->CNTR11, (uint16*)(&TSI0->CNTR11)+1,
+     39                                      (uint16*)&TSI0->CNTR13, (uint16*)(&TSI0->CNTR13)+1,
+     40                                      (uint16*)&TSI0->CNTR15, (uint16*)(&TSI0->CNTR15)+1}; 
+     41           
+
+   \                                 In section .data, align 4
+     42          const uint32* TSI_PORT[32]={(uint32*)&PORTB->PCR[0], (uint32*)&PORTA->PCR[0], (uint32*)&PORTA->PCR[1], (uint32*)&PORTA->PCR[2],
+   \                     TSI_PORT:
+   \        0x0   0x4004'A000        DC32 4004A000H, 40049000H, 40049004H, 40049008H, 4004900CH, 40049010H
+   \              0x4004'9000  
+   \              0x4004'9004  
+   \              0x4004'9008  
+   \              0x4004'900C  
+   \              0x4004'9010  
+   \       0x18   0x4004'A004        DC32 4004A004H, 4004A008H, 4004A00CH, 4004A040H, 4004A044H, 4004A048H
+   \              0x4004'A008  
+   \              0x4004'A00C  
+   \              0x4004'A040  
+   \              0x4004'A044  
+   \              0x4004'A048  
+   \       0x30   0x4004'A04C        DC32 4004A04CH, 4004B000H, 4004B004H, 4004B008H
+   \              0x4004'B000  
+   \              0x4004'B004  
+   \              0x4004'B008  
+   \       0x40   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \       0x50   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \       0x60   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \       0x70   0x00 0x00          DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+   \              0x00 0x00    
+     43                                      (uint32*)&PORTA->PCR[3], (uint32*)&PORTA->PCR[4], (uint32*)&PORTB->PCR[1], (uint32*)&PORTB->PCR[2], 
+     44                                      (uint32*)&PORTB->PCR[3], (uint32*)&PORTB->PCR[16], (uint32*)&PORTB->PCR[17], (uint32*)&PORTB->PCR[18], 
+     45                                      (uint32*)&PORTB->PCR[19], (uint32*)&PORTC->PCR[0], (uint32*)&PORTC->PCR[1], (uint32*)&PORTC->PCR[2]};
+     46          
+     47          /*
+     48           * LPLD_TSI_Init
+     49           * TSI通用初始化函数
+     50           * 
+     51           * 参数:
+     52           *    tsi_init_struct--TSI初始化结构体，
+     53           *                        具体定义见TSI_InitTypeDef
+     54           *
+     55           * 输出:
+     56           *    0--配置错误
+     57           *    1--配置成功
+     58           */
+
+   \                                 In section .text, align 4, keep-with-next
+     59          uint8 LPLD_TSI_Init(TSI_InitTypeDef tsi_init_struct)
+     60          {
+   \                     LPLD_TSI_Init: (+1)
+   \        0x0   0xB40F             PUSH     {R0-R3}
+   \        0x2   0xB5F8             PUSH     {R3-R7,LR}
+     61            uint16 chs = tsi_init_struct.TSI_Chs;
+   \        0x4   0xF8BD 0x4018      LDRH     R4,[SP, #+24]
+     62            uint8 mode = tsi_init_struct.TSI_ScanTriggerMode;
+   \        0x8   0xF89D 0x501A      LDRB     R5,[SP, #+26]
+     63            uint8 esor = tsi_init_struct.TSI_EndScanOrOutRangeInt;
+   \        0xC   0xF89D 0x701B      LDRB     R7,[SP, #+27]
+     64            boolean err = tsi_init_struct.TIS_ErrIntEnable;
+   \       0x10   0xF89D 0x601C      LDRB     R6,[SP, #+28]
+     65             
+     66            //参数检查
+     67            ASSERT( chs != 0);                  //判断通道
+   \       0x14   0x0020             MOVS     R0,R4
+   \       0x16   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \       0x18   0x2800             CMP      R0,#+0
+   \       0x1A   0xD103             BNE.N    ??LPLD_TSI_Init_0
+   \       0x1C   0x2143             MOVS     R1,#+67
+   \       0x1E   0x....             LDR.N    R0,??DataTable4_1
+   \       0x20   0x....'....        BL       assert_failed
+     68            ASSERT( mode <= TSI_SCAN_PERIOD);   //判断中断模式
+   \                     ??LPLD_TSI_Init_0: (+1)
+   \       0x24   0x0028             MOVS     R0,R5
+   \       0x26   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x28   0x2802             CMP      R0,#+2
+   \       0x2A   0xDB03             BLT.N    ??LPLD_TSI_Init_1
+   \       0x2C   0x2144             MOVS     R1,#+68
+   \       0x2E   0x....             LDR.N    R0,??DataTable4_1
+   \       0x30   0x....'....        BL       assert_failed
+     69            ASSERT( esor <= TSI_ENDOFDCAN_INT);//判断中断模式
+   \                     ??LPLD_TSI_Init_1: (+1)
+   \       0x34   0x0038             MOVS     R0,R7
+   \       0x36   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x38   0x2802             CMP      R0,#+2
+   \       0x3A   0xDB03             BLT.N    ??LPLD_TSI_Init_2
+   \       0x3C   0x2145             MOVS     R1,#+69
+   \       0x3E   0x....             LDR.N    R0,??DataTable4_1
+   \       0x40   0x....'....        BL       assert_failed
+     70            
+     71            //开启TSI模块时钟
+     72            SIM->SCGC5 |= (SIM_SCGC5_TSI_MASK); 
+   \                     ??LPLD_TSI_Init_2: (+1)
+   \       0x44   0x....             LDR.N    R0,??DataTable4_2  ;; 0x40048038
+   \       0x46   0x6801             LDR      R1,[R0, #+0]
+   \       0x48   0xF051 0x0120      ORRS     R1,R1,#0x20
+   \       0x4C   0x6001             STR      R1,[R0, #+0]
+     73            
+     74            //这里使能相关通道的引脚复用功能
+     75            for(uint8 i=0; i<16; i++)
+   \       0x4E   0x2000             MOVS     R0,#+0
+   \       0x50   0xE008             B.N      ??LPLD_TSI_Init_3
+     76            {
+     77              if((chs>>i)&0x1L)
+   \                     ??LPLD_TSI_Init_4: (+1)
+   \       0x52   0x0021             MOVS     R1,R4
+   \       0x54   0xB289             UXTH     R1,R1            ;; ZeroExt  R1,R1,#+16,#+16
+   \       0x56   0x4101             ASRS     R1,R1,R0
+   \       0x58   0x07C9             LSLS     R1,R1,#+31
+   \       0x5A   0xD502             BPL.N    ??LPLD_TSI_Init_5
+     78              {
+     79                *((uint32 *)TSI_PORT) = PORT_PCR_MUX(0); 
+   \       0x5C   0x2100             MOVS     R1,#+0
+   \       0x5E   0x....             LDR.N    R2,??DataTable4_3
+   \       0x60   0x6011             STR      R1,[R2, #+0]
+     80              }
+     81            }
+   \                     ??LPLD_TSI_Init_5: (+1)
+   \       0x62   0x1C40             ADDS     R0,R0,#+1
+   \                     ??LPLD_TSI_Init_3: (+1)
+   \       0x64   0x0001             MOVS     R1,R0
+   \       0x66   0xB2C9             UXTB     R1,R1            ;; ZeroExt  R1,R1,#+24,#+24
+   \       0x68   0x2910             CMP      R1,#+16
+   \       0x6A   0xDBF2             BLT.N    ??LPLD_TSI_Init_4
+     82            
+     83            //配置通用控制寄存器
+     84            TSI0->GENCS = ((TSI_GENCS_NSCN(10))  //每个电极每次扫描(10)次、
+     85                            |(TSI_GENCS_PS(3)));  //电极晶振(2^3)分频
+   \       0x6C   0x....             LDR.N    R1,??DataTable4_4  ;; 0x40045000
+   \       0x6E   0xF45F 0x00A6      MOVS     R0,#+5439488
+   \       0x72   0x6008             STR      R0,[R1, #+0]
+     86            //配置扫描寄存器
+     87            TSI0->SCANC = ((TSI_SCANC_EXTCHRG(3))        //0.8pF内部参考电容
+     88                            |(TSI_SCANC_REFCHRG(31))      //32uA充电电流
+     89                            |(TSI_SCANC_DELVOL(7))        //600mV间隔电压
+     90                            |(TSI_SCANC_SMOD(0))          //扫描周期mod
+     91                            |(TSI_SCANC_AMPSC(0)));       //输入时钟(2^0)分频
+   \       0x74   0x....             LDR.N    R0,??DataTable4_5  ;; 0xf81f0000
+   \       0x76   0x....             LDR.N    R2,??DataTable4_6  ;; 0x40045004
+   \       0x78   0x6010             STR      R0,[R2, #+0]
+     92            //使能通道
+     93            TSI0->PEN = chs;
+   \       0x7A   0x0020             MOVS     R0,R4
+   \       0x7C   0xB280             UXTH     R0,R0            ;; ZeroExt  R0,R0,#+16,#+16
+   \       0x7E   0x....             LDR.N    R2,??DataTable4_7  ;; 0x40045008
+   \       0x80   0x6010             STR      R0,[R2, #+0]
+     94            
+     95            //使能相关中断
+     96            //TSI_ENDOFDCAN_INT和TSI_OUTOFRANGE_INT只能选择其一
+     97            if(tsi_init_struct.TSI_EndScanIsr!=NULL && esor==TSI_ENDOFDCAN_INT)
+   \       0x82   0x9808             LDR      R0,[SP, #+32]
+   \       0x84   0x2800             CMP      R0,#+0
+   \       0x86   0xD00F             BEQ.N    ??LPLD_TSI_Init_6
+   \       0x88   0x0038             MOVS     R0,R7
+   \       0x8A   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \       0x8C   0x2801             CMP      R0,#+1
+   \       0x8E   0xD10B             BNE.N    ??LPLD_TSI_Init_6
+     98            {
+     99              TSI0->GENCS |= TSI_GENCS_ESOR_MASK;
+   \       0x90   0x6808             LDR      R0,[R1, #+0]
+   \       0x92   0xF050 0x0010      ORRS     R0,R0,#0x10
+   \       0x96   0x6008             STR      R0,[R1, #+0]
+    100              TSI_ISR[0] = tsi_init_struct.TSI_EndScanIsr;
+   \       0x98   0x9808             LDR      R0,[SP, #+32]
+   \       0x9A   0x....             LDR.N    R2,??DataTable4_8
+   \       0x9C   0x6010             STR      R0,[R2, #+0]
+    101              TSI0->GENCS |= TSI_GENCS_TSIIE_MASK;   
+   \       0x9E   0x6808             LDR      R0,[R1, #+0]
+   \       0xA0   0xF050 0x0040      ORRS     R0,R0,#0x40
+   \       0xA4   0x6008             STR      R0,[R1, #+0]
+   \       0xA6   0xE010             B.N      ??LPLD_TSI_Init_7
+    102            }
+    103            else if(tsi_init_struct.TSI_OutRangeIsr!=NULL && esor==TSI_OUTOFRANGE_INT)
+   \                     ??LPLD_TSI_Init_6: (+1)
+   \       0xA8   0x9809             LDR      R0,[SP, #+36]
+   \       0xAA   0x2800             CMP      R0,#+0
+   \       0xAC   0xD00D             BEQ.N    ??LPLD_TSI_Init_7
+   \       0xAE   0xB2FF             UXTB     R7,R7            ;; ZeroExt  R7,R7,#+24,#+24
+   \       0xB0   0x2F00             CMP      R7,#+0
+   \       0xB2   0xD10A             BNE.N    ??LPLD_TSI_Init_7
+    104            {
+    105              TSI0->GENCS &= ~(TSI_GENCS_ESOR_MASK);
+   \       0xB4   0x6808             LDR      R0,[R1, #+0]
+   \       0xB6   0xF030 0x0010      BICS     R0,R0,#0x10
+   \       0xBA   0x6008             STR      R0,[R1, #+0]
+    106              TSI_ISR[0] = tsi_init_struct.TSI_OutRangeIsr;
+   \       0xBC   0x9809             LDR      R0,[SP, #+36]
+   \       0xBE   0x....             LDR.N    R2,??DataTable4_8
+   \       0xC0   0x6010             STR      R0,[R2, #+0]
+    107              TSI0->GENCS |= TSI_GENCS_TSIIE_MASK;  
+   \       0xC2   0x6808             LDR      R0,[R1, #+0]
+   \       0xC4   0xF050 0x0040      ORRS     R0,R0,#0x40
+   \       0xC8   0x6008             STR      R0,[R1, #+0]
+    108            }
+    109            if(tsi_init_struct.TSI_ErrIsr!=NULL && err==TRUE)
+   \                     ??LPLD_TSI_Init_7: (+1)
+   \       0xCA   0x980A             LDR      R0,[SP, #+40]
+   \       0xCC   0x2800             CMP      R0,#+0
+   \       0xCE   0xD00D             BEQ.N    ??LPLD_TSI_Init_8
+   \       0xD0   0xB2F6             UXTB     R6,R6            ;; ZeroExt  R6,R6,#+24,#+24
+   \       0xD2   0x2E01             CMP      R6,#+1
+   \       0xD4   0xD10A             BNE.N    ??LPLD_TSI_Init_8
+    110            {
+    111              TSI0->GENCS |= TSI_GENCS_ERIE_MASK;
+   \       0xD6   0x6808             LDR      R0,[R1, #+0]
+   \       0xD8   0xF050 0x0020      ORRS     R0,R0,#0x20
+   \       0xDC   0x6008             STR      R0,[R1, #+0]
+    112              TSI_ISR[1] = tsi_init_struct.TSI_EndScanIsr;
+   \       0xDE   0x9808             LDR      R0,[SP, #+32]
+   \       0xE0   0x....             LDR.N    R2,??DataTable4_8
+   \       0xE2   0x6050             STR      R0,[R2, #+4]
+    113              TSI0->GENCS |= TSI_GENCS_TSIIE_MASK;  
+   \       0xE4   0x6808             LDR      R0,[R1, #+0]
+   \       0xE6   0xF050 0x0040      ORRS     R0,R0,#0x40
+   \       0xEA   0x6008             STR      R0,[R1, #+0]
+    114            }
+    115              
+    116            //使能TSI模块  
+    117            TSI0->GENCS |= (TSI_GENCS_TSIEN_MASK); 
+   \                     ??LPLD_TSI_Init_8: (+1)
+   \       0xEC   0x6808             LDR      R0,[R1, #+0]
+   \       0xEE   0xF050 0x0080      ORRS     R0,R0,#0x80
+   \       0xF2   0x6008             STR      R0,[R1, #+0]
+    118           
+    119            //是否进行基准值校验
+    120            if(tsi_init_struct.TSI_IsInitSelfCal == TRUE)
+   \       0xF4   0xF89D 0x002C      LDRB     R0,[SP, #+44]
+   \       0xF8   0x2801             CMP      R0,#+1
+   \       0xFA   0xD139             BNE.N    ??LPLD_TSI_Init_9
+    121            {
+    122              //使能软件触发
+    123              TSI0->GENCS |= TSI_GENCS_SWTS_MASK;
+   \       0xFC   0x6808             LDR      R0,[R1, #+0]
+   \       0xFE   0xF450 0x7080      ORRS     R0,R0,#0x100
+   \      0x102   0x6008             STR      R0,[R1, #+0]
+    124              //等待扫描结束
+    125              while(!(TSI0->GENCS&TSI_GENCS_EOSF_MASK)){};
+   \                     ??LPLD_TSI_Init_10: (+1)
+   \      0x104   0x6808             LDR      R0,[R1, #+0]
+   \      0x106   0x0400             LSLS     R0,R0,#+16
+   \      0x108   0xD5FC             BPL.N    ??LPLD_TSI_Init_10
+    126              for(uint16 i=0; i<5000; i++)
+   \      0x10A   0x2000             MOVS     R0,#+0
+   \      0x10C   0xE006             B.N      ??LPLD_TSI_Init_11
+    127              {
+    128                for(uint8 j=0; j<200; j++)
+    129                {
+    130                  asm("NOP");
+   \                     ??LPLD_TSI_Init_12: (+1)
+   \      0x10E   0xBF00             NOP
+    131                }
+   \      0x110   0x1C52             ADDS     R2,R2,#+1
+   \                     ??LPLD_TSI_Init_13: (+1)
+   \      0x112   0x0013             MOVS     R3,R2
+   \      0x114   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \      0x116   0x2BC8             CMP      R3,#+200
+   \      0x118   0xDBF9             BLT.N    ??LPLD_TSI_Init_12
+   \      0x11A   0x1C40             ADDS     R0,R0,#+1
+   \                     ??LPLD_TSI_Init_11: (+1)
+   \      0x11C   0x0002             MOVS     R2,R0
+   \      0x11E   0xB292             UXTH     R2,R2            ;; ZeroExt  R2,R2,#+16,#+16
+   \      0x120   0xF241 0x3388      MOVW     R3,#+5000
+   \      0x124   0x429A             CMP      R2,R3
+   \      0x126   0xDA01             BGE.N    ??LPLD_TSI_Init_14
+   \      0x128   0x2200             MOVS     R2,#+0
+   \      0x12A   0xE7F2             B.N      ??LPLD_TSI_Init_13
+    132              }
+    133              //填充基准值数组、阈值寄存器
+    134              for(uint8 i=0; i<16; i++)
+   \                     ??LPLD_TSI_Init_14: (+1)
+   \      0x12C   0x2000             MOVS     R0,#+0
+   \                     ??LPLD_TSI_Init_15: (+1)
+   \      0x12E   0x0002             MOVS     R2,R0
+   \      0x130   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \      0x132   0x2A10             CMP      R2,#+16
+   \      0x134   0xDA2A             BGE.N    ??LPLD_TSI_Init_16
+    135              {
+    136                if((chs>>i)&0x1L)
+   \      0x136   0x0022             MOVS     R2,R4
+   \      0x138   0xB292             UXTH     R2,R2            ;; ZeroExt  R2,R2,#+16,#+16
+   \      0x13A   0x4102             ASRS     R2,R2,R0
+   \      0x13C   0x07D2             LSLS     R2,R2,#+31
+   \      0x13E   0xD515             BPL.N    ??LPLD_TSI_Init_17
+    137                {
+    138                  TSI_ChxBaseVal[i] = *((uint16 *)TSI_CNTR[i]);
+   \      0x140   0x....             LDR.N    R2,??DataTable4_9
+   \      0x142   0x....             LDR.N    R3,??DataTable4_10
+   \      0x144   0x0006             MOVS     R6,R0
+   \      0x146   0xB2F6             UXTB     R6,R6            ;; ZeroExt  R6,R6,#+24,#+24
+   \      0x148   0xF853 0x3026      LDR      R3,[R3, R6, LSL #+2]
+   \      0x14C   0x881B             LDRH     R3,[R3, #+0]
+   \      0x14E   0x0006             MOVS     R6,R0
+   \      0x150   0xB2F6             UXTB     R6,R6            ;; ZeroExt  R6,R6,#+24,#+24
+   \      0x152   0xF822 0x3016      STRH     R3,[R2, R6, LSL #+1]
+    139                  TSI0->THRESHLD[i] = TSI_ChxBaseVal[i] + TSI_OVERRUN_VAL;
+   \      0x156   0x0003             MOVS     R3,R0
+   \      0x158   0xB2DB             UXTB     R3,R3            ;; ZeroExt  R3,R3,#+24,#+24
+   \      0x15A   0xF832 0x2013      LDRH     R2,[R2, R3, LSL #+1]
+   \      0x15E   0xF512 0x3240      ADDS     R2,R2,#+196608
+   \      0x162   0x....             LDR.N    R3,??DataTable4_11  ;; 0x40045120
+   \      0x164   0x0006             MOVS     R6,R0
+   \      0x166   0xB2F6             UXTB     R6,R6            ;; ZeroExt  R6,R6,#+24,#+24
+   \      0x168   0xF843 0x2026      STR      R2,[R3, R6, LSL #+2]
+    140                }
+    141              }
+   \                     ??LPLD_TSI_Init_17: (+1)
+   \      0x16C   0x1C40             ADDS     R0,R0,#+1
+   \      0x16E   0xE7DE             B.N      ??LPLD_TSI_Init_15
+    142            }
+    143            else
+    144            {
+    145              for(uint8 i=0; i<16; i++)
+   \                     ??LPLD_TSI_Init_9: (+1)
+   \      0x170   0x2000             MOVS     R0,#+0
+   \      0x172   0xE007             B.N      ??LPLD_TSI_Init_18
+    146              {
+    147                TSI_ChxBaseVal[i] = TSI_BASE_VAL;
+   \                     ??LPLD_TSI_Init_19: (+1)
+   \      0x174   0xF44F 0x6200      MOV      R2,#+2048
+   \      0x178   0x....             LDR.N    R3,??DataTable4_9
+   \      0x17A   0x0004             MOVS     R4,R0
+   \      0x17C   0xB2E4             UXTB     R4,R4            ;; ZeroExt  R4,R4,#+24,#+24
+   \      0x17E   0xF823 0x2014      STRH     R2,[R3, R4, LSL #+1]
+    148              }
+   \      0x182   0x1C40             ADDS     R0,R0,#+1
+   \                     ??LPLD_TSI_Init_18: (+1)
+   \      0x184   0x0002             MOVS     R2,R0
+   \      0x186   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \      0x188   0x2A10             CMP      R2,#+16
+   \      0x18A   0xDBF3             BLT.N    ??LPLD_TSI_Init_19
+    149            }
+    150            
+    151            //周期扫描模式or软件触发模式
+    152            if(mode == TSI_SCAN_PERIOD)
+   \                     ??LPLD_TSI_Init_16: (+1)
+   \      0x18C   0xB2ED             UXTB     R5,R5            ;; ZeroExt  R5,R5,#+24,#+24
+   \      0x18E   0x2D01             CMP      R5,#+1
+   \      0x190   0xD104             BNE.N    ??LPLD_TSI_Init_20
+    153            {
+    154              TSI0->GENCS |= TSI_GENCS_STM_MASK;
+   \      0x192   0x6808             LDR      R0,[R1, #+0]
+   \      0x194   0xF050 0x0002      ORRS     R0,R0,#0x2
+   \      0x198   0x6008             STR      R0,[R1, #+0]
+   \      0x19A   0xE003             B.N      ??LPLD_TSI_Init_21
+    155            }
+    156            else
+    157            {
+    158              TSI0->GENCS &= ~(TSI_GENCS_STM_MASK);
+   \                     ??LPLD_TSI_Init_20: (+1)
+   \      0x19C   0x6808             LDR      R0,[R1, #+0]
+   \      0x19E   0xF030 0x0002      BICS     R0,R0,#0x2
+   \      0x1A2   0x6008             STR      R0,[R1, #+0]
+    159            }
+    160            
+    161            return 1;
+   \                     ??LPLD_TSI_Init_21: (+1)
+   \      0x1A4   0x2001             MOVS     R0,#+1
+   \      0x1A6   0xBCF2             POP      {R1,R4-R7}
+   \      0x1A8   0xF85D 0xFB14      LDR      PC,[SP], #+20    ;; return
+    162          }
+    163          
+    164          /*
+    165           * LPLD_TSI_Deinit
+    166           * TSI反初始化函数
+    167           * 
+    168           * 参数:
+    169           *    无
+    170           *
+    171           * 输出:
+    172           *    无
+    173           */
+
+   \                                 In section .text, align 2, keep-with-next
+    174          void LPLD_TSI_Deinit(void)
+    175          {
+   \                     LPLD_TSI_Deinit: (+1)
+   \        0x0   0xB580             PUSH     {R7,LR}
+    176            LPLD_TSI_DisableIrq();
+   \        0x2   0x2053             MOVS     R0,#+83
+   \        0x4   0x....'....        BL       __NVIC_DisableIRQ
+    177            TSI0->STATUS = 0xFFFFFFFF;
+   \        0x8   0xF05F 0x30FF      MOVS     R0,#-1
+   \        0xC   0x....             LDR.N    R1,??DataTable4_12  ;; 0x4004500c
+   \        0xE   0x6008             STR      R0,[R1, #+0]
+    178            TSI0->PEN = 0;
+   \       0x10   0x2000             MOVS     R0,#+0
+   \       0x12   0x....             LDR.N    R1,??DataTable4_7  ;; 0x40045008
+   \       0x14   0x6008             STR      R0,[R1, #+0]
+    179            TSI0->SCANC = 0;
+   \       0x16   0x2000             MOVS     R0,#+0
+   \       0x18   0x....             LDR.N    R1,??DataTable4_6  ;; 0x40045004
+   \       0x1A   0x6008             STR      R0,[R1, #+0]
+    180            TSI0->GENCS = 0;
+   \       0x1C   0x2000             MOVS     R0,#+0
+   \       0x1E   0x....             LDR.N    R1,??DataTable4_4  ;; 0x40045000
+   \       0x20   0x6008             STR      R0,[R1, #+0]
+    181            //关闭TSI模块时钟
+    182            SIM->SCGC5 &= ~(SIM_SCGC5_TSI_MASK); 
+   \       0x22   0x....             LDR.N    R0,??DataTable4_2  ;; 0x40048038
+   \       0x24   0x6801             LDR      R1,[R0, #+0]
+   \       0x26   0xF031 0x0120      BICS     R1,R1,#0x20
+   \       0x2A   0x6001             STR      R1,[R0, #+0]
+    183          }
+   \       0x2C   0xBD01             POP      {R0,PC}          ;; return
+    184          
+    185          /*
+    186           * LPLD_TSI_IsChxTouched
+    187           * 通道x的电极是否被触摸
+    188           * 
+    189           * 参数:
+    190           *    ch_num--通道x的数字
+    191           *      |_0~15
+    192           *
+    193           * 输出:
+    194           *    TRUE-有触摸
+    195           *    FALSE-未触摸
+    196           */
+
+   \                                 In section .text, align 2, keep-with-next
+    197          boolean LPLD_TSI_IsChxTouched(uint8 ch_num)
+    198          { 
+    199            if(TSI_ChxBaseVal[ch_num]<*((uint16 *)TSI_CNTR[ch_num]))
+   \                     LPLD_TSI_IsChxTouched: (+1)
+   \        0x0   0x....             LDR.N    R1,??DataTable4_9
+   \        0x2   0x0002             MOVS     R2,R0
+   \        0x4   0xB2D2             UXTB     R2,R2            ;; ZeroExt  R2,R2,#+24,#+24
+   \        0x6   0xF831 0x1012      LDRH     R1,[R1, R2, LSL #+1]
+   \        0xA   0x....             LDR.N    R2,??DataTable4_10
+   \        0xC   0xB2C0             UXTB     R0,R0            ;; ZeroExt  R0,R0,#+24,#+24
+   \        0xE   0xF852 0x0020      LDR      R0,[R2, R0, LSL #+2]
+   \       0x12   0x8800             LDRH     R0,[R0, #+0]
+   \       0x14   0x4281             CMP      R1,R0
+   \       0x16   0xD201             BCS.N    ??LPLD_TSI_IsChxTouched_0
+    200              return TRUE;
+   \       0x18   0x2001             MOVS     R0,#+1
+   \       0x1A   0xE000             B.N      ??LPLD_TSI_IsChxTouched_1
+    201            return FALSE;
+   \                     ??LPLD_TSI_IsChxTouched_0: (+1)
+   \       0x1C   0x2000             MOVS     R0,#+0
+   \                     ??LPLD_TSI_IsChxTouched_1: (+1)
+   \       0x1E   0x4770             BX       LR               ;; return
+    202          }
+    203          
+    204          /*
+    205           * TSI中断处理函数
+    206           * 与启动文件startup_K60.s中的中断向量表关联
+    207           * 用户无需修改，程序自动进入对应通道中断函数
+    208           */
+
+   \                                 In section .text, align 2, keep-with-next
+    209          void TSI_IRQHandler(void)
+    210          {
+   \                     TSI_IRQHandler: (+1)
+   \        0x0   0xB510             PUSH     {R4,LR}
+    211          #if (UCOS_II > 0u)
+    212            OS_CPU_SR  cpu_sr = 0u;
+    213            OS_ENTER_CRITICAL(); //告知系统此时已经进入了中断服务子函数
+    214            OSIntEnter();
+    215            OS_EXIT_CRITICAL();
+    216          #endif
+    217            
+    218            if(TSI0->GENCS&(TSI_GENCS_ESOR_MASK|TSI_GENCS_EOSF_MASK) &&
+    219               TSI_ISR[0] != NULL)
+   \        0x2   0x....             LDR.N    R4,??DataTable4_4  ;; 0x40045000
+   \        0x4   0x6820             LDR      R0,[R4, #+0]
+   \        0x6   0xF248 0x0110      MOVW     R1,#+32784
+   \        0xA   0x4208             TST      R0,R1
+   \        0xC   0xD012             BEQ.N    ??TSI_IRQHandler_0
+   \        0xE   0x....             LDR.N    R1,??DataTable4_8
+   \       0x10   0x6808             LDR      R0,[R1, #+0]
+   \       0x12   0x2800             CMP      R0,#+0
+   \       0x14   0xD00E             BEQ.N    ??TSI_IRQHandler_0
+    220            {
+    221              TSI_ISR[0]();
+   \       0x16   0x6808             LDR      R0,[R1, #+0]
+   \       0x18   0x4780             BLX      R0
+    222              TSI0->GENCS |= TSI_GENCS_OUTRGF_MASK;
+   \       0x1A   0x6820             LDR      R0,[R4, #+0]
+   \       0x1C   0xF450 0x4080      ORRS     R0,R0,#0x4000
+   \       0x20   0x6020             STR      R0,[R4, #+0]
+    223              TSI0->GENCS |= TSI_GENCS_EOSF_MASK;
+   \       0x22   0x6820             LDR      R0,[R4, #+0]
+   \       0x24   0xF450 0x4000      ORRS     R0,R0,#0x8000
+   \       0x28   0x6020             STR      R0,[R4, #+0]
+    224              TSI0->STATUS = 0x0000FFFF;
+   \       0x2A   0xF64F 0x70FF      MOVW     R0,#+65535
+   \       0x2E   0x....             LDR.N    R1,??DataTable4_12  ;; 0x4004500c
+   \       0x30   0x6008             STR      R0,[R1, #+0]
+   \       0x32   0xE00B             B.N      ??TSI_IRQHandler_1
+    225            }
+    226            else if(TSI0->STATUS != 0 && TSI_ISR[1] != NULL)
+   \                     ??TSI_IRQHandler_0: (+1)
+   \       0x34   0x....             LDR.N    R4,??DataTable4_12  ;; 0x4004500c
+   \       0x36   0x6820             LDR      R0,[R4, #+0]
+   \       0x38   0x2800             CMP      R0,#+0
+   \       0x3A   0xD007             BEQ.N    ??TSI_IRQHandler_1
+   \       0x3C   0x....             LDR.N    R1,??DataTable4_8
+   \       0x3E   0x6848             LDR      R0,[R1, #+4]
+   \       0x40   0x2800             CMP      R0,#+0
+   \       0x42   0xD003             BEQ.N    ??TSI_IRQHandler_1
+    227            {
+    228              TSI_ISR[1]();
+   \       0x44   0x6848             LDR      R0,[R1, #+4]
+   \       0x46   0x4780             BLX      R0
+    229              TSI0->STATUS = 0xFFFF0000;
+   \       0x48   0x....             LDR.N    R0,??DataTable4_13  ;; 0xffff0000
+   \       0x4A   0x6020             STR      R0,[R4, #+0]
+    230            }
+    231              
+    232          #if (UCOS_II > 0u)
+    233            OSIntExit();          //告知系统此时即将离开中断服务子函数
+    234          #endif
+    235          }
+   \                     ??TSI_IRQHandler_1: (+1)
+   \       0x4C   0xBD10             POP      {R4,PC}          ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4:
+   \        0x0   0xE000'E180        DC32     0xe000e180
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_1:
+   \        0x0   0x....'....        DC32     ?_0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_2:
+   \        0x0   0x4004'8038        DC32     0x40048038
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_3:
+   \        0x0   0x....'....        DC32     TSI_PORT
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_4:
+   \        0x0   0x4004'5000        DC32     0x40045000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_5:
+   \        0x0   0xF81F'0000        DC32     0xf81f0000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_6:
+   \        0x0   0x4004'5004        DC32     0x40045004
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_7:
+   \        0x0   0x4004'5008        DC32     0x40045008
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_8:
+   \        0x0   0x....'....        DC32     TSI_ISR
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_9:
+   \        0x0   0x....'....        DC32     TSI_ChxBaseVal
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_10:
+   \        0x0   0x....'....        DC32     TSI_CNTR
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_11:
+   \        0x0   0x4004'5120        DC32     0x40045120
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_12:
+   \        0x0   0x4004'500C        DC32     0x4004500c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable4_13:
+   \        0x0   0xFFFF'0000        DC32     0xffff0000
+
+   \                                 In section .rodata, align 4
+   \                     ?_0:
+   \        0x0   0x43 0x3A          DC8 43H, 3AH, 5CH, 55H, 73H, 65H, 72H, 73H
+   \              0x5C 0x55    
+   \              0x73 0x65    
+   \              0x72 0x73    
+   \        0x8   0x5C 0x71          DC8 5CH, 71H, 75H, 65H, 5CH, 44H, 65H, 73H
+   \              0x75 0x65    
+   \              0x5C 0x44    
+   \              0x65 0x73    
+   \       0x10   0x6B 0x74          DC8 6BH, 74H, 6FH, 70H, 5CH, 41H, 41H, 41H
+   \              0x6F 0x70    
+   \              0x5C 0x41    
+   \              0x41 0x41    
+   \       0x18   0x5F 0x78          DC8 5FH, 78H, 69H, 6EH, 62H, 69H, 61H, 6FH
+   \              0x69 0x6E    
+   \              0x62 0x69    
+   \              0x61 0x6F    
+   \       0x20   0x5C 0x73          DC8 5CH, 73H, 6DH, 61H, 72H, 74H, 63H, 61H
+   \              0x6D 0x61    
+   \              0x72 0x74    
+   \              0x63 0x61    
+   \       0x28   0x72 0x5C          DC8 72H, 5CH, 6CH, 69H, 62H, 5CH, 4CH, 50H
+   \              0x6C 0x69    
+   \              0x62 0x5C    
+   \              0x4C 0x50    
+   \       0x30   0x4C 0x44          DC8 4CH, 44H, 5CH, 48H, 57H, 5CH, 48H, 57H
+   \              0x5C 0x48    
+   \              0x57 0x5C    
+   \              0x48 0x57    
+   \       0x38   0x5F 0x54          DC8 5FH, 54H, 53H, 49H, 2EH, 63H, 0
+   \              0x53 0x49    
+   \              0x2E 0x63    
+   \              0x00         
+   \       0x3F   0x00               DC8 0
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   LPLD_TSI_Deinit
+         8   -> __NVIC_DisableIRQ
+      40   LPLD_TSI_Init
+        40   -> assert_failed
+       0   LPLD_TSI_IsChxTouched
+       8   TSI_IRQHandler
+         8   -- Indirect call
+       0   __NVIC_DisableIRQ
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable4
+       4  ??DataTable4_1
+       4  ??DataTable4_10
+       4  ??DataTable4_11
+       4  ??DataTable4_12
+       4  ??DataTable4_13
+       4  ??DataTable4_2
+       4  ??DataTable4_3
+       4  ??DataTable4_4
+       4  ??DataTable4_5
+       4  ??DataTable4_6
+       4  ??DataTable4_7
+       4  ??DataTable4_8
+       4  ??DataTable4_9
+      64  ?_0
+      46  LPLD_TSI_Deinit
+     428  LPLD_TSI_Init
+      32  LPLD_TSI_IsChxTouched
+      64  TSI_CNTR
+      32  TSI_ChxBaseVal
+      78  TSI_IRQHandler
+       8  TSI_ISR
+     128  TSI_PORT
+      36  __NVIC_DisableIRQ
+
+ 
+  40 bytes in section .bss
+ 192 bytes in section .data
+  64 bytes in section .rodata
+ 676 bytes in section .text
+ 
+ 676 bytes of CODE  memory
+  64 bytes of CONST memory
+ 232 bytes of DATA  memory
+
+Errors: none
+Warnings: 1

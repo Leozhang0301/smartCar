@@ -1,0 +1,574 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         08/Jul/2019  00:41:01
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\xiugai\lib\common\pid.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW7762.tmp
+#        (G:\AIcar\@@\xiugai\lib\common\pid.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -lB
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -o "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\" -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -On -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List\pid.lst
+#    Object file  =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj\pid.o
+#
+###############################################################################
+
+G:\AIcar\@@\xiugai\lib\common\pid.c
+      1          #include "include.h"
+      2          
+
+   \                                 In section .bss, align 2
+      3          s16 pid_err1 = 0;
+   \                     pid_err1:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+      4          s16 pid_last_err1 = 0;
+   \                     pid_last_err1:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+      5          s16 pid_result1 = 0;
+   \                     pid_result1:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+      6          s16 pid_last_last_err1 = 0;
+   \                     pid_last_last_err1:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+      7          s16 pid_out1;
+   \                     pid_out1:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+      8          s16 pid_err2= 0;
+   \                     pid_err2:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+      9          s16 pid_last_err2 = 0;
+   \                     pid_last_err2:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     10          s16 pid_result2 = 0;
+   \                     pid_result2:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     11          s16 pid_last_last_err2 = 0;
+   \                     pid_last_last_err2:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     12          s16 pid_out2;
+   \                     pid_out2:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     13          s16 Move_y;
+   \                     Move_y:
+   \        0x0                      DS8 2
+
+   \                                 In section .bss, align 2
+     14          s16 Move_Z;
+   \                     Move_Z:
+   \        0x0                      DS8 2
+
+   \                                 In section .data, align 4
+     15          float nbpid_kP = 1.0f;//13.3f; 7.15f 
+   \                     nbpid_kP:
+   \        0x0   0x3F80'0000        DC32 3F800000H
+
+   \                                 In section .data, align 4
+     16          float nbpid_kI = 0.03f;//0;
+   \                     nbpid_kI:
+   \        0x0   0x3CF5'C28F        DC32 3CF5C28FH
+
+   \                                 In section .bss, align 4
+     17          float nbpid_kD = 0;//3.5f;
+   \                     nbpid_kD:
+   \        0x0                      DS8 4
+
+   \                                 In section .data, align 4
+     18          float rbpid_kP = 7.6f;//13.3f;  
+   \                     rbpid_kP:
+   \        0x0   0x40F3'3333        DC32 40F33333H
+
+   \                                 In section .data, align 4
+     19          float rbpid_kI = 0.031f;//0;
+   \                     rbpid_kI:
+   \        0x0   0x3CFD'F3B6        DC32 3CFDF3B6H
+
+   \                                 In section .bss, align 4
+     20          float rbpid_kD = 0;//3.5f;2.8f
+   \                     rbpid_kD:
+   \        0x0                      DS8 4
+     21          
+
+   \                                 In section .text, align 2, keep-with-next
+     22          s16 lPID_Control(s16 actual1, s16 set1)
+     23          {
+   \                     lPID_Control: (+1)
+   \        0x0   0xE92D 0x43F8      PUSH     {R3-R9,LR}
+   \        0x4   0x0004             MOVS     R4,R0
+   \        0x6   0x000D             MOVS     R5,R1
+     24          
+     25          	pid_err1 = set1 - actual1; //-25
+   \        0x8   0x....             LDR.N    R6,??DataTable3
+   \        0xA   0x1B28             SUBS     R0,R5,R4
+   \        0xC   0x8030             STRH     R0,[R6, #+0]
+     26          	pid_result1 = (int)(pid_result1+ nbpid_kP * (pid_err1- pid_last_err1) +nbpid_kI * pid_err1);
+   \        0xE   0x....             LDR.N    R7,??DataTable3_1
+   \       0x10   0x....'....        LDR.W    R8,??DataTable3_2
+   \       0x14   0xF9B8 0x0000      LDRSH    R0,[R8, #+0]
+   \       0x18   0x....'....        BL       __aeabi_i2f
+   \       0x1C   0x4681             MOV      R9,R0
+   \       0x1E   0xF9B6 0x0000      LDRSH    R0,[R6, #+0]
+   \       0x22   0xF9B7 0x1000      LDRSH    R1,[R7, #+0]
+   \       0x26   0x1A40             SUBS     R0,R0,R1
+   \       0x28   0x....'....        BL       __aeabi_i2f
+   \       0x2C   0x....             LDR.N    R1,??DataTable3_3
+   \       0x2E   0x6809             LDR      R1,[R1, #+0]
+   \       0x30   0x....'....        BL       __aeabi_fmul
+   \       0x34   0x4649             MOV      R1,R9
+   \       0x36   0x....'....        BL       __aeabi_fadd
+   \       0x3A   0x4681             MOV      R9,R0
+   \       0x3C   0xF9B6 0x0000      LDRSH    R0,[R6, #+0]
+   \       0x40   0x....'....        BL       __aeabi_i2f
+   \       0x44   0x....             LDR.N    R1,??DataTable3_4
+   \       0x46   0x6809             LDR      R1,[R1, #+0]
+   \       0x48   0x....'....        BL       __aeabi_fmul
+   \       0x4C   0x4649             MOV      R1,R9
+   \       0x4E   0x....'....        BL       __aeabi_fadd
+   \       0x52   0x....'....        BL       __aeabi_f2iz
+   \       0x56   0xF8A8 0x0000      STRH     R0,[R8, #+0]
+     27          	pid_out1 = 10 * pid_result1;
+   \       0x5A   0x....             LDR.N    R0,??DataTable3_5
+   \       0x5C   0xF8B8 0x1000      LDRH     R1,[R8, #+0]
+   \       0x60   0x220A             MOVS     R2,#+10
+   \       0x62   0xFB11 0xF102      SMULBB   R1,R1,R2
+   \       0x66   0x8001             STRH     R1,[R0, #+0]
+     28                  if(pid_out1>4500)
+   \       0x68   0xF9B0 0x1000      LDRSH    R1,[R0, #+0]
+   \       0x6C   0xF241 0x1295      MOVW     R2,#+4501
+   \       0x70   0x4291             CMP      R1,R2
+   \       0x72   0xDB03             BLT.N    ??lPID_Control_0
+     29          		pid_out1= 4500;
+   \       0x74   0xF241 0x1194      MOVW     R1,#+4500
+   \       0x78   0x8001             STRH     R1,[R0, #+0]
+   \       0x7A   0xE006             B.N      ??lPID_Control_1
+     30          	else if(pid_out1<-4500)
+   \                     ??lPID_Control_0: (+1)
+   \       0x7C   0xF9B0 0x1000      LDRSH    R1,[R0, #+0]
+   \       0x80   0x....             LDR.N    R2,??DataTable3_6  ;; 0xffffee6c
+   \       0x82   0x4291             CMP      R1,R2
+   \       0x84   0xDA01             BGE.N    ??lPID_Control_1
+     31          		pid_out1 = -4500;
+   \       0x86   0x....             LDR.N    R1,??DataTable3_6  ;; 0xffffee6c
+   \       0x88   0x8001             STRH     R1,[R0, #+0]
+     32          	pid_last_last_err1 = pid_last_err1;
+   \                     ??lPID_Control_1: (+1)
+   \       0x8A   0x8839             LDRH     R1,[R7, #+0]
+   \       0x8C   0x....             LDR.N    R2,??DataTable3_7
+   \       0x8E   0x8011             STRH     R1,[R2, #+0]
+     33          	pid_last_err1 = pid_err1;
+   \       0x90   0x8831             LDRH     R1,[R6, #+0]
+   \       0x92   0x8039             STRH     R1,[R7, #+0]
+     34                  return(pid_out1);
+   \       0x94   0xF9B0 0x0000      LDRSH    R0,[R0, #+0]
+   \       0x98   0xE8BD 0x83F2      POP      {R1,R4-R9,PC}    ;; return
+     35          }
+     36          
+
+   \                                 In section .text, align 2, keep-with-next
+     37          s16 rPID_Control(s16 actual2, s16 set2)
+     38          {
+   \                     rPID_Control: (+1)
+   \        0x0   0xE92D 0x43F8      PUSH     {R3-R9,LR}
+   \        0x4   0x0004             MOVS     R4,R0
+   \        0x6   0x000D             MOVS     R5,R1
+     39          
+     40          	pid_err2 = set2 - actual2; //-25
+   \        0x8   0x....             LDR.N    R6,??DataTable3_8
+   \        0xA   0x1B28             SUBS     R0,R5,R4
+   \        0xC   0x8030             STRH     R0,[R6, #+0]
+     41          	pid_result2 = (int)(pid_result2+ rbpid_kP * (pid_err2- pid_last_err2) +rbpid_kI * pid_err2 );
+   \        0xE   0x....             LDR.N    R7,??DataTable3_9
+   \       0x10   0x....'....        LDR.W    R8,??DataTable3_10
+   \       0x14   0xF9B8 0x0000      LDRSH    R0,[R8, #+0]
+   \       0x18   0x....'....        BL       __aeabi_i2f
+   \       0x1C   0x4681             MOV      R9,R0
+   \       0x1E   0xF9B6 0x0000      LDRSH    R0,[R6, #+0]
+   \       0x22   0xF9B7 0x1000      LDRSH    R1,[R7, #+0]
+   \       0x26   0x1A40             SUBS     R0,R0,R1
+   \       0x28   0x....'....        BL       __aeabi_i2f
+   \       0x2C   0x....             LDR.N    R1,??DataTable3_11
+   \       0x2E   0x6809             LDR      R1,[R1, #+0]
+   \       0x30   0x....'....        BL       __aeabi_fmul
+   \       0x34   0x4649             MOV      R1,R9
+   \       0x36   0x....'....        BL       __aeabi_fadd
+   \       0x3A   0x4681             MOV      R9,R0
+   \       0x3C   0xF9B6 0x0000      LDRSH    R0,[R6, #+0]
+   \       0x40   0x....'....        BL       __aeabi_i2f
+   \       0x44   0x....             LDR.N    R1,??DataTable3_12
+   \       0x46   0x6809             LDR      R1,[R1, #+0]
+   \       0x48   0x....'....        BL       __aeabi_fmul
+   \       0x4C   0x4649             MOV      R1,R9
+   \       0x4E   0x....'....        BL       __aeabi_fadd
+   \       0x52   0x....'....        BL       __aeabi_f2iz
+   \       0x56   0xF8A8 0x0000      STRH     R0,[R8, #+0]
+     42          	pid_out2 = 10 * pid_result2;
+   \       0x5A   0x....             LDR.N    R0,??DataTable3_13
+   \       0x5C   0xF8B8 0x1000      LDRH     R1,[R8, #+0]
+   \       0x60   0x220A             MOVS     R2,#+10
+   \       0x62   0xFB11 0xF102      SMULBB   R1,R1,R2
+   \       0x66   0x8001             STRH     R1,[R0, #+0]
+     43                  if(pid_out2>4500)
+   \       0x68   0xF9B0 0x1000      LDRSH    R1,[R0, #+0]
+   \       0x6C   0xF241 0x1295      MOVW     R2,#+4501
+   \       0x70   0x4291             CMP      R1,R2
+   \       0x72   0xDB03             BLT.N    ??rPID_Control_0
+     44          		pid_out2= 4500;
+   \       0x74   0xF241 0x1194      MOVW     R1,#+4500
+   \       0x78   0x8001             STRH     R1,[R0, #+0]
+   \       0x7A   0xE006             B.N      ??rPID_Control_1
+     45          	else if(pid_out2<-4500)
+   \                     ??rPID_Control_0: (+1)
+   \       0x7C   0xF9B0 0x1000      LDRSH    R1,[R0, #+0]
+   \       0x80   0x....             LDR.N    R2,??DataTable3_6  ;; 0xffffee6c
+   \       0x82   0x4291             CMP      R1,R2
+   \       0x84   0xDA01             BGE.N    ??rPID_Control_1
+     46          		pid_out2 = -4500;
+   \       0x86   0x....             LDR.N    R1,??DataTable3_6  ;; 0xffffee6c
+   \       0x88   0x8001             STRH     R1,[R0, #+0]
+     47          	pid_last_last_err2 = pid_last_err2;
+   \                     ??rPID_Control_1: (+1)
+   \       0x8A   0x8839             LDRH     R1,[R7, #+0]
+   \       0x8C   0x....             LDR.N    R2,??DataTable3_14
+   \       0x8E   0x8011             STRH     R1,[R2, #+0]
+     48          	pid_last_err2 = pid_err2;
+   \       0x90   0x8831             LDRH     R1,[R6, #+0]
+   \       0x92   0x8039             STRH     R1,[R7, #+0]
+     49                  return(pid_out2);
+   \       0x94   0xF9B0 0x0000      LDRSH    R0,[R0, #+0]
+   \       0x98   0xE8BD 0x83F2      POP      {R1,R4-R9,PC}    ;; return
+     50          }
+     51          
+     52          
+     53          //方向环
+     54          //P=24   D=35
+
+   \                                 In section .text, align 2, keep-with-next
+     55          s16 Dir_Pid(s16 midpoint,s16 error_act)
+     56          {
+   \                     Dir_Pid: (+1)
+   \        0x0   0xE92D 0x43F8      PUSH     {R3-R9,LR}
+   \        0x4   0x0004             MOVS     R4,R0
+   \        0x6   0x000D             MOVS     R5,R1
+     57          	s16 midpoint_err =0;  //距离中线的误差
+   \        0x8   0x2600             MOVS     R6,#+0
+     58          	s16 lastpoint_err =0; //上次误差
+   \        0xA   0x2700             MOVS     R7,#+0
+     59          	midpoint_err = midpoint - error_act;
+   \        0xC   0xEBB4 0x0805      SUBS     R8,R4,R5
+     60          	Move_Z = (int)KP*midpoint_err + KD*(midpoint_err - lastpoint_err);
+   \       0x10   0x....'....        LDR.W    R9,??DataTable3_15
+   \       0x14   0x....             LDR.N    R0,??DataTable3_16
+   \       0x16   0x6800             LDR      R0,[R0, #+0]
+   \       0x18   0x....'....        BL       __aeabi_f2iz
+   \       0x1C   0x4642             MOV      R2,R8
+   \       0x1E   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \       0x20   0x....             LDR.N    R1,??DataTable3_17
+   \       0x22   0xF9B1 0x3000      LDRSH    R3,[R1, #+0]
+   \       0x26   0x46C4             MOV      R12,R8
+   \       0x28   0xFA0F 0xFC8C      SXTH     R12,R12          ;; SignExt  R12,R12,#+16,#+16
+   \       0x2C   0x0039             MOVS     R1,R7
+   \       0x2E   0xB209             SXTH     R1,R1            ;; SignExt  R1,R1,#+16,#+16
+   \       0x30   0xEBBC 0x0C01      SUBS     R12,R12,R1
+   \       0x34   0xFB0C 0xF303      MUL      R3,R12,R3
+   \       0x38   0xFB02 0x3000      MLA      R0,R2,R0,R3
+   \       0x3C   0xF8A9 0x0000      STRH     R0,[R9, #+0]
+     61          	lastpoint_err = midpoint_err ;
+   \       0x40   0x4641             MOV      R1,R8
+     62          	if(Move_Z >= 400)
+   \       0x42   0xF9B9 0x0000      LDRSH    R0,[R9, #+0]
+   \       0x46   0xF5B0 0x7FC8      CMP      R0,#+400
+   \       0x4A   0xDB04             BLT.N    ??Dir_Pid_0
+     63          		Move_Z = 400;
+   \       0x4C   0xF44F 0x70C8      MOV      R0,#+400
+   \       0x50   0xF8A9 0x0000      STRH     R0,[R9, #+0]
+   \       0x54   0xE008             B.N      ??Dir_Pid_1
+     64          	else if(Move_Z <= -400)
+   \                     ??Dir_Pid_0: (+1)
+   \       0x56   0xF9B9 0x0000      LDRSH    R0,[R9, #+0]
+   \       0x5A   0xF47F 0x72C7      MVNS     R2,#+398
+   \       0x5E   0x4290             CMP      R0,R2
+   \       0x60   0xDA02             BGE.N    ??Dir_Pid_1
+     65          		Move_Z = -400;
+   \       0x62   0x....             LDR.N    R0,??DataTable3_18  ;; 0xfffffe70
+   \       0x64   0xF8A9 0x0000      STRH     R0,[R9, #+0]
+     66          	return Move_Z;
+   \                     ??Dir_Pid_1: (+1)
+   \       0x68   0xF9B9 0x0000      LDRSH    R0,[R9, #+0]
+   \       0x6C   0xE8BD 0x83F2      POP      {R1,R4-R9,PC}    ;; return
+     67          
+     68          }
+     69          
+
+   \                                 In section .text, align 2, keep-with-next
+     70          s16 lun_Pid(s16 midpoint_lun,s16 error_lun)
+     71          {
+   \                     lun_Pid: (+1)
+   \        0x0   0xE92D 0x43F8      PUSH     {R3-R9,LR}
+   \        0x4   0x0004             MOVS     R4,R0
+   \        0x6   0x000D             MOVS     R5,R1
+     72          	s16 midpoint_err1 =0;  //距离中线的误差
+   \        0x8   0x2600             MOVS     R6,#+0
+     73          	s16 lastpoint_err1 =0; //上次误差
+   \        0xA   0x2700             MOVS     R7,#+0
+     74          	midpoint_err1 = midpoint_lun - error_lun;
+   \        0xC   0xEBB4 0x0805      SUBS     R8,R4,R5
+     75          	Move_y = (int)KP*midpoint_err1 + KD*(midpoint_err1 - lastpoint_err1);
+   \       0x10   0x....'....        LDR.W    R9,??DataTable3_19
+   \       0x14   0x....             LDR.N    R0,??DataTable3_16
+   \       0x16   0x6800             LDR      R0,[R0, #+0]
+   \       0x18   0x....'....        BL       __aeabi_f2iz
+   \       0x1C   0x4642             MOV      R2,R8
+   \       0x1E   0xB212             SXTH     R2,R2            ;; SignExt  R2,R2,#+16,#+16
+   \       0x20   0x....             LDR.N    R1,??DataTable3_17
+   \       0x22   0xF9B1 0x3000      LDRSH    R3,[R1, #+0]
+   \       0x26   0x46C4             MOV      R12,R8
+   \       0x28   0xFA0F 0xFC8C      SXTH     R12,R12          ;; SignExt  R12,R12,#+16,#+16
+   \       0x2C   0x0039             MOVS     R1,R7
+   \       0x2E   0xB209             SXTH     R1,R1            ;; SignExt  R1,R1,#+16,#+16
+   \       0x30   0xEBBC 0x0C01      SUBS     R12,R12,R1
+   \       0x34   0xFB0C 0xF303      MUL      R3,R12,R3
+   \       0x38   0xFB02 0x3000      MLA      R0,R2,R0,R3
+   \       0x3C   0xF8A9 0x0000      STRH     R0,[R9, #+0]
+     76          	lastpoint_err1 = midpoint_err1 ;
+   \       0x40   0x4641             MOV      R1,R8
+     77          	if(Move_y >= 100)
+   \       0x42   0xF9B9 0x0000      LDRSH    R0,[R9, #+0]
+   \       0x46   0x2864             CMP      R0,#+100
+   \       0x48   0xDB03             BLT.N    ??lun_Pid_0
+     78          		Move_y = 100;
+   \       0x4A   0x2064             MOVS     R0,#+100
+   \       0x4C   0xF8A9 0x0000      STRH     R0,[R9, #+0]
+   \       0x50   0xE008             B.N      ??lun_Pid_1
+     79          	else if(Move_y <= -100)
+   \                     ??lun_Pid_0: (+1)
+   \       0x52   0xF9B9 0x0000      LDRSH    R0,[R9, #+0]
+   \       0x56   0xF110 0x0F63      CMN      R0,#+99
+   \       0x5A   0xDA03             BGE.N    ??lun_Pid_1
+     80          		Move_y = -100;
+   \       0x5C   0xF07F 0x0063      MVNS     R0,#+99
+   \       0x60   0xF8A9 0x0000      STRH     R0,[R9, #+0]
+     81          	return Move_y;
+   \                     ??lun_Pid_1: (+1)
+   \       0x64   0xF9B9 0x0000      LDRSH    R0,[R9, #+0]
+   \       0x68   0xE8BD 0x83F2      POP      {R1,R4-R9,PC}    ;; return
+     82          
+     83          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3:
+   \        0x0   0x....'....        DC32     pid_err1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_1:
+   \        0x0   0x....'....        DC32     pid_last_err1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_2:
+   \        0x0   0x....'....        DC32     pid_result1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_3:
+   \        0x0   0x....'....        DC32     nbpid_kP
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_4:
+   \        0x0   0x....'....        DC32     nbpid_kI
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_5:
+   \        0x0   0x....'....        DC32     pid_out1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_6:
+   \        0x0   0xFFFF'EE6C        DC32     0xffffee6c
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_7:
+   \        0x0   0x....'....        DC32     pid_last_last_err1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_8:
+   \        0x0   0x....'....        DC32     pid_err2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_9:
+   \        0x0   0x....'....        DC32     pid_last_err2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_10:
+   \        0x0   0x....'....        DC32     pid_result2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_11:
+   \        0x0   0x....'....        DC32     rbpid_kP
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_12:
+   \        0x0   0x....'....        DC32     rbpid_kI
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_13:
+   \        0x0   0x....'....        DC32     pid_out2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_14:
+   \        0x0   0x....'....        DC32     pid_last_last_err2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_15:
+   \        0x0   0x....'....        DC32     Move_Z
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_16:
+   \        0x0   0x....'....        DC32     KP
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_17:
+   \        0x0   0x....'....        DC32     KD
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_18:
+   \        0x0   0xFFFF'FE70        DC32     0xfffffe70
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable3_19:
+   \        0x0   0x....'....        DC32     Move_y
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+      32   Dir_Pid
+        32   -> __aeabi_f2iz
+      32   lPID_Control
+        32   -> __aeabi_f2iz
+        32   -> __aeabi_fadd
+        32   -> __aeabi_fmul
+        32   -> __aeabi_i2f
+      32   lun_Pid
+        32   -> __aeabi_f2iz
+      32   rPID_Control
+        32   -> __aeabi_f2iz
+        32   -> __aeabi_fadd
+        32   -> __aeabi_fmul
+        32   -> __aeabi_i2f
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable3
+       4  ??DataTable3_1
+       4  ??DataTable3_10
+       4  ??DataTable3_11
+       4  ??DataTable3_12
+       4  ??DataTable3_13
+       4  ??DataTable3_14
+       4  ??DataTable3_15
+       4  ??DataTable3_16
+       4  ??DataTable3_17
+       4  ??DataTable3_18
+       4  ??DataTable3_19
+       4  ??DataTable3_2
+       4  ??DataTable3_3
+       4  ??DataTable3_4
+       4  ??DataTable3_5
+       4  ??DataTable3_6
+       4  ??DataTable3_7
+       4  ??DataTable3_8
+       4  ??DataTable3_9
+     112  Dir_Pid
+       2  Move_Z
+       2  Move_y
+     156  lPID_Control
+     108  lun_Pid
+       4  nbpid_kD
+       4  nbpid_kI
+       4  nbpid_kP
+       2  pid_err1
+       2  pid_err2
+       2  pid_last_err1
+       2  pid_last_err2
+       2  pid_last_last_err1
+       2  pid_last_last_err2
+       2  pid_out1
+       2  pid_out2
+       2  pid_result1
+       2  pid_result2
+     156  rPID_Control
+       4  rbpid_kD
+       4  rbpid_kI
+       4  rbpid_kP
+
+ 
+  32 bytes in section .bss
+  16 bytes in section .data
+ 612 bytes in section .text
+ 
+ 612 bytes of CODE memory
+  48 bytes of DATA memory
+
+Errors: none
+Warnings: 1

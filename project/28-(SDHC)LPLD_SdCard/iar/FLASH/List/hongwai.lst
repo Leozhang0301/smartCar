@@ -1,0 +1,262 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V8.32.1.169/W32 for ARM         08/Jul/2019  00:40:55
+# Copyright 1999-2018 IAR Systems AB.
+#
+#    Cpu mode     =  
+#    Endian       =  little
+#    Source file  =  G:\AIcar\@@\xiugai\lib\common\hongwai.c
+#    Command line =  
+#        -f C:\Users\admin\AppData\Local\Temp\EW61BC.tmp
+#        (G:\AIcar\@@\xiugai\lib\common\hongwai.c -D LPLD_K60 -lCN
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -lB
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List"
+#        -o "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M4 -e --fpu=None --dlib_config
+#        G:\AIcar\arm\inc\c\DLib_Config_Normal.h -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\app\" -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\CPU\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\HW\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\LPLD\DEV\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Ports\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\uCOS-II\Source\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\FatFs\option\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\common\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\driver\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\descriptor\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\USB\class\"
+#        -I
+#        "G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\..\..\..\lib\Jay\"
+#        -On -I G:\AIcar\arm\CMSIS\Core\Include\ -I
+#        G:\AIcar\arm\CMSIS\DSP\Include\ -D ARM_MATH_CM4)
+#    Locale       =  C
+#    List file    =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\List\hongwai.lst
+#    Object file  =  
+#        G:\AIcar\@@\xiugai\project\28-(SDHC)LPLD_SdCard\iar\FLASH\Obj\hongwai.o
+#
+###############################################################################
+
+G:\AIcar\@@\xiugai\lib\common\hongwai.c
+      1          #include "include.h"
+      2          
+
+   \                                 In section .bss, align 4
+      3          GPIO_InitTypeDef hongwai_init_structor;
+   \                     hongwai_init_structor:
+   \        0x0                      DS8 20
+      4          void hongwai_init();
+      5          void biZhang();
+      6          u8 daoche();
+      7          
+      8          
+
+   \                                 In section .bss, align 4
+      9          int daoche_num=0;
+   \                     daoche_num:
+   \        0x0                      DS8 4
+
+   \                                 In section .bss, align 4
+     10          int daoche_flag=0;
+   \                     daoche_flag:
+   \        0x0                      DS8 4
+     11          
+
+   \                                 In section .text, align 2, keep-with-next
+     12          void hongwai_init()
+     13          {
+   \                     hongwai_init: (+1)
+   \        0x0   0xB51C             PUSH     {R2-R4,LR}
+     14            hongwai_init_structor.GPIO_PTx = PTA;
+   \        0x2   0x....             LDR.N    R4,??DataTable1
+   \        0x4   0x....             LDR.N    R0,??DataTable1_1  ;; 0x400ff000
+   \        0x6   0x6020             STR      R0,[R4, #+0]
+     15            hongwai_init_structor.GPIO_Dir =DIR_INPUT;
+   \        0x8   0x2000             MOVS     R0,#+0
+   \        0xA   0x7320             STRB     R0,[R4, #+12]
+     16            hongwai_init_structor.GPIO_PinControl = INPUT_PULL_UP;
+   \        0xC   0x2003             MOVS     R0,#+3
+   \        0xE   0x60A0             STR      R0,[R4, #+8]
+     17            hongwai_init_structor.GPIO_Pins = GPIO_Pin17;
+   \       0x10   0xF45F 0x3000      MOVS     R0,#+131072
+   \       0x14   0x6060             STR      R0,[R4, #+4]
+     18            LPLD_GPIO_Init(hongwai_init_structor);
+   \       0x16   0x0021             MOVS     R1,R4
+   \       0x18   0xB084             SUB      SP,SP,#+16
+   \       0x1A   0x4668             MOV      R0,SP
+   \       0x1C   0x2214             MOVS     R2,#+20
+   \       0x1E   0x....'....        BL       __aeabi_memcpy4
+   \       0x22   0xBC0F             POP      {R0-R3}
+   \       0x24   0x....'....        BL       LPLD_GPIO_Init
+     19            
+     20            hongwai_init_structor.GPIO_PTx = PTB;
+   \       0x28   0x....             LDR.N    R0,??DataTable1_2  ;; 0x400ff040
+   \       0x2A   0x6020             STR      R0,[R4, #+0]
+     21            hongwai_init_structor.GPIO_Dir =DIR_INPUT;
+   \       0x2C   0x2000             MOVS     R0,#+0
+   \       0x2E   0x7320             STRB     R0,[R4, #+12]
+     22            hongwai_init_structor.GPIO_PinControl = INPUT_PULL_UP;
+   \       0x30   0x2003             MOVS     R0,#+3
+   \       0x32   0x60A0             STR      R0,[R4, #+8]
+     23            hongwai_init_structor.GPIO_Pins = GPIO_Pin5;
+   \       0x34   0x2020             MOVS     R0,#+32
+   \       0x36   0x6060             STR      R0,[R4, #+4]
+     24            LPLD_GPIO_Init(hongwai_init_structor);
+   \       0x38   0x0021             MOVS     R1,R4
+   \       0x3A   0xB084             SUB      SP,SP,#+16
+   \       0x3C   0x4668             MOV      R0,SP
+   \       0x3E   0x2214             MOVS     R2,#+20
+   \       0x40   0x....'....        BL       __aeabi_memcpy4
+   \       0x44   0xBC0F             POP      {R0-R3}
+   \       0x46   0x....'....        BL       LPLD_GPIO_Init
+     25          }
+   \       0x4A   0xBD13             POP      {R0,R1,R4,PC}    ;; return
+     26          
+
+   \                                 In section .text, align 2, keep-with-next
+     27          void biZhang()
+     28          {
+     29          //  if(PTA17_I==0)
+     30          //  {
+     31          //    //×ó±ÜÕÏ
+     32          //    bizhang_flag1=1;
+     33          //    LCD_Write_Int(80,2,1);
+     34          //  }
+     35          //  else if(PTB5_I==0)
+     36          //  {
+     37          //    //ÓÒ±ÜÕÏ
+     38          //        bizhang_flag1=2;
+     39          //    LCD_Write_Int(80,2,0);
+     40          //  }
+     41          //  else if(PTA17_I==0&&PTB5_I==0)
+     42          //  {
+     43          //    //×ó±ÜÕÏ
+     44          //        bizhang_flag1=3;
+     45          //  }
+     46          //  else
+     47          //  {
+     48          //    //›]ÓÐ±ÜÕÏ
+     49          //   // bizhang_flag1=0;
+     50          //  }
+     51          }
+   \                     biZhang: (+1)
+   \        0x0   0x4770             BX       LR               ;; return
+     52            
+
+   \                                 In section .text, align 2, keep-with-next
+     53          u8 daoche()
+     54          {
+     55              if(PTA17_I==0&&PTB5_I==0)
+   \                     daoche: (+1)
+   \        0x0   0x....             LDR.N    R0,??DataTable1_3  ;; 0x43fe0244
+   \        0x2   0x6800             LDR      R0,[R0, #+0]
+   \        0x4   0x2800             CMP      R0,#+0
+   \        0x6   0xD108             BNE.N    ??daoche_0
+   \        0x8   0x....             LDR.N    R0,??DataTable1_4  ;; 0x43fe0a14
+   \        0xA   0x6800             LDR      R0,[R0, #+0]
+   \        0xC   0x2800             CMP      R0,#+0
+   \        0xE   0xD104             BNE.N    ??daoche_0
+     56              {
+     57                 daoche_num++;
+   \       0x10   0x....             LDR.N    R0,??DataTable1_5
+   \       0x12   0x6801             LDR      R1,[R0, #+0]
+   \       0x14   0x1C49             ADDS     R1,R1,#+1
+   \       0x16   0x6001             STR      R1,[R0, #+0]
+   \       0x18   0xE002             B.N      ??daoche_1
+     58              }
+     59              else
+     60              {
+     61                daoche_num=0;
+   \                     ??daoche_0: (+1)
+   \       0x1A   0x2000             MOVS     R0,#+0
+   \       0x1C   0x....             LDR.N    R1,??DataTable1_5
+   \       0x1E   0x6008             STR      R0,[R1, #+0]
+     62              }
+     63              if(daoche_num>=500&&daoche_num<=1000)
+     64              {
+     65                //µ¹³µ
+     66                //daoche_flag=1;
+     67              }
+     68          }
+   \                     ??daoche_1: (+1)
+   \       0x20   0x4770             BX       LR               ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1:
+   \        0x0   0x....'....        DC32     hongwai_init_structor
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_1:
+   \        0x0   0x400F'F000        DC32     0x400ff000
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_2:
+   \        0x0   0x400F'F040        DC32     0x400ff040
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_3:
+   \        0x0   0x43FE'0244        DC32     0x43fe0244
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_4:
+   \        0x0   0x43FE'0A14        DC32     0x43fe0a14
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable1_5:
+   \        0x0   0x....'....        DC32     daoche_num
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       0   biZhang
+       0   daoche
+      32   hongwai_init
+        16   -> LPLD_GPIO_Init
+        32   -> __aeabi_memcpy4
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable1
+       4  ??DataTable1_1
+       4  ??DataTable1_2
+       4  ??DataTable1_3
+       4  ??DataTable1_4
+       4  ??DataTable1_5
+       2  biZhang
+      34  daoche
+       4  daoche_flag
+       4  daoche_num
+      76  hongwai_init
+      20  hongwai_init_structor
+
+ 
+  28 bytes in section .bss
+ 136 bytes in section .text
+ 
+ 136 bytes of CODE memory
+  28 bytes of DATA memory
+
+Errors: none
+Warnings: 2
